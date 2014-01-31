@@ -12,5 +12,8 @@ constant.areaWidth = constant.boardWidth*constant.tileSize;
 constant.areaHeight = constant.boardHeight*constant.tileSize;
 
 constant.tileEmpty = 0;
+constant.tileTrees = 1;
+constant.tileMountain = 2;
+constant.tileWater = 3;
 
 

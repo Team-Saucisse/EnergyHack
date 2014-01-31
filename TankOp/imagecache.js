@@ -7,7 +7,12 @@ enyo.kind({
 	events: { onCacheLoaded: "" },
 	components: [
 		// Preload images
+		{kind: "Image", id: "target", src:"images/target.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "move", src:"images/move.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id: "grass", src:"images/grass.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "trees", src:"images/trees.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "mountain", src:"images/mountain.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "water", src:"images/water.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id:"helo_blue_0", src:"images/helo_blue_0.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id:"helo_blue_1", src:"images/helo_blue_1.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id:"helo_blue_2", src:"images/helo_blue_2.png", classes: "image-preload", onload: "imageLoaded" },
