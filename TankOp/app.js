@@ -12,13 +12,9 @@ enyo.kind({
 		// Playing zone
 		{name: "gamebox", classes: "game-box", components: [
 		]},
-		
-		// Preload images
-		{kind: "Image", id: "grass", src:"images/grass.png", classes: "image-preload", onload: "imageLoaded" },
-		{kind: "Image", id: "tank_blue_0", src:"images/tank_blue_0.png", classes: "image-preload", onload: "imageLoaded" },
-		{kind: "Image", id: "tank_blue_1", src:"images/tank_blue_1.png", classes: "image-preload", onload: "imageLoaded" },
-		{kind: "Image", id: "tank_blue_2", src:"images/tank_blue_2.png", classes: "image-preload", onload: "imageLoaded" },
-		{kind: "Image", id: "tank_blue_3", src:"images/tank_blue_3.png", classes: "image-preload", onload: "imageLoaded" },
+
+		// Image cache
+		{kind: "ImageCache", showing: false, onCacheLoaded: "cacheLoaded"}
 	],
 	
 	// Constructor
@@ -40,21 +36,50 @@ enyo.kind({
 			this.game.push(line);
 		}	
 
-		// Init tanks
-		this.tank1 = new Sprite({x: 0, y: 1, heading: 2, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]});
-		this.tank2 = new Sprite({x: 4, y: 5, heading: 2, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]});
-		this.tank3 = new Sprite({x: 6, y: 6, heading: 0, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]});
+		// Init units
+		this.units = [];
+		this.units.push(new Sprite({x: 0, y: 0, heading: 0, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
+		this.units.push(new Sprite({x: 0, y: 1, heading: 1, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
+		this.units.push(new Sprite({x: 0, y: 2, heading: 2, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
+		this.units.push(new Sprite({x: 0, y: 3, heading: 3, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
+		this.units.push(new Sprite({x: 1, y: 0, heading: 0, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));
+		this.units.push(new Sprite({x: 1, y: 1, heading: 1, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));
+		this.units.push(new Sprite({x: 1, y: 2, heading: 2, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));
+		this.units.push(new Sprite({x: 1, y: 3, heading: 3, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));		
+		this.units.push(new Sprite({x: 2, y: 0, heading: 0, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
+		this.units.push(new Sprite({x: 2, y: 1, heading: 1, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
+		this.units.push(new Sprite({x: 2, y: 2, heading: 2, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
+		this.units.push(new Sprite({x: 2, y: 3, heading: 3, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
+		this.units.push(new Sprite({x: 3, y: 0, heading: 0, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
+		this.units.push(new Sprite({x: 3, y: 1, heading: 1, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
+		this.units.push(new Sprite({x: 3, y: 2, heading: 2, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
+		this.units.push(new Sprite({x: 3, y: 3, heading: 3, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));		
+		
+		this.units.push(new Sprite({x: 10, y: 0, heading: 0, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
+		this.units.push(new Sprite({x: 10, y: 1, heading: 1, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
+		this.units.push(new Sprite({x: 10, y: 2, heading: 2, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
+		this.units.push(new Sprite({x: 10, y: 3, heading: 3, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
+		this.units.push(new Sprite({x: 11, y: 0, heading: 0, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));
+		this.units.push(new Sprite({x: 11, y: 1, heading: 1, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));
+		this.units.push(new Sprite({x: 11, y: 2, heading: 2, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));
+		this.units.push(new Sprite({x: 11, y: 3, heading: 3, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));		
+		this.units.push(new Sprite({x: 12, y: 0, heading: 0, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
+		this.units.push(new Sprite({x: 12, y: 1, heading: 1, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
+		this.units.push(new Sprite({x: 12, y: 2, heading: 2, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
+		this.units.push(new Sprite({x: 12, y: 3, heading: 3, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
+		this.units.push(new Sprite({x: 13, y: 0, heading: 0, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));
+		this.units.push(new Sprite({x: 13, y: 1, heading: 1, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));
+		this.units.push(new Sprite({x: 13, y: 2, heading: 2, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));
+		this.units.push(new Sprite({x: 13, y: 3, heading: 3, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));		
+		
 	},
 	
 	// Render
 	rendered: function() {
 	},
 	
-	
-	// One image load
-	imageLoaded: function() {
-		if (--this.imagesToLoad == 0)
-			this.draw();
+	cacheLoaded: function() {
+		console.log("Cache loaded");
 	},
 	
 	// Draw
@@ -76,8 +101,7 @@ enyo.kind({
 		}
 		
 		// Draw tanks
-		this.tank1.draw(ctx);
-		this.tank2.draw(ctx);
-		this.tank3.draw(ctx);
+		for (var i = 0 ; i < this.units.length ; i++)
+			this.units[i].draw(ctx);
 	}
 });

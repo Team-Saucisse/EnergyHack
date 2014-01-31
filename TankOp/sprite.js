@@ -13,7 +13,7 @@ enyo.kind({
 	draw: function(ctx) {
 		ctx.save();		
 		ctx.translate(this.x*constant.tileSize, this.y*constant.tileSize);
-		var image = document.getElementById(this.images[this.heading]);		
+		var image = document.getElementById(this.images[this.heading]);
 		ctx.drawImage(image, 0, 0);	
 		ctx.restore();	
 	}
