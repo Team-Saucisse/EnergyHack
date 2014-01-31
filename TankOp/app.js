@@ -19,6 +19,7 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 		this.imagesToLoad++;
+		this.endOfGame = false;
 		
 		// Init canvas
 		this.$.gamebox.setStyle("width:"+constant.areaWidth+"px; height:"+constant.areaHeight+"px;");
@@ -61,6 +62,11 @@ enyo.kind({
 			heading: 2, power: constant.powerHelo,
 			engine: null,
 			images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
+		this.units.push(new Sprite({
+			x: 0, y: 4, 
+			heading: 0, power: constant.powerHq,
+			engine: null,
+			images: ["hq_blue"]}));			
 			
 		// Start game loop
 		this.loopTimer = window.setInterval(enyo.bind(this, "gameLoopTick"), constant.loopInterval);
@@ -102,32 +108,55 @@ enyo.kind({
 		}
 		
 		// Draw tanks
-		for (var i = 0 ; i < this.units.length ; i++)
-			this.units[i].draw(ctx);
+		if (!this.endOfGame) {
+			for (var i = 0 ; i < this.units.length ; i++)
+				this.units[i].draw(ctx);
 			
-		// Draw targets
-		var target = document.getElementById("target");		
-		ctx.save();
-		ctx.translate(0, 0);
-		ctx.drawImage(target, 0, 0);	
-		ctx.restore();				
+			// Draw target
+			var target = document.getElementById("target");		
+			ctx.save();
+			ctx.translate(0, 0);
+			ctx.drawImage(target, 0, 0);	
+			ctx.restore();				
+		}
+		
+		// Draw end of game screen
+		else {	
+			var endscreen = this.win ? document.getElementById("endgame_victory") :  document.getElementById("endgame_defeat");
+			ctx.save();
+			ctx.translate((constant.areaWidth-constant.endGameWidth)/2, (constant.areaHeight-constant.endGameHeight)/2);
+			ctx.drawImage(endscreen, 0, 0);	
+			ctx.restore();		
+		}
+				
 	},
 	
 	// Tick for game loop
 	gameLoopTick: function() {
-		// Sanitize: clean dead units
+		// Sanitize: clean dead units and compute victory/defeat conditions
 		var alives = [];
+		var livingHq = 0;
+		var livingEnemy = 0;
 		for (var i = 0 ; i < this.units.length ; i++) {
-			if (this.units[i].power > 0)
-				alives.push(this.units[i]);
+			var unit = this.units[i];
+			if (unit.power > 0)
+				alives.push(unit);
+			if (util.getUnitType(unit) == 0)
+				livingHq++;
+			if (unit.getCurrentImage().indexOf("red") != -1)
+				livingEnemy++;				
 		}
 		this.units = alives;
+		this.endOfGame = (livingHq == 0 || livingEnemy == 0);
+		this.win = (livingHq > 0);
 			
 		// Launch engine for each unit
-		for (var i = 0 ; i < this.units.length ; i++) {
-			var engine = this.units[i].engine;
-			if (engine != null)
-				engine(this.units[i]);
+		if (!this.endOfGame) {
+			for (var i = 0 ; i < this.units.length ; i++) {
+				var engine = this.units[i].engine;
+				if (engine != null)
+					engine(this.units[i]);
+			}
 		}
 		
 		// Draw

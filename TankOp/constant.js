@@ -26,3 +26,6 @@ constant.loopInterval = 500;
 
 constant.explosionInterval = 50;
 
+constant.endGameWidth = 480;
+constant.endGameHeight = 320;
+

@@ -7,6 +7,8 @@ enyo.kind({
 	events: { onCacheLoaded: "" },
 	components: [
 		// Preload images
+		{kind: "Image", id: "endgame_victory", src:"images/endgame_victory.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "endgame_defeat", src:"images/endgame_defeat.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id: "target", src:"images/target.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id: "move", src:"images/move.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id: "grass", src:"images/grass.png", classes: "image-preload", onload: "imageLoaded" },
@@ -58,7 +60,7 @@ enyo.kind({
 	
 	// Constructor
 	create: function() {
-		this.imagesToLoad = 42;	
+		this.imagesToLoad = 48;	
 		this.inherited(arguments);
 	},
 	
