@@ -16,4 +16,11 @@ constant.tileTrees = 1;
 constant.tileMountain = 2;
 constant.tileWater = 3;
 
+constant.powerHq = 2;
+constant.powerSoldier = 1;
+constant.powerTank = 2;
+constant.powerCanon = 3;
+constant.powerHelo = 2;
+
+constant.loopInterval = 500;
 

@@ -6,9 +6,7 @@ enyo.kind({
 	name: "TankOp.App",
 	kind: enyo.Control,
 	classes: "board",
-	components: [
-		{kind: "Button", content: "Draw board", ontap: "draw"},
-			
+	components: [		
 		// Playing zone
 		{name: "gamebox", classes: "game-box", components: [
 		]},
@@ -31,55 +29,41 @@ enyo.kind({
 		for (var i = 0 ; i < constant.boardHeight ; i++ ) {
 			var line = []
 			for (var j = 0 ; j < constant.boardWidth ; j++ ) {
-				if (i >= constant.boardHeight-5 && i < constant.boardHeight-2)
-					line.push(constant.tileTrees);				
-				else if (i >= constant.boardHeight-2)
-					line.push(constant.tileMountain);
-				else if (i == constant.boardHeight-6 && (j == 4 || j == 9))
-					line.push(constant.tileWater);
-				else
-					line.push(constant.tileEmpty);
+				line.push(constant.tileEmpty);
 			}
 			this.game.push(line);
 		}	
 
 		// Init units
 		this.units = [];
-		this.units.push(new Sprite({x: 0, y: 0, heading: 0, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
-		this.units.push(new Sprite({x: 0, y: 1, heading: 1, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
-		this.units.push(new Sprite({x: 0, y: 2, heading: 2, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
-		this.units.push(new Sprite({x: 0, y: 3, heading: 3, images: ["tank_blue_0", "tank_blue_1", "tank_blue_2", "tank_blue_3"]}));
-		this.units.push(new Sprite({x: 1, y: 0, heading: 0, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));
-		this.units.push(new Sprite({x: 1, y: 1, heading: 1, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));
-		this.units.push(new Sprite({x: 1, y: 2, heading: 2, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));
-		this.units.push(new Sprite({x: 1, y: 3, heading: 3, images: ["tank2_blue_0", "tank2_blue_1", "tank2_blue_2", "tank2_blue_3"]}));		
-		this.units.push(new Sprite({x: 2, y: 0, heading: 0, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
-		this.units.push(new Sprite({x: 2, y: 1, heading: 1, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
-		this.units.push(new Sprite({x: 2, y: 2, heading: 2, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
-		this.units.push(new Sprite({x: 2, y: 3, heading: 3, images: ["soldier_blue_0", "soldier_blue_1", "soldier_blue_2", "soldier_blue_3"]}));
-		this.units.push(new Sprite({x: 3, y: 0, heading: 0, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
-		this.units.push(new Sprite({x: 3, y: 1, heading: 1, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
-		this.units.push(new Sprite({x: 3, y: 2, heading: 2, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
-		this.units.push(new Sprite({x: 3, y: 3, heading: 3, images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));		
-		this.units.push(new Sprite({x: 4, y: 0, heading: 3, images: ["hq_blue"]}));		
-		
-		this.units.push(new Sprite({x: 10, y: 0, heading: 0, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
-		this.units.push(new Sprite({x: 10, y: 1, heading: 1, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
-		this.units.push(new Sprite({x: 10, y: 2, heading: 2, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
-		this.units.push(new Sprite({x: 10, y: 3, heading: 3, images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));
-		this.units.push(new Sprite({x: 11, y: 0, heading: 0, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));
-		this.units.push(new Sprite({x: 11, y: 1, heading: 1, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));
-		this.units.push(new Sprite({x: 11, y: 2, heading: 2, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));
-		this.units.push(new Sprite({x: 11, y: 3, heading: 3, images: ["tank2_red_0", "tank2_red_1", "tank2_red_2", "tank2_red_3"]}));		
-		this.units.push(new Sprite({x: 12, y: 0, heading: 0, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
-		this.units.push(new Sprite({x: 12, y: 1, heading: 1, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
-		this.units.push(new Sprite({x: 12, y: 2, heading: 2, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
-		this.units.push(new Sprite({x: 12, y: 3, heading: 3, images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));
-		this.units.push(new Sprite({x: 13, y: 0, heading: 0, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));
-		this.units.push(new Sprite({x: 13, y: 1, heading: 1, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));
-		this.units.push(new Sprite({x: 13, y: 2, heading: 2, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));
-		this.units.push(new Sprite({x: 13, y: 3, heading: 3, images: ["helo_red_0", "helo_red_1", "helo_red_2", "helo_red_3"]}));		
-		this.units.push(new Sprite({x: 14, y: 0, heading: 0, images: ["hq_red"]}));	
+		this.units.push(new Sprite({
+			x: constant.boardWidth-1, y: 1, 
+			heading: 0, power: constant.powerTank,
+			engine: enyo.bind(this, "badTankEngine"),
+			images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));		
+		this.units.push(new Sprite({
+			x: constant.boardWidth-1, y: 4, 
+			heading: 0, power: constant.powerSoldier,
+			engine: enyo.bind(this, "badTankEngine"),
+			images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));	
+		this.units.push(new Sprite({
+			x: constant.boardWidth-6, y: 2, 
+			heading: 0, power: constant.powerCanon,
+			engine: enyo.bind(this, "badTankEngine"),
+			images: ["canon_red_0", "canon_red_1", "canon_red_2", "canon_red_3"]}));
+		this.units.push(new Sprite({
+			x: 5, y: 2, 
+			heading: 2, power: constant.powerCanon,
+			engine: enyo.bind(this, "goodTankEngine"),
+			images: ["canon_blue_0", "canon_blue_1", "canon_blue_2", "canon_blue_3"]}));
+		this.units.push(new Sprite({
+			x: 5, y: 4, 
+			heading: 2, power: constant.powerHelo,
+			engine: null,
+			images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
+			
+		// Start game loop
+		this.loopTimer = window.setInterval(enyo.bind(this, "gameLoopTick"), constant.loopInterval);
 	},
 	
 	// Render
@@ -127,5 +111,66 @@ enyo.kind({
 		ctx.translate(0, 0);
 		ctx.drawImage(target, 0, 0);	
 		ctx.restore();				
+	},
+	
+	// Tick for game loop
+	gameLoopTick: function() {
+		// Sanitize: clean dead units
+		var alives = [];
+		for (var i = 0 ; i < this.units.length ; i++) {
+			if (this.units[i].power > 0)
+				alives.push(this.units[i]);
+		}
+		this.units = alives;
+			
+		// Launch engine for each unit
+		for (var i = 0 ; i < this.units.length ; i++) {
+			var engine = this.units[i].engine;
+			if (engine != null)
+				engine(this.units[i]);
+		}
+		
+		// Draw
+		this.draw();
+	},
+	
+	// Engine for good tank moves
+	goodTankEngine: function(that) {
+		// Look for enemy unit
+		var opponent = util.lookForOpponent(that);
+		if (opponent != null) {
+			// Change heading toward opponent
+			that.heading = opponent.heading;
+			
+			// Fight
+			util.processFight(that, opponent.unit);			
+			return;
+		}
+	},
+	
+	// Engine for bad tank moves
+	badTankEngine: function(that) {
+		// Look for enemy unit
+		var opponent = util.lookForOpponent(that);
+		if (opponent != null) {
+			// Change heading toward opponent
+			that.heading = opponent.heading;
+			
+			// Fight
+			util.processFight(that, opponent.unit);
+			return;
+		}
+		
+		// Compute next position
+		var next = util.nextPositionOnHeading(that);
+		
+		// Is it a valid position ?
+		if (next.x < 0 || next.x == constant.boardWidth || next.y < 0 || next.y == constant.boardHeight) {
+			// No, reverse sense
+			that.heading = (that.heading + 2) % 4;
+			next = util.nextPositionOnHeading(that);
+		}
+		that.x = next.x;
+		that.y = next.y;
 	}
 });
