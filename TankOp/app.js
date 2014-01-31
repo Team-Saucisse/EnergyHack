@@ -1,6 +1,20 @@
 ﻿
 
 
+// Key to use
+TankOp.playKeys = [
+	{ key: 32, hit: true },
+	{ key: 75, heading: 2 },
+	{ key: 107, heading: 2 },
+	{ key: 73, heading: 1 },
+	{ key: 105, heading: 1 },
+	{ key: 74, heading: 0 },
+	{ key: 106, heading: 0 },
+	{ key: 76, heading: 3 },
+	{ key: 108, heading: 3 }
+];
+
+
 // Main app class
 enyo.kind({
 	name: "TankOp.App",
@@ -10,6 +24,9 @@ enyo.kind({
 		// Playing zone
 		{name: "gamebox", classes: "game-box", components: [
 		]},
+	
+		// Key handling
+		{kind: "Signals", onkeypress: "keyPressed"},
 
 		// Image cache
 		{kind: "ImageCache", showing: false, onCacheLoaded: "cacheLoaded"}
@@ -33,7 +50,8 @@ enyo.kind({
 				line.push(constant.tileEmpty);
 			}
 			this.game.push(line);
-		}	
+		}
+		this.targetpos = { x: 0, y: 0 };
 
 		// Init units
 		this.units = [];
@@ -77,7 +95,6 @@ enyo.kind({
 	},
 	
 	cacheLoaded: function() {
-		console.log("Cache loaded");
 	},
 	
 	// Draw
@@ -115,7 +132,7 @@ enyo.kind({
 			// Draw target
 			var target = document.getElementById("target");		
 			ctx.save();
-			ctx.translate(0, 0);
+			ctx.translate(this.targetpos.x*constant.tileSize, this.targetpos.y*constant.tileSize);
 			ctx.drawImage(target, 0, 0);	
 			ctx.restore();				
 		}
@@ -129,6 +146,34 @@ enyo.kind({
 			ctx.restore();		
 		}
 				
+	},
+	
+	// A key was pressed
+	keyPressed: function(s, e) {
+		var key = e.charCode;
+		
+		// Play key
+		for (var i = 0 ; i < TankOp.playKeys.length ; i++ ) {
+			var playKey = TankOp.playKeys[i];
+			if (key == playKey.key) {
+				// Fire key
+				if (playKey.hit) {
+					var targetunit = util.lookForUnit(this.targetpos);
+					if (targetunit != null)
+						util.processFight(null, targetunit);
+					break;
+				}
+				
+				// Move key
+				var newX = this.targetpos.x + util.moves[playKey.heading].dx;
+				var newY = this.targetpos.y + util.moves[playKey.heading].dy;
+				if (newX < 0 || newX == constant.boardWidth || newY < 0 || newY == constant.boardHeigh)
+					break;
+				this.targetpos.x = newX;
+				this.targetpos.y = newY;
+				break;
+			}
+		}		
 	},
 	
 	// Tick for game loop

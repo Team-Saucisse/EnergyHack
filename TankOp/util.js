@@ -61,7 +61,7 @@ util.couldBeat = function(unit1, unit2) {
 
 // Handle fight between two opponents
 util.processFight = function(unit1, unit2) {
-	if (!util.couldBeat(unit1, unit2))
+	if (unit1 != null && !util.couldBeat(unit1, unit2))
 		return;
 	unit2.power = unit2.power - 1;
 	util.doExplosion(unit2);
