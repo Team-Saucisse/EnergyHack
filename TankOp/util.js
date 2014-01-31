@@ -11,6 +11,10 @@ util.moves = [{dx: -1, dy: 0}, {dx: 0, dy: -1}, {dx: +1, dy: 0}, {dx: 0, dy: +1}
 // Unit type
 util.unitTypes = ["hq", "soldier", "tank", "canon", "helo"];
 
+// Unit type
+util.explosionsImages = ["explosion_1", "explosion_2", "explosion_3", "explosion_4", "explosion_5", "explosion_6", "explosion_7"];
+
+
 // Compute next position if sprite go ahead in the current heading
 util.nextPositionOnHeading = function(sprite) {
 	return { x: sprite.x + util.moves[sprite.heading].dx, y: sprite.y + util.moves[sprite.heading].dy };
@@ -57,9 +61,26 @@ util.couldBeat = function(unit1, unit2) {
 
 // Handle fight between two opponents
 util.processFight = function(unit1, unit2) {
-//console.log("Unit "+unit1.getCurrentImage()+(util.couldBeat(unit1,unit2)?"could":"could not")+" beat "+unit2.getCurrentImage());
 	if (!util.couldBeat(unit1, unit2))
 		return;
-console.log("Unit "+unit2.getCurrentImage()+" lose one step, leaving "+(unit2.power-1));
 	unit2.power = unit2.power - 1;
+	util.doExplosion(unit2);
+}
+
+// Do explosion animation
+util.doExplosion = function(position) {
+	var index = 0;
+	var timer = window.setInterval(function() {
+		if (index == util.explosionsImages.length) {
+			window.clearInterval(timer);
+			return;
+		}
+		var ctx = app.canvas.hasNode().getContext('2d');
+		var image = document.getElementById(util.explosionsImages[index]);		
+		ctx.save();
+		ctx.translate(position.x*constant.tileSize, position.y*constant.tileSize);
+		ctx.drawImage(image, 0, 0);	
+		ctx.restore();	
+		index++;
+	}, constant.explosionInterval);
 }

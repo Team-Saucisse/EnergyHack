@@ -13,6 +13,13 @@ enyo.kind({
 		{kind: "Image", id: "trees", src:"images/trees.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id: "mountain", src:"images/mountain.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id: "water", src:"images/water.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "explosion_1", src:"images/explosion_1.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "explosion_2", src:"images/explosion_2.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "explosion_3", src:"images/explosion_3.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "explosion_4", src:"images/explosion_4.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "explosion_5", src:"images/explosion_5.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "explosion_6", src:"images/explosion_6.png", classes: "image-preload", onload: "imageLoaded" },
+		{kind: "Image", id: "explosion_7", src:"images/explosion_7.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id:"helo_blue_0", src:"images/helo_blue_0.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id:"helo_blue_1", src:"images/helo_blue_1.png", classes: "image-preload", onload: "imageLoaded" },
 		{kind: "Image", id:"helo_blue_2", src:"images/helo_blue_2.png", classes: "image-preload", onload: "imageLoaded" },
@@ -51,7 +58,7 @@ enyo.kind({
 	
 	// Constructor
 	create: function() {
-		this.imagesToLoad = 35;	
+		this.imagesToLoad = 42;	
 		this.inherited(arguments);
 	},
 	

@@ -24,3 +24,5 @@ constant.powerHelo = 2;
 
 constant.loopInterval = 500;
 
+constant.explosionInterval = 50;
+
