@@ -6,7 +6,7 @@
     <!-- Bootstrap core CSS -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/style.css" rel="stylesheet" />
-    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="Scripts/jquery.jcarousel.js"></script>
     <script src="Scripts/bootstrap.js"></script>
@@ -27,18 +27,6 @@
                         <li>
                             <img src="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" width="600"
                                 height="400" alt=""></li>
-                        <li>
-                            <img src="http://sorgalla.com/jcarousel/examples/_shared/img/img3.jpg" width="600"
-                                height="400" alt=""></li>
-                        <li>
-                            <img src="http://sorgalla.com/jcarousel/examples/_shared/img/img4.jpg" width="600"
-                                height="400" alt=""></li>
-                        <li>
-                            <img src="http://sorgalla.com/jcarousel/examples/_shared/img/img5.jpg" width="600"
-                                height="400" alt=""></li>
-                        <li>
-                            <img src="http://sorgalla.com/jcarousel/examples/_shared/img/img6.jpg" width="600"
-                                height="400" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -46,16 +34,17 @@
     </div>
     <asp:ContentPlaceHolder ID="contentBody" runat="server">
     </asp:ContentPlaceHolder>
+
     </form>
     <script language="javascript" type="text/javascript">
         (function ($) {
             $(function () {
                 $('.jcarousel')
                 .jcarousel({
-                 scroll: 1,
-                auto: .01,
-                wrap: 'last',
-                easing: 'linear'
+                    scroll: 1,
+                    auto: .01,
+                    wrap: 'last',
+                    easing: 'linear'
 
                 })
                 .jcarouselAutoscroll({
