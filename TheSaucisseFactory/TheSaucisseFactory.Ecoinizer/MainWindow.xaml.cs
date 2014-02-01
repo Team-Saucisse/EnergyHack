@@ -37,7 +37,7 @@ namespace TheSaucisseFactory.Ecoinizer
         /// <summary>
         /// Calcul des EnergyCoin
         /// </summary>
-        private void OnProcessClick(object sender, RoutedEventArgs e)
+        private void OnProcessClick(object sender, RoutedEventArgs e) 
         {
             Ecoinizer.EnergyCoinEngine l_engine = new EnergyCoinEngine();
             l_engine.Save();
