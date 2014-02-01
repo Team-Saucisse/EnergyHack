@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TheSaucisseFactory;
 
 namespace FrontOffice
 {
@@ -21,6 +22,8 @@ namespace FrontOffice
             {
                 //1er élément sélectionné par défaut
                 m_liEcoins.Attributes["class"] = "active";
+
+                SetChallengeInfos();
             }
         }
 
@@ -47,6 +50,11 @@ namespace FrontOffice
                     m_liGames.Attributes["class"] = "";
                 }
             }
+
+        }
+
+        public void SetChallengeInfos()
+        {
 
         }
     }

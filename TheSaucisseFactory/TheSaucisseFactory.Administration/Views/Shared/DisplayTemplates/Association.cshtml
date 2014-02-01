@@ -1,6 +1,6 @@
 @model CodeFluent.Runtime.ICodeFluentSet
 @{
-    var l_list = TheSaucisseFactory.BOM.Web.EntityBinder.BuildSortedMultiList(ViewBag, Model);
+    var l_list = TheSaucisseFactory.Web.EntityBinder.BuildSortedMultiList(ViewBag, Model);
 
     foreach (SelectListItem l_listItem in l_list)
     {

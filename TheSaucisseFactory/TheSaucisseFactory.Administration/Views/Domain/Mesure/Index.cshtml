@@ -30,7 +30,6 @@
 				<tr>
 					<th></th>
 
-					<th class="indexHeader">Id</th>
 					<th class="indexHeader">Appartement</th>
 					<th class="indexHeader">Type de mesure</th>
 					<th class="indexHeader">Date de mesure</th>
@@ -43,10 +42,6 @@
 					<td nowrap="nowrap">
 						@Html.ActionLink(" ", "Edit", "Mesure", new { entityKey = item.EntityKey }, new { @class = "editItemLink" })
 						@Html.ActionLink(" ", "Delete", "Mesure", new { entityKey = item.EntityKey }, new {@class = "removeItemLink", onclick = "if (!confirm('" + Resources.WebResources.ConfirmEntityDelete + "')) return false;"})
-					</td>
-					<td class="indexValue">
-						<span style="white-space:nowrap">@Html.DisplayTextFor(modelItem => item.Id)</span>
-
 					</td>
 					<td class="indexValue">
 												

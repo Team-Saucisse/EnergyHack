@@ -1,19 +1,22 @@
 ﻿/* CodeFluent Generated . TargetVersion:Sql2008, Sql2012, SqlAzure. Culture:fr-FR. UiCulture:fr-FR. Encoding:utf-8 (http://www.softfluent.com) */
 set quoted_identifier OFF
 GO
-/* column 'Type' was not found in table 'Appartement'. */
-ALTER TABLE [dbo].[Appartement] ADD [Type] [nvarchar] (10) NULL
-GO
-/* column 'Orientation' was not found in table 'Appartement'. */
-ALTER TABLE [dbo].[Appartement] ADD [Orientation] [nvarchar] (10) NULL
-GO
-/* column 'SurfaceHabitable' was not found in table 'Appartement'. */
-ALTER TABLE [dbo].[Appartement] ADD [SurfaceHabitable] [float] NULL
-GO
 /* table '[dbo].[Appartement]' primary key is related to a clustered index and cannot be changed on SQL Azure */
 /* table '[dbo].[Batiment]' primary key is related to a clustered index and cannot be changed on SQL Azure */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_App_Bat_Id_Bat]') AND parent_obj = object_id(N'[dbo].[Appartement]'))
+ ALTER TABLE [dbo].[Appartement] DROP CONSTRAINT [FK_App_Bat_Id_Bat]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[IX_Bat_Cam_Bat]') AND parent_obj = object_id(N'[dbo].[Batiment]'))
+ ALTER TABLE [dbo].[Batiment] DROP CONSTRAINT [IX_Bat_Cam_Bat]
+GO
+ALTER TABLE [dbo].[Batiment] ADD CONSTRAINT [IX_Bat_Cam_Bat] UNIQUE
+(
+
+  [CamelId] )
 /* table '[dbo].[Challenge]' primary key is related to a clustered index and cannot be changed on SQL Azure */
 /* table '[dbo].[Commerce]' primary key is related to a clustered index and cannot be changed on SQL Azure */
+/* column 'Meta' was not found in table 'GainEnergyCoin'. */
+ALTER TABLE [dbo].[GainEnergyCoin] ADD [Meta] [nvarchar] (300) NULL
+GO
 /* table '[dbo].[GainEnergyCoin]' primary key is related to a clustered index and cannot be changed on SQL Azure */
 /* column 'Contenu', old length:-1, new length: 2147483647*/
 ALTER TABLE [dbo].[Illustration] ALTER COLUMN [Contenu] [nvarchar] (max) NULL

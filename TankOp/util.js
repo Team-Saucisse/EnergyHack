@@ -8,12 +8,113 @@ var util = {};
 //           3 v
 util.moves = [{dx: -1, dy: 0}, {dx: 0, dy: -1}, {dx: +1, dy: 0}, {dx: 0, dy: +1}];
 
-// Unit type
+// Unit types and powers
 util.unitTypes = ["hq", "soldier", "tank", "canon", "helo"];
+util.unitPowers = [constant.powerHq, constant.powerSoldier, constant.powerTank, constant.powerCanon, constant.powerHelo];
 
 // Unit type
 util.explosionsImages = ["explosion_1", "explosion_2", "explosion_3", "explosion_4", "explosion_5", "explosion_6", "explosion_7"];
 
+
+// Game map
+util.gameMap = function(map) {
+	var width = constant.boardWidth, height = constant.boardHeight;
+	if (map == 0) {
+		return [
+			{x: 3, y: 0, type: constant.tileTrees}, {x: width-4, y: 0, type: constant.tileTrees},
+			{x: 4, y: 0, type: constant.tileTrees}, {x: width-5, y: 0, type: constant.tileTrees},
+			{x: 4, y: 1, type: constant.tileTrees}, {x: width-5, y: 1, type: constant.tileTrees},			
+			{x: 5, y: 0, type: constant.tileTrees}, {x: width-6, y: 0, type: constant.tileTrees},
+			{x: 5, y: 1, type: constant.tileTrees}, {x: width-6, y: 1, type: constant.tileTrees},
+			{x: 6, y: 0, type: constant.tileMountain}, {x: width-7, y: 0, type: constant.tileMountain},
+			{x: 6, y: 1, type: constant.tileTrees}, {x: width-7, y: 1, type: constant.tileTrees},
+			{x: 6, y: 2, type: constant.tileTrees}, {x: width-7, y: 2, type: constant.tileTrees},
+			{x: 7, y: 0, type: constant.tileMountain}, {x: 7, y: 1, type: constant.tileMountain}, 
+			{x: 3, y: 3, type: constant.tileTrees}, {x: width-4, y: 5, type: constant.tileTrees}, 
+			{x: 7, y: 2, type: constant.tileTrees}, 
+			{x: 7, y: 4, type: constant.tileWater}, 
+			{x: 3, y: height-1, type: constant.tileTrees}, {x: width-4, y: height-1, type: constant.tileTrees},
+			{x: 4, y: height-1, type: constant.tileTrees}, {x: width-5, y: height-1, type: constant.tileTrees},
+			{x: 4, y: height-2, type: constant.tileTrees}, {x: width-5, y: height-2, type: constant.tileTrees},			
+			{x: 5, y: height-1, type: constant.tileTrees}, {x: width-6, y: height-1, type: constant.tileTrees},
+			{x: 5, y: height-2, type: constant.tileTrees}, {x: width-6, y: height-2, type: constant.tileTrees},
+			{x: 6, y: height-1, type: constant.tileMountain}, {x: width-7, y: height-1, type: constant.tileMountain},
+			{x: 6, y: height-2, type: constant.tileTrees}, {x: width-7, y: height-2, type: constant.tileTrees},
+			{x: 6, y: height-3, type: constant.tileTrees}, {x: width-7, y: height-3, type: constant.tileTrees},
+			{x: 7, y: height-1, type: constant.tileMountain}, {x: 7, y: height-2, type: constant.tileMountain}, 
+			{x: 7, y: height-3, type: constant.tileTrees}
+		];
+	}
+}
+
+// Prepare board
+util.createMap = function(grounds) {
+	var game = [];
+	
+	// Start by grass
+	for (var i = 0 ; i < constant.boardHeight ; i++ ) {
+		var line = []
+		for (var j = 0 ; j < constant.boardWidth ; j++ ) {
+			line.push(constant.tileEmpty);
+		}
+		game.push(line);
+	}
+	
+	// Add map element
+	for (var i = 0 ; i < grounds.length ; i++) {
+		var x = grounds[i].x, y = grounds[i].y;
+		game[y][x] = grounds[i].type;
+	}
+	
+	return game;
+}
+
+// Create a set of units
+util.createUnits = function(units) {
+	var created = [];
+	for (var i = 0 ; i < units.length ; i++) {
+		var unit = units[i];
+		var heading = unit.color == "blue" ? 2 : 0;
+		var power = 0;
+		for (var j = 0 ; j < util.unitTypes.length ; j++) {
+			if (util.unitTypes[j] == unit.type) {
+				power = util.unitPowers[j];
+			}
+		}
+		var imageprefix = unit.type + "_" + unit.color;
+		var newUnit = new Sprite({
+			x: unit.x, y: unit.y, 
+			heading: heading, power: power,
+			engine: unit.engine,
+			images: (unit.type == "hq") ? [imageprefix] : [imageprefix+"_0", imageprefix+"_1", imageprefix+"_2", imageprefix+"_3"]
+		});
+		created.push(newUnit);
+	}
+	return created;
+}
+
+// Test if 
+util.isValidPosition = function(position, sprite) {
+	// Out of board
+	if (position.x < 0 || position.x == constant.boardWidth || position.y < 0 || position.y == constant.boardHeight)
+		return false;
+	
+	// Authorized ground depend of unit type
+	var maptype=app.game[position.y][position.x];
+	var unittype=util.getUnitType(sprite);
+	if (unittype == 4)
+		return true;	// Helo can go anywhere
+	if (maptype == constant.tileEmpty)
+		return true;	// Grass is for everyone
+	if (unittype == 0)
+		return maptype == constant.tileEmpty; // HQ only on grass
+	if (maptype == constant.tileTrees)
+		return unittype == 1;  // Trees is only for soldier
+	else if (maptype == constant.tileWater)
+		return unittype == 1;  // Water is only for soldier
+
+	return false;
+}
 
 // Compute next position if sprite go ahead in the current heading
 util.nextPositionOnHeading = function(sprite) {

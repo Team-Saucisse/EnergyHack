@@ -5,43 +5,5 @@
 *@
 @if (Model != null)
 {
-    if (typeof(CodeFluent.Runtime.ICodeFluentSet).IsAssignableFrom(Model.GetType()))
-    {
-        
-        
-        foreach (object l_entity in Model)
-        {
-            string l_entityKey = DataBinder.Eval(l_entity, CodeFluent.Runtime.Model.ViewPropertyDescriptor.EntityKey).ToString();            
-            
-            if(l_entity.GetType().FullName == "TheSaucisseFactory.BOM.LienReferenceSolution")
-            {
-                TheSaucisseFactory.BOM.LienReferenceSolution entity = TheSaucisseFactory.BOM.LienReferenceSolution.LoadByEntityKey(l_entityKey);
-                @entity.Reference.Nom
-                <span style="width:20px"></span>
-                @Html.RouteLink("Afficher", new { controller = "FicheReference", action = "Edit", EntityKey = entity.Reference.EntityKey }, new { target = "_blank" })
-                <br />                
-            }
-            else if(l_entity.GetType().FullName == "TheSaucisseFactory.BOM.Produit")
-            {
-                @DataBinder.Eval(l_entity, CodeFluent.Runtime.Model.ViewPropertyDescriptor.EntityDisplayName)       
-                <br />         
-            }
-            else
-            {
-                TheSaucisseFactory.BOM.FicheReference entity = TheSaucisseFactory.BOM.FicheReference.LoadByEntityKey(l_entityKey);
-                if (entity.Originale == null)
-                {                
-                    @DataBinder.Eval(l_entity, CodeFluent.Runtime.Model.ViewPropertyDescriptor.EntityDisplayName)
-                    <span style="width:20px"></span>
-                    @Html.RouteLink("Afficher", new { controller = "FicheReference", action = "Edit", EntityKey = DataBinder.Eval(l_entity, CodeFluent.Runtime.Model.ViewPropertyDescriptor.EntityKey) }, new { target = "_blank" })
-                    <br />
-                }
-            }
-        }
-    }
-}
-else
-{
     @DataBinder.Eval(Model, CodeFluent.Runtime.Model.ViewPropertyDescriptor.EntityDisplayName)
 }
-

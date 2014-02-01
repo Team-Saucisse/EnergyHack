@@ -63,5 +63,26 @@ namespace TheSaucisseFactory.Ecoinizer
 				}
 			}
 		}
+
+        /// <summary>
+        /// Synchronisation Camel
+        /// </summary>
+        private void OnSynchronizeClick(object sender, RoutedEventArgs e)
+        {
+            ImportMecanism import = new ImportMecanism(this);
+            import.Run();
+        }
+
+        /// <summary>
+        /// Calcul des EnergyCoin
+        /// </summary>
+        private void OnProcessClick(object sender, RoutedEventArgs e)
+        {
+            Commerce l_newCommerce = new Commerce();
+            l_newCommerce.Nom = "Yacine";
+            l_newCommerce.Url = "http://bidon.com";
+            l_newCommerce.Save();
+                
+        }
 	}
 }

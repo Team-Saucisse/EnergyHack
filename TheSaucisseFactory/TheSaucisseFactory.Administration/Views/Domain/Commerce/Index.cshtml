@@ -37,10 +37,8 @@
 				<tr>
 					<th></th>
 
-					<th class="indexHeader">Id</th>
 					<th class="indexHeader">Nom</th>
 					<th class="indexHeader">Url du commerçant</th>
-					<th class="indexHeader">Publicités</th>
 					
 				</tr>
 
@@ -49,10 +47,6 @@
 					<td nowrap="nowrap">
 						@Html.ActionLink(" ", "Edit", "Commerce", new { entityKey = item.EntityKey }, new { @class = "editItemLink" })
 						@Html.ActionLink(" ", "Delete", "Commerce", new { entityKey = item.EntityKey }, new {@class = "removeItemLink", onclick = "if (!confirm('" + Resources.WebResources.ConfirmEntityDelete + "')) return false;"})
-					</td>
-					<td class="indexValue">
-						<span style="white-space:nowrap">@Html.DisplayTextFor(modelItem => item.Id)</span>
-
 					</td>
 					<td class="indexValue">
 												
@@ -65,13 +59,6 @@
 												
 												
 								@Html.DisplayFor(modelItem => item.Url, "Text")						
-								
-
-					</td>
-					<td class="indexValue">
-												
-												
-								@Html.DisplayFor(modelItem => item.Publicites, "Association")						
 								
 
 					</td>

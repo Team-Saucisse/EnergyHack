@@ -32,15 +32,15 @@
 		  
 		</tr>
 		<tr>		  
-		  	<td>Contenu</td><td>			                 
-			                 @Html.EditorFor(model => model.Contenu, "RichText")			                 
-			                 @Html.ValidationMessageFor(model => model.Contenu)
+		  	<td>Challenge</td><td>			                   
+			                   	@Html.EditorFor(model => model.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""})
 		  </td>
 		  
 		</tr>
 		<tr>		  
-		  	<td>Challenge</td><td>			                   
-			                   	@Html.EditorFor(model => model.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""})
+		  	<td>Contenu</td><td>			                 
+			                 @Html.EditorFor(model => model.Contenu, "RichText")			                 
+			                 @Html.ValidationMessageFor(model => model.Contenu)
 		  </td>
 		  
 		</tr>

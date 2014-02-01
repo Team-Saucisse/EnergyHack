@@ -43,48 +43,24 @@ enyo.kind({
 		this.canvas = this.$.gamebox.createComponent({kind: "Canvas", name: "canvas", attributes: {width: constant.areaWidth, height: constant.areaHeight}});
 
 		// Init board
-		this.game = [];
-		for (var i = 0 ; i < constant.boardHeight ; i++ ) {
-			var line = []
-			for (var j = 0 ; j < constant.boardWidth ; j++ ) {
-				line.push(constant.tileEmpty);
-			}
-			this.game.push(line);
-		}
-		this.targetpos = { x: 0, y: 0 };
+		this.game = util.createMap(util.gameMap(0));
+		this.targetpos = {x: 0, y: 0};
 
 		// Init units
-		this.units = [];
-		this.units.push(new Sprite({
-			x: constant.boardWidth-1, y: 1, 
-			heading: 0, power: constant.powerTank,
-			engine: enyo.bind(this, "badTankEngine"),
-			images: ["tank_red_0", "tank_red_1", "tank_red_2", "tank_red_3"]}));		
-		this.units.push(new Sprite({
-			x: constant.boardWidth-1, y: 4, 
-			heading: 0, power: constant.powerSoldier,
-			engine: enyo.bind(this, "badTankEngine"),
-			images: ["soldier_red_0", "soldier_red_1", "soldier_red_2", "soldier_red_3"]}));	
-		this.units.push(new Sprite({
-			x: constant.boardWidth-6, y: 2, 
-			heading: 0, power: constant.powerCanon,
-			engine: enyo.bind(this, "badTankEngine"),
-			images: ["canon_red_0", "canon_red_1", "canon_red_2", "canon_red_3"]}));
-		this.units.push(new Sprite({
-			x: 5, y: 2, 
-			heading: 2, power: constant.powerCanon,
-			engine: enyo.bind(this, "goodTankEngine"),
-			images: ["canon_blue_0", "canon_blue_1", "canon_blue_2", "canon_blue_3"]}));
-		this.units.push(new Sprite({
-			x: 5, y: 4, 
-			heading: 2, power: constant.powerHelo,
-			engine: null,
-			images: ["helo_blue_0", "helo_blue_1", "helo_blue_2", "helo_blue_3"]}));
-		this.units.push(new Sprite({
-			x: 0, y: 4, 
-			heading: 0, power: constant.powerHq,
-			engine: null,
-			images: ["hq_blue"]}));			
+		var width = constant.boardWidth, height = constant.boardHeight;
+		var goodEngine = enyo.bind(this, "goodEngine");
+		var badEngine = enyo.bind(this, "badEngine");		
+		this.units = util.createUnits([
+			{type: "tank", color: "red", x: width-1, y: 2, engine: badEngine},
+			{type: "soldier", color: "red", x: width-1, y: 7, engine: badEngine},
+			{type: "canon", color: "red", x: width-6, y: 3, engine: badEngine},
+			{type: "canon", color: "blue", x: 4, y: 3, engine: goodEngine},
+			{type: "helo", color: "blue", x: 5, y: 4, engine: null},
+			{type: "soldier", color: "red", x: width-4, y: 4, engine: badEngine},
+			{type: "soldier", color: "red", x: width-1, y: 5, engine: badEngine},
+			{type: "helo", color: "red", x: width-1, y: height-1, engine: badEngine},
+			{type: "hq", color: "blue", x: 0, y: 4, engine: null}
+		]);	
 			
 		// Start game loop
 		this.loopTimer = window.setInterval(enyo.bind(this, "gameLoopTick"), constant.loopInterval);
@@ -209,7 +185,7 @@ enyo.kind({
 	},
 	
 	// Engine for good tank moves
-	goodTankEngine: function(that) {
+	goodEngine: function(that) {
 		// Look for enemy unit
 		var opponent = util.lookForOpponent(that);
 		if (opponent != null) {
@@ -223,7 +199,7 @@ enyo.kind({
 	},
 	
 	// Engine for bad tank moves
-	badTankEngine: function(that) {
+	badEngine: function(that) {
 		// Look for enemy unit
 		var opponent = util.lookForOpponent(that);
 		if (opponent != null) {
@@ -239,7 +215,7 @@ enyo.kind({
 		var next = util.nextPositionOnHeading(that);
 		
 		// Is it a valid position ?
-		if (next.x < 0 || next.x == constant.boardWidth || next.y < 0 || next.y == constant.boardHeight) {
+		if (!util.isValidPosition(next, that)) {
 			// No, reverse sense
 			that.heading = (that.heading + 2) % 4;
 			next = util.nextPositionOnHeading(that);

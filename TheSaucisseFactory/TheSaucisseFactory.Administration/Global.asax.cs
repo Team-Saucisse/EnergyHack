@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using TheSaucisseFactory.Administration.Code;
 using System.Web.Optimization;
+using TheSaucisseFactory.Web;
 
 namespace TheSaucisseFactory.Administration
 {

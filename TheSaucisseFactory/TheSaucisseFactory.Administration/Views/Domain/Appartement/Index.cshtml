@@ -37,14 +37,11 @@
 				<tr>
 					<th></th>
 
-					<th class="indexHeader">Id</th>
-					<th class="indexHeader">Id CAMEL</th>
 					<th class="indexHeader">Nom</th>
+					<th class="indexHeader">Id CAMEL</th>
 					<th class="indexHeader">Bâtiment</th>
-					<th class="indexHeader">Mesures</th>
-					<th class="indexHeader">Tous les gains ECoins</th>
 					<th class="indexHeader">Typologie</th>
-					<th class="indexHeader">Orientation</th>
+					<th class="indexHeader">Surface habitable</th>
 					<th class="indexHeader">Orientation</th>
 					
 				</tr>
@@ -56,20 +53,16 @@
 						@Html.ActionLink(" ", "Delete", "Appartement", new { entityKey = item.EntityKey }, new {@class = "removeItemLink", onclick = "if (!confirm('" + Resources.WebResources.ConfirmEntityDelete + "')) return false;"})
 					</td>
 					<td class="indexValue">
-						<span style="white-space:nowrap">@Html.DisplayTextFor(modelItem => item.Id)</span>
-
-					</td>
-					<td class="indexValue">
 												
 												
-								@Html.DisplayFor(modelItem => item.CamelId, "Text")						
+								@Html.DisplayFor(modelItem => item.Nom, "Text")						
 								
 
 					</td>
 					<td class="indexValue">
 												
 												
-								@Html.DisplayFor(modelItem => item.Nom, "Text")						
+								@Html.DisplayFor(modelItem => item.CamelId, "Text")						
 								
 
 					</td>
@@ -83,20 +76,6 @@
 					<td class="indexValue">
 												
 												
-								@Html.DisplayFor(modelItem => item.Mesures, "Relation")						
-								
-
-					</td>
-					<td class="indexValue">
-												
-												
-								@Html.DisplayFor(modelItem => item.GainsEnergyCoin, "Relation")						
-								
-
-					</td>
-					<td class="indexValue">
-												
-												
 								@Html.DisplayFor(modelItem => item.Type, "Text")						
 								
 
@@ -104,14 +83,14 @@
 					<td class="indexValue">
 												
 												
-								@Html.DisplayFor(modelItem => item.Orientation, "Text")						
+								@Html.DisplayFor(modelItem => item.SurfaceHabitable, "Number")						
 								
 
 					</td>
 					<td class="indexValue">
 												
 												
-								@Html.DisplayFor(modelItem => item.SurfaceHabitable, "Number")						
+								@Html.DisplayFor(modelItem => item.Orientation, "Text")						
 								
 
 					</td>

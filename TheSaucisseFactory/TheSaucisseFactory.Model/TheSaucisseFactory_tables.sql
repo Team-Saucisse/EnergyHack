@@ -78,7 +78,11 @@ CREATE TABLE [dbo].[Batiment] (
  (
 
   [Id]
- )
+ ),
+ CONSTRAINT [IX_Bat_Cam_Bat] UNIQUE
+ (
+
+  [CamelId] )
 )
 GO
 
@@ -129,6 +133,7 @@ CREATE TABLE [dbo].[GainEnergyCoin] (
  [Date] [datetime] NULL,
  [Quantite] [int] NULL,
  [Challenge_Id] [uniqueidentifier] NULL,
+ [Meta] [nvarchar] (300) NULL,
  CONSTRAINT [PK_Gai_Id_Gai] PRIMARY KEY CLUSTERED
  (
 

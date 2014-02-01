@@ -26,8 +26,8 @@
 		@Html.HiddenFor(model => model.EntityKey)
 		<table width="100%" class="fields">
 		<tr>		  
-		  	<td>Id</td><td>			            
-			            	@Html.DisplayFor(model => model.Id, "UniqueIdentifier")
+		  	<td>Challenge</td><td>			                   
+			                   	@Html.EditorFor(model => model.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""})
 		  </td>
 		  
 		</tr>
@@ -52,8 +52,9 @@
 		  
 		</tr>
 		<tr>		  
-		  	<td>Challenge</td><td>			                   
-			                   	@Html.EditorFor(model => model.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""})
+		  	<td>Donnée à interpréter en fonction du Challenge</td><td>			                                                       
+			                                                       	@Html.EditorFor(model => model.Meta, "Text")			                                                       
+			                                                       	@Html.ValidationMessageFor(model => model.Meta)
 		  </td>
 		  
 		</tr>

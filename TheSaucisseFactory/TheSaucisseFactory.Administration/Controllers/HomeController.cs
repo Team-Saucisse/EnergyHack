@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TheSaucisseFactory.BOM.Web.Controllers
+namespace TheSaucisseFactory.Web.Controllers
 {
     /// <summary>
     /// Contrôleur de l'accueil

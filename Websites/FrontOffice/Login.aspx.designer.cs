@@ -13,6 +13,24 @@ namespace FrontOffice {
     public partial class Login {
         
         /// <summary>
+        /// Contrôle m_ddlBuildings.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddlBuildings;
+        
+        /// <summary>
+        /// Contrôle m_ddlApparments.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList m_ddlApparments;
+        
+        /// <summary>
         /// Contrôle m_btnLogin.
         /// </summary>
         /// <remarks>
@@ -20,5 +38,14 @@ namespace FrontOffice {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button m_btnLogin;
+        
+        /// <summary>
+        /// Contrôle AppartmentID.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField AppartmentID;
     }
 }
