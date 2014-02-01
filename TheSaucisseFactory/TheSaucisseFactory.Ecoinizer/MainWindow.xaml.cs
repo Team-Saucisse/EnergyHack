@@ -16,18 +16,8 @@ namespace TheSaucisseFactory.Ecoinizer
 		public MainWindow()
 		{
 			InitializeComponent();
-
-			ThreadStart ts = new ThreadStart(RunImport);
-			Thread thread = new Thread(ts);
-			thread.Start();
 			
 			//TestCamel();
-		}
-
-		private void RunImport()
-		{
-			ImportMecanism import = new ImportMecanism(this);
-			import.Run();
 		}
 
 		private void TestCamel()
@@ -69,9 +59,16 @@ namespace TheSaucisseFactory.Ecoinizer
         /// </summary>
         private void OnSynchronizeClick(object sender, RoutedEventArgs e)
         {
-            ImportMecanism import = new ImportMecanism(this);
-            import.Run();
+			ThreadStart ts = new ThreadStart(RunImport);
+			Thread thread = new Thread(ts);
+			thread.Start();
         }
+
+		private void RunImport()
+		{
+			ImportMecanism import = new ImportMecanism(this);
+			import.Run();
+		}
 
         /// <summary>
         /// Calcul des EnergyCoin

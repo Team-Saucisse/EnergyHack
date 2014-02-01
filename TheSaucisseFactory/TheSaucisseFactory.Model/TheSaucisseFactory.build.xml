@@ -1,0 +1,195 @@
+<build startDate="2014-02-01T15:21:37.6549+01:00" commandLine="&quot;C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Build4.exe&quot; &quot;D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory.cfp&quot; /Log:&quot;D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory.build.xml&quot; /Results:&quot;C:\Users\jfarez\AppData\Local\Temp\TheSaucisseFactory.cfp.oop&quot; /DoNotCreateReportsOnException /DoNotShowReportsOnException /NoFlashOnError " machineName="CLT149" osVersion="Microsoft Windows NT 6.2.9200.0" currentDirectory="D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model" user="SERVICES-CGB\jfarez" clrVersion="4.0.30319.18051" licenseUsage="Unlimited [Licensee:jeremy.farez@gmail.com (FreeRegistration)][Maximum Entities:999999]" processorCount="8" workingSet="24973312 bytes" bitness="32bits" wow64="True" optionsFlags="None" parentProcess="C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe" endDate="2014-02-01T15:22:51.9294+01:00" totalElapsedTime="00:01:14.2744746" numberOfEntities="9" numberOfEnumerations="0" numberOfRelations="14">
+  <assemblies>
+    <assembly fullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/mscorlib.dll" location="C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll" buildVersion="4.0.30319.18051" fileVersion="4.0.30319.18051 built by: FX45RTMGDR" productVersion="4.0.30319.18051" />
+    <assembly fullName="CodeFluent.Build4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Build4.exe" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Build4.exe" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Model.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Model.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Runtime.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System/v4.0_4.0.0.0__b77a5c561934e089/System.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll" buildVersion="4.0.30319.18045" fileVersion="4.0.30319.18045 built by: FX45RTMGDR" productVersion="4.0.30319.18045" />
+    <assembly fullName="CodeFluent.Model.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Model.Common.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Model.Common.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Xml/v4.0_4.0.0.0__b77a5c561934e089/System.Xml.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll" buildVersion="4.0.30319.18058" fileVersion="4.0.30319.18058 built by: FX45RTMGDR" productVersion="4.0.30319.18058" />
+    <assembly fullName="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Data/v4.0_4.0.0.0__b77a5c561934e089/System.Data.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll" buildVersion="4.0.30319.18046" fileVersion="4.0.30319.18046 built by: FX45RTMGDR" productVersion="4.0.30319.18046" />
+    <assembly fullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Core/v4.0_4.0.0.0__b77a5c561934e089/System.Core.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll" buildVersion="4.0.30319.17929" fileVersion="4.0.30319.17929 built by: FX45RTMREL" productVersion="4.0.30319.17929" />
+    <assembly fullName="CodeFluent.Producers.CodeDom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.CodeDom.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.CodeDom.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Windows.Forms/v4.0_4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll" buildVersion="4.0.30319.18046" fileVersion="4.0.30319.18046 built by: FX45RTMGDR" productVersion="4.0.30319.18046" />
+    <assembly fullName="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Drawing/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll" buildVersion="4.0.30319.18022" fileVersion="4.0.30319.18022 built by: FX45RTMGDR" productVersion="4.0.30319.18022" />
+    <assembly fullName="SoftFluent.License, Version=1.0.0.0, Culture=neutral, PublicKeyToken=330d9b6ea5e30055" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/SoftFluent.License.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\SoftFluent.License.dll" buildVersion="1.0.0.0" fileVersion="2.0.0.5" productVersion="1.0.0.0" />
+    <assembly fullName="System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Management/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Management.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll" buildVersion="4.0.30319.17929" fileVersion="4.0.30319.17929 built by: FX45RTMREL" productVersion="4.0.30319.17929" />
+    <assembly fullName="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Web/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Web.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll" buildVersion="4.0.30319.18056" fileVersion="4.0.30319.18056 built by: FX45RTMGDR" productVersion="4.0.30319.18056" />
+    <assembly fullName="CodeFluent.Producers.SqlServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.SqlServer.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.SqlServer.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Runtime.Database, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Runtime.Database.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.Database.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Producers.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.UI.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.UI.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Modeler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Modeler.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Modeler.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Configuration/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" buildVersion="4.0.30319.18058" fileVersion="4.0.30319.18058 built by: FX45RTMGDR" productVersion="4.0.30319.18058" />
+    <assembly fullName="CodeFluent.Producers.ServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.ServiceModel.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.ServiceModel.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Runtime.Serialization/v4.0_4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll" buildVersion="4.0.30319.18056" fileVersion="4.0.30319.18056 built by: FX45RTMGDR" productVersion="4.0.30319.18056" />
+    <assembly fullName="System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.ServiceModel/v4.0_4.0.0.0__b77a5c561934e089/System.ServiceModel.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll" buildVersion="4.0.30319.18056" fileVersion="4.0.30319.18056 built by: FX45RTMGDR" productVersion="4.0.30319.18056" />
+    <assembly fullName="System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Transactions/v4.0_4.0.0.0__b77a5c561934e089/System.Transactions.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll" buildVersion="4.0.30319.17929" fileVersion="4.0.30319.17929 built by: FX45RTMREL" productVersion="4.0.30319.17929" />
+    <assembly fullName="System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.EnterpriseServices/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll" buildVersion="4.0.30319.17929" fileVersion="4.0.30319.17929 built by: FX45RTMREL" productVersion="4.0.30319.17929" />
+  </assemblies>
+  <variables>
+    <variable name="CF_TEMPLATES_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\Templates" />
+    <variable name="CF_BUILD_NUMBER" value="70761" />
+    <variable name="CF_DEFAULT_PERSISTENCE_SERVER" value="devsql2008" />
+    <variable name="CF_PATTERNS_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\Patterns" />
+    <variable name="CF_CURRENT_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler" />
+    <variable name="CF_BUILD_CONFIGURATION" value="RELEASE" />
+  </variables>
+  <generatedFiles>
+    <producer name="SQL Azure" generatedFilesCount="1" />
+    <producer name="ASP.NET Web Site MVC4" generatedFilesCount="0" />
+    <producer name="Business Object Model (BOM)" generatedFilesCount="0">
+      <subProducer name="ServiceProducer" generatedFilesCount="0" />
+    </producer>
+  </generatedFiles>
+  <project>
+    <imports>
+      <cf:import path="Default.Surface.cfp" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" />
+    </imports>
+    <parts>
+      <part filePath="D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory.cfp" isRootModel="true" relativePath="TheSaucisseFactory.cfp" />
+      <part filePath="D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Default.Surface.cfp" relativePath="Default.Surface.cfp" />
+    </parts>
+    <buildException>System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at CodeFluent.Runtime.Database.Management.Database.ToDataTable(CommandType commandType, String commandText, IDbDataParameter[] parameters)
+   at CodeFluent.Runtime.Database.Management.SqlServer.Database.GetConstraintTable(String constraintName, String&amp; owner, String&amp; name)
+   at CodeFluent.Producers.SqlServer.TableProducer.ProduceConstraintDrop(TextWriter writer, SqlServerProducer producer, String tableOwner, String tableName, String constraintOwner, String constraintName)
+   at CodeFluent.Producers.SqlServer.TableProducer.ProduceCreate(TextWriter writer, Table table)
+   at CodeFluent.Producers.SqlServer.SqlServerProducer.Produce()
+   at CodeFluent.Producers.SqlServer.SqlAzureProducer.Produce()
+   at CodeFluent.Model.Project.Produce(ProductionOptions options)
+   at CodeFluent.Build.ConsoleBuilder.SafeMain(String[] args)
+   at CodeFluent.Build.ConsoleBuilder.Main(String[] args)
+ClientConnectionId:00000000-0000-0000-0000-000000000000</buildException>
+  </project>
+  <producer name="SQL Azure">
+    <event type="ProducerStart" elapsedTime="00:00:00.0007522">
+      <name>SQL Azure</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="ParameterValue" name="ProduceLocal" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProduceOnline" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="RunLocalScripts" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="RunOnlineScripts" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="LocalTargetDirectory" />
+    <event type="ParameterValue" name="LocalConnectionString" value="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost\sqlexpress" />
+    <event type="ParameterValue" name="LocalMustSaveInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="LocalMustSaveBlobInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OnlineTargetDirectory" value="D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts" />
+    <event type="ParameterValue" name="OnlineConnectionString" value="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" />
+    <event type="ParameterValue" name="OnlineMustSaveInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OnlineMustSaveBlobInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AllowSelectDistinct" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AppendSchemaToProcedures" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="CommandTimeout" value="0" valueType="System.Int32" />
+    <event type="ParameterValue" name="ConnectionString" value="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost\sqlexpress" />
+    <event type="ParameterValue" name="CurrentCulture" value="fr-FR" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="CurrentUICulture" value="en-US" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="DecimalPrecision" value="28" valueType="System.Int32" />
+    <event type="ParameterValue" name="DecimalScale" value="13" valueType="System.Int32" />
+    <event type="ParameterValue" name="DefaultUnicodeInstancePrefix" value="N" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model" />
+    <event type="ParameterValue" name="IdentityIncrement" value="1" valueType="System.Int32" />
+    <event type="ParameterValue" name="IdentitySeed" value="1" valueType="System.Int32" />
+    <event type="ParameterValue" name="IdentityTempColumnName" value="_cf_id_temp" />
+    <event type="ParameterValue" name="InstanceProductionCulture" value="en-US" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="IsTargetRelativeToModelDirectory" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MaxColumnSize" value="2147483647" valueType="System.Int32" />
+    <event type="ParameterValue" name="MaximumColumnsPerConstraint" value="16" valueType="System.Int32" />
+    <event type="ParameterValue" name="MustCreateBackups" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCreateDatabase" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCreateDiffs" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustDropUnusedColumns" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustForceColumnAlter" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceViews" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceSchemas" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSaveInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSaveBlobInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSkipCrossStoreRelations" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateDatabase" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateProcedures" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateRuntime" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateSchema" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustForceUpdateViews" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLocalTransactions" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyStringArrayMode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyBlobChunkMode" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OutputEncoding" value="utf-8" />
+    <event type="ParameterValue" name="OutputEncodingEmitIdentifier" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProcedureProductionCulture" value="en-US" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="ProductionFlags" value="Default, Overwrite, RemoveDates" valueType="CodeFluent.Model.ProductionFlags" />
+    <event type="ParameterValue" name="ProductionOptionsFlags" value="None" valueType="CodeFluent.Model.ProductionOptionsFlags" />
+    <event type="ParameterValue" name="SaveUserName" value="SYSTEM_USER" />
+    <event type="ParameterValue" name="StoreName" />
+    <event type="ParameterValue" name="TargetVersion" value="Sql2008, Sql2012, SqlAzure" valueType="CodeFluent.Producers.SqlServer.TargetVersion" />
+    <event type="FileCopy" elapsedTime="00:00:29.2550339">
+      <target>D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql</target>
+      <source>D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0018863">
+      <path>D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql</path>
+      <fileType>RuntimeScript</fileType>
+      <size>1648</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0008338">
+      <path>D:\Perso\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql</path>
+    </event>
+    <event type="ParameterValue" name="SqlServerVersion" />
+    <event type="Warning" elapsedTime="00:00:29.0800726">
+      <message>Producer 'targetVersion' attribute is set to 'Sql2008, Sql2012, SqlAzure' but target database is 'Sql2000'. You may want to change the 'targetVersion' configuration attribute.</message>
+      <source>SQL Azure</source>
+    </event>
+    <event type="Warning" elapsedTime="00:00:00.0001039">
+      <message>Producer 'targetVersion' attribute is set to 'Sql2008, Sql2012, SqlAzure' but target database is 'Sql2005'. You may want to change the 'targetVersion' configuration attribute.</message>
+      <source>SQL Azure</source>
+    </event>
+    <event type="Exception" elapsedTime="00:00:14.6452576">
+      <exception>System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at CodeFluent.Runtime.Database.Management.Database.ToDataTable(CommandType commandType, String commandText, IDbDataParameter[] parameters)
+   at CodeFluent.Runtime.Database.Management.SqlServer.Database.GetConstraintTable(String constraintName, String&amp; owner, String&amp; name)
+   at CodeFluent.Producers.SqlServer.TableProducer.ProduceConstraintDrop(TextWriter writer, SqlServerProducer producer, String tableOwner, String tableName, String constraintOwner, String constraintName)
+   at CodeFluent.Producers.SqlServer.TableProducer.ProduceCreate(TextWriter writer, Table table)
+   at CodeFluent.Producers.SqlServer.SqlServerProducer.Produce()
+   at CodeFluent.Producers.SqlServer.SqlAzureProducer.Produce()
+   at CodeFluent.Model.Project.Produce(ProductionOptions options)
+ClientConnectionId:00000000-0000-0000-0000-000000000000</exception>
+      <message>A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 26 - Error Locating Server/Instance Specified)</message>
+      <source>CodeFluent.Producers.SqlServer.SqlAzureProducer, CodeFluent.Producers.SqlServer</source>
+      <sourceType>Producer</sourceType>
+    </event>
+  </producer>
+</build>

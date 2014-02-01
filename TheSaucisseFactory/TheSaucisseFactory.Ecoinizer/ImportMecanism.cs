@@ -18,7 +18,7 @@ namespace TheSaucisseFactory.Ecoinizer
 	public class ImportMecanism
 	{
 		private MainWindow main;
-		private readonly DateTime end = new DateTime(2013, 11, 30);
+		private readonly DateTime end = new DateTime(2014, 1, 31);
 
 		public ImportMecanism(MainWindow main)
 		{
@@ -27,19 +27,14 @@ namespace TheSaucisseFactory.Ecoinizer
 
 		public void Run()
 		{
-			Residence residence = new Residence();
-			residence.CamelId = "CERGY01";
-			residence.Nom = "Cergy";
-			residence.Save();
+			Residence residence = ResidenceCollection.LoadAll().First();
+
 			int batId = 0;
 
 			foreach (string batCamelId in batiments)
 			{
 				// Création du batiment
-				Batiment batiment = new Batiment();
-				batiment.CamelId = batCamelId;
-				batiment.Residence = residence;
-				batiment.Save();
+				Batiment batiment = BatimentCollection.LoadAll().Where(b => b.CamelId == batCamelId).First();
 
 				Log("création batiment " + batId);
 
@@ -49,11 +44,7 @@ namespace TheSaucisseFactory.Ecoinizer
 				foreach (string camelIdApart in aparts)
 				{
 					// Création de l'appartement
-					Appartement apart = new Appartement();
-					apart.Nom = camelIdApart;
-					apart.CamelId = camelIdApart;
-					apart.Batiment = batiment;
-					apart.Save();
+					Appartement apart = AppartementCollection.LoadAll().Where(a => a.CamelId == camelIdApart).First();
 
 					Log("création apart " + camelIdApart);
 
@@ -61,7 +52,7 @@ namespace TheSaucisseFactory.Ecoinizer
 					{
 						Log("traitement " + coupleVoie[0] + " & " + coupleVoie[1]);
 						// Récupération des mesures semaine par semaine
-						for (DateTime begin = new DateTime(2013, 10, 1); begin <= end; begin = begin.AddMonths(1))
+						for (DateTime begin = new DateTime(2013, 12, 1); begin <= end; begin = begin.AddMonths(1))
 						{
 							Log("Période " + begin + " -> " + begin.AddMonths(1).AddSeconds(-1));
 							CamelResponseResource l_res = CamelGet(batCamelId, camelIdApart, coupleVoie, begin, begin.AddMonths(1).AddSeconds(-1));
