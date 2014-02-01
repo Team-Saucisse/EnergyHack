@@ -1,0 +1,93 @@
+﻿@model PagedList.IPagedList<TheSaucisseFactory.GainEnergyCoin>
+@using PagedList.Mvc;
+
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Gain d'ECoin";
+}
+
+<h2>Gain d'ECoin</h2>
+
+@Html.Partial("_Error")
+
+<table class="entity">
+	<tr>
+
+		<td class="indexTopRow">
+            <ul>
+                <li>@Html.RouteLink(Resources.WebResources.AddNew, "TheSaucisseFactory.GainEnergyCoin", new {controller = "GainEnergyCoin", action = "Create"})</li>
+            </ul>
+        </td>
+
+		<td>
+
+		</td>
+	</tr>
+    <tr>
+        <td colspan="2">
+            <table>
+				<tr>
+					<th></th>
+
+					<th class="indexHeader">Challenge</th>
+					<th class="indexHeader">Appartement</th>
+					<th class="indexHeader">Date du gain</th>
+					<th class="indexHeader">Nombre d'ECoin gagnés</th>
+					
+				</tr>
+
+			@foreach (var item in Model) {
+				<tr>
+					<td nowrap="nowrap">
+						@Html.ActionLink(" ", "Edit", "GainEnergyCoin", new { entityKey = item.EntityKey }, new { @class = "editItemLink" })
+						@Html.ActionLink(" ", "Delete", "GainEnergyCoin", new { entityKey = item.EntityKey }, new {@class = "removeItemLink", onclick = "if (!confirm('" + Resources.WebResources.ConfirmEntityDelete + "')) return false;"})
+					</td>
+					<td class="indexValue">
+												
+												
+								@Html.DisplayFor(modelItem => item.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""} )						
+								
+
+					</td>
+					<td class="indexValue">
+												
+												
+								@Html.DisplayFor(modelItem => item.Appartement, "Relation", new { EntityTypeName = "TheSaucisseFactory.Appartement", Nullable = true, ChoiceMethodName = ""} )						
+								
+
+					</td>
+					<td class="indexValue">
+												
+							@if (item.Date != DateTime.MinValue)						
+							{						
+													
+												
+								@Html.DisplayFor(modelItem => item.Date, "DateTime")						
+														
+							}						
+							
+
+					</td>
+					<td class="indexValue">
+												
+												
+								@Html.DisplayFor(modelItem => item.Quantite, "Integer")						
+								
+
+					</td>
+					
+				</tr>
+			}
+
+			</table>
+        </td>
+    </tr>
+</table>
+@if (Model.PageCount > 1)
+{
+    <br />
+    string.Format(Resources.WebResources.CurrentPage, Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber, @Model.PageCount);
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, currentFilter = ViewBag.CurrentFilter }), PagedListRenderOptions.PageNumbersOnly)
+}
+

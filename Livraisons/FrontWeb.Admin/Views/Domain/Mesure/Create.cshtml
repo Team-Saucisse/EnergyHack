@@ -1,0 +1,72 @@
+﻿@model TheSaucisseFactory.Mesure
+
+
+@{
+    ViewBag.Title = "Une mesure - Création";
+}
+
+<h2>Une mesure - Création</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".datepicker").datepicker();
+	});
+</script>
+
+@Html.Partial("_Error")
+
+@using (Html.BeginRouteForm("TheSaucisseFactory.Mesure", new {controller = "Mesure", action = "Create"}, 
+		FormMethod.Post, new { autocomplete = "off" })) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Une mesure</legend>
+
+		<table width="100%" class="fields">
+		<tr>		  
+		  	<td>Appartement</td><td>			                     
+			                     	@Html.EditorFor(model => model.Appartement, "Relation", new { EntityTypeName = "TheSaucisseFactory.Appartement", Nullable = true, ChoiceMethodName = ""})
+		  </td>
+		  
+		</tr>
+		<tr>		  
+		  	<td>Type de mesure</td><td>			                        
+			                        	@Html.EditorFor(model => model.Type, "Text")			                        
+			                        	@Html.ValidationMessageFor(model => model.Type)
+		  </td>
+		  
+		</tr>
+		<tr>		  
+		  	<td>Date de mesure</td><td>			                        
+			                        	@Html.EditorFor(model => model.Date, "DateTime")			                        
+			                        	@Html.ValidationMessageFor(model => model.Date)
+		  </td>
+		  
+		</tr>
+		<tr>		  
+		  	<td>Valeur</td><td>			                
+			                	@Html.EditorFor(model => model.Valeur, "Number")			                
+			                	@Html.ValidationMessageFor(model => model.Valeur)
+		  </td>
+		  
+		</tr>
+		</table>
+
+		
+        <p>
+            <input type="submit" value="@Resources.WebResources.Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @if (Request.UrlReferrer == null)
+    {
+		@Html.RouteLink("Retour", "TheSaucisseFactory.Mesure", new {controller = "Mesure", action = "Index"})
+	}
+	else
+	{
+		<a href="@Request.UrlReferrer" title="@Resources.WebResources.GoBack">Retour</a>
+	}
+</div>

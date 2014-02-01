@@ -1,0 +1,5 @@
+@model CodeFluent.Runtime.ICodeFluentSet
+@{
+    var list = TheSaucisseFactory.Web.EntityBinder.BuildSortedMultiList(ViewBag, Model);
+}
+@Html.EditorFor(model => list)

@@ -1,0 +1,6 @@
+@model dynamic
+@{
+    SelectList list = TheSaucisseFactory.Web.EntityBinder.BuildSortedList(ViewBag, Model);
+}
+
+@Html.DropDownList("", (SelectList)list)

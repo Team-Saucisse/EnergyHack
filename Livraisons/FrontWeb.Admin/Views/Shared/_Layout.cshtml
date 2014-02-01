@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - The-Saucisse-Factory</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/jquery.ui.all.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+
+    <!-- 
+            Les lignes d'importation des feuilles de styles Kendo devraient normalement être générées par : 
+            Styles.Render("~/Content/kendo/2013.2.716/css")
+            Cette ligne de code fonctionne dans le projet Administration mais pas dans le projet Administration.Generated
+        -->
+    <link href="/Content/kendo/2013.2.716/kendo.common.min.css" rel="stylesheet" />
+    <link href="/Content/kendo/2013.2.716/kendo.default.min.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/kendo")
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'dd-mm-yy'
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            
+            <div class="float-left">
+                <p class="site-title">
+	                @Html.ActionLink("Administration The-Saucisse-Factory", "Index", "Home")
+                </p>
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Team Saucisse</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

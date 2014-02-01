@@ -1,0 +1,65 @@
+﻿@model TheSaucisseFactory.Batiment
+
+
+@{
+    ViewBag.Title = "Bâtiment - Création";
+}
+
+<h2>Bâtiment - Création</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".datepicker").datepicker();
+	});
+</script>
+
+@Html.Partial("_Error")
+
+@using (Html.BeginRouteForm("TheSaucisseFactory.Batiment", new {controller = "Batiment", action = "Create"}, 
+		FormMethod.Post, new { autocomplete = "off" })) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Bâtiment</legend>
+
+		<table width="100%" class="fields">
+		<tr>		  
+		  	<td>Nom</td><td>			             
+			             	@Html.EditorFor(model => model.Nom, "Text")			             
+			             	@Html.ValidationMessageFor(model => model.Nom)
+		  </td>
+		  
+		</tr>
+		<tr>		  
+		  	<td>Id CAMEL</td><td>			                  
+			                  	@Html.EditorFor(model => model.CamelId, "Text")			                  
+			                  	@Html.ValidationMessageFor(model => model.CamelId)
+		  </td>
+		  
+		</tr>
+		<tr>		  
+		  	<td>Résidence</td><td>			                   
+			                   	@Html.EditorFor(model => model.Residence, "Relation", new { EntityTypeName = "TheSaucisseFactory.Residence", Nullable = true, ChoiceMethodName = ""})
+		  </td>
+		  
+		</tr>
+		</table>
+
+		
+        <p>
+            <input type="submit" value="@Resources.WebResources.Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @if (Request.UrlReferrer == null)
+    {
+		@Html.RouteLink("Retour", "TheSaucisseFactory.Batiment", new {controller = "Batiment", action = "Index"})
+	}
+	else
+	{
+		<a href="@Request.UrlReferrer" title="@Resources.WebResources.GoBack">Retour</a>
+	}
+</div>

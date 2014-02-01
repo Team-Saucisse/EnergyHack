@@ -1,0 +1,9 @@
+@model dynamic
+@*
+    Ce display template permet d'afficher une liste d'entité ou une entité CF
+    Il a un intérêt pour afficher en lecture seule l'entité ou les entités liées à une entité donnée
+*@
+@if (Model != null)
+{
+    @DataBinder.Eval(Model, CodeFluent.Runtime.Model.ViewPropertyDescriptor.EntityDisplayName)
+}

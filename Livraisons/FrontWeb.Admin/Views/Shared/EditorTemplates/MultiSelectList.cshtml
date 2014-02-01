@@ -1,0 +1,8 @@
+@model MultiSelectList
+
+<div class="association">
+@foreach (var item in Model)
+{
+    @Html.EditorFor(i => item)<br />
+}
+</div>

@@ -1,0 +1,65 @@
+﻿@model TheSaucisseFactory.Illustration
+
+
+@{
+    ViewBag.Title = "Challenge - Création";
+}
+
+<h2>Challenge - Création</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".datepicker").datepicker();
+	});
+</script>
+
+@Html.Partial("_Error")
+
+@using (Html.BeginRouteForm("TheSaucisseFactory.Illustration", new {controller = "Illustration", action = "Create"}, 
+		FormMethod.Post, new { autocomplete = "off" })) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Challenge</legend>
+
+		<table width="100%" class="fields">
+		<tr>		  
+		  	<td>Nom</td><td>			             
+			             	@Html.EditorFor(model => model.Nom, "Text")			             
+			             	@Html.ValidationMessageFor(model => model.Nom)
+		  </td>
+		  
+		</tr>
+		<tr>		  
+		  	<td>Challenge</td><td>			                   
+			                   	@Html.EditorFor(model => model.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""})
+		  </td>
+		  
+		</tr>
+		<tr>		  
+		  	<td>Contenu</td><td>			                 
+			                 @Html.EditorFor(model => model.Contenu, "RichText")			                 
+			                 @Html.ValidationMessageFor(model => model.Contenu)
+		  </td>
+		  
+		</tr>
+		</table>
+
+		
+        <p>
+            <input type="submit" value="@Resources.WebResources.Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @if (Request.UrlReferrer == null)
+    {
+		@Html.RouteLink("Retour", "TheSaucisseFactory.Illustration", new {controller = "Illustration", action = "Index"})
+	}
+	else
+	{
+		<a href="@Request.UrlReferrer" title="@Resources.WebResources.GoBack">Retour</a>
+	}
+</div>

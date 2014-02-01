@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Accueil";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<ol class="round">
+    <li>
+        <h5>
+            Eléments d'administration The-Saucisse-Factory</h5>
+        <hr />
+        <div class="ns">
+            Organisations</div>
+        <div class="entities">
+            @Html.RouteLink("Résidences", "TheSaucisseFactory.Residence", new { controller = "Residence" })
+            @Html.RouteLink("Bâtiments", "TheSaucisseFactory.Batiment", new { controller = "Batiment" })
+            @Html.RouteLink("Appartements", "TheSaucisseFactory.Appartement", new { controller = "Appartement" })
+            @Html.RouteLink("Commerces", "TheSaucisseFactory.Commerce", new { controller = "Commerce" })
+            <br />
+            @Html.RouteLink("Challenges", "TheSaucisseFactory.Challenge", new { controller = "Challenge" })
+            @Html.RouteLink("Illustrations", "TheSaucisseFactory.Illustration", new { controller = "Illustration" })
+            <br />
+            @Html.RouteLink("Médias, publicités...", "TheSaucisseFactory.Media", new { controller = "Media" })
+        </div>
+        <div class="entities">
+            @Html.RouteLink("Gains d'EnergyCoins", "TheSaucisseFactory.GainEnergyCoin", new { controller = "GainEnergyCoin" })
+            @Html.RouteLink("Mesures", "TheSaucisseFactory.Mesure", new { controller = "Mesure" })
+        </div>
+    </li>
+</ol>

@@ -1,0 +1,7 @@
+@model dynamic
+@if ((Model != null) && (typeof(CodeFluent.Runtime.ICodeFluentEntity).IsAssignableFrom(Model.GetType()))) {
+    @Model.EntityDisplayName
+}
+else {
+    @Model
+}
