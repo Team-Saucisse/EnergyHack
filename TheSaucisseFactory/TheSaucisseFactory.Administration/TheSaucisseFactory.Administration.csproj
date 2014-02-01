@@ -147,7 +147,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Code\SessionHelper.cs" />
     <Compile Include="Code\Utilities.cs" />
+    <Compile Include="Controllers\Domain\AppartementController.cs" />
+    <Compile Include="Controllers\Domain\BatimentController.cs" />
+    <Compile Include="Controllers\Domain\ChallengeController.cs" />
+    <Compile Include="Controllers\Domain\CommerceController.cs" />
+    <Compile Include="Controllers\Domain\GainEnergyCoinController.cs" />
+    <Compile Include="Controllers\Domain\IllustrationController.cs" />
     <Compile Include="Controllers\Domain\MediaController.cs" />
+    <Compile Include="Controllers\Domain\MesureController.cs" />
     <Compile Include="Controllers\Domain\ResidenceController.cs" />
     <Compile Include="Controllers\EditorImageBrowserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -939,6 +946,27 @@
     <Content Include="Views\Domain\Media\Create.cshtml" />
     <Content Include="Views\Domain\Media\Edit.cshtml" />
     <Content Include="Views\Domain\Media\Index.cshtml" />
+    <Content Include="Views\Domain\Appartement\Create.cshtml" />
+    <Content Include="Views\Domain\Appartement\Edit.cshtml" />
+    <Content Include="Views\Domain\Appartement\Index.cshtml" />
+    <Content Include="Views\Domain\Batiment\Create.cshtml" />
+    <Content Include="Views\Domain\Batiment\Edit.cshtml" />
+    <Content Include="Views\Domain\Batiment\Index.cshtml" />
+    <Content Include="Views\Domain\Challenge\Create.cshtml" />
+    <Content Include="Views\Domain\Challenge\Edit.cshtml" />
+    <Content Include="Views\Domain\Challenge\Index.cshtml" />
+    <Content Include="Views\Domain\Commerce\Create.cshtml" />
+    <Content Include="Views\Domain\Commerce\Edit.cshtml" />
+    <Content Include="Views\Domain\Commerce\Index.cshtml" />
+    <Content Include="Views\Domain\GainEnergyCoin\Create.cshtml" />
+    <Content Include="Views\Domain\GainEnergyCoin\Edit.cshtml" />
+    <Content Include="Views\Domain\GainEnergyCoin\Index.cshtml" />
+    <Content Include="Views\Domain\Illustration\Create.cshtml" />
+    <Content Include="Views\Domain\Illustration\Edit.cshtml" />
+    <Content Include="Views\Domain\Illustration\Index.cshtml" />
+    <Content Include="Views\Domain\Mesure\Create.cshtml" />
+    <Content Include="Views\Domain\Mesure\Edit.cshtml" />
+    <Content Include="Views\Domain\Mesure\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

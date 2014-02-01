@@ -1,18 +1,18 @@
 ﻿<cf:project defaultNamespace="TheSaucisseFactory" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" xmlns:cfx="http://www.softfluent.com/codefluent/modeler/2008/1" xmlns:cfps="http://www.softfluent.com/codefluent/producers.sqlserver/2005/1" xmlns:cfom="http://www.softfluent.com/codefluent/producers.model/2005/1" xmlns:cfasp="http://www.softfluent.com/codefluent/producers.aspnet/2011/1" xmlns:uic="http://www.c2s.fr/codefluent/uicustomization/betterlife" defaultEntityTrackingModes="None" defaultViewTrackingModes="None" defaultTargetFramework="4.0" defaultConnectionString="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost" defaultConcurrencyMode="None" persistencePropertyNameFormat="{1}" createDefaultMethodForms="true" createDefaultApplication="false" createDefaultHints="false">
   <cf:import path="Default.Surface.cfp" />
-  <cf:producer enabled="true" name="SQL Azure" typeName="CodeFluent.Producers.SqlServer.SqlAzureProducer, CodeFluent.Producers.SqlServer" productionFlags="Default, Overwrite, RemoveDates">
+  <cf:producer enabled="false" name="SQL Azure" typeName="CodeFluent.Producers.SqlServer.SqlAzureProducer, CodeFluent.Producers.SqlServer" productionFlags="Default, Overwrite, RemoveDates">
     <cf:configuration
                       cfx:targetProjectLayout="None"
                       cfx:targetProject="..\TheSaucisseFactory.Persistence\TheSaucisseFactory.Persistence.sqlproj"
                       localConnectionString="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost\sqlexpress"
                       runLocalScripts="true"
-                      
+                      dropUnusedColumns="true"
                       produceOnline="true" onlineTargetDirectory="SqlAzureScripts"
                       onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
                       runOnlineScripts="true"
                       />
   </cf:producer>
-  <cf:producer enabled="false" name="ASP.NET Web Site MVC4"
+  <cf:producer enabled="true" name="ASP.NET Web Site MVC4"
                typeName="CodeFluent.Producers.UI.AspNetProducer, CodeFluent.Producers.UI"
                productionFlags="Default, Overwrite, RemoveDates" >
     <cf:configuration categoryPath="UI\AspNetMvc4"
@@ -22,7 +22,7 @@
                       templatesPath=".\Templates"
                       actions="CopyTemplatesFiles" />
   </cf:producer>
-  <cf:producer enabled="false" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom" productionFlags="Default, Overwrite, RemoveDates">
+  <cf:producer enabled="true" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom" productionFlags="Default, Overwrite, RemoveDates">
     <cf:configuration compileWithVisualStudio="true" compile="false" codeDomProviderTypeName="CSharp" targetDirectory="..\TheSaucisseFactory" cfx:targetProject="..\TheSaucisseFactory\TheSaucisseFactory.csproj" cfx:targetProjectLayout="None" produceWebMembershipUser="true" produceWebMembershipProvider="true">
       <subProducer typeName="CodeFluent.Producers.ServiceModel.ServiceProducer, CodeFluent.Producers.ServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" compileWithVisualStudio="true" compile="false" produceProxy="False" cfx:targetProjectLayout="None" />
     </cf:configuration>
@@ -59,37 +59,51 @@
 
   <cf:entity name="Residence" uic:searchEnabled="true" uic:displayName="Résidence" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
     <cf:property name="Id" uic:displayName="Id" key="true" />
-    <cf:property name="CamelId" uic:displayName="Id" typeName="string" />
+    <cf:property name="CamelId" uic:displayName="Id CAMEL" maxLength="10" >
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
     <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
-    <cf:property name="Batiments" uic:displayName="Bâtiments" typeName="BatimentCollection" >
+    <cf:property name="Batiments" uic:displayName="Bâtiments" typeName="BatimentCollection" relationPropertyName="Residence" >
     </cf:property>
   </cf:entity>
 
   <cf:entity name="Batiment" uic:searchEnabled="true" uic:displayName="Bâtiment" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
     <cf:property name="Id" uic:displayName="Id" key="true" />
-    <cf:property name="CamelId" uic:displayName="Id" typeName="string" />
+    <cf:property name="CamelId" uic:displayName="Id CAMEL" maxLength="10" >
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
     <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
-    <cf:property name="Residence" uic:displayName="Résidence" typeName="Residence" >
+    <cf:property name="Residence" uic:displayName="Résidence" typeName="Residence" relationPropertyName="Batiments">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
-    <cf:property name="Appartement" uic:displayName="Appartements" typeName="AppartementCollection" >
+    <cf:property name="Appartements" uic:displayName="Appartements" typeName="AppartementCollection" relationPropertyName="Batiment" >
     </cf:property>
   </cf:entity>
 
   <cf:entity name="Appartement" uic:searchEnabled="true" uic:displayName="Appartement" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
     <cf:property name="Id" uic:displayName="Id" key="true" />
-    <cf:property name="CamelId" uic:displayName="Id" typeName="string" >
-      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    <cf:property name="CamelId" uic:displayName="Id CAMEL" maxLength="10" >
+    <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
     <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
-    <cf:property name="Batiment" uic:displayName="Bâtiment" typeName="Residence" >
+    <cf:property name="Batiment" uic:displayName="Bâtiment" typeName="Batiment" relationPropertyName="Appartements" >
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Mesures" uic:displayName="Mesures" typeName="MesureCollection" relationPropertyName="Appartement" >
+    </cf:property>
+    <cf:property name="GainsEnergyCoin" uic:displayName="Tous les gains ECoins" typeName="GainEnergyCoinCollection" relationPropertyName="Appartement" >
+    </cf:property>
+    <cf:property name="Type" uic:displayName="Typologie" maxLength="10" >
+    </cf:property>
+    <cf:property name="Orientation" uic:displayName="Orientation" maxLength="10" >
+    </cf:property>
+    <cf:property name="SurfaceHabitable" uic:displayName="Orientation" typeName="double" >
     </cf:property>
   </cf:entity>
 
@@ -98,7 +112,9 @@
     <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
-    <cf:property name="Illustrations" uic:displayName="Illustrations" typeName="IllustrationCollection" >
+    <cf:property name="Illustrations" uic:displayName="Illustrations" typeName="IllustrationCollection" relationPropertyName="Challenge" >
+    </cf:property>
+    <cf:property name="GainsEnergyCoin" uic:displayName="Tous les gains ECoins" typeName="GainEnergyCoinCollection" relationPropertyName="Challenge" >
     </cf:property>
   </cf:entity>
 
@@ -112,11 +128,13 @@
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
       <cf:attribute name="BetterLife.BOM.RichTextMarker" />
     </cf:property>
+    <cf:property name="Challenge" uic:displayName="Challenge" typeName="Challenge" relationPropertyName="Illustrations" >
+    </cf:property>
   </cf:entity>
 
   <cf:entity name="GainEnergyCoin" uic:searchEnabled="false" uic:displayName="Gain d'ECoin" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
     <cf:property name="Id" uic:displayName="Id" key="true" />
-    <cf:property name="Appartement" uic:displayName="Appartement" typeName="Appartement">
+    <cf:property name="Appartement" uic:displayName="Appartement" typeName="Appartement" relationPropertyName="GainsEnergyCoin">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
     <cf:property name="Date" uic:displayName="Date du gain" typeName="DateTime">
@@ -124,9 +142,11 @@
     </cf:property>
     <cf:property name="Quantite" uic:displayName="Nombre d'ECoin gagnés" typeName="int">
     </cf:property>
+    <cf:property name="Challenge" uic:displayName="Challenge" typeName="Challenge" relationPropertyName="GainsEnergyCoin" >
+    </cf:property>
   </cf:entity>
 
-  <cf:entity name="Shop" uic:searchEnabled="true" uic:displayName="Fain d'ECoin" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+  <cf:entity name="Commerce" uic:searchEnabled="true" uic:displayName="Commerce" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
     <cf:property name="Id" uic:displayName="Id" key="true" />
     <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
@@ -134,10 +154,23 @@
     <cf:property name="Url" uic:displayName="Url du commerçant" maxLength="2000">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
-    <cf:property name="Residence" uic:displayName="Résidence" typeName="Residence" >
+    <cf:property name="Publicites" uic:displayName="Publicités" typeName="MediaCollection" relationPropertyName="Commerces">
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="Mesure" uic:searchEnabled="false" uic:displayName="Une mesure" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="Appartement" uic:displayName="Appartement" typeName="Appartement">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
-    <cf:property name="Publicites" uic:displayName="Publicités" typeName="MediaCollection">
+    <cf:property name="Type" uic:displayName="Type de mesure" maxLength="10">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Date" uic:displayName="Date de mesure" typeName="DateTime">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Valeur" uic:displayName="Valeur" typeName="double">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
   </cf:entity>
 
@@ -147,13 +180,13 @@
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
     <cf:property name="Rang" uic:displayName="Rang" typeName="int">
-      <cf:message class="_doc" cultureName="fr-FR">Permet de classer ce média quand il se trouve dans une collection</cf:message>
     </cf:property>
     <cf:property name="Fichier" uic:displayName="Fichier" typeName="file">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
     <cf:property name="Origine" uic:displayName="Origine" readOnly="true">
-      <cf:message class="_doc" cultureName="fr-FR">Chemin ou URL d'ou provient ce média</cf:message>
+    </cf:property>
+    <cf:property name="Commerces" uic:displayName="Commerces pour lesquels ceci est une pub" typeName="CommerceCollection" relationPropertyName="Publicites" readOnly="true">
     </cf:property>
     <cf:view persistent="false" name="GeneratedIndexView">
       <cf:viewProperty name="Nom" />

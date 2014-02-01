@@ -106,6 +106,26 @@ namespace TheSaucisseFactory.Services
             return TheSaucisseFactory.MediaCollection.LoadAll();
         }
         
+        public virtual TheSaucisseFactory.MediaCollection PageLoadPublicitesCommercesByCommerce(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, string commerceEntityKey)
+        {
+            if ((commerceEntityKey == null))
+            {
+                throw new System.ArgumentNullException("commerceEntityKey");
+            }
+            TheSaucisseFactory.Commerce commerce = TheSaucisseFactory.Commerce.LoadByEntityKey(commerceEntityKey);
+            return TheSaucisseFactory.MediaCollection.PageLoadPublicitesCommercesByCommerce(pageIndex, pageSize, pageOptions, commerce);
+        }
+        
+        public virtual TheSaucisseFactory.MediaCollection LoadPublicitesCommercesByCommerce(string commerceEntityKey)
+        {
+            if ((commerceEntityKey == null))
+            {
+                throw new System.ArgumentNullException("commerceEntityKey");
+            }
+            TheSaucisseFactory.Commerce commerce = TheSaucisseFactory.Commerce.LoadByEntityKey(commerceEntityKey);
+            return TheSaucisseFactory.MediaCollection.LoadPublicitesCommercesByCommerce(commerce);
+        }
+        
         public virtual CodeFluent.Runtime.BinaryServices.BinaryLargeObjectMessage LoadFichier(CodeFluent.Runtime.BinaryServices.BinaryLargeObjectMessage request)
         {
             if ((request == null))

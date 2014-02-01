@@ -13,6 +13,10 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Challe
 DROP TABLE [dbo].[Challenge]
 GO
 
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[Commerce]
+GO
+
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 DROP TABLE [dbo].[GainEnergyCoin]
 GO
@@ -25,35 +29,33 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media]
 DROP TABLE [dbo].[Media]
 GO
 
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Mesure]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[Mesure]
+GO
+
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Residence]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
 DROP TABLE [dbo].[Residence]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[Shop]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce_Publicites_Media_Commerces]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
+DROP TABLE [dbo].[Commerce_Publicites_Media_Commerces]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Batiment_Appartement_Appartement]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[Batiment_Appartement_Appartement]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Challenge_Illustrations_Illustration]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[Challenge_Illustrations_Illustration]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop_Publicites_Media]') AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-DROP TABLE [dbo].[Shop_Publicites_Media]
-GO
-
-/* no fk for 'PK_App_Id_App', tableName='Appartement' table='null' */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Mes_App_Id_App]') AND parent_obj = object_id(N'[dbo].[Mesure]'))
+ ALTER TABLE [dbo].[Mesure] DROP CONSTRAINT [FK_Mes_App_Id_App]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Gai_App_Id_App]') AND parent_obj = object_id(N'[dbo].[GainEnergyCoin]'))
+ ALTER TABLE [dbo].[GainEnergyCoin] DROP CONSTRAINT [FK_Gai_App_Id_App]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_App_Id_App]') AND parent_obj = object_id(N'[dbo].[Appartement]'))
  ALTER TABLE [dbo].[Appartement] DROP CONSTRAINT [PK_App_Id_App]
 GO
 CREATE TABLE [dbo].[Appartement] (
  [Id] [uniqueidentifier] NOT NULL,
- [CamelId] [nvarchar] (256) NULL,
+ [CamelId] [nvarchar] (10) NULL,
  [Nom] [nvarchar] (100) NULL,
  [Batiment_Id] [uniqueidentifier] NULL,
+ [Type] [nvarchar] (10) NULL,
+ [Orientation] [nvarchar] (10) NULL,
+ [SurfaceHabitable] [float] NULL,
  CONSTRAINT [PK_App_Id_App] PRIMARY KEY CLUSTERED
  (
 
@@ -62,13 +64,14 @@ CREATE TABLE [dbo].[Appartement] (
 )
 GO
 
-/* no fk for 'PK_Bat_Id_Bat', tableName='Batiment' table='null' */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_App_Bat_Id_Bat]') AND parent_obj = object_id(N'[dbo].[Appartement]'))
+ ALTER TABLE [dbo].[Appartement] DROP CONSTRAINT [FK_App_Bat_Id_Bat]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Bat_Id_Bat]') AND parent_obj = object_id(N'[dbo].[Batiment]'))
  ALTER TABLE [dbo].[Batiment] DROP CONSTRAINT [PK_Bat_Id_Bat]
 GO
 CREATE TABLE [dbo].[Batiment] (
  [Id] [uniqueidentifier] NOT NULL,
- [CamelId] [nvarchar] (256) NULL,
+ [CamelId] [nvarchar] (10) NULL,
  [Nom] [nvarchar] (100) NULL,
  [Residence_Id] [uniqueidentifier] NULL,
  CONSTRAINT [PK_Bat_Id_Bat] PRIMARY KEY CLUSTERED
@@ -79,7 +82,12 @@ CREATE TABLE [dbo].[Batiment] (
 )
 GO
 
-/* no fk for 'PK_Cha_Id_Cha', tableName='Challenge' table='null' */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Chl_Id_Id_Cha]') AND parent_obj = object_id(N'[dbo].[Challenge_Illustrations_Illustration]'))
+ ALTER TABLE [dbo].[Challenge_Illustrations_Illustration] DROP CONSTRAINT [FK_Chl_Id_Id_Cha]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Gai_Cha_Id_Cha]') AND parent_obj = object_id(N'[dbo].[GainEnergyCoin]'))
+ ALTER TABLE [dbo].[GainEnergyCoin] DROP CONSTRAINT [FK_Gai_Cha_Id_Cha]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Ill_Cha_Id_Cha]') AND parent_obj = object_id(N'[dbo].[Illustration]'))
+ ALTER TABLE [dbo].[Illustration] DROP CONSTRAINT [FK_Ill_Cha_Id_Cha]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Cha_Id_Cha]') AND parent_obj = object_id(N'[dbo].[Challenge]'))
  ALTER TABLE [dbo].[Challenge] DROP CONSTRAINT [PK_Cha_Id_Cha]
 GO
@@ -94,7 +102,24 @@ CREATE TABLE [dbo].[Challenge] (
 )
 GO
 
-/* no fk for 'PK_Gai_Id_Gai', tableName='GainEnergyCoin' table='null' */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Coe_Id_Id_Com]') AND parent_obj = object_id(N'[dbo].[Commerce_Publicites_Media_Commerces]'))
+ ALTER TABLE [dbo].[Commerce_Publicites_Media_Commerces] DROP CONSTRAINT [FK_Coe_Id_Id_Com]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Com_Id_Com]') AND parent_obj = object_id(N'[dbo].[Commerce]'))
+ ALTER TABLE [dbo].[Commerce] DROP CONSTRAINT [PK_Com_Id_Com]
+GO
+CREATE TABLE [dbo].[Commerce] (
+ [Id] [uniqueidentifier] NOT NULL,
+ [Nom] [nvarchar] (100) NULL,
+ [Url] [nvarchar] (2000) NULL,
+ CONSTRAINT [PK_Com_Id_Com] PRIMARY KEY CLUSTERED
+ (
+
+  [Id]
+ )
+)
+GO
+
+/* no fk for 'PK_Gai_Id_Gai', tableName='GainEnergyCoin' table='GainEnergyCoin' */
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Gai_Id_Gai]') AND parent_obj = object_id(N'[dbo].[GainEnergyCoin]'))
  ALTER TABLE [dbo].[GainEnergyCoin] DROP CONSTRAINT [PK_Gai_Id_Gai]
 GO
@@ -103,6 +128,7 @@ CREATE TABLE [dbo].[GainEnergyCoin] (
  [Appartement_Id] [uniqueidentifier] NULL,
  [Date] [datetime] NULL,
  [Quantite] [int] NULL,
+ [Challenge_Id] [uniqueidentifier] NULL,
  CONSTRAINT [PK_Gai_Id_Gai] PRIMARY KEY CLUSTERED
  (
 
@@ -111,7 +137,7 @@ CREATE TABLE [dbo].[GainEnergyCoin] (
 )
 GO
 
-/* no fk for 'PK_Ill_Id_Ill', tableName='Illustration' table='null' */
+/* no fk for 'PK_Ill_Id_Ill', tableName='Illustration' table='Illustration' */
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Ill_Id_Ill]') AND parent_obj = object_id(N'[dbo].[Illustration]'))
  ALTER TABLE [dbo].[Illustration] DROP CONSTRAINT [PK_Ill_Id_Ill]
 GO
@@ -119,6 +145,7 @@ CREATE TABLE [dbo].[Illustration] (
  [Id] [uniqueidentifier] NOT NULL,
  [Nom] [nvarchar] (100) NULL,
  [Contenu] [nvarchar] (max) NULL,
+ [Challenge_Id] [uniqueidentifier] NULL,
  CONSTRAINT [PK_Ill_Id_Ill] PRIMARY KEY CLUSTERED
  (
 
@@ -127,7 +154,8 @@ CREATE TABLE [dbo].[Illustration] (
 )
 GO
 
-/* no fk for 'PK_Med_Id_Med', tableName='Media' table='Media' */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Coe_Id2_Id_Med]') AND parent_obj = object_id(N'[dbo].[Commerce_Publicites_Media_Commerces]'))
+ ALTER TABLE [dbo].[Commerce_Publicites_Media_Commerces] DROP CONSTRAINT [FK_Coe_Id2_Id_Med]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Med_Id_Med]') AND parent_obj = object_id(N'[dbo].[Media]'))
  ALTER TABLE [dbo].[Media] DROP CONSTRAINT [PK_Med_Id_Med]
 GO
@@ -152,13 +180,32 @@ CREATE TABLE [dbo].[Media] (
 )
 GO
 
-/* no fk for 'PK_Res_Id_Res', tableName='Residence' table='Residence' */
+/* no fk for 'PK_Mes_Id_Mes', tableName='Mesure' table='Mesure' */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Mes_Id_Mes]') AND parent_obj = object_id(N'[dbo].[Mesure]'))
+ ALTER TABLE [dbo].[Mesure] DROP CONSTRAINT [PK_Mes_Id_Mes]
+GO
+CREATE TABLE [dbo].[Mesure] (
+ [Id] [uniqueidentifier] NOT NULL,
+ [Appartement_Id] [uniqueidentifier] NULL,
+ [Type] [nvarchar] (10) NULL,
+ [Date] [datetime] NULL,
+ [Valeur] [float] NULL,
+ CONSTRAINT [PK_Mes_Id_Mes] PRIMARY KEY CLUSTERED
+ (
+
+  [Id]
+ )
+)
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Bat_Res_Id_Res]') AND parent_obj = object_id(N'[dbo].[Batiment]'))
+ ALTER TABLE [dbo].[Batiment] DROP CONSTRAINT [FK_Bat_Res_Id_Res]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Res_Id_Res]') AND parent_obj = object_id(N'[dbo].[Residence]'))
  ALTER TABLE [dbo].[Residence] DROP CONSTRAINT [PK_Res_Id_Res]
 GO
 CREATE TABLE [dbo].[Residence] (
  [Id] [uniqueidentifier] NOT NULL,
- [CamelId] [nvarchar] (256) NULL,
+ [CamelId] [nvarchar] (10) NULL,
  [Nom] [nvarchar] (100) NULL,
  CONSTRAINT [PK_Res_Id_Res] PRIMARY KEY CLUSTERED
  (
@@ -168,63 +215,14 @@ CREATE TABLE [dbo].[Residence] (
 )
 GO
 
-/* no fk for 'PK_Sho_Id_Sho', tableName='Shop' table='null' */
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Sho_Id_Sho]') AND parent_obj = object_id(N'[dbo].[Shop]'))
- ALTER TABLE [dbo].[Shop] DROP CONSTRAINT [PK_Sho_Id_Sho]
+/* no fk for 'PK_Coe_Id_Id2_Coe', tableName='Commerce_Publicites_Media_Commerces' table='Commerce_Publicites_Media_Commerces' */
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Coe_Id_Id2_Coe]') AND parent_obj = object_id(N'[dbo].[Commerce_Publicites_Media_Commerces]'))
+ ALTER TABLE [dbo].[Commerce_Publicites_Media_Commerces] DROP CONSTRAINT [PK_Coe_Id_Id2_Coe]
 GO
-CREATE TABLE [dbo].[Shop] (
- [Id] [uniqueidentifier] NOT NULL,
- [Nom] [nvarchar] (100) NULL,
- [Url] [nvarchar] (2000) NULL,
- [Residence_Id] [uniqueidentifier] NULL,
- CONSTRAINT [PK_Sho_Id_Sho] PRIMARY KEY CLUSTERED
- (
-
-  [Id]
- )
-)
-GO
-
-/* no fk for 'PK_Bai_Id_Id2_Bai', tableName='Batiment_Appartement_Appartement' table='null' */
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Bai_Id_Id2_Bai]') AND parent_obj = object_id(N'[dbo].[Batiment_Appartement_Appartement]'))
- ALTER TABLE [dbo].[Batiment_Appartement_Appartement] DROP CONSTRAINT [PK_Bai_Id_Id2_Bai]
-GO
-CREATE TABLE [dbo].[Batiment_Appartement_Appartement] (
+CREATE TABLE [dbo].[Commerce_Publicites_Media_Commerces] (
  [Id] [uniqueidentifier] NOT NULL,
  [Id2] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_Bai_Id_Id2_Bai] PRIMARY KEY CLUSTERED
- (
-
-  [Id],
-  [Id2]
- )
-)
-GO
-
-/* no fk for 'PK_Chl_Id_Id2_Chl', tableName='Challenge_Illustrations_Illustration' table='null' */
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Chl_Id_Id2_Chl]') AND parent_obj = object_id(N'[dbo].[Challenge_Illustrations_Illustration]'))
- ALTER TABLE [dbo].[Challenge_Illustrations_Illustration] DROP CONSTRAINT [PK_Chl_Id_Id2_Chl]
-GO
-CREATE TABLE [dbo].[Challenge_Illustrations_Illustration] (
- [Id] [uniqueidentifier] NOT NULL,
- [Id2] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_Chl_Id_Id2_Chl] PRIMARY KEY CLUSTERED
- (
-
-  [Id],
-  [Id2]
- )
-)
-GO
-
-/* no fk for 'PK_Shp_Id_Id2_Shp', tableName='Shop_Publicites_Media' table='null' */
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Shp_Id_Id2_Shp]') AND parent_obj = object_id(N'[dbo].[Shop_Publicites_Media]'))
- ALTER TABLE [dbo].[Shop_Publicites_Media] DROP CONSTRAINT [PK_Shp_Id_Id2_Shp]
-GO
-CREATE TABLE [dbo].[Shop_Publicites_Media] (
- [Id] [uniqueidentifier] NOT NULL,
- [Id2] [uniqueidentifier] NOT NULL,
- CONSTRAINT [PK_Shp_Id_Id2_Shp] PRIMARY KEY CLUSTERED
+ CONSTRAINT [PK_Coe_Id_Id2_Coe] PRIMARY KEY CLUSTERED
  (
 
   [Id],

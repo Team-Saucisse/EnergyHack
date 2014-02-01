@@ -51,6 +51,30 @@ namespace TheSaucisseFactory.Administration
 
             routes.MapRoute("TheSaucisseFactory.Media", "Domain/Media/{controller}/{action}/{*params}",
                 new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.Appartement", "Domain/Appartement/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.Batiment", "Domain/Batiment/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.Challenge", "Domain/Challenge/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.Commerce", "Domain/Commerce/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.GainEnergyCoin", "Domain/GainEnergyCoin/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.Mesure", "Domain/Mesure/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.Residence", "Domain/Residence/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
+
+            routes.MapRoute("TheSaucisseFactory.Illustration", "Domain/Illustration/{controller}/{action}/{*params}",
+                new { controller = "Home", action = "Index" }, new string[] { "TheSaucisseFactory.Web" });
         }
 
         protected void Application_Start()

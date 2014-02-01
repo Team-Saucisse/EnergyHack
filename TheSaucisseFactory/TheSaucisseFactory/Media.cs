@@ -22,6 +22,7 @@ namespace TheSaucisseFactory
     [System.ComponentModel.TypeConverterAttribute(typeof(CodeFluent.Runtime.Design.NameTypeConverter))]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://schemas.thesaucissefactory.com")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CodeFluent.Runtime.CodeFluentRelationType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TheSaucisseFactory.Commerce))]
     public partial class Media : System.ICloneable, System.IComparable, System.IComparable<TheSaucisseFactory.Media>, CodeFluent.Runtime.ICodeFluentCollectionEntity<System.Guid>, System.ComponentModel.IDataErrorInfo, CodeFluent.Runtime.ICodeFluentMemberValidator, CodeFluent.Runtime.ICodeFluentSummaryValidator, System.IEquatable<TheSaucisseFactory.Media>
     {
         
@@ -39,6 +40,9 @@ namespace TheSaucisseFactory
         private string _origine = default(string);
         
         [System.NonSerializedAttribute()]
+        private TheSaucisseFactory.CommerceCollection _commerces;
+        
+        [System.NonSerializedAttribute()]
         private bool _isSerializing;
         
         [System.NonSerializedAttribute()]
@@ -51,6 +55,14 @@ public CodeFluent.Runtime.CodeFluentEntityState _entityState;
 #else
 [System.Runtime.Serialization.DataMemberAttribute(Order=2147483647)]
 private CodeFluent.Runtime.CodeFluentEntityState _entityState;
+#endif
+#if SILVERLIGHT
+[System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+[System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+public System.Collections.Hashtable _cf_rt_commercesRelations = null;
+#else
+[System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+private System.Collections.Hashtable _cf_rt_commercesRelations = null;
 #endif
         
         public Media()
@@ -152,7 +164,6 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
             }
         }
         
-        /// <summary>Permet de classer ce média quand il se trouve dans une collection</summary>
         [System.ComponentModel.DefaultValueAttribute(CodeFluentPersistence.DefaultInt32Value)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=false, Type=typeof(int))]
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=300)]
@@ -204,7 +215,6 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
             }
         }
         
-        /// <summary>Chemin ou URL d'ou provient ce média</summary>
         [System.ComponentModel.DefaultValueAttribute(default(string))]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Type=typeof(string))]
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=507)]
@@ -219,6 +229,25 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
                 this._origine = value;
                 this.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
                 this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Origine"));
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public TheSaucisseFactory.CommerceCollection Commerces
+        {
+            get
+            {
+                if ((this._commerces == null))
+                {
+                    if (((this.Id.Equals(CodeFluentPersistence.DefaultGuidValue) == true) 
+                                || (this.EntityState.Equals(CodeFluent.Runtime.CodeFluentEntityState.Created) == true)))
+                    {
+                        this._commerces = new TheSaucisseFactory.CommerceCollection(this);
+                        return this._commerces;
+                    }
+                    this._commerces = TheSaucisseFactory.CommerceCollection.LoadCommercesPublicitesByMedia(this);
+                }
+                return this._commerces;
             }
         }
         
@@ -341,6 +370,45 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
             TheSaucisseFactory.Media media = null;
 			media = obj as TheSaucisseFactory.Media;
             return this.Equals(media);
+        }
+        
+        internal void SaveCommercesRelations()
+        {
+            if ((this._commerces == null))
+            {
+                return;
+            }
+            System.Collections.IEnumerator enumerator = ((CodeFluent.Runtime.ICodeFluentSet)(this._commerces)).Relations.GetEnumerator();
+            bool b;
+            for (b = enumerator.MoveNext(); b; b = enumerator.MoveNext())
+            {
+                System.Collections.DictionaryEntry entry = ((System.Collections.DictionaryEntry)(enumerator.Current));
+                TheSaucisseFactory.Commerce commerce = ((TheSaucisseFactory.Commerce)(entry.Key));
+                CodeFluent.Runtime.CodeFluentRelationType relationType = ((CodeFluent.Runtime.CodeFluentRelationType)(entry.Value));
+                if (((relationType == CodeFluent.Runtime.CodeFluentRelationType.Added) 
+                            && ((commerce.EntityState == CodeFluent.Runtime.CodeFluentEntityState.ToBeUnlinked) 
+                            == false)))
+                {
+                    CodeFluent.Runtime.CodeFluentPersistence persistence = CodeFluentContext.Get(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName).Persistence;
+                    persistence.CreateStoredProcedureCommand(null, "Media", "SaveCommercePublicites");
+                    persistence.AddParameter("@Id", commerce.Id, CodeFluentPersistence.DefaultGuidValue);
+                    persistence.AddParameter("@Id2", this.Id, CodeFluentPersistence.DefaultGuidValue);
+                    persistence.ExecuteNonQuery();
+                }
+                else
+                {
+                    CodeFluent.Runtime.CodeFluentPersistence persistence1 = CodeFluentContext.Get(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName).Persistence;
+                    persistence1.CreateStoredProcedureCommand(null, "Media", "DeleteCommercePublicites");
+                    persistence1.AddParameter("@Id", commerce.Id, CodeFluentPersistence.DefaultGuidValue);
+                    persistence1.AddParameter("@Id2", this.Id, CodeFluentPersistence.DefaultGuidValue);
+                    persistence1.ExecuteNonQuery();
+                }
+                if ((commerce.EntityState == CodeFluent.Runtime.CodeFluentEntityState.ToBeUnlinked))
+                {
+                    commerce.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Unchanged;
+                }
+            }
+            ((CodeFluent.Runtime.ICodeFluentSet)(this._commerces)).Relations.Clear();
         }
         
         int System.IComparable.CompareTo(object value)
@@ -630,6 +698,7 @@ media = value as TheSaucisseFactory.Media;
                 }
                 persistence.CompleteCommand();
             }
+            this.SaveCommercesRelations();
             this.OnEntityAction(new CodeFluent.Runtime.CodeFluentEntityActionEventArgs(this, CodeFluent.Runtime.CodeFluentEntityAction.Saved, false, false));
             this.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Unchanged;
             return true;
@@ -705,6 +774,16 @@ media = value as TheSaucisseFactory.Media;
             writer.Write(",");
             writer.Write("Origine=");
             writer.Write(this.Origine);
+            writer.Write(",");
+            writer.Write("Commerces=");
+            if ((this._commerces != null))
+            {
+                ((CodeFluent.Runtime.ICodeFluentObject)(this._commerces)).Trace(writer);
+            }
+            else
+            {
+                writer.Write("<null>");
+            }
             writer.Write(", EntityState=");
             writer.Write(this.EntityState);
             writer.Write("]");
@@ -728,6 +807,47 @@ media = value as TheSaucisseFactory.Media;
             if ((this._fichier != null))
             {
                 media._fichier = this._fichier;
+            }
+        }
+        
+        public virtual void SetCommerces(System.Collections.IDictionary values)
+        {
+            if ((values == null))
+            {
+                throw new System.ArgumentNullException("values");
+            }
+            this.Commerces.Clear();
+            System.Collections.IEnumerator enumerator = values.GetEnumerator();
+            bool b;
+            for (b = enumerator.MoveNext(); b; b = enumerator.MoveNext())
+            {
+                System.Collections.DictionaryEntry entry = ((System.Collections.DictionaryEntry)(enumerator.Current));
+                if ((entry.Key != null))
+                {
+                    this.Commerces.AddByEntityKey(entry.Key.ToString());
+                }
+            }
+        }
+        
+        public virtual void SetCommerces(object values)
+        {
+            if ((values == null))
+            {
+                return;
+            }
+            System.Collections.IDictionary dictionary = null;
+dictionary = values as System.Collections.IDictionary;
+            if ((dictionary != null))
+            {
+                this.SetCommerces(dictionary);
+                return;
+            }
+            TheSaucisseFactory.CommerceCollection commerces = null;
+commerces = values as TheSaucisseFactory.CommerceCollection;
+            if ((commerces != null))
+            {
+                this._commerces = commerces;
+                return;
             }
         }
         
@@ -848,6 +968,14 @@ media = value as TheSaucisseFactory.Media;
         protected internal void OnEntityDeserialized(System.Runtime.Serialization.StreamingContext context)
         {
             this.IsDeserializing = false;
+            System.Collections.IDictionary relations;
+            if ((this._commerces == null))
+            {
+                this._commerces = new TheSaucisseFactory.CommerceCollection();
+            }
+            relations = ((CodeFluent.Runtime.ICodeFluentSet)(this._commerces)).Relations;
+            relations.Clear();
+            CodeFluent.Runtime.Utilities.ConvertUtilities.Copy(this._cf_rt_commercesRelations, relations);
         }
         
         [System.Runtime.Serialization.OnDeserializingAttribute()]

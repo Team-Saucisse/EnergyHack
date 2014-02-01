@@ -5,16 +5,8 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appart
 DROP PROCEDURE [dbo].[Appartement_Delete]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appartement_DeleteBatimentAppartement]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Appartement_DeleteBatimentAppartement]
-GO
-
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appartement_Save]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[Appartement_Save]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appartement_SaveBatimentAppartement]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Appartement_SaveBatimentAppartement]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Batiment_Delete]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
@@ -33,6 +25,14 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Challe
 DROP PROCEDURE [dbo].[Challenge_Save]
 GO
 
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce_Delete]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Commerce_Delete]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce_Save]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Commerce_Save]
+GO
+
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_Delete]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[GainEnergyCoin_Delete]
 GO
@@ -45,24 +45,16 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illust
 DROP PROCEDURE [dbo].[Illustration_Delete]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illustration_DeleteChallengeIllustrations]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Illustration_DeleteChallengeIllustrations]
-GO
-
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illustration_Save]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[Illustration_Save]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illustration_SaveChallengeIllustrations]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Illustration_SaveChallengeIllustrations]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_Delete]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[Media_Delete]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_DeleteShopPublicites]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Media_DeleteShopPublicites]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_DeleteCommercePublicites]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Media_DeleteCommercePublicites]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_LoadBlobFichier]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
@@ -81,8 +73,16 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_
 DROP PROCEDURE [dbo].[Media_SaveBlobFichier]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_SaveShopPublicites]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Media_SaveShopPublicites]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_SaveCommercePublicites]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Media_SaveCommercePublicites]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Mesure_Delete]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Mesure_Delete]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Mesure_Save]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Mesure_Save]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Residence_Delete]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
@@ -93,24 +93,12 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Reside
 DROP PROCEDURE [dbo].[Residence_Save]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop_Delete]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Shop_Delete]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop_Save]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Shop_Save]
-GO
-
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appartement_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[Appartement_Load]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appartement_LoadAll]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[Appartement_LoadAll]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appartement_LoadAppartementByBatiment]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Appartement_LoadAppartementByBatiment]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Appartement_LoadByBatiment]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
@@ -149,6 +137,22 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Challe
 DROP PROCEDURE [dbo].[Challenge_LoadById]
 GO
 
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Commerce_Load]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce_LoadAll]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Commerce_LoadAll]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce_LoadById]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Commerce_LoadById]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commerce_LoadCommercesPublicitesByMedia]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Commerce_LoadCommercesPublicitesByMedia]
+GO
+
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[GainEnergyCoin_Load]
 GO
@@ -159,6 +163,10 @@ GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_LoadByAppartement]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[GainEnergyCoin_LoadByAppartement]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_LoadByChallenge]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[GainEnergyCoin_LoadByChallenge]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_LoadById]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
@@ -173,12 +181,12 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illust
 DROP PROCEDURE [dbo].[Illustration_LoadAll]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illustration_LoadById]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Illustration_LoadById]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illustration_LoadByChallenge]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Illustration_LoadByChallenge]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illustration_LoadIllustrationsByChallenge]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Illustration_LoadIllustrationsByChallenge]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Illustration_LoadById]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Illustration_LoadById]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
@@ -193,8 +201,24 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_
 DROP PROCEDURE [dbo].[Media_LoadById]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_LoadPublicitesByShop]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Media_LoadPublicitesByShop]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Media_LoadPublicitesCommercesByCommerce]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Media_LoadPublicitesCommercesByCommerce]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Mesure_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Mesure_Load]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Mesure_LoadAll]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Mesure_LoadAll]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Mesure_LoadByAppartement]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Mesure_LoadByAppartement]
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Mesure_LoadById]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[Mesure_LoadById]
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Residence_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
@@ -207,22 +231,6 @@ GO
 
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Residence_LoadById]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[Residence_LoadById]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Shop_Load]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop_LoadAll]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Shop_LoadAll]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop_LoadById]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Shop_LoadById]
-GO
-
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Shop_LoadByResidence]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE [dbo].[Shop_LoadByResidence]
 GO
 
 CREATE PROCEDURE [dbo].[Appartement_Delete]
@@ -238,9 +246,15 @@ BEGIN
  SELECT @tran = 1
  BEGIN TRANSACTION
 END
-DELETE [Batiment_Appartement_Appartement] FROM [Batiment_Appartement_Appartement] 
-    WHERE ([Batiment_Appartement_Appartement].[Id2] = @Id)
+UPDATE [Mesure] SET
+ [Mesure].[Appartement_Id] = NULL
+    WHERE ([Mesure].[Appartement_Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF(@error != 0)
+BEGIN
+    IF @tran = 1 ROLLBACK TRANSACTION
+    RETURN
+END
 UPDATE [GainEnergyCoin] SET
  [GainEnergyCoin].[Appartement_Id] = NULL
     WHERE ([GainEnergyCoin].[Appartement_Id] = @Id)
@@ -258,34 +272,15 @@ IF @tran = 1 COMMIT TRANSACTION
 RETURN
 GO
 
-CREATE PROCEDURE [dbo].[Appartement_DeleteBatimentAppartement]
-(
- @Id [uniqueidentifier] = NULL,
- @Id2 [uniqueidentifier]
-)
-AS
-SET NOCOUNT ON
-DECLARE @error int, @rowcount int
-DECLARE @tran bit; SELECT @tran = 0
-IF @@TRANCOUNT = 0
-BEGIN
- SELECT @tran = 1
- BEGIN TRANSACTION
-END
-DELETE [Batiment_Appartement_Appartement] FROM [Batiment_Appartement_Appartement] 
-    WHERE (([Batiment_Appartement_Appartement].[Id2] = @Id2) AND ([Batiment_Appartement_Appartement].[Id] = @Id))
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF @tran = 1 COMMIT TRANSACTION
-
-RETURN
-GO
-
 CREATE PROCEDURE [dbo].[Appartement_Save]
 (
  @Id [uniqueidentifier],
- @CamelId [nvarchar] (256) = NULL,
+ @CamelId [nvarchar] (10) = NULL,
  @Nom [nvarchar] (100) = NULL,
- @Batiment_Id [uniqueidentifier] = NULL
+ @Batiment_Id [uniqueidentifier] = NULL,
+ @Type [nvarchar] (10) = NULL,
+ @Orientation [nvarchar] (10) = NULL,
+ @SurfaceHabitable [float] = NULL
 )
 AS
 SET NOCOUNT ON
@@ -299,7 +294,10 @@ END
 UPDATE [Appartement] SET
  [Appartement].[CamelId] = @CamelId,
  [Appartement].[Nom] = @Nom,
- [Appartement].[Batiment_Id] = @Batiment_Id
+ [Appartement].[Batiment_Id] = @Batiment_Id,
+ [Appartement].[Type] = @Type,
+ [Appartement].[Orientation] = @Orientation,
+ [Appartement].[SurfaceHabitable] = @SurfaceHabitable
     WHERE ([Appartement].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF(@error != 0)
@@ -313,55 +311,18 @@ BEGIN
         [Appartement].[Id],
         [Appartement].[CamelId],
         [Appartement].[Nom],
-        [Appartement].[Batiment_Id])
+        [Appartement].[Batiment_Id],
+        [Appartement].[Type],
+        [Appartement].[Orientation],
+        [Appartement].[SurfaceHabitable])
     VALUES (
         @Id,
         @CamelId,
         @Nom,
-        @Batiment_Id)
-    SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-    IF(@error != 0)
-    BEGIN
-        IF @tran = 1 ROLLBACK TRANSACTION
-        RETURN
-    END
-END
-IF @tran = 1 COMMIT TRANSACTION
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Appartement_SaveBatimentAppartement]
-(
- @Id [uniqueidentifier],
- @Id2 [uniqueidentifier]
-)
-AS
-SET NOCOUNT ON
-DECLARE @error int, @rowcount int
-DECLARE @tran bit; SELECT @tran = 0
-IF @@TRANCOUNT = 0
-BEGIN
- SELECT @tran = 1
- BEGIN TRANSACTION
-END
-SELECT DISTINCT TOP 1 [Batiment_Appartement_Appartement].[Id] 
-    FROM [Batiment_Appartement_Appartement] 
-    WHERE (([Batiment_Appartement_Appartement].[Id2] = @Id2) AND ([Batiment_Appartement_Appartement].[Id] = @Id))
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF(@error != 0)
-BEGIN
-    IF @tran = 1 ROLLBACK TRANSACTION
-    RETURN
-END
-IF(@rowcount = 0)
-BEGIN
-    INSERT INTO [Batiment_Appartement_Appartement] (
-        [Batiment_Appartement_Appartement].[Id],
-        [Batiment_Appartement_Appartement].[Id2])
-    VALUES (
-        @Id,
-        @Id2)
+        @Batiment_Id,
+        @Type,
+        @Orientation,
+        @SurfaceHabitable)
     SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
     IF(@error != 0)
     BEGIN
@@ -387,9 +348,15 @@ BEGIN
  SELECT @tran = 1
  BEGIN TRANSACTION
 END
-DELETE [Batiment_Appartement_Appartement] FROM [Batiment_Appartement_Appartement] 
-    WHERE ([Batiment_Appartement_Appartement].[Id] = @Id)
+UPDATE [Appartement] SET
+ [Appartement].[Batiment_Id] = NULL
+    WHERE ([Appartement].[Batiment_Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF(@error != 0)
+BEGIN
+    IF @tran = 1 ROLLBACK TRANSACTION
+    RETURN
+END
 DELETE [Batiment] FROM [Batiment] 
     WHERE ([Batiment].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
@@ -401,7 +368,7 @@ GO
 CREATE PROCEDURE [dbo].[Batiment_Save]
 (
  @Id [uniqueidentifier],
- @CamelId [nvarchar] (256) = NULL,
+ @CamelId [nvarchar] (10) = NULL,
  @Nom [nvarchar] (100) = NULL,
  @Residence_Id [uniqueidentifier] = NULL
 )
@@ -462,9 +429,24 @@ BEGIN
  SELECT @tran = 1
  BEGIN TRANSACTION
 END
-DELETE [Challenge_Illustrations_Illustration] FROM [Challenge_Illustrations_Illustration] 
-    WHERE ([Challenge_Illustrations_Illustration].[Id] = @Id)
+UPDATE [Illustration] SET
+ [Illustration].[Challenge_Id] = NULL
+    WHERE ([Illustration].[Challenge_Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF(@error != 0)
+BEGIN
+    IF @tran = 1 ROLLBACK TRANSACTION
+    RETURN
+END
+UPDATE [GainEnergyCoin] SET
+ [GainEnergyCoin].[Challenge_Id] = NULL
+    WHERE ([GainEnergyCoin].[Challenge_Id] = @Id)
+SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF(@error != 0)
+BEGIN
+    IF @tran = 1 ROLLBACK TRANSACTION
+    RETURN
+END
 DELETE [Challenge] FROM [Challenge] 
     WHERE ([Challenge].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
@@ -516,6 +498,77 @@ IF @tran = 1 COMMIT TRANSACTION
 RETURN
 GO
 
+CREATE PROCEDURE [dbo].[Commerce_Delete]
+(
+ @Id [uniqueidentifier]
+)
+AS
+SET NOCOUNT ON
+DECLARE @error int, @rowcount int
+DECLARE @tran bit; SELECT @tran = 0
+IF @@TRANCOUNT = 0
+BEGIN
+ SELECT @tran = 1
+ BEGIN TRANSACTION
+END
+DELETE [Commerce_Publicites_Media_Commerces] FROM [Commerce_Publicites_Media_Commerces] 
+    WHERE ([Commerce_Publicites_Media_Commerces].[Id] = @Id)
+SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+DELETE [Commerce] FROM [Commerce] 
+    WHERE ([Commerce].[Id] = @Id)
+SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF @tran = 1 COMMIT TRANSACTION
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Commerce_Save]
+(
+ @Id [uniqueidentifier],
+ @Nom [nvarchar] (100) = NULL,
+ @Url [nvarchar] (2000) = NULL
+)
+AS
+SET NOCOUNT ON
+DECLARE @error int, @rowcount int
+DECLARE @tran bit; SELECT @tran = 0
+IF @@TRANCOUNT = 0
+BEGIN
+ SELECT @tran = 1
+ BEGIN TRANSACTION
+END
+UPDATE [Commerce] SET
+ [Commerce].[Nom] = @Nom,
+ [Commerce].[Url] = @Url
+    WHERE ([Commerce].[Id] = @Id)
+SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF(@error != 0)
+BEGIN
+    IF @tran = 1 ROLLBACK TRANSACTION
+    RETURN
+END
+IF(@rowcount = 0)
+BEGIN
+    INSERT INTO [Commerce] (
+        [Commerce].[Id],
+        [Commerce].[Nom],
+        [Commerce].[Url])
+    VALUES (
+        @Id,
+        @Nom,
+        @Url)
+    SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+    IF(@error != 0)
+    BEGIN
+        IF @tran = 1 ROLLBACK TRANSACTION
+        RETURN
+    END
+END
+IF @tran = 1 COMMIT TRANSACTION
+
+RETURN
+GO
+
 CREATE PROCEDURE [dbo].[GainEnergyCoin_Delete]
 (
  @Id [uniqueidentifier]
@@ -542,7 +595,8 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_Save]
  @Id [uniqueidentifier],
  @Appartement_Id [uniqueidentifier] = NULL,
  @Date [datetime] = NULL,
- @Quantite [int] = NULL
+ @Quantite [int] = NULL,
+ @Challenge_Id [uniqueidentifier] = NULL
 )
 AS
 SET NOCOUNT ON
@@ -556,7 +610,8 @@ END
 UPDATE [GainEnergyCoin] SET
  [GainEnergyCoin].[Appartement_Id] = @Appartement_Id,
  [GainEnergyCoin].[Date] = @Date,
- [GainEnergyCoin].[Quantite] = @Quantite
+ [GainEnergyCoin].[Quantite] = @Quantite,
+ [GainEnergyCoin].[Challenge_Id] = @Challenge_Id
     WHERE ([GainEnergyCoin].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF(@error != 0)
@@ -570,12 +625,14 @@ BEGIN
         [GainEnergyCoin].[Id],
         [GainEnergyCoin].[Appartement_Id],
         [GainEnergyCoin].[Date],
-        [GainEnergyCoin].[Quantite])
+        [GainEnergyCoin].[Quantite],
+        [GainEnergyCoin].[Challenge_Id])
     VALUES (
         @Id,
         @Appartement_Id,
         @Date,
-        @Quantite)
+        @Quantite,
+        @Challenge_Id)
     SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
     IF(@error != 0)
     BEGIN
@@ -601,33 +658,8 @@ BEGIN
  SELECT @tran = 1
  BEGIN TRANSACTION
 END
-DELETE [Challenge_Illustrations_Illustration] FROM [Challenge_Illustrations_Illustration] 
-    WHERE ([Challenge_Illustrations_Illustration].[Id2] = @Id)
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 DELETE [Illustration] FROM [Illustration] 
     WHERE ([Illustration].[Id] = @Id)
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF @tran = 1 COMMIT TRANSACTION
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Illustration_DeleteChallengeIllustrations]
-(
- @Id [uniqueidentifier] = NULL,
- @Id2 [uniqueidentifier]
-)
-AS
-SET NOCOUNT ON
-DECLARE @error int, @rowcount int
-DECLARE @tran bit; SELECT @tran = 0
-IF @@TRANCOUNT = 0
-BEGIN
- SELECT @tran = 1
- BEGIN TRANSACTION
-END
-DELETE [Challenge_Illustrations_Illustration] FROM [Challenge_Illustrations_Illustration] 
-    WHERE (([Challenge_Illustrations_Illustration].[Id2] = @Id2) AND ([Challenge_Illustrations_Illustration].[Id] = @Id))
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF @tran = 1 COMMIT TRANSACTION
 
@@ -638,7 +670,8 @@ CREATE PROCEDURE [dbo].[Illustration_Save]
 (
  @Id [uniqueidentifier],
  @Nom [nvarchar] (100) = NULL,
- @Contenu [nvarchar] (max) = NULL
+ @Contenu [nvarchar] (max) = NULL,
+ @Challenge_Id [uniqueidentifier] = NULL
 )
 AS
 SET NOCOUNT ON
@@ -651,7 +684,8 @@ BEGIN
 END
 UPDATE [Illustration] SET
  [Illustration].[Nom] = @Nom,
- [Illustration].[Contenu] = @Contenu
+ [Illustration].[Contenu] = @Contenu,
+ [Illustration].[Challenge_Id] = @Challenge_Id
     WHERE ([Illustration].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF(@error != 0)
@@ -664,54 +698,13 @@ BEGIN
     INSERT INTO [Illustration] (
         [Illustration].[Id],
         [Illustration].[Nom],
-        [Illustration].[Contenu])
+        [Illustration].[Contenu],
+        [Illustration].[Challenge_Id])
     VALUES (
         @Id,
         @Nom,
-        @Contenu)
-    SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-    IF(@error != 0)
-    BEGIN
-        IF @tran = 1 ROLLBACK TRANSACTION
-        RETURN
-    END
-END
-IF @tran = 1 COMMIT TRANSACTION
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Illustration_SaveChallengeIllustrations]
-(
- @Id [uniqueidentifier],
- @Id2 [uniqueidentifier]
-)
-AS
-SET NOCOUNT ON
-DECLARE @error int, @rowcount int
-DECLARE @tran bit; SELECT @tran = 0
-IF @@TRANCOUNT = 0
-BEGIN
- SELECT @tran = 1
- BEGIN TRANSACTION
-END
-SELECT DISTINCT TOP 1 [Challenge_Illustrations_Illustration].[Id] 
-    FROM [Challenge_Illustrations_Illustration] 
-    WHERE (([Challenge_Illustrations_Illustration].[Id2] = @Id2) AND ([Challenge_Illustrations_Illustration].[Id] = @Id))
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF(@error != 0)
-BEGIN
-    IF @tran = 1 ROLLBACK TRANSACTION
-    RETURN
-END
-IF(@rowcount = 0)
-BEGIN
-    INSERT INTO [Challenge_Illustrations_Illustration] (
-        [Challenge_Illustrations_Illustration].[Id],
-        [Challenge_Illustrations_Illustration].[Id2])
-    VALUES (
-        @Id,
-        @Id2)
+        @Contenu,
+        @Challenge_Id)
     SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
     IF(@error != 0)
     BEGIN
@@ -737,8 +730,8 @@ BEGIN
  SELECT @tran = 1
  BEGIN TRANSACTION
 END
-DELETE [Shop_Publicites_Media] FROM [Shop_Publicites_Media] 
-    WHERE ([Shop_Publicites_Media].[Id2] = @Id)
+DELETE [Commerce_Publicites_Media_Commerces] FROM [Commerce_Publicites_Media_Commerces] 
+    WHERE ([Commerce_Publicites_Media_Commerces].[Id2] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 DELETE [Media] FROM [Media] 
     WHERE ([Media].[Id] = @Id)
@@ -748,7 +741,7 @@ IF @tran = 1 COMMIT TRANSACTION
 RETURN
 GO
 
-CREATE PROCEDURE [dbo].[Media_DeleteShopPublicites]
+CREATE PROCEDURE [dbo].[Media_DeleteCommercePublicites]
 (
  @Id [uniqueidentifier] = NULL,
  @Id2 [uniqueidentifier]
@@ -762,8 +755,8 @@ BEGIN
  SELECT @tran = 1
  BEGIN TRANSACTION
 END
-DELETE [Shop_Publicites_Media] FROM [Shop_Publicites_Media] 
-    WHERE (([Shop_Publicites_Media].[Id2] = @Id2) AND ([Shop_Publicites_Media].[Id] = @Id))
+DELETE [Commerce_Publicites_Media_Commerces] FROM [Commerce_Publicites_Media_Commerces] 
+    WHERE (([Commerce_Publicites_Media_Commerces].[Id2] = @Id2) AND ([Commerce_Publicites_Media_Commerces].[Id] = @Id))
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF @tran = 1 COMMIT TRANSACTION
 
@@ -947,7 +940,7 @@ IF @tran = 1 COMMIT TRANSACTION
 RETURN
 GO
 
-CREATE PROCEDURE [dbo].[Media_SaveShopPublicites]
+CREATE PROCEDURE [dbo].[Media_SaveCommercePublicites]
 (
  @Id [uniqueidentifier],
  @Id2 [uniqueidentifier]
@@ -961,9 +954,9 @@ BEGIN
  SELECT @tran = 1
  BEGIN TRANSACTION
 END
-SELECT DISTINCT TOP 1 [Shop_Publicites_Media].[Id] 
-    FROM [Shop_Publicites_Media] 
-    WHERE (([Shop_Publicites_Media].[Id2] = @Id2) AND ([Shop_Publicites_Media].[Id] = @Id))
+SELECT DISTINCT TOP 1 [Commerce_Publicites_Media_Commerces].[Id] 
+    FROM [Commerce_Publicites_Media_Commerces] 
+    WHERE (([Commerce_Publicites_Media_Commerces].[Id2] = @Id2) AND ([Commerce_Publicites_Media_Commerces].[Id] = @Id))
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF(@error != 0)
 BEGIN
@@ -972,12 +965,88 @@ BEGIN
 END
 IF(@rowcount = 0)
 BEGIN
-    INSERT INTO [Shop_Publicites_Media] (
-        [Shop_Publicites_Media].[Id],
-        [Shop_Publicites_Media].[Id2])
+    INSERT INTO [Commerce_Publicites_Media_Commerces] (
+        [Commerce_Publicites_Media_Commerces].[Id],
+        [Commerce_Publicites_Media_Commerces].[Id2])
     VALUES (
         @Id,
         @Id2)
+    SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+    IF(@error != 0)
+    BEGIN
+        IF @tran = 1 ROLLBACK TRANSACTION
+        RETURN
+    END
+END
+IF @tran = 1 COMMIT TRANSACTION
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Mesure_Delete]
+(
+ @Id [uniqueidentifier]
+)
+AS
+SET NOCOUNT ON
+DECLARE @error int, @rowcount int
+DECLARE @tran bit; SELECT @tran = 0
+IF @@TRANCOUNT = 0
+BEGIN
+ SELECT @tran = 1
+ BEGIN TRANSACTION
+END
+DELETE [Mesure] FROM [Mesure] 
+    WHERE ([Mesure].[Id] = @Id)
+SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF @tran = 1 COMMIT TRANSACTION
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Mesure_Save]
+(
+ @Id [uniqueidentifier],
+ @Appartement_Id [uniqueidentifier] = NULL,
+ @Type [nvarchar] (10) = NULL,
+ @Date [datetime] = NULL,
+ @Valeur [float] = NULL
+)
+AS
+SET NOCOUNT ON
+DECLARE @error int, @rowcount int
+DECLARE @tran bit; SELECT @tran = 0
+IF @@TRANCOUNT = 0
+BEGIN
+ SELECT @tran = 1
+ BEGIN TRANSACTION
+END
+UPDATE [Mesure] SET
+ [Mesure].[Appartement_Id] = @Appartement_Id,
+ [Mesure].[Type] = @Type,
+ [Mesure].[Date] = @Date,
+ [Mesure].[Valeur] = @Valeur
+    WHERE ([Mesure].[Id] = @Id)
+SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
+IF(@error != 0)
+BEGIN
+    IF @tran = 1 ROLLBACK TRANSACTION
+    RETURN
+END
+IF(@rowcount = 0)
+BEGIN
+    INSERT INTO [Mesure] (
+        [Mesure].[Id],
+        [Mesure].[Appartement_Id],
+        [Mesure].[Type],
+        [Mesure].[Date],
+        [Mesure].[Valeur])
+    VALUES (
+        @Id,
+        @Appartement_Id,
+        @Type,
+        @Date,
+        @Valeur)
     SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
     IF(@error != 0)
     BEGIN
@@ -1012,24 +1081,6 @@ BEGIN
     IF @tran = 1 ROLLBACK TRANSACTION
     RETURN
 END
-UPDATE [Appartement] SET
- [Appartement].[Batiment_Id] = NULL
-    WHERE ([Appartement].[Batiment_Id] = @Id)
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF(@error != 0)
-BEGIN
-    IF @tran = 1 ROLLBACK TRANSACTION
-    RETURN
-END
-UPDATE [Shop] SET
- [Shop].[Residence_Id] = NULL
-    WHERE ([Shop].[Residence_Id] = @Id)
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF(@error != 0)
-BEGIN
-    IF @tran = 1 ROLLBACK TRANSACTION
-    RETURN
-END
 DELETE [Residence] FROM [Residence] 
     WHERE ([Residence].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
@@ -1041,7 +1092,7 @@ GO
 CREATE PROCEDURE [dbo].[Residence_Save]
 (
  @Id [uniqueidentifier],
- @CamelId [nvarchar] (256) = NULL,
+ @CamelId [nvarchar] (10) = NULL,
  @Nom [nvarchar] (100) = NULL
 )
 AS
@@ -1085,88 +1136,13 @@ IF @tran = 1 COMMIT TRANSACTION
 RETURN
 GO
 
-CREATE PROCEDURE [dbo].[Shop_Delete]
-(
- @Id [uniqueidentifier]
-)
-AS
-SET NOCOUNT ON
-DECLARE @error int, @rowcount int
-DECLARE @tran bit; SELECT @tran = 0
-IF @@TRANCOUNT = 0
-BEGIN
- SELECT @tran = 1
- BEGIN TRANSACTION
-END
-DELETE [Shop_Publicites_Media] FROM [Shop_Publicites_Media] 
-    WHERE ([Shop_Publicites_Media].[Id] = @Id)
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-DELETE [Shop] FROM [Shop] 
-    WHERE ([Shop].[Id] = @Id)
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF @tran = 1 COMMIT TRANSACTION
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Shop_Save]
-(
- @Id [uniqueidentifier],
- @Nom [nvarchar] (100) = NULL,
- @Url [nvarchar] (2000) = NULL,
- @Residence_Id [uniqueidentifier] = NULL
-)
-AS
-SET NOCOUNT ON
-DECLARE @error int, @rowcount int
-DECLARE @tran bit; SELECT @tran = 0
-IF @@TRANCOUNT = 0
-BEGIN
- SELECT @tran = 1
- BEGIN TRANSACTION
-END
-UPDATE [Shop] SET
- [Shop].[Nom] = @Nom,
- [Shop].[Url] = @Url,
- [Shop].[Residence_Id] = @Residence_Id
-    WHERE ([Shop].[Id] = @Id)
-SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-IF(@error != 0)
-BEGIN
-    IF @tran = 1 ROLLBACK TRANSACTION
-    RETURN
-END
-IF(@rowcount = 0)
-BEGIN
-    INSERT INTO [Shop] (
-        [Shop].[Id],
-        [Shop].[Nom],
-        [Shop].[Url],
-        [Shop].[Residence_Id])
-    VALUES (
-        @Id,
-        @Nom,
-        @Url,
-        @Residence_Id)
-    SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
-    IF(@error != 0)
-    BEGIN
-        IF @tran = 1 ROLLBACK TRANSACTION
-        RETURN
-    END
-END
-IF @tran = 1 COMMIT TRANSACTION
-
-RETURN
-GO
-
 CREATE PROCEDURE [dbo].[Appartement_Load]
 (
  @Id [uniqueidentifier]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id] 
+SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
     FROM [Appartement] 
     WHERE ([Appartement].[Id] = @Id)
 
@@ -1180,31 +1156,8 @@ CREATE PROCEDURE [dbo].[Appartement_LoadAll]
 )
 AS
 SET NOCOUNT ON
-SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id] 
+SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
     FROM [Appartement] 
-    ORDER BY CASE
-        WHEN @_orderBy0 = '[Appartement].[Nom]' AND @_orderByDirection0 = 0 THEN [Appartement].[Nom]
-    END ASC,
-    CASE
-        WHEN @_orderBy0 = '[Appartement].[Nom]' AND @_orderByDirection0 = 1 THEN [Appartement].[Nom]
-    END DESC
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Appartement_LoadAppartementByBatiment]
-(
- @BatimentId [uniqueidentifier],
- @_orderBy0 [nvarchar] (64) = NULL,
- @_orderByDirection0 [bit] = 0
-)
-AS
-SET NOCOUNT ON
-SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id] 
-    FROM [Appartement]
-        LEFT OUTER JOIN [Batiment_Appartement_Appartement] ON ([Appartement].[Id] = [Batiment_Appartement_Appartement].[Id2])
-                LEFT OUTER JOIN [Batiment] ON ([Batiment_Appartement_Appartement].[Id] = [Batiment].[Id]) 
-    WHERE ([Batiment_Appartement_Appartement].[Id] = @BatimentId)
     ORDER BY CASE
         WHEN @_orderBy0 = '[Appartement].[Nom]' AND @_orderByDirection0 = 0 THEN [Appartement].[Nom]
     END ASC,
@@ -1223,7 +1176,7 @@ CREATE PROCEDURE [dbo].[Appartement_LoadByBatiment]
 )
 AS
 SET NOCOUNT ON
-SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id] 
+SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
     FROM [Appartement] 
     WHERE ([Appartement].[Batiment_Id] = @BatimentId)
     ORDER BY CASE
@@ -1242,7 +1195,7 @@ CREATE PROCEDURE [dbo].[Appartement_LoadById]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id] 
+SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
     FROM [Appartement] 
     WHERE ([Appartement].[Id] = @Id)
 
@@ -1360,13 +1313,81 @@ SELECT DISTINCT [Challenge].[Id], [Challenge].[Nom]
 RETURN
 GO
 
+CREATE PROCEDURE [dbo].[Commerce_Load]
+(
+ @Id [uniqueidentifier]
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [Commerce].[Id], [Commerce].[Nom], [Commerce].[Url] 
+    FROM [Commerce] 
+    WHERE ([Commerce].[Id] = @Id)
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Commerce_LoadAll]
+(
+ @_orderBy0 [nvarchar] (64) = NULL,
+ @_orderByDirection0 [bit] = 0
+)
+AS
+SET NOCOUNT ON
+SELECT [Commerce].[Id], [Commerce].[Nom], [Commerce].[Url] 
+    FROM [Commerce] 
+    ORDER BY CASE
+        WHEN @_orderBy0 = '[Commerce].[Nom]' AND @_orderByDirection0 = 0 THEN [Commerce].[Nom]
+    END ASC,
+    CASE
+        WHEN @_orderBy0 = '[Commerce].[Nom]' AND @_orderByDirection0 = 1 THEN [Commerce].[Nom]
+    END DESC
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Commerce_LoadById]
+(
+ @Id [uniqueidentifier]
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [Commerce].[Id], [Commerce].[Nom], [Commerce].[Url] 
+    FROM [Commerce] 
+    WHERE ([Commerce].[Id] = @Id)
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Commerce_LoadCommercesPublicitesByMedia]
+(
+ @MediaId [uniqueidentifier],
+ @_orderBy0 [nvarchar] (64) = NULL,
+ @_orderByDirection0 [bit] = 0
+)
+AS
+SET NOCOUNT ON
+SELECT [Commerce].[Id], [Commerce].[Nom], [Commerce].[Url] 
+    FROM [Commerce]
+        LEFT OUTER JOIN [Commerce_Publicites_Media_Commerces] ON ([Commerce].[Id] = [Commerce_Publicites_Media_Commerces].[Id])
+                LEFT OUTER JOIN [Media] ON ([Commerce_Publicites_Media_Commerces].[Id2] = [Media].[Id]) 
+    WHERE ([Commerce_Publicites_Media_Commerces].[Id2] = @MediaId)
+    ORDER BY CASE
+        WHEN @_orderBy0 = '[Commerce].[Nom]' AND @_orderByDirection0 = 0 THEN [Commerce].[Nom]
+    END ASC,
+    CASE
+        WHEN @_orderBy0 = '[Commerce].[Nom]' AND @_orderByDirection0 = 1 THEN [Commerce].[Nom]
+    END DESC
+
+RETURN
+GO
+
 CREATE PROCEDURE [dbo].[GainEnergyCoin_Load]
 (
  @Id [uniqueidentifier]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Id] = @Id)
 
@@ -1380,7 +1401,7 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadAll]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
     FROM [GainEnergyCoin] 
 
 RETURN
@@ -1394,9 +1415,24 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadByAppartement]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Appartement_Id] = @AppartementId)
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadByChallenge]
+(
+ @ChallengeId [uniqueidentifier],
+ @_orderBy0 [nvarchar] (64) = NULL,
+ @_orderByDirection0 [bit] = 0
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
+    FROM [GainEnergyCoin] 
+    WHERE ([GainEnergyCoin].[Challenge_Id] = @ChallengeId)
 
 RETURN
 GO
@@ -1407,7 +1443,7 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadById]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Id] = @Id)
 
@@ -1420,7 +1456,7 @@ CREATE PROCEDURE [dbo].[Illustration_Load]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu] 
+SELECT DISTINCT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu], [Illustration].[Challenge_Id] 
     FROM [Illustration] 
     WHERE ([Illustration].[Id] = @Id)
 
@@ -1434,8 +1470,29 @@ CREATE PROCEDURE [dbo].[Illustration_LoadAll]
 )
 AS
 SET NOCOUNT ON
-SELECT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu] 
+SELECT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu], [Illustration].[Challenge_Id] 
     FROM [Illustration] 
+    ORDER BY CASE
+        WHEN @_orderBy0 = '[Illustration].[Nom]' AND @_orderByDirection0 = 0 THEN [Illustration].[Nom]
+    END ASC,
+    CASE
+        WHEN @_orderBy0 = '[Illustration].[Nom]' AND @_orderByDirection0 = 1 THEN [Illustration].[Nom]
+    END DESC
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Illustration_LoadByChallenge]
+(
+ @ChallengeId [uniqueidentifier],
+ @_orderBy0 [nvarchar] (64) = NULL,
+ @_orderByDirection0 [bit] = 0
+)
+AS
+SET NOCOUNT ON
+SELECT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu], [Illustration].[Challenge_Id] 
+    FROM [Illustration] 
+    WHERE ([Illustration].[Challenge_Id] = @ChallengeId)
     ORDER BY CASE
         WHEN @_orderBy0 = '[Illustration].[Nom]' AND @_orderByDirection0 = 0 THEN [Illustration].[Nom]
     END ASC,
@@ -1452,32 +1509,9 @@ CREATE PROCEDURE [dbo].[Illustration_LoadById]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu] 
+SELECT DISTINCT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu], [Illustration].[Challenge_Id] 
     FROM [Illustration] 
     WHERE ([Illustration].[Id] = @Id)
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Illustration_LoadIllustrationsByChallenge]
-(
- @ChallengeId [uniqueidentifier],
- @_orderBy0 [nvarchar] (64) = NULL,
- @_orderByDirection0 [bit] = 0
-)
-AS
-SET NOCOUNT ON
-SELECT [Illustration].[Id], [Illustration].[Nom], [Illustration].[Contenu] 
-    FROM [Illustration]
-        LEFT OUTER JOIN [Challenge_Illustrations_Illustration] ON ([Illustration].[Id] = [Challenge_Illustrations_Illustration].[Id2])
-                LEFT OUTER JOIN [Challenge] ON ([Challenge_Illustrations_Illustration].[Id] = [Challenge].[Id]) 
-    WHERE ([Challenge_Illustrations_Illustration].[Id] = @ChallengeId)
-    ORDER BY CASE
-        WHEN @_orderBy0 = '[Illustration].[Nom]' AND @_orderByDirection0 = 0 THEN [Illustration].[Nom]
-    END ASC,
-    CASE
-        WHEN @_orderBy0 = '[Illustration].[Nom]' AND @_orderByDirection0 = 1 THEN [Illustration].[Nom]
-    END DESC
 
 RETURN
 GO
@@ -1521,9 +1555,9 @@ SELECT DISTINCT [Media].[Id], [Media].[Nom], [Media].[Rang], [Media].[Fichier_Fi
 RETURN
 GO
 
-CREATE PROCEDURE [dbo].[Media_LoadPublicitesByShop]
+CREATE PROCEDURE [dbo].[Media_LoadPublicitesCommercesByCommerce]
 (
- @ShopId [uniqueidentifier],
+ @CommerceId [uniqueidentifier],
  @_orderBy0 [nvarchar] (64) = NULL,
  @_orderByDirection0 [bit] = 0
 )
@@ -1531,9 +1565,63 @@ AS
 SET NOCOUNT ON
 SELECT DISTINCT [Media].[Id], [Media].[Nom], [Media].[Rang], [Media].[Fichier_FileName], [Media].[Fichier_ContentType], [Media].[Fichier_Attributes], [Media].[Fichier_Size], [Media].[Fichier_LastWriteTimeUtc], [Media].[Fichier_LastAccessTimeUtc], [Media].[Fichier_CreationTimeUtc], [Media].[Origine] 
     FROM [Media]
-        LEFT OUTER JOIN [Shop_Publicites_Media] ON ([Media].[Id] = [Shop_Publicites_Media].[Id2])
-                LEFT OUTER JOIN [Shop] ON ([Shop_Publicites_Media].[Id] = [Shop].[Id]) 
-    WHERE ([Shop_Publicites_Media].[Id] = @ShopId)
+        LEFT OUTER JOIN [Commerce_Publicites_Media_Commerces] ON ([Media].[Id] = [Commerce_Publicites_Media_Commerces].[Id2])
+                LEFT OUTER JOIN [Commerce] ON ([Commerce_Publicites_Media_Commerces].[Id] = [Commerce].[Id]) 
+    WHERE ([Commerce_Publicites_Media_Commerces].[Id] = @CommerceId)
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Mesure_Load]
+(
+ @Id [uniqueidentifier]
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [Mesure].[Id], [Mesure].[Appartement_Id], [Mesure].[Type], [Mesure].[Date], [Mesure].[Valeur] 
+    FROM [Mesure] 
+    WHERE ([Mesure].[Id] = @Id)
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Mesure_LoadAll]
+(
+ @_orderBy0 [nvarchar] (64) = NULL,
+ @_orderByDirection0 [bit] = 0
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [Mesure].[Id], [Mesure].[Appartement_Id], [Mesure].[Type], [Mesure].[Date], [Mesure].[Valeur] 
+    FROM [Mesure] 
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Mesure_LoadByAppartement]
+(
+ @AppartementId [uniqueidentifier],
+ @_orderBy0 [nvarchar] (64) = NULL,
+ @_orderByDirection0 [bit] = 0
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [Mesure].[Id], [Mesure].[Appartement_Id], [Mesure].[Type], [Mesure].[Date], [Mesure].[Valeur] 
+    FROM [Mesure] 
+    WHERE ([Mesure].[Appartement_Id] = @AppartementId)
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[Mesure_LoadById]
+(
+ @Id [uniqueidentifier]
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [Mesure].[Id], [Mesure].[Appartement_Id], [Mesure].[Type], [Mesure].[Date], [Mesure].[Valeur] 
+    FROM [Mesure] 
+    WHERE ([Mesure].[Id] = @Id)
 
 RETURN
 GO
@@ -1579,72 +1667,6 @@ SET NOCOUNT ON
 SELECT DISTINCT [Residence].[Id], [Residence].[CamelId], [Residence].[Nom] 
     FROM [Residence] 
     WHERE ([Residence].[Id] = @Id)
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Shop_Load]
-(
- @Id [uniqueidentifier]
-)
-AS
-SET NOCOUNT ON
-SELECT DISTINCT [Shop].[Id], [Shop].[Nom], [Shop].[Url], [Shop].[Residence_Id] 
-    FROM [Shop] 
-    WHERE ([Shop].[Id] = @Id)
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Shop_LoadAll]
-(
- @_orderBy0 [nvarchar] (64) = NULL,
- @_orderByDirection0 [bit] = 0
-)
-AS
-SET NOCOUNT ON
-SELECT [Shop].[Id], [Shop].[Nom], [Shop].[Url], [Shop].[Residence_Id] 
-    FROM [Shop] 
-    ORDER BY CASE
-        WHEN @_orderBy0 = '[Shop].[Nom]' AND @_orderByDirection0 = 0 THEN [Shop].[Nom]
-    END ASC,
-    CASE
-        WHEN @_orderBy0 = '[Shop].[Nom]' AND @_orderByDirection0 = 1 THEN [Shop].[Nom]
-    END DESC
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Shop_LoadById]
-(
- @Id [uniqueidentifier]
-)
-AS
-SET NOCOUNT ON
-SELECT DISTINCT [Shop].[Id], [Shop].[Nom], [Shop].[Url], [Shop].[Residence_Id] 
-    FROM [Shop] 
-    WHERE ([Shop].[Id] = @Id)
-
-RETURN
-GO
-
-CREATE PROCEDURE [dbo].[Shop_LoadByResidence]
-(
- @ResidenceId [uniqueidentifier],
- @_orderBy0 [nvarchar] (64) = NULL,
- @_orderByDirection0 [bit] = 0
-)
-AS
-SET NOCOUNT ON
-SELECT [Shop].[Id], [Shop].[Nom], [Shop].[Url], [Shop].[Residence_Id] 
-    FROM [Shop] 
-    WHERE ([Shop].[Residence_Id] = @ResidenceId)
-    ORDER BY CASE
-        WHEN @_orderBy0 = '[Shop].[Nom]' AND @_orderByDirection0 = 0 THEN [Shop].[Nom]
-    END ASC,
-    CASE
-        WHEN @_orderBy0 = '[Shop].[Nom]' AND @_orderByDirection0 = 1 THEN [Shop].[Nom]
-    END DESC
 
 RETURN
 GO

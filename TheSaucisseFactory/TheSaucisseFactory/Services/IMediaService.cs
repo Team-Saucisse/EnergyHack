@@ -52,5 +52,11 @@ namespace TheSaucisseFactory.Services
         
         [System.ServiceModel.OperationContractAttribute()]
         TheSaucisseFactory.MediaCollection LoadAll();
+        
+        [System.ServiceModel.OperationContractAttribute()]
+        TheSaucisseFactory.MediaCollection PageLoadPublicitesCommercesByCommerce(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, string commerceEntityKey);
+        
+        [System.ServiceModel.OperationContractAttribute()]
+        TheSaucisseFactory.MediaCollection LoadPublicitesCommercesByCommerce(string commerceEntityKey);
     }
 }

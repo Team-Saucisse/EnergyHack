@@ -11,47 +11,27 @@
         </div>
     </section>
 }
-
 <ol class="round">
     <li>
-        <h5>Eléments du backoffice TheSaucisseFactory</h5>
-
+        <h5>
+            Eléments d'administration The-Saucisse-Factory</h5>
         <hr />
-        <div class="ns">Gestion des contenus</div>
+        <div class="ns">
+            Organisations</div>
         <div class="entities">
+            @Html.RouteLink("Résidences", "TheSaucisseFactory.Residence", new { controller = "Residence" })
+            @Html.RouteLink("Bâtiments", "TheSaucisseFactory.Batiment", new { controller = "Batiment" })
+            @Html.RouteLink("Appartements", "TheSaucisseFactory.Appartement", new { controller = "Appartement" })
+            @Html.RouteLink("Commerces", "TheSaucisseFactory.Commerce", new { controller = "Commerce" })
             <br />
+            @Html.RouteLink("Challenges", "TheSaucisseFactory.Challenge", new { controller = "Challenge" })
+            @Html.RouteLink("Illustrations", "TheSaucisseFactory.Illustration", new { controller = "Illustration" })
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            @Html.RouteLink("Médias, publicités...", "TheSaucisseFactory.Media", new { controller = "Media" })
         </div>
         <div class="entities">
-            @Html.RouteLink("Images", "TheSaucisseFactory.Media", new { controller = "Media" })
-        </div>
-        
-        <hr />
-
-        <div class="ns">Gestion du module Bouygues Construction</div>
-        <div class="entities">
-        </div>
-        <hr />
-
-
-        <div class="ns">Gestion de la synchronisation</div>
-        <div class="entities">
-        </div>
-
-        <hr />
-        <div class="ns">Notifications</div>
-        <div class="entities">
-        </div>
-
-        <hr />
-        <div class="ns">Gestion des administrateurs</div>
-        <div class="entities">
+            @Html.RouteLink("Gains d'EnergyCoins", "TheSaucisseFactory.GainEnergyCoin", new { controller = "GainEnergyCoin" })
+            @Html.RouteLink("Mesures", "TheSaucisseFactory.Mesure", new { controller = "Mesure" })
         </div>
     </li>
 </ol>

@@ -42,6 +42,9 @@ namespace TheSaucisseFactory
         private int _maxCount = 2147483647;
         
         [System.NonSerializedAttribute()]
+        private TheSaucisseFactory.Commerce _publicitesCommerceCommerces;
+        
+        [System.NonSerializedAttribute()]
         private int _addNewPos = -1;
         
         [System.NonSerializedAttribute()]
@@ -56,6 +59,12 @@ namespace TheSaucisseFactory
         public MediaCollection()
         {
             this._blm2529203948 = new CodeFluent.Runtime.Utilities.BindingListManager<TheSaucisseFactory.Media>(this);
+        }
+        
+        public MediaCollection(TheSaucisseFactory.Commerce publicitesCommerceCommerces)
+        {
+            this._blm2529203948 = new CodeFluent.Runtime.Utilities.BindingListManager<TheSaucisseFactory.Media>(this);
+            this._publicitesCommerceCommerces = publicitesCommerceCommerces;
         }
         
         [System.ComponentModel.BrowsableAttribute(false)]
@@ -121,6 +130,15 @@ namespace TheSaucisseFactory
             set
             {
                 this._maxCount = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public TheSaucisseFactory.Commerce PublicitesCommerceCommerces
+        {
+            get
+            {
+                return this._publicitesCommerceCommerces;
             }
         }
         
@@ -395,6 +413,11 @@ namespace TheSaucisseFactory
                 throw new System.ArgumentException(TheSaucisseFactory.Resources.Manager.GetUserMessage(null, CodeFluent.Runtime.UserExceptionType.ItemAlreadyAdded, "TheSaucisseFactory.MediaCollection", media.Id), ae);
             }
             media.KeyChanged += new System.EventHandler<CodeFluent.Runtime.Utilities.KeyChangedEventArgs<System.Guid>>(this.OnItemKeyChanged);
+            this.Relate(media, CodeFluent.Runtime.CodeFluentRelationType.Added);
+            if ((this._publicitesCommerceCommerces != null))
+            {
+                this._publicitesCommerceCommerces.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
+            }
             int localAdd = this.BaseList.Count;
             this.BaseList.Add(media);
             this.OnCollectionChanged(new CodeFluent.Runtime.Utilities.IndexedCollectionChangeEventArgs(System.ComponentModel.CollectionChangeAction.Add, media, localAdd));
@@ -549,6 +572,11 @@ namespace TheSaucisseFactory
                 throw new System.ArgumentException(TheSaucisseFactory.Resources.Manager.GetUserMessage(null, CodeFluent.Runtime.UserExceptionType.ItemAlreadyAdded, "TheSaucisseFactory.MediaCollection", media.Id), ae);
             }
             this.BaseList.Insert(index, media);
+            this.Relate(media, CodeFluent.Runtime.CodeFluentRelationType.Added);
+            if ((this._publicitesCommerceCommerces != null))
+            {
+                this._publicitesCommerceCommerces.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
+            }
             this.OnCollectionChanged(new CodeFluent.Runtime.Utilities.IndexedCollectionChangeEventArgs(System.ComponentModel.CollectionChangeAction.Add, media, index));
             this.OnListChanged(new System.ComponentModel.ListChangedEventArgs(System.ComponentModel.ListChangedType.ItemAdded, index));
         }
@@ -590,6 +618,11 @@ namespace TheSaucisseFactory
             ret = this.BaseList.Remove(media);
             media.KeyChanged -= new System.EventHandler<CodeFluent.Runtime.Utilities.KeyChangedEventArgs<System.Guid>>(this.OnItemKeyChanged);
             ret = this.BaseTable.Remove(media.Id);
+            this.Relate(media, CodeFluent.Runtime.CodeFluentRelationType.Removed);
+            if ((this._publicitesCommerceCommerces != null))
+            {
+                this._publicitesCommerceCommerces.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
+            }
             this.OnCollectionChanged(new CodeFluent.Runtime.Utilities.IndexedCollectionChangeEventArgs(System.ComponentModel.CollectionChangeAction.Remove, media, index));
             this.OnListChanged(new System.ComponentModel.ListChangedEventArgs(System.ComponentModel.ListChangedType.ItemDeleted, index));
             return ret;
@@ -610,6 +643,11 @@ namespace TheSaucisseFactory
             {
                 media.KeyChanged -= new System.EventHandler<CodeFluent.Runtime.Utilities.KeyChangedEventArgs<System.Guid>>(this.OnItemKeyChanged);
                 this.BaseTable.Remove(media.Id);
+                this.Relate(media, CodeFluent.Runtime.CodeFluentRelationType.Removed);
+            }
+            if ((this._publicitesCommerceCommerces != null))
+            {
+                this._publicitesCommerceCommerces.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
             }
             this.BaseList.RemoveAt(index);
             this.OnCollectionChanged(new CodeFluent.Runtime.Utilities.IndexedCollectionChangeEventArgs(System.ComponentModel.CollectionChangeAction.Remove, media, index));
@@ -672,6 +710,7 @@ namespace TheSaucisseFactory
                     pageSize = int.MaxValue;
                 }
             }
+            this._publicitesCommerceCommerces = null;
             this.BaseList.Clear();
             this.BaseTable.Clear();
             int count = 0;
@@ -767,6 +806,144 @@ namespace TheSaucisseFactory
         public static System.Data.IDataReader DataLoadAll()
         {
             System.Data.IDataReader reader = TheSaucisseFactory.MediaCollection.PageDataLoadAll(null);
+            return reader;
+        }
+        
+        private void LoadPublicitesCommercesByCommerce(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, System.Data.IDataReader reader, TheSaucisseFactory.Commerce commerce)
+        {
+            if ((reader == null))
+            {
+                throw new System.ArgumentNullException("reader");
+            }
+            if ((pageIndex < 0))
+            {
+                pageIndex = 0;
+            }
+            if ((pageSize < 0))
+            {
+                if ((pageOptions != null))
+                {
+                    pageSize = pageOptions.DefaultPageSize;
+                }
+                else
+                {
+                    pageSize = int.MaxValue;
+                }
+            }
+            CodeFluent.Runtime.CodeFluentEntityState commerceState = CodeFluent.Runtime.CodeFluentEntityState.Unchanged;
+            if ((commerce != null))
+            {
+                commerceState = commerce.EntityState;
+            }
+            this._publicitesCommerceCommerces = commerce;
+            this.BaseList.Clear();
+            this.BaseTable.Clear();
+            int count = 0;
+            int readCount = 0;
+            bool readerRead;
+            for (readerRead = reader.Read(); ((readerRead == true) 
+                        && ((count < this.MaxCount) 
+                        && (count < pageSize))); readerRead = reader.Read())
+            {
+                readCount = (readCount + 1);
+                if ((CodeFluent.Runtime.CodeFluentPersistence.CanAddEntity(pageIndex, pageSize, pageOptions, readCount) == true))
+                {
+                    TheSaucisseFactory.Media media = new TheSaucisseFactory.Media();
+                    ((CodeFluent.Runtime.ICodeFluentEntity)(media)).ReadRecord(reader);
+                    if ((this.BaseContains(media) == false))
+                    {
+                        this.BaseAdd(media);
+                        count = (count + 1);
+                    }
+                    media.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Unchanged;
+                }
+            }
+            if ((commerce != null))
+            {
+                commerce.EntityState = commerceState;
+            }
+        }
+        
+        [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, true)]
+        public static TheSaucisseFactory.MediaCollection PageLoadPublicitesCommercesByCommerce(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, TheSaucisseFactory.Commerce commerce)
+        {
+            if ((pageIndex < 0))
+            {
+                pageIndex = 0;
+            }
+            if ((pageSize < 0))
+            {
+                if ((pageOptions != null))
+                {
+                    pageSize = pageOptions.DefaultPageSize;
+                }
+                else
+                {
+                    pageSize = int.MaxValue;
+                }
+            }
+            TheSaucisseFactory.MediaCollection ret = new TheSaucisseFactory.MediaCollection();
+            System.Data.IDataReader reader = null;
+            try
+            {
+                reader = TheSaucisseFactory.MediaCollection.PageDataLoadPublicitesCommercesByCommerce(pageOptions, commerce);
+                if ((reader == null))
+                {
+                    return ret;
+                }
+                ret.LoadPublicitesCommercesByCommerce(pageIndex, pageSize, pageOptions, reader, commerce);
+            }
+            finally
+            {
+                if ((reader != null))
+                {
+                    reader.Dispose();
+                }
+                CodeFluent.Runtime.CodeFluentPersistence.CompleteCommand(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName);
+            }
+            return ret;
+        }
+        
+        [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, true)]
+        public static TheSaucisseFactory.MediaCollection LoadPublicitesCommercesByCommerce(TheSaucisseFactory.Commerce commerce)
+        {
+            TheSaucisseFactory.MediaCollection ret = TheSaucisseFactory.MediaCollection.PageLoadPublicitesCommercesByCommerce(int.MinValue, int.MaxValue, null, commerce);
+            return ret;
+        }
+        
+        public static System.Data.IDataReader PageDataLoadPublicitesCommercesByCommerce(CodeFluent.Runtime.PageOptions pageOptions, TheSaucisseFactory.Commerce commerce)
+        {
+            if ((commerce == null))
+            {
+                return null;
+            }
+            if ((commerce.Id.Equals(CodeFluentPersistence.DefaultGuidValue) == true))
+            {
+                CodeFluent.Runtime.CodeFluentRuntimeException.Throw("invalidEntityKey", "Id", "commerce", "TheSaucisseFactory.Commerce");
+            }
+            CodeFluent.Runtime.CodeFluentPersistence persistence = CodeFluentContext.Get(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName).Persistence;
+            persistence.CreateStoredProcedureCommand(null, "Media", "LoadPublicitesCommercesByCommerce");
+            persistence.AddParameter("@CommerceId", commerce.Id, CodeFluentPersistence.DefaultGuidValue);
+            if ((pageOptions != null))
+            {
+                System.Collections.IEnumerator enumerator = pageOptions.OrderByArguments.GetEnumerator();
+                bool b;
+                int index = 0;
+                for (b = enumerator.MoveNext(); b; b = enumerator.MoveNext())
+                {
+                    CodeFluent.Runtime.OrderByArgument argument = ((CodeFluent.Runtime.OrderByArgument)(enumerator.Current));
+                    persistence.AddParameter(string.Format("@_orderBy{0}", index), argument.Name);
+                    persistence.AddParameter(string.Format("@_orderByDirection{0}", index), ((int)(argument.Direction)));
+                    index = (index + 1);
+                }
+            }
+            System.Data.IDataReader reader = CodeFluentContext.Get(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName).Persistence.ExecuteReader();
+            return reader;
+        }
+        
+        public static System.Data.IDataReader DataLoadPublicitesCommercesByCommerce(TheSaucisseFactory.Commerce commerce)
+        {
+            System.Data.IDataReader reader = TheSaucisseFactory.MediaCollection.PageDataLoadPublicitesCommercesByCommerce(null, commerce);
             return reader;
         }
         
@@ -957,6 +1134,17 @@ namespace TheSaucisseFactory
         public static TheSaucisseFactory.MediaCollection PageLoadAll(int pageIndex, int pageSize)
         {
             return TheSaucisseFactory.MediaCollection.PageLoadAll(pageIndex, pageSize, null);
+        }
+        
+        [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, true)]
+        public static TheSaucisseFactory.MediaCollection PageLoadPublicitesCommercesByCommerce(int pageIndex, int pageSize, System.Guid commerceId)
+        {
+            TheSaucisseFactory.Commerce commerce = TheSaucisseFactory.Commerce.Load(commerceId);
+            if ((commerce == null))
+            {
+                return new TheSaucisseFactory.MediaCollection();
+            }
+            return TheSaucisseFactory.MediaCollection.PageLoadPublicitesCommercesByCommerce(pageIndex, pageSize, null, commerce);
         }
         
         [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)]

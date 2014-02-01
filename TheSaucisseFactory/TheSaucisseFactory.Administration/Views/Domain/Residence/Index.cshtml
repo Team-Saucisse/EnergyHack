@@ -38,8 +38,9 @@
 					<th></th>
 
 					<th class="indexHeader">Id</th>
-					<th class="indexHeader">Id</th>
+					<th class="indexHeader">Id CAMEL</th>
 					<th class="indexHeader">Nom</th>
+					<th class="indexHeader">Bâtiments</th>
 					
 				</tr>
 
@@ -64,6 +65,13 @@
 												
 												
 								@Html.DisplayFor(modelItem => item.Nom, "Text")						
+								
+
+					</td>
+					<td class="indexValue">
+												
+												
+								@Html.DisplayFor(modelItem => item.Batiments, "Relation")						
 								
 
 					</td>

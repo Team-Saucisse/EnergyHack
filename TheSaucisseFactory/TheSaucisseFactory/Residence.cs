@@ -34,6 +34,9 @@ namespace TheSaucisseFactory
         private string _nom = default(string);
         
         [System.NonSerializedAttribute()]
+        private TheSaucisseFactory.BatimentCollection _batiments;
+        
+        [System.NonSerializedAttribute()]
         private bool _isSerializing;
         
         [System.NonSerializedAttribute()]
@@ -128,6 +131,7 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
             }
         }
         
+        [System.ComponentModel.DataAnnotations.Required()]
         [System.ComponentModel.DefaultValueAttribute(default(string))]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Type=typeof(string))]
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=200)]
@@ -160,6 +164,25 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
                 this._nom = value;
                 this.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
                 this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Nom"));
+            }
+        }
+        
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public TheSaucisseFactory.BatimentCollection Batiments
+        {
+            get
+            {
+                if ((this._batiments == null))
+                {
+                    if (((this.Id.Equals(CodeFluentPersistence.DefaultGuidValue) == true) 
+                                || (this.EntityState.Equals(CodeFluent.Runtime.CodeFluentEntityState.Created) == true)))
+                    {
+                        this._batiments = new TheSaucisseFactory.BatimentCollection(this);
+                        return this._batiments;
+                    }
+                    this._batiments = TheSaucisseFactory.BatimentCollection.LoadByResidence(this);
+                }
+                return this._batiments;
             }
         }
         
@@ -632,6 +655,16 @@ residence = value as TheSaucisseFactory.Residence;
             writer.Write(",");
             writer.Write("Nom=");
             writer.Write(this.Nom);
+            writer.Write(",");
+            writer.Write("Batiments=");
+            if ((this._batiments != null))
+            {
+                ((CodeFluent.Runtime.ICodeFluentObject)(this._batiments)).Trace(writer);
+            }
+            else
+            {
+                writer.Write("<null>");
+            }
             writer.Write(", EntityState=");
             writer.Write(this.EntityState);
             writer.Write("]");
