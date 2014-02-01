@@ -1457,7 +1457,7 @@ AS
 SET NOCOUNT ON
 SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
     FROM [GainEnergyCoin] 
-    WHERE ((DATEDIFF(day, Date, @Date) < 30 AND DATEDIFF(s, Date, @Date) > 0) AND ([GainEnergyCoin].[Appartement_Id] = @AppartementId))
+    WHERE ((DATEDIFF(day, Date, @Date) < 30 AND DATEDIFF(s, Date, @Date) >= 0) AND ([GainEnergyCoin].[Appartement_Id] = @AppartementId))
 
 RETURN
 GO

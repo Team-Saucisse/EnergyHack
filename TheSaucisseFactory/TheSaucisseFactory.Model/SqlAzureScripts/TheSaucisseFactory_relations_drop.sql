@@ -1,10 +1,10 @@
 ﻿/* CodeFluent Generated . TargetVersion:Sql2008, Sql2012, SqlAzure. Culture:fr-FR. UiCulture:fr-FR. Encoding:utf-8 (http://www.softfluent.com) */
 set quoted_identifier OFF
 GO
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Gai_App_Id_App]') AND parent_obj = object_id(N'[dbo].[GainEnergyCoin]'))
- ALTER TABLE [dbo].[GainEnergyCoin] DROP CONSTRAINT [FK_Gai_App_Id_App]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Mes_App_Id_App]') AND parent_obj = object_id(N'[dbo].[Mesure]'))
  ALTER TABLE [dbo].[Mesure] DROP CONSTRAINT [FK_Mes_App_Id_App]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Gai_App_Id_App]') AND parent_obj = object_id(N'[dbo].[GainEnergyCoin]'))
+ ALTER TABLE [dbo].[GainEnergyCoin] DROP CONSTRAINT [FK_Gai_App_Id_App]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_App_Bat_Id_Bat]') AND parent_obj = object_id(N'[dbo].[Appartement]'))
  ALTER TABLE [dbo].[Appartement] DROP CONSTRAINT [FK_App_Bat_Id_Bat]
 GO
