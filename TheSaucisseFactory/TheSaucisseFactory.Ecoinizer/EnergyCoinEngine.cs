@@ -72,44 +72,63 @@ namespace TheSaucisseFactory.Ecoinizer
         // Electricité entre voisins 
         void ProcessChallenge1()
         {
-            Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == "Electricité entre voisins");
-
-            Dictionary<Appartement, double> l_classement = new Dictionary<Appartement, double>();
-            
-            DateTime l_processingDate = m_minDate;
-            while (DateTime.Compare(l_processingDate, m_maxDate) <= 0)
-            {
-                l_classement.Clear();
-                IEnumerable<DataSuite> l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "ELEC");
-                foreach(DataSuite l_candidat in l_candidats)
-                {
-                    double l_indice = l_candidat.ConsommationElectricite();
-                    l_classement.Add(l_candidat.Appartement, l_indice);
-                }
-
-                var l_classementTrie = l_classement.OrderBy(i => i.Value);
-
-                l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
-                l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
-                l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ième");
-
-                l_processingDate = l_processingDate.AddDays(7);
-            }
+			ProcessGenericChallenge("Electricité entre voisins", "ELEC");
         }
+
+		// Volume d'eau froide
+		private void ProcessChallenge2()
+		{
+			ProcessGenericChallenge("Eau froide entre voisins", "VEF");
+		}
+
+		// Volume d'eau chaude sanitaire
+		private void ProcessChallenge3()
+		{
+			ProcessGenericChallenge("Eau chaude entre voisins", "VECS");
+		}
+
+		private void ProcessGenericChallenge(string p_challengeName, string p_type)
+		{
+			Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == p_challengeName);
+
+			Dictionary<Appartement, double> l_classement = new Dictionary<Appartement, double>();
+
+			DateTime l_processingDate = m_minDate;
+			while (DateTime.Compare(l_processingDate, m_maxDate) <= 0)
+			{
+				l_classement.Clear();
+				IEnumerable<DataSuite> l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == p_type);
+				foreach (DataSuite l_candidat in l_candidats)
+				{
+					double l_indice = l_candidat.ConsommationElectricite();
+					l_classement.Add(l_candidat.Appartement, l_indice);
+				}
+
+				var l_classementTrie = l_classement.OrderBy(i => i.Value);
+
+				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
+				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
+				l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ème");
+
+				l_processingDate = l_processingDate.AddDays(7);
+			}
+		}
 
         public EnergyCoinEngine()
         {
             GainEnergyCoinCollection.DeleteAll();
             BuildDataSuites();
             ProcessChallenge1();
+			ProcessChallenge2();
+			ProcessChallenge3();
         }
-
 
         /// <summary>
         /// Periste les calculs
         /// </summary>
         public void Save()
         {
+
         }
     }
 }

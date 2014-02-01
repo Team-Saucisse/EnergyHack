@@ -58,22 +58,22 @@ namespace FrontOffice
 
         protected void SetDataSource()
         {
-            List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadAll().Where(g => g.AppartementId == new Guid(CurrentAppartement)).ToList();
+            //List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadAll().Where(g => g.AppartementId == new Guid(CurrentAppartement)).ToList();
 
-            ChallengeCollection l_challenges = ChallengeCollection.LoadAll();
+            //ChallengeCollection l_challenges = ChallengeCollection.LoadAll();
 
-            foreach (Challenge l_challenge in l_challenges)
-            {
-                if (l_challenge.GainsEnergyCoin.Where(g => g.AppartementId == new Guid(CurrentAppartement)).Count() == 0)
-                {
-                    GainEnergyCoin l_emptyGain = new GainEnergyCoin();
-                    l_emptyGain.Quantite = 0;
-                    l_emptyGain.Challenge = l_challenge;
-                    l_gains.Add(l_emptyGain);
-                }
-            }
+            //foreach (Challenge l_challenge in l_challenges)
+            //{
+            //    if (l_challenge.GainsEnergyCoin.Where(g => g.AppartementId == new Guid(CurrentAppartement)).Count() == 0)
+            //    {
+            //        GainEnergyCoin l_emptyGain = new GainEnergyCoin();
+            //        l_emptyGain.Quantite = 0;
+            //        l_emptyGain.Challenge = l_challenge;
+            //        l_gains.Add(l_emptyGain);
+            //    }
+            //}
 
-            //GainEnergyCoinCollection l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), new DateTime(2014, 2, 8));
+            List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), new DateTime(2014, 1, 3)).ToList();
 
             m_rptChallenges.DataSource = l_gains;
             m_rptChallenges.DataBind();
@@ -100,8 +100,21 @@ namespace FrontOffice
         {
             Challenge l_challenge = Challenge.LoadById(new Guid(p_challengeID));
 
-            //return l_challenge.Illustrations.FirstOrDefault().Contenu;
-            return "Hello World :)";
+
+            if (!string.IsNullOrEmpty(l_challenge.Illustrations.FirstOrDefault().Contenu))
+            {
+                return l_challenge.Illustrations.FirstOrDefault().Contenu;
+            }
+            else
+            {
+                return string.Empty;
+            }
+            //string l_return = "";
+            //l_return += "<li><span class=\"label label-default\">DefaultDefaultDefaultDefaultDefaultDefaultDefaultDefaultDefaultDefault</span></li>";
+            //l_return += "<li><span class=\"label label-info\">Default</span></li>";
+            //l_return += "<li><span class=\"label label-warning\">Default</span></li>";
+
+            //return l_return;
         }
     }
 }
