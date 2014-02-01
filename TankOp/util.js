@@ -78,25 +78,30 @@ util.createMap = function(grounds) {
 }
 
 // Create a set of units
+util.createUnit = function(unit) {
+	var heading = unit.color == "blue" ? 2 : 0;
+	var power = 0;
+	for (var i = 0 ; i < util.unitTypes.length ; i++) {
+		if (util.unitTypes[i] == unit.type) {
+			power = util.unitPowers[i];
+		}
+	}
+	var imageprefix = unit.type + "_" + unit.color;
+	while(util.lookForUnit(unit) != null)
+		unit.x = unit.x+1;
+	var newUnit = new Sprite({
+		x: unit.x, y: unit.y, 
+		heading: heading, power: power,
+		engine: unit.engine,
+		images: (unit.type == "hq") ? [imageprefix] : [imageprefix+"_0", imageprefix+"_1", imageprefix+"_2", imageprefix+"_3"]
+	});
+	return newUnit;
+}
+
 util.createUnits = function(units) {
 	var created = [];
 	for (var i = 0 ; i < units.length ; i++) {
-		var unit = units[i];
-		var heading = unit.color == "blue" ? 2 : 0;
-		var power = 0;
-		for (var j = 0 ; j < util.unitTypes.length ; j++) {
-			if (util.unitTypes[j] == unit.type) {
-				power = util.unitPowers[j];
-			}
-		}
-		var imageprefix = unit.type + "_" + unit.color;
-		var newUnit = new Sprite({
-			x: unit.x, y: unit.y, 
-			heading: heading, power: power,
-			engine: unit.engine,
-			images: (unit.type == "hq") ? [imageprefix] : [imageprefix+"_0", imageprefix+"_1", imageprefix+"_2", imageprefix+"_3"]
-		});
-		created.push(newUnit);
+		created.push(util.createUnit(units[i]));
 	}
 	return created;
 }

@@ -79,7 +79,7 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 		
-		this.ecoin = 10;
+		this.ecoin = 99;
 	
 		this.maps = [{name:"grass", cost: constant.costGrass}, {name:"trees", cost: constant.costTrees}, {name: "mountain", cost: constant.costMountain}],
 		this.mapindex = 0;
@@ -90,7 +90,7 @@ enyo.kind({
 		this.tank = 0;
 		this.soldier = 0;
 		
-		this.total = 0;
+		this.total = 1;
 		
 		this.draw();
 	},
@@ -136,7 +136,7 @@ enyo.kind({
 		this.updateTotal();
 	},
 	moreHq: function() {
-		if ((this.total + constant.costHq) > this.ecoin) return;
+		if (this.hq == 4 || (this.total + constant.costHq) > this.ecoin) return;
 		this.hq = this.hq+1;
 		this.updateTotal();
 	},
@@ -146,7 +146,7 @@ enyo.kind({
 		this.updateTotal();
 	},
 	moreHelo: function() {
-		if ((this.total + constant.costHelo) > this.ecoin) return;
+		if (this.reachUnitLimit() || (this.total + constant.costHelo) > this.ecoin) return;
 		this.helo = this.helo+1;
 		this.updateTotal();
 	},	
@@ -156,7 +156,7 @@ enyo.kind({
 		this.updateTotal();
 	},
 	moreCanon: function() {
-		if ((this.total + constant.costCanon) > this.ecoin) return;
+		if (this.reachUnitLimit() || (this.total + constant.costCanon) > this.ecoin) return;
 		this.canon = this.canon+1;
 		this.updateTotal();
 	},	
@@ -166,7 +166,7 @@ enyo.kind({
 		this.updateTotal();
 	},
 	moreTank: function() {
-		if ((this.total + constant.costTank) > this.ecoin) return;
+		if (this.reachUnitLimit() || (this.total + constant.costTank) > this.ecoin) return;
 		this.tank = this.tank+1;
 		this.updateTotal();
 	},	
@@ -176,10 +176,17 @@ enyo.kind({
 		this.updateTotal();
 	},
 	moreSoldier: function() {
-		if ((this.total + constant.costSoldier) > this.ecoin) return;
+		if (this.reachUnitLimit() || (this.total + constant.costSoldier) > this.ecoin) return;
 		this.soldier = this.soldier+1;
 		this.updateTotal();
 	},	
+	
+	// Compute unit limit: max 3 units by HQ
+	reachUnitLimit: function() {
+		return (this.helo+this.canon+this.tank+this.soldier) == (this.hq*3);
+	},
+	
+	// Compute total
 	updateTotal: function() {
 		this.total = this.maps[this.mapindex].cost
 			+ (this.hq-1)*constant.costHq
