@@ -59,6 +59,7 @@
     <Compile Include="ChallengeCollection.cs" />
     <Compile Include="Commerce.cs" />
     <Compile Include="CommerceCollection.cs" />
+    <Compile Include="GainEnergyCoinCollection.more.cs" />
     <Compile Include="GainEnergyCoin.cs" />
     <Compile Include="GainEnergyCoinCollection.cs" />
     <Compile Include="Illustration.cs" />

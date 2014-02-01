@@ -64,5 +64,11 @@ namespace TheSaucisseFactory.Services
         
         [System.ServiceModel.OperationContractAttribute()]
         TheSaucisseFactory.GainEnergyCoinCollection LoadByChallenge(string challengeEntityKey);
+        
+        [System.ServiceModel.OperationContractAttribute()]
+        TheSaucisseFactory.GainEnergyCoinCollection PageLoadByAppartementDateRange(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, string appartementEntityKey, System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute()]
+        TheSaucisseFactory.GainEnergyCoinCollection LoadByAppartementDateRange(string appartementEntityKey, System.DateTime date);
     }
 }
