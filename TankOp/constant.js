@@ -5,7 +5,7 @@ var constant = {};
 
 
 constant.boardWidth = 15;
-constant.boardHeight = 10;
+constant.boardHeight = 9;
 
 constant.tileSize = 64;
 constant.areaWidth = constant.boardWidth*constant.tileSize;
