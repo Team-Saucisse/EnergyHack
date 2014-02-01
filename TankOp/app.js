@@ -64,18 +64,54 @@ enyo.kind({
 		// Init units
 		var width = constant.boardWidth, height = constant.boardHeight;
 		var goodEngine = enyo.bind(this, "goodEngine");
-		var badEngine = enyo.bind(this, "badEngine");		
-		this.units = util.createUnits([
-			{type: "tank", color: "red", x: width-1, y: 2, engine: badEngine},
-			{type: "soldier", color: "red", x: width-1, y: 7, engine: badEngine},
-			{type: "canon", color: "red", x: width-6, y: 3, engine: badEngine},
-			{type: "canon", color: "blue", x: 4, y: 3, engine: goodEngine},
-			{type: "helo", color: "blue", x: 5, y: 4, engine: null},
-			{type: "soldier", color: "red", x: width-4, y: 4, engine: badEngine},
-			{type: "soldier", color: "red", x: width-1, y: 5, engine: badEngine},
-			{type: "helo", color: "red", x: width-1, y: height-1, engine: badEngine},
-			{type: "hq", color: "blue", x: 0, y: 4, engine: null}
-		]);
+		var badEngine = enyo.bind(this, "badEngine");
+		this.units = []
+
+		// Set HQ
+		var step = constant.boardHeight/(this.$.settings.hq+1);
+		var hqs = [];
+		for (var i = 0 ; i < this.$.settings.hq ; i++) {
+			var hq = util.createUnit({type: "hq", color: "blue", x: 0, y: Math.floor((i+1)*step), engine: null});
+			this.units.push(hq);
+			hqs.push(hq);
+		}
+		
+		// Create defending units
+		var defense = [];
+		for(var i = 0 ; i < this.$.settings.helo ; i++)
+			defense.push({type: "helo", color: "blue", engine: goodEngine});
+		for(var i = 0 ; i < this.$.settings.canon ; i++)
+			defense.push({type: "canon", color: "blue", engine: goodEngine});
+		for(var i = 0 ; i < this.$.settings.tank ; i++)
+			defense.push({type: "tank", color: "blue", engine: goodEngine});
+		for(var i = 0 ; i < this.$.settings.soldier ; i++)
+			defense.push({type: "soldier", color: "blue", engine: goodEngine});
+		
+		// Set defense around hq
+		if (defense.length > 0) {
+			var unitByHq = Math.floor(defense.length/hqs.length);
+			var index = 0;
+			for (var i = 0 ; i < hqs.length && index < defense.length ; i++) {
+				var unitForHq = 0;
+				defense[index].x = hqs[i].x+1; defense[index].y = hqs[i].y; ++index; ++unitForHq;
+				if (index < defense.length && unitForHq <= unitByHq) {
+					defense[index].x = hqs[i].x; defense[index].y = hqs[i].y-1;	++index; ++unitForHq;				
+					if (index < defense.length && unitForHq <= unitByHq) {
+						defense[index].x = hqs[i].x; defense[index].y = hqs[i].y+1; ++index; ++unitForHq;
+					}
+				}
+			}
+			for (var i = 0 ; i < defense.length ; i++)
+				this.units.push(util.createUnit(defense[i]));
+		}
+		
+		// Get bad units
+		this.units.push(util.createUnit({type: "tank", color: "red", x: width-1, y: 2, engine: badEngine}));
+		this.units.push(util.createUnit({type: "soldier", color: "red", x: width-1, y: 7, engine: badEngine}));
+		this.units.push(util.createUnit({type: "canon", color: "red", x: width-6, y: 3, engine: badEngine}));
+		this.units.push(util.createUnit({type: "soldier", color: "red", x: width-4, y: 4, engine: badEngine}));
+		this.units.push(util.createUnit({type: "soldier", color: "red", x: width-1, y: 5, engine: badEngine}));
+		this.units.push(util.createUnit({type: "helo", color: "red", x: width-1, y: height-1, engine: badEngine}));
 		this.pausedGame = false;
 	},
 	
