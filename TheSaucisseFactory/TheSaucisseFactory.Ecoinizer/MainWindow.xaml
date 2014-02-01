@@ -1,8 +1,16 @@
 ﻿<Window x:Class="TheSaucisseFactory.Ecoinizer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="900" Width="800">
-    <Grid>
-        <TextBlock x:Name="Log" TextWrapping="Wrap" Height="800" Width="700" />
-    </Grid>
+        Title="E-Coinizer - The Saucisse Factory" Height="600" Width="800">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <Button x:Name="Synchronize" Click="OnSynchronizeClick" Margin="20, 20, 20, 20" >
+            <Image Source="Images/SynchronizeButton.png" Width="200"></Image>
+        </Button>
+        <Button x:Name="Process" Click="OnProcessClick" Margin="20, 20, 20, 20" >
+                <Image Source="Images/ProcessButton.png" Width="200"></Image>
+            </Button>
+        </StackPanel>
+        <TextBlock x:Name="Log" TextWrapping="Wrap" Height="400" Margin="20, 0, 20, 20" Background="LightGray" />
+    </StackPanel>
 </Window>

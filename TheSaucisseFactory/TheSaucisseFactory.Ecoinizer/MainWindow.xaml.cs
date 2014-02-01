@@ -15,11 +15,6 @@ namespace TheSaucisseFactory.Ecoinizer
 		public MainWindow()
 		{
 			InitializeComponent();
-
-			ImportMecanism import = new ImportMecanism(this);
-			import.Run();
-
-			//TestCamel();
 		}
 
 		private void TestCamel()
@@ -55,5 +50,22 @@ namespace TheSaucisseFactory.Ecoinizer
 				}
 			}
 		}
+
+        /// <summary>
+        /// Synchronisation Camel
+        /// </summary>
+        private void OnSynchronizeClick(object sender, RoutedEventArgs e)
+        {
+            ImportMecanism import = new ImportMecanism(this);
+            import.Run();
+        }
+
+        /// <summary>
+        /// Calcul des EnergyCoin
+        /// </summary>
+        private void OnProcessClick(object sender, RoutedEventArgs e)
+        {
+            Log.Text += "Hello";
+        }
 	}
 }
