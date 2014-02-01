@@ -1,4 +1,13 @@
 ﻿
+@font-face {
+	font-family: NoneShallPassFonts;
+	src: url('NoneShallPassFonts.ttf');
+}
+
+.body {
+	background-color: #C0C0C0;
+}
+
 .pub {
 	height: 100px;
 	background-color: #000000;
@@ -17,10 +26,164 @@
 
 .board {
 	height: 90px;
-	background-color: #ffffff;
+	background-color: #C0C0C0;
+}
+
+.game-box {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.settings-dialog {
+	width: 800px;
+	height: 530px;
+	position: absolute;
+	top: 150px;
+	left: 100px;
+	background-color: #C0C0C0;
+	border: medium solid black;
+	border-radius: 20px / 15px;
+	box-shadow: 5px 4px 10px 2px gray;
+	padding: 5px;
+	z-index: 2;
+}
+
+.settings-title {
+	font-size: 40px;
+	font-family: NoneShallPassFonts;
+	color: blue;
+	width: 100%;
+	margin-top: 1px;
+	height: 60px;
+	margin-left: auto;
+	margin-right: auto;	
+	text-align: center;
+}
+
+.settings-text {
+	font-size: 32px;
+	font-family: NoneShallPassFonts;
+	color: black;
+}
+
+.settings-text2 {
+	font-size: 32px;
+	font-family: NoneShallPassFonts;
+	color: red;
+}
+
+.settings-header {
+	width: 450px;
+	margin-left: 30px;
+	height: 60px;
+	vertical-align: 50%;
+}
+
+.settings-header2 {
+	width: 250px;
+	margin-left: 30px;
+	height: 60px;
+	vertical-align: 50%;
+}
+
+.settings-total {
+	color: red;
+	width: 594px;
+	margin-left: 30px;
+	text-align: right;
+	height: 60px;
+	vertical-align: 50%;	
+}
+
+.settings-unit {
+	margin-left: 18px;
+	margin-right: 118px;
+}
+
+.settings-unitnumber {
+	width: 64px;
+	text-align: center;
+	height: 60px;
+	vertical-align: 50%;
+}
+
+.settings-number {
+	width: 80px;
+	text-align: center;
+	height: 60px;
+	vertical-align: 50%;
+}
+
+.settings-footer {
+	width: 80px;
+	text-align: right;
+	height: 60px;
+	vertical-align: 50%;
+}
+
+.settings-item {
+	height: 65px;
+}
+
+.settings-line {
+	display:inline-block;
+}
+
+.settings-button {
+	position: absolute;
+	top: 425px;
+	left: 0px;
+	padding-top: 55px;
+	padding-left: 50px;
+	background-image: url(images/button.png);
+	background-repeat: no-repeat;	
+	background-position: center;
+	color: blue;
+	width: 190px;
+	height: 90px;	
+	font-size: 24px;
+	font-family: NoneShallPassFonts;
+}
+
+.settings-ecoin {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+.go-left {
+	background-image: url(images/go-left.svg);
+	background-repeat: no-repeat;	
+	background-position: center;
+	background-size: 40px 40px;
+	width: 40px;
+	height: 60px;
+}
+
+.go-right {
+	background-image: url(images/go-right.svg);
+	background-repeat: no-repeat;	
+	background-position: center;
+	background-size: 40px 40px;
+	width: 40px;
+	height: 60px;
+}
+
+.settings-coin {
+	margin-left: 20px;
+	width: 40px;
+	height: 40px;
+	vertical-align: 50%;
 }
 
 .image-preload {
 	visibility: hidden;
+}
+
+.title {
+	font-size: 30px;
+	font-family: NoneShallPassFonts;
+	width: 100%;
+	text-align: center;
 }
 

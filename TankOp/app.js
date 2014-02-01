@@ -21,10 +21,16 @@ enyo.kind({
 	kind: enyo.Control,
 	classes: "board",
 	components: [		
+		// Title bar
+		{content: "TANK OPERATION", classes: "title"},
+		
 		// Playing zone
 		{name: "gamebox", classes: "game-box", components: [
 		]},
-	
+		
+		// Settings popup
+		{name: "settings", kind: "TankOp.Settings", showing: false, onHide: "initGame"},
+		
 		// Key handling
 		{kind: "Signals", onkeypress: "keyPressed"},
 
@@ -37,14 +43,23 @@ enyo.kind({
 		this.inherited(arguments);
 		this.imagesToLoad++;
 		this.endOfGame = false;
+		this.pausedGame = true;
+		this.initializedGame = false;
 		
 		// Init canvas
 		this.$.gamebox.setStyle("width:"+constant.areaWidth+"px; height:"+constant.areaHeight+"px;");
 		this.canvas = this.$.gamebox.createComponent({kind: "Canvas", name: "canvas", attributes: {width: constant.areaWidth, height: constant.areaHeight}});
 
+		// Start game loop
+		this.loopTimer = window.setInterval(enyo.bind(this, "gameLoopTick"), constant.loopInterval);
+	},
+	
+	// Init game
+	initGame: function() {
 		// Init board
-		this.game = util.createMap(util.gameMap(2));
-		this.targetpos = {x: 0, y: 0};
+		this.initializedGame = true;
+		this.game = util.createMap(util.gameMap(this.$.settings.map));
+		this.targetpos = {x: 7, y: 4};
 
 		// Init units
 		var width = constant.boardWidth, height = constant.boardHeight;
@@ -60,10 +75,8 @@ enyo.kind({
 			{type: "soldier", color: "red", x: width-1, y: 5, engine: badEngine},
 			{type: "helo", color: "red", x: width-1, y: height-1, engine: badEngine},
 			{type: "hq", color: "blue", x: 0, y: 4, engine: null}
-		]);	
-			
-		// Start game loop
-		this.loopTimer = window.setInterval(enyo.bind(this, "gameLoopTick"), constant.loopInterval);
+		]);
+		this.pausedGame = false;
 	},
 	
 	// Render
@@ -143,7 +156,7 @@ enyo.kind({
 				// Move key
 				var newX = this.targetpos.x + util.moves[playKey.heading].dx;
 				var newY = this.targetpos.y + util.moves[playKey.heading].dy;
-				if (newX < 0 || newX == constant.boardWidth || newY < 0 || newY == constant.boardHeigh)
+				if (newX < 0 || newX == constant.boardWidth || newY < 0 || newY == constant.boardHeight)
 					break;
 				this.targetpos.x = newX;
 				this.targetpos.y = newY;
@@ -154,6 +167,12 @@ enyo.kind({
 	
 	// Tick for game loop
 	gameLoopTick: function() {
+		// Show settings popup
+		if (!this.initializedGame)
+			this.$.settings.show();	
+		if (this.pausedGame)
+			return;
+		
 		// Sanitize: clean dead units and compute victory/defeat conditions
 		var alives = [];
 		var livingHq = 0;

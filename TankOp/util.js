@@ -19,8 +19,7 @@ util.explosionsImages = ["explosion_1", "explosion_2", "explosion_3", "explosion
 // Game map
 util.gameMap = function(map) {
 	var width = constant.boardWidth, height = constant.boardHeight;
-	switch(map) {
-	case 0:
+	if (map == "grass") {
 		return	"---HOH-----H---" +
 				"----H----------" +
 				"---------------" +
@@ -30,7 +29,7 @@ util.gameMap = function(map) {
 				"---------------" +			
 				"---------------" +			
 				"---------H-H---";	
-	case 1:
+	 } else if (map == "trees") {
 		return	"------H--HHHHH^" +
 				"----H--H----HHH" +
 				"------H---H----" +
@@ -40,7 +39,7 @@ util.gameMap = function(map) {
 				"-------HH------" +			
 				"-----HH----H---" +			
 				"---HHH----HH--H";	
-	case 2:
+	} else if (map == "mountain") {
 		return	"---HHH^^^HHH---" +
 				"----HHH^HHH----" +
 				"------HHH------" +

@@ -4,5 +4,6 @@
 	"sprite.js",
 	"imagecache.js",
 	"pub.js",
+	"settings.js",
 	"app.js"
 );

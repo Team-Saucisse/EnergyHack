@@ -29,3 +29,12 @@ constant.explosionInterval = 50;
 constant.endGameWidth = 480;
 constant.endGameHeight = 320;
 
+constant.costGrass = 0;
+constant.costTrees = 1;
+constant.costMountain = 2;
+constant.costHq = 5;
+constant.costHelo = 4;
+constant.costCanon = 3;
+constant.costTank = 2;
+constant.costSoldier = 1;
+
