@@ -9,21 +9,26 @@ namespace TheSaucisseFactory.Ecoinizer
     class EnergyCoinEngine
     {
         List<DataSuite> m_dataSuites = new List<DataSuite>();
+        AppartementCollection m_tousLesApparts = AppartementCollection.LoadAll();
+        DateTime l_minDate;
+        DateTime l_maxDate;
 
-        public EnergyCoinEngine()
+        void BuildDataSuites()
         {
+            // On chope toutes les mesures
             MesureCollection l_toutesLesMesures = MesureCollection.LoadAll();
-            AppartementCollection l_tousLesApparts = AppartementCollection.LoadAll();
 
+            // Calcul date min et max
             IOrderedEnumerable<Mesure> l_mesuresTriees = l_toutesLesMesures.OrderBy(m => m.Date);
-            DateTime l_minDate = l_mesuresTriees.First().Date;
-            DateTime l_maxDate = l_mesuresTriees.Last().Date;
+            l_minDate = l_mesuresTriees.First().Date;
+            l_minDate = l_minDate.AddDays(0 - l_minDate.DayOfWeek - 2);
 
-            l_minDate = new DateTime(2013, 10, 4);
-            l_maxDate = new DateTime(2013, 11, 29);
+            l_maxDate = l_mesuresTriees.Last().Date;
+            l_maxDate = l_maxDate.AddDays(DayOfWeek.Friday - l_minDate.DayOfWeek);
 
+            // Caluls des séries
             DateTime l_processingDate;
-            foreach (var l_appartement in l_tousLesApparts)
+            foreach (var l_appartement in m_tousLesApparts)
             {
                 // ELEC
                 l_processingDate = l_minDate;
@@ -62,6 +67,18 @@ namespace TheSaucisseFactory.Ecoinizer
                 }
             }
         }
+
+        // Electricité entre voisins 
+        void ProcessChallenge1()
+        {
+            
+        }
+
+        public EnergyCoinEngine()
+        {
+            
+        }
+
 
         /// <summary>
         /// Periste les calculs
