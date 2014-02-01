@@ -41,10 +41,10 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commer
 DROP TABLE [dbo].[Commerce_Publicites_Media_Commerces]
 GO
 
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Gai_App_Id_App]') AND parent_obj = object_id(N'[dbo].[GainEnergyCoin]'))
- ALTER TABLE [dbo].[GainEnergyCoin] DROP CONSTRAINT [FK_Gai_App_Id_App]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Mes_App_Id_App]') AND parent_obj = object_id(N'[dbo].[Mesure]'))
  ALTER TABLE [dbo].[Mesure] DROP CONSTRAINT [FK_Mes_App_Id_App]
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Gai_App_Id_App]') AND parent_obj = object_id(N'[dbo].[GainEnergyCoin]'))
+ ALTER TABLE [dbo].[GainEnergyCoin] DROP CONSTRAINT [FK_Gai_App_Id_App]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_App_Id_App]') AND parent_obj = object_id(N'[dbo].[Appartement]'))
  ALTER TABLE [dbo].[Appartement] DROP CONSTRAINT [PK_App_Id_App]
 GO
@@ -201,6 +201,8 @@ CREATE TABLE [dbo].[Mesure] (
 )
 GO
 
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_App_Bat_Id_Res]') AND parent_obj = object_id(N'[dbo].[Appartement]'))
+ ALTER TABLE [dbo].[Appartement] DROP CONSTRAINT [FK_App_Bat_Id_Res]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Bat_Res_Id_Res]') AND parent_obj = object_id(N'[dbo].[Batiment]'))
  ALTER TABLE [dbo].[Batiment] DROP CONSTRAINT [FK_Bat_Res_Id_Res]
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[PK_Res_Id_Res]') AND parent_obj = object_id(N'[dbo].[Residence]'))
