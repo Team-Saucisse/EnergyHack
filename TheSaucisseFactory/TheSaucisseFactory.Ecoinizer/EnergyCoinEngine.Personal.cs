@@ -51,13 +51,13 @@ namespace TheSaucisseFactory.Ecoinizer
 
             // Dump de la semaine d'avant
             DataSuite l_previousDataSuite = l_personnalChallengeSuites.FirstOrDefault(ds => ds.Date == m_minDate); 
-            double l_previousIndice = l_previousDataSuite.ConsommationElectricite();
+            double l_previousIndice = l_previousDataSuite.ConsommationTotale();
             
             // On traite date par date
             while (DateTime.Compare(l_processedDate, m_maxDate) <= 0)
             {
                 DataSuite l_candidat = m_dataSuites.FirstOrDefault(ds => ds.Date == l_processedDate);
-                double l_indice = l_candidat.ConsommationElectricite();
+				double l_indice = l_candidat.ConsommationTotale();
 
                 if (l_indice < l_previousIndice)
                 {

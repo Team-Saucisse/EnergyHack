@@ -90,6 +90,7 @@ namespace TheSaucisseFactory.Ecoinizer
 		// Température
 		private void ProcessChallenge4()
 		{
+			ProcessGenericChallenge("Température idéale", "TEMPER");
 			Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == "Température idéale");
 
 			Dictionary<Appartement, double> l_classement = new Dictionary<Appartement, double>();
@@ -102,7 +103,7 @@ namespace TheSaucisseFactory.Ecoinizer
 
 				foreach (DataSuite l_candidat in l_candidats)
 				{
-					double l_indice = l_candidat.TemperatureProcheCible();
+					double l_indice = l_candidat.ConsommationTotale();
 					l_classement.Add(l_candidat.Appartement, l_indice);
 				}
 
@@ -129,7 +130,7 @@ namespace TheSaucisseFactory.Ecoinizer
 				IEnumerable<DataSuite> l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == p_type);
 				foreach (DataSuite l_candidat in l_candidats)
 				{
-					double l_indice = l_candidat.ConsommationElectricite();
+					double l_indice = l_candidat.ConsommationTotale();
 					l_classement.Add(l_candidat.Appartement, l_indice);
 				}
 
@@ -147,14 +148,14 @@ namespace TheSaucisseFactory.Ecoinizer
         {
 			GainEnergyCoinCollection.DeleteAll();
             BuildDataSuites();
-			//ProcessChallenge1();
-			//ProcessChallenge2();
-			//ProcessChallenge3();
+			ProcessChallenge1();
+			ProcessChallenge2();
+			ProcessChallenge3();
 			ProcessChallenge4();
-			//ProcessChallenge5();
-			//ProcessChallenge6();
-			//ProcessChallenge7();
-			//ProcessChallenge8();
+			ProcessChallenge5();
+			ProcessChallenge6();
+			ProcessChallenge7();
+			ProcessChallenge8();
 			ProcessChallenge9();
 			//ProcessChallenge10();
         }
@@ -167,22 +168,71 @@ namespace TheSaucisseFactory.Ecoinizer
 		// Classement global
 		private void ProcessChallenge9()
 		{
-			Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == p_challengeName);
+			Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == "Podium général entre voisins");
+
+			IOrderedEnumerable<KeyValuePair<Appartement, double>> l_classementTrieElec;
+			IOrderedEnumerable<KeyValuePair<Appartement, double>> l_classementTrieVef;
+			IOrderedEnumerable<KeyValuePair<Appartement, double>> l_classementTrieVecs;
+			IOrderedEnumerable<KeyValuePair<Appartement, double>> l_classementTrieTemper;
 
 			Dictionary<Appartement, double> l_classement = new Dictionary<Appartement, double>();
-
+			
 			DateTime l_processingDate = m_minDate;
+
 			while (DateTime.Compare(l_processingDate, m_maxDate) <= 0)
 			{
 				l_classement.Clear();
 				IEnumerable<DataSuite> l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "ELEC");
 				foreach (DataSuite l_candidat in l_candidats)
 				{
-					double l_indice = l_candidat.ConsommationElectricite();
+					double l_indice = l_candidat.ConsommationTotale();
 					l_classement.Add(l_candidat.Appartement, l_indice);
 				}
 
-				IOrderedEnumerable<KeyValuePair<Appartement, double>> l_classementTrie = l_classement.OrderBy(i => i.Value);
+				l_classementTrieElec = l_classement.OrderBy(i => i.Value);
+
+				l_classement = new Dictionary<Appartement, double>();
+
+				l_classement.Clear();
+				l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "VEF");
+				foreach (DataSuite l_candidat in l_candidats)
+				{
+					double l_indice = l_candidat.ConsommationTotale();
+					l_classement.Add(l_candidat.Appartement, l_indice);
+				}
+
+				l_classementTrieVef = l_classement.OrderBy(i => i.Value);
+
+
+			    l_classement = new Dictionary<Appartement, double>();
+
+				l_classement.Clear();
+				l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "VECS");
+				foreach (DataSuite l_candidat in l_candidats)
+				{
+					double l_indice = l_candidat.ConsommationTotale();
+					l_classement.Add(l_candidat.Appartement, l_indice);
+				}
+
+				l_classementTrieVecs = l_classement.OrderBy(i => i.Value);
+
+				List<KeyValuePair<Appartement, double>> l_classementDesClassements = new List<KeyValuePair<Appartement, double>>();
+
+				foreach (Appartement apart in AppartementCollection.LoadAll())
+				{
+					double l_moyenne = (l_classementTrieElec.Where(t => t.Key == apart).First().Value +
+						l_classementTrieElec.Where(t => t.Key == apart).First().Value +
+						l_classementTrieElec.Where(t => t.Key == apart).First().Value +
+						l_classementTrieElec.Where(t => t.Key == apart).First().Value) / 4;
+					KeyValuePair<Appartement, double> l_appartMoy = new KeyValuePair<Appartement, double>(apart, l_moyenne);
+					l_classementDesClassements.Add(l_appartMoy);
+				}
+
+				var l_classementClassementTrie = l_classementDesClassements.OrderBy(cl => cl.Value);
+
+				l_classementClassementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
+				l_classementClassementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
+				l_classementClassementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ème");
 
 				l_processingDate = l_processingDate.AddDays(7);
 			}

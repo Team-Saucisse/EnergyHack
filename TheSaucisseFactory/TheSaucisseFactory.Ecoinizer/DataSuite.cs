@@ -48,39 +48,9 @@ namespace TheSaucisseFactory.Ecoinizer
                     && g.Type == p_type));
         }
 
-        public double ConsommationElectricite()
+        public double ConsommationTotale()
         {
             return this.Sum(m => m.Valeur); 
         }
-
-		private static List<double> _temperatureTarget = null;
-		private static readonly int SeuilNuit = 19;
-		private static readonly int SeuilJour = 21;
-
-		public double TemperatureProcheCible()
-		{
-			if (_temperatureTarget == null)
-			{
-				_temperatureTarget = new List<double>();
-
-				// Construire le schéma de comparaison cible pour la température
-				for (int i = 0; i < 168; i++)
-				{
-					if ((i % 24) < 6 || (i % 24) > 22)
-						_temperatureTarget.Add(SeuilNuit);
-					else
-						_temperatureTarget.Add(SeuilJour);
-				}
-			}
-
-			double sumDelta = 0;
-
-			for (int i = 0; i < Math.Min(this.Count, 168); i++)
-			{
-				sumDelta += (_temperatureTarget[i] - this[i].Valeur);
-			}
-
-			return sumDelta;
-		}
     }
 }
