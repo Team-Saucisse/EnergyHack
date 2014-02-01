@@ -11,6 +11,7 @@ util.moves = [{dx: -1, dy: 0}, {dx: 0, dy: -1}, {dx: +1, dy: 0}, {dx: 0, dy: +1}
 // Unit types and powers
 util.unitTypes = ["hq", "soldier", "tank", "canon", "helo"];
 util.unitPowers = [constant.powerHq, constant.powerSoldier, constant.powerTank, constant.powerCanon, constant.powerHelo];
+util.unitStats = [constant.statHq, constant.statSoldier, constant.statTank, constant.statCanon, constant.statHelo];
 
 // Unit type
 util.explosionsImages = ["explosion_1", "explosion_2", "explosion_3", "explosion_4", "explosion_5", "explosion_6", "explosion_7"];
@@ -203,4 +204,19 @@ util.doExplosion = function(position) {
 util.getUrlParameter = function(name) {
 	var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
 	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+// Get a random number
+util.random = function(max) {
+	return Math.floor(Math.random()*max);
+}
+
+// Get randomly a unit name
+util.randomUnit = function() {
+	var unittype = util.random(10);	
+	for (var i = util.unitStats.length-1 ; i > 0 ; i--) {
+		if (unittype >= util.unitStats[i]) {
+			return util.unitTypes[i];
+		}
+	}
 }
