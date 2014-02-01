@@ -2,6 +2,7 @@
     Inherits="FrontOffice._Default" %>
 
 <asp:Content ID="m_form" ContentPlaceHolderID="contentBody" runat="Server">
+    <asp:ScriptManager EnablePageMethods="true" runat="server" ID="WebMethods"></asp:ScriptManager>
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
@@ -30,14 +31,15 @@
                             <div class="panel-body">
                                 <asp:Repeater ID="m_rptChallenges" OnItemDataBound="ChallengesItemDataBound" runat="server">
                                     <ItemTemplate>
-                                        <div class="panel panel-info">
+                                    <asp:HyperLink ID="m_panelLink" runat="server" CssClass="panelLink">
+                                        <div class="panel panel-info" class="panelHover" style="min-height: 130px">
                                             <div class="panel-heading">
                                                 <asp:Label ID="m_lblChallengeName" runat="server"></asp:Label></div>
-                                            <div class="panel-body">
-                                                Gain :<asp:Image ID="m_imgCoin" runat="server" CssClass="imgHover" ImageUrl="~/Images/EnergyCoinEclair.png" Width="128px" />
+                                            <div class="panel-body" style="text-align: center">                                          
                                                 <asp:Label ID="m_lblChallengeGain" CssClass="textHover" runat="server"></asp:Label>
+                                                <asp:Image ID="imgCoin" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" />
                                             </div>
-                                        </div>
+                                        </div></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>
@@ -51,8 +53,8 @@
                                 <h3 class="panel-title">
                                     Détails</h3>
                             </div>
-                            <div class="panel-body">
-                                Affichage Illustration
+                            <div id="challengeIllustrations" class="panel-body">
+                                Sélectionner un challenge pour faire apparaitre les détails
                             </div>
                         </div>
                     </div>
