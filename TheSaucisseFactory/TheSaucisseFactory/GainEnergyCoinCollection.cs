@@ -1113,6 +1113,154 @@ namespace TheSaucisseFactory
             return reader;
         }
         
+        private void LoadByAppartementDateRange(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, System.Data.IDataReader reader, TheSaucisseFactory.Appartement appartement, System.DateTime date)
+        {
+            if ((reader == null))
+            {
+                throw new System.ArgumentNullException("reader");
+            }
+            if ((pageIndex < 0))
+            {
+                pageIndex = 0;
+            }
+            if ((pageSize < 0))
+            {
+                if ((pageOptions != null))
+                {
+                    pageSize = pageOptions.DefaultPageSize;
+                }
+                else
+                {
+                    pageSize = int.MaxValue;
+                }
+            }
+            CodeFluent.Runtime.CodeFluentEntityState appartementState = CodeFluent.Runtime.CodeFluentEntityState.Unchanged;
+            if ((appartement != null))
+            {
+                appartementState = appartement.EntityState;
+            }
+            this._gainsEnergyCoinAppartementAppartement = null;
+            this._gainsEnergyCoinChallengeChallenge = null;
+            this.BaseList.Clear();
+            this.BaseTable.Clear();
+            int count = 0;
+            int readCount = 0;
+            bool readerRead;
+            for (readerRead = reader.Read(); ((readerRead == true) 
+                        && ((count < this.MaxCount) 
+                        && (count < pageSize))); readerRead = reader.Read())
+            {
+                readCount = (readCount + 1);
+                if ((CodeFluent.Runtime.CodeFluentPersistence.CanAddEntity(pageIndex, pageSize, pageOptions, readCount) == true))
+                {
+                    TheSaucisseFactory.GainEnergyCoin gainEnergyCoin = new TheSaucisseFactory.GainEnergyCoin();
+                    ((CodeFluent.Runtime.ICodeFluentEntity)(gainEnergyCoin)).ReadRecord(reader);
+                    if ((this.BaseContains(gainEnergyCoin) == false))
+                    {
+                        this.BaseAdd(gainEnergyCoin);
+                        count = (count + 1);
+                    }
+                    gainEnergyCoin.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Unchanged;
+                }
+            }
+            if ((appartement != null))
+            {
+                appartement.EntityState = appartementState;
+            }
+        }
+        
+        /// <summary>Obtient les gains pour l'appartement spcifié 1 mois avant la date spécifiée</summary>
+        [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, true)]
+        public static TheSaucisseFactory.GainEnergyCoinCollection PageLoadByAppartementDateRange(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, TheSaucisseFactory.Appartement appartement, System.DateTime date)
+        {
+            if ((pageIndex < 0))
+            {
+                pageIndex = 0;
+            }
+            if ((pageSize < 0))
+            {
+                if ((pageOptions != null))
+                {
+                    pageSize = pageOptions.DefaultPageSize;
+                }
+                else
+                {
+                    pageSize = int.MaxValue;
+                }
+            }
+            TheSaucisseFactory.GainEnergyCoinCollection ret = new TheSaucisseFactory.GainEnergyCoinCollection();
+            System.Data.IDataReader reader = null;
+            try
+            {
+                reader = TheSaucisseFactory.GainEnergyCoinCollection.PageDataLoadByAppartementDateRange(pageOptions, appartement, date);
+                if ((reader == null))
+                {
+                    return ret;
+                }
+                ret.LoadByAppartementDateRange(pageIndex, pageSize, pageOptions, reader, appartement, date);
+            }
+            finally
+            {
+                if ((reader != null))
+                {
+                    reader.Dispose();
+                }
+                CodeFluent.Runtime.CodeFluentPersistence.CompleteCommand(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName);
+            }
+            return ret;
+        }
+        
+        /// <summary>Obtient les gains pour l'appartement spcifié 1 mois avant la date spécifiée</summary>
+        [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, true)]
+        public static TheSaucisseFactory.GainEnergyCoinCollection LoadByAppartementDateRange(TheSaucisseFactory.Appartement appartement, System.DateTime date)
+        {
+            TheSaucisseFactory.GainEnergyCoinCollection ret = TheSaucisseFactory.GainEnergyCoinCollection.PageLoadByAppartementDateRange(int.MinValue, int.MaxValue, null, appartement, date);
+            return ret;
+        }
+        
+        /// <summary>Obtient les gains pour l'appartement spcifié 1 mois avant la date spécifiée</summary>
+        public static System.Data.IDataReader PageDataLoadByAppartementDateRange(CodeFluent.Runtime.PageOptions pageOptions, TheSaucisseFactory.Appartement appartement, System.DateTime date)
+        {
+            if ((appartement == null))
+            {
+                return null;
+            }
+            if ((appartement.Id.Equals(CodeFluentPersistence.DefaultGuidValue) == true))
+            {
+                CodeFluent.Runtime.CodeFluentRuntimeException.Throw("invalidEntityKey", "Id", "appartement", "TheSaucisseFactory.Appartement");
+            }
+            if ((date == CodeFluentPersistence.DefaultDateTimeValue))
+            {
+                throw new System.ArgumentNullException("date");
+            }
+            CodeFluent.Runtime.CodeFluentPersistence persistence = CodeFluentContext.Get(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName).Persistence;
+            persistence.CreateStoredProcedureCommand(null, "GainEnergyCoin", "LoadByAppartementDateRange");
+            persistence.AddParameter("@AppartementId", appartement.Id, CodeFluentPersistence.DefaultGuidValue);
+            persistence.AddParameter("@Date", date, CodeFluentPersistence.DefaultDateTimeValue);
+            if ((pageOptions != null))
+            {
+                System.Collections.IEnumerator enumerator = pageOptions.OrderByArguments.GetEnumerator();
+                bool b;
+                int index = 0;
+                for (b = enumerator.MoveNext(); b; b = enumerator.MoveNext())
+                {
+                    CodeFluent.Runtime.OrderByArgument argument = ((CodeFluent.Runtime.OrderByArgument)(enumerator.Current));
+                    persistence.AddParameter(string.Format("@_orderBy{0}", index), argument.Name);
+                    persistence.AddParameter(string.Format("@_orderByDirection{0}", index), ((int)(argument.Direction)));
+                    index = (index + 1);
+                }
+            }
+            System.Data.IDataReader reader = CodeFluentContext.Get(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName).Persistence.ExecuteReader();
+            return reader;
+        }
+        
+        /// <summary>Obtient les gains pour l'appartement spcifié 1 mois avant la date spécifiée</summary>
+        public static System.Data.IDataReader DataLoadByAppartementDateRange(TheSaucisseFactory.Appartement appartement, System.DateTime date)
+        {
+            System.Data.IDataReader reader = TheSaucisseFactory.GainEnergyCoinCollection.PageDataLoadByAppartementDateRange(null, appartement, date);
+            return reader;
+        }
+        
         protected virtual void BaseTrace(System.CodeDom.Compiler.IndentedTextWriter writer)
         {
             writer.Write("[");
@@ -1322,6 +1470,17 @@ namespace TheSaucisseFactory
                 return new TheSaucisseFactory.GainEnergyCoinCollection();
             }
             return TheSaucisseFactory.GainEnergyCoinCollection.PageLoadByChallenge(pageIndex, pageSize, null, challenge);
+        }
+        
+        [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, true)]
+        public static TheSaucisseFactory.GainEnergyCoinCollection PageLoadByAppartementDateRange(int pageIndex, int pageSize, System.Guid appartementId, System.DateTime date)
+        {
+            TheSaucisseFactory.Appartement appartement = TheSaucisseFactory.Appartement.Load(appartementId);
+            if ((appartement == null))
+            {
+                return new TheSaucisseFactory.GainEnergyCoinCollection();
+            }
+            return TheSaucisseFactory.GainEnergyCoinCollection.PageLoadByAppartementDateRange(pageIndex, pageSize, null, appartement, date);
         }
         
         [System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)]

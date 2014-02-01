@@ -72,6 +72,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSuite.cs" />
+    <Compile Include="EnergyCoinEngine.cs" />
     <Compile Include="ImportMecanism.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
