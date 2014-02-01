@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <!-- MENU -->
-                    <div class="col-xs-2">
+                    <div class="col-md-2">
                         <ul class="nav nav-pills nav-stacked">
                             <li runat="server" id="m_liEcoins">
                                 <asp:LinkButton ID="m_aMyEcoins" PostBackUrl="~/Home.aspx" runat="server" CommandArgument="eCoins" OnClick="MenuItem_SetActive">Mes eCoins</asp:LinkButton></li>

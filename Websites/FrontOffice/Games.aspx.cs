@@ -11,7 +11,11 @@ namespace FrontOffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                //1er élément sélectionné par défaut
+                m_liGames.Attributes["class"] = "active";
+            }
         }
 
         /// <summary>
