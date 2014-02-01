@@ -79,7 +79,8 @@ enyo.kind({
 	create: function() {
 		this.inherited(arguments);
 		
-		this.ecoin = 99;
+		var param = util.getUrlParameter("ec");
+		this.ecoin = (param == null) ? 1 : Math.max(1,param);
 	
 		this.maps = [{name:"grass", cost: constant.costGrass}, {name:"trees", cost: constant.costTrees}, {name: "mountain", cost: constant.costMountain}],
 		this.mapindex = 0;
