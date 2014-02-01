@@ -142,5 +142,25 @@ namespace TheSaucisseFactory.Services
             TheSaucisseFactory.Challenge challenge = TheSaucisseFactory.Challenge.LoadByEntityKey(challengeEntityKey);
             return TheSaucisseFactory.GainEnergyCoinCollection.LoadByChallenge(challenge);
         }
+        
+        public virtual TheSaucisseFactory.GainEnergyCoinCollection PageLoadByAppartementDateRange(int pageIndex, int pageSize, CodeFluent.Runtime.PageOptions pageOptions, string appartementEntityKey, System.DateTime date)
+        {
+            if ((appartementEntityKey == null))
+            {
+                throw new System.ArgumentNullException("appartementEntityKey");
+            }
+            TheSaucisseFactory.Appartement appartement = TheSaucisseFactory.Appartement.LoadByEntityKey(appartementEntityKey);
+            return TheSaucisseFactory.GainEnergyCoinCollection.PageLoadByAppartementDateRange(pageIndex, pageSize, pageOptions, appartement, date);
+        }
+        
+        public virtual TheSaucisseFactory.GainEnergyCoinCollection LoadByAppartementDateRange(string appartementEntityKey, System.DateTime date)
+        {
+            if ((appartementEntityKey == null))
+            {
+                throw new System.ArgumentNullException("appartementEntityKey");
+            }
+            TheSaucisseFactory.Appartement appartement = TheSaucisseFactory.Appartement.LoadByEntityKey(appartementEntityKey);
+            return TheSaucisseFactory.GainEnergyCoinCollection.LoadByAppartementDateRange(appartement, date);
+        }
     }
 }

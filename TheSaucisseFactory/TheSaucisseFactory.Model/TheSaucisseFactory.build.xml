@@ -1,0 +1,1204 @@
+<build startDate="2014-02-01T13:02:58.0189+01:00" commandLine="&quot;C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Build4.exe&quot; &quot;D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory.cfp&quot; /Log:&quot;D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory.build.xml&quot; /Results:&quot;C:\Users\ychahrour\AppData\Local\Temp\TheSaucisseFactory.cfp.oop&quot; /DoNotCreateReportsOnException /DoNotShowReportsOnException /NoFlashOnError " machineName="CLT161" osVersion="Microsoft Windows NT 6.2.9200.0" currentDirectory="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model" user="SERVICES-CGB\ychahrour" clrVersion="4.0.30319.34003" licenseUsage="Build Expirable [Date:20/01/2111 00:00:00][Licensee:ychahrour@c2s.fr][Maximum Entities:999999]" processorCount="4" workingSet="22978560 bytes" bitness="32bits" wow64="True" optionsFlags="None" parentProcess="C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\devenv.exe" endDate="2014-02-01T13:03:27.3098+01:00" totalElapsedTime="00:00:29.2915155" numberOfEntities="9" numberOfEnumerations="0" numberOfRelations="14">
+  <assemblies>
+    <assembly fullName="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/mscorlib.dll" location="C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll" buildVersion="4.0.30319.34003" fileVersion="4.0.30319.34003 built by: FX45W81RTMGDR" productVersion="4.0.30319.34003" />
+    <assembly fullName="CodeFluent.Build4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Build4.exe" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Build4.exe" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Model.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Model.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Runtime.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System/v4.0_4.0.0.0__b77a5c561934e089/System.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll" buildVersion="4.0.30319.34003" fileVersion="4.0.30319.34003 built by: FX45W81RTMGDR" productVersion="4.0.30319.34003" />
+    <assembly fullName="CodeFluent.Model.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Model.Common.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Model.Common.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Xml/v4.0_4.0.0.0__b77a5c561934e089/System.Xml.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Data/v4.0_4.0.0.0__b77a5c561934e089/System.Data.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Data\v4.0_4.0.0.0__b77a5c561934e089\System.Data.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Core/v4.0_4.0.0.0__b77a5c561934e089/System.Core.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Core\v4.0_4.0.0.0__b77a5c561934e089\System.Core.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="CodeFluent.Producers.CodeDom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.CodeDom.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.CodeDom.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Windows.Forms/v4.0_4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Drawing/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Drawing\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Drawing.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="SoftFluent.License, Version=1.0.0.0, Culture=neutral, PublicKeyToken=330d9b6ea5e30055" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/SoftFluent.License.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\SoftFluent.License.dll" buildVersion="1.0.0.0" fileVersion="2.0.0.5" productVersion="1.0.0.0" />
+    <assembly fullName="System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Management/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Management.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Management\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Management.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Web/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Web.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="CodeFluent.Producers.SqlServer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.SqlServer.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.SqlServer.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Runtime.Database, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Runtime.Database.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.Database.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Producers.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.UI.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.UI.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CodeFluent.Modeler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Modeler.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Modeler.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Configuration/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="CodeFluent.Producers.ServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Producers.ServiceModel.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Producers.ServiceModel.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Runtime.Serialization/v4.0_4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Serialization\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Serialization.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.ServiceModel/v4.0_4.0.0.0__b77a5c561934e089/System.ServiceModel.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceModel\v4.0_4.0.0.0__b77a5c561934e089\System.ServiceModel.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.Transactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.Transactions/v4.0_4.0.0.0__b77a5c561934e089/System.Transactions.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.Transactions\v4.0_4.0.0.0__b77a5c561934e089\System.Transactions.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_32/System.EnterpriseServices/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_32\System.EnterpriseServices\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.EnterpriseServices.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.Numerics/v4.0_4.0.0.0__b77a5c561934e089/System.Numerics.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.Numerics\v4.0_4.0.0.0__b77a5c561934e089\System.Numerics.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="CF_21136343722762406144.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_21136343722762406144.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_21136343722762406144.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_03927889143475589972.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_03927889143475589972.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_03927889143475589972.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_29919427402790227977.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_29919427402790227977.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_29919427402790227977.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_10570257322871144130.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_10570257322871144130.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_10570257322871144130.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_01507426731893337161.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_01507426731893337161.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_01507426731893337161.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_02031858407338793192.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_02031858407338793192.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_02031858407338793192.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_00398490027736352587.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_00398490027736352587.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_00398490027736352587.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_33911754644103283530.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_33911754644103283530.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_33911754644103283530.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_23658023404101845658.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_23658023404101845658.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_23658023404101845658.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_25581301551430187982.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_25581301551430187982.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_25581301551430187982.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="CF_32221069191878419484.tpl, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_32221069191878419484.tpl.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_32221069191878419484.tpl.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+    <assembly fullName="System.resources, Version=4.0.0.0, Culture=fr, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.resources/v4.0_4.0.0.0_fr_b77a5c561934e089/System.resources.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.resources\v4.0_4.0.0.0_fr_b77a5c561934e089\System.resources.dll" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="mscorlib.resources, Version=4.0.0.0, Culture=fr, PublicKeyToken=b77a5c561934e089" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/mscorlib.resources/v4.0_4.0.0.0_fr_b77a5c561934e089/mscorlib.resources.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\mscorlib.resources\v4.0_4.0.0.0_fr_b77a5c561934e089\mscorlib.resources.dll" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/WindowsBase/v4.0_4.0.0.0__31bf3856ad364e35/WindowsBase.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\WindowsBase\v4.0_4.0.0.0__31bf3856ad364e35\WindowsBase.dll" buildVersion="4.0.30319.34004" fileVersion="4.0.30319.34004 built by: FX45W81RTMGDR" productVersion="4.0.30319.34004" />
+    <assembly fullName="System.ServiceProcess, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" codeBase="file:///C:/Windows/Microsoft.Net/assembly/GAC_MSIL/System.ServiceProcess/v4.0_4.0.0.0__b03f5f7f11d50a3a/System.ServiceProcess.dll" location="C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System.ServiceProcess\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.ServiceProcess.dll" buildVersion="4.0.30319.33440" fileVersion="4.0.30319.33440 built by: FX45W81RTMREL" productVersion="4.0.30319.33440" />
+    <assembly fullName="CodeFluent.Runtime.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" codeBase="file:///C:/Program Files (x86)/SoftFluent/CodeFluent/Modeler/CodeFluent.Runtime.Web.DLL" location="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\CodeFluent.Runtime.Web.dll" buildVersion="1.0.61214.0761" fileVersion="1.0.61214.0761" productVersion="1.0.61214.0761" />
+    <assembly fullName="CF_25311015811463814236.tplcs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" codeBase="file:///C:/Users/ychahrour/AppData/Local/Temp/CFTemplating.Temp4.0.30319.34003/70761/CF_25311015811463814236.tplcs.dll" location="C:\Users\ychahrour\AppData\Local\Temp\CFTemplating.Temp4.0.30319.34003\70761\CF_25311015811463814236.tplcs.dll" fileVersion="0.0.0.0" productVersion="0.0.0.0" />
+  </assemblies>
+  <variables>
+    <variable name="CF_TEMPLATES_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\Templates" />
+    <variable name="CF_PATTERNS_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler\Patterns" />
+    <variable name="CF_CURRENT_PATH" value="C:\Program Files (x86)\SoftFluent\CodeFluent\Modeler" />
+    <variable name="CF_BUILD_NUMBER" value="70761" />
+    <variable name="CF_BUILD_CONFIGURATION" value="RELEASE" />
+  </variables>
+  <generatedFiles>
+    <producer name="SQL Azure" generatedFilesCount="14" />
+    <producer name="ASP.NET Web Site MVC4" generatedFilesCount="41" />
+    <producer name="Business Object Model (BOM)" generatedFilesCount="41">
+      <subProducer name="ServiceProducer" generatedFilesCount="0" />
+    </producer>
+  </generatedFiles>
+  <project>
+    <imports>
+      <cf:import path="Default.Surface.cfp" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" />
+    </imports>
+    <parts>
+      <part filePath="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory.cfp" isRootModel="true" relativePath="TheSaucisseFactory.cfp" />
+      <part filePath="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Default.Surface.cfp" relativePath="Default.Surface.cfp" />
+    </parts>
+  </project>
+  <producer name="SQL Azure">
+    <event type="ProducerStart" elapsedTime="00:00:00.0007724">
+      <name>SQL Azure</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="ParameterValue" name="ProduceLocal" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProduceOnline" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="RunLocalScripts" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="RunOnlineScripts" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="LocalTargetDirectory" />
+    <event type="ParameterValue" name="LocalConnectionString" value="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost\sqlexpress" />
+    <event type="ParameterValue" name="LocalMustSaveInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="LocalMustSaveBlobInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OnlineTargetDirectory" value="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts" />
+    <event type="ParameterValue" name="OnlineConnectionString" value="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" />
+    <event type="ParameterValue" name="OnlineMustSaveInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OnlineMustSaveBlobInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AllowSelectDistinct" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AppendSchemaToProcedures" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="CommandTimeout" value="0" valueType="System.Int32" />
+    <event type="ParameterValue" name="ConnectionString" value="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost\sqlexpress" />
+    <event type="ParameterValue" name="CurrentCulture" value="fr-FR" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="CurrentUICulture" value="fr-FR" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="DecimalPrecision" value="28" valueType="System.Int32" />
+    <event type="ParameterValue" name="DecimalScale" value="13" valueType="System.Int32" />
+    <event type="ParameterValue" name="DefaultUnicodeInstancePrefix" value="N" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model" />
+    <event type="ParameterValue" name="IdentityIncrement" value="1" valueType="System.Int32" />
+    <event type="ParameterValue" name="IdentitySeed" value="1" valueType="System.Int32" />
+    <event type="ParameterValue" name="IdentityTempColumnName" value="_cf_id_temp" />
+    <event type="ParameterValue" name="InstanceProductionCulture" value="en-US" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="IsTargetRelativeToModelDirectory" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MaxColumnSize" value="2147483647" valueType="System.Int32" />
+    <event type="ParameterValue" name="MaximumColumnsPerConstraint" value="16" valueType="System.Int32" />
+    <event type="ParameterValue" name="MustCreateBackups" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCreateDatabase" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCreateDiffs" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustDropUnusedColumns" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustForceColumnAlter" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceViews" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceSchemas" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSaveInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSaveBlobInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSkipCrossStoreRelations" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateDatabase" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateProcedures" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateRuntime" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateSchema" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustForceUpdateViews" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLocalTransactions" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyStringArrayMode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyBlobChunkMode" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OutputEncoding" value="utf-8" />
+    <event type="ParameterValue" name="OutputEncodingEmitIdentifier" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProcedureProductionCulture" value="en-US" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="ProductionFlags" value="Default, Overwrite, RemoveDates" valueType="CodeFluent.Model.ProductionFlags" />
+    <event type="ParameterValue" name="ProductionOptionsFlags" value="None" valueType="CodeFluent.Model.ProductionOptionsFlags" />
+    <event type="ParameterValue" name="SaveUserName" value="SYSTEM_USER" />
+    <event type="ParameterValue" name="StoreName" />
+    <event type="ParameterValue" name="TargetVersion" value="Sql2008, Sql2012, SqlAzure" valueType="CodeFluent.Producers.SqlServer.TargetVersion" />
+    <event type="FileCopy" elapsedTime="00:00:00.2572438">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0030703">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql</path>
+      <fileType>RuntimeScript</fileType>
+      <size>1648</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0011510">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql</path>
+    </event>
+    <event type="ParameterValue" name="SqlServerVersion" value="10.0.5500.0" />
+    <event type="FileCopy" elapsedTime="00:00:01.1539087">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_tables.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_tables.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0012087">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_tables.sql</path>
+      <fileType>TablesScript</fileType>
+      <size>9456</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0000864">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_tables.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.4607714">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_table_diffs.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_table_diffs.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0012733">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_table_diffs.sql</path>
+      <fileType>TablesDiffsScript</fileType>
+      <size>3883</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0000906">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_table_diffs.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.0867187">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_procedures.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_procedures.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0012237">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_procedures.sql</path>
+      <fileType>ProceduresScript</fileType>
+      <size>47551</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0000936">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_procedures.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.1048749">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_drop.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_drop.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0011557">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_drop.sql</path>
+      <fileType>RelationsDropScript</fileType>
+      <size>3290</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0000928">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_drop.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.0067941">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_add.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_add.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0012669">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_add.sql</path>
+      <fileType>RelationsAddScript</fileType>
+      <size>2087</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0000966">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_add.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.0160568">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_instances.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_instances.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0012836">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_instances.sql</path>
+      <fileType>InstancesScript</fileType>
+      <size>255</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0001112">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_instances.sql</path>
+    </event>
+    <event type="FileExecute" elapsedTime="00:00:00.0020963">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_runtime.sql</path>
+      <fileType>RuntimeScript</fileType>
+      <size>1648</size>
+    </event>
+    <event type="FileExecute" elapsedTime="00:00:00.0591685">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_drop.sql</path>
+      <fileType>RelationsDropScript</fileType>
+      <size>3290</size>
+    </event>
+    <event type="FileExecute" elapsedTime="00:00:00.0571881">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_table_diffs.sql</path>
+      <fileType>TablesDiffScript</fileType>
+      <size>3883</size>
+    </event>
+    <event type="FileExecute" elapsedTime="00:00:00.1919449">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_relations_add.sql</path>
+      <fileType>RelationsAddScript</fileType>
+      <size>2087</size>
+    </event>
+    <event type="FileExecute" elapsedTime="00:00:00.1331112">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\TheSaucisseFactory_procedures.sql</path>
+      <fileType>ProceduresScript</fileType>
+      <size>47551</size>
+    </event>
+    <event type="ParameterValue" name="AllowSelectDistinct" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AppendSchemaToProcedures" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="CommandTimeout" value="0" valueType="System.Int32" />
+    <event type="ParameterValue" name="ConnectionString" value="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" />
+    <event type="ParameterValue" name="CurrentCulture" value="fr-FR" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="CurrentUICulture" value="fr-FR" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="DecimalPrecision" value="28" valueType="System.Int32" />
+    <event type="ParameterValue" name="DecimalScale" value="13" valueType="System.Int32" />
+    <event type="ParameterValue" name="DefaultUnicodeInstancePrefix" value="N" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts" />
+    <event type="ParameterValue" name="IdentityIncrement" value="1" valueType="System.Int32" />
+    <event type="ParameterValue" name="IdentitySeed" value="1" valueType="System.Int32" />
+    <event type="ParameterValue" name="IdentityTempColumnName" value="_cf_id_temp" />
+    <event type="ParameterValue" name="InstanceProductionCulture" value="en-US" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="IsTargetRelativeToModelDirectory" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MaxColumnSize" value="2147483647" valueType="System.Int32" />
+    <event type="ParameterValue" name="MaximumColumnsPerConstraint" value="16" valueType="System.Int32" />
+    <event type="ParameterValue" name="MustCreateBackups" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCreateDatabase" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCreateDiffs" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustDropUnusedColumns" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustForceColumnAlter" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceViews" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceSchemas" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSaveInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSaveBlobInstances" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSkipCrossStoreRelations" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateDatabase" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateProcedures" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateRuntime" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUpdateSchema" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustForceUpdateViews" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLocalTransactions" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyStringArrayMode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyBlobChunkMode" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OutputEncoding" value="utf-8" />
+    <event type="ParameterValue" name="OutputEncodingEmitIdentifier" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProcedureProductionCulture" value="en-US" valueType="System.Globalization.CultureInfo" />
+    <event type="ParameterValue" name="ProductionFlags" value="Default, Overwrite, RemoveDates" valueType="CodeFluent.Model.ProductionFlags" />
+    <event type="ParameterValue" name="ProductionOptionsFlags" value="None" valueType="CodeFluent.Model.ProductionOptionsFlags" />
+    <event type="ParameterValue" name="SaveUserName" value="SYSTEM_USER" />
+    <event type="ParameterValue" name="StoreName" />
+    <event type="ParameterValue" name="TargetVersion" value="Sql2008, Sql2012, SqlAzure" valueType="CodeFluent.Producers.SqlServer.TargetVersion" />
+    <event type="FileCopy" elapsedTime="00:00:01.6813530">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_runtime.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_runtime.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0025014">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_runtime.sql</path>
+      <fileType>RuntimeScript</fileType>
+      <size>1648</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0001903">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_runtime.sql</path>
+    </event>
+    <event type="ParameterValue" name="SqlServerVersion" value="11.0.9206.81" />
+    <event type="FileCopy" elapsedTime="00:00:06.5528523">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_tables.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_tables.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0016887">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_tables.sql</path>
+      <fileType>TablesScript</fileType>
+      <size>9408</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0002408">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_tables.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:03.5018754">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_table_diffs.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_table_diffs.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0016455">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_table_diffs.sql</path>
+      <fileType>TablesDiffsScript</fileType>
+      <size>2121</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0001890">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_table_diffs.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.0715601">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_procedures.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_procedures.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0010458">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_procedures.sql</path>
+      <fileType>ProceduresScript</fileType>
+      <size>47551</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0000970">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_procedures.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.4747546">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_drop.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_drop.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0021318">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_drop.sql</path>
+      <fileType>RelationsDropScript</fileType>
+      <size>3290</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0001792">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_drop.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.0055528">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_add.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_add.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0014709">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_add.sql</path>
+      <fileType>RelationsAddScript</fileType>
+      <size>2087</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0001745">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_relations_add.sql</path>
+    </event>
+    <event type="FileCopy" elapsedTime="00:00:00.0027426">
+      <target>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_instances.sql</target>
+      <source>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_instances.sql.tmp</source>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0015886">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_instances.sql</path>
+      <fileType>InstancesScript</fileType>
+      <size>255</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0002087">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_instances.sql</path>
+    </event>
+    <event type="FileExecute" elapsedTime="00:00:01.1525019">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\SqlAzureScripts\TheSaucisseFactory_table_diffs.sql</path>
+      <fileType>TablesDiffScript</fileType>
+      <size>2121</size>
+    </event>
+  </producer>
+  <producer name="ASP.NET Web Site MVC4">
+    <event type="ProducerStart" elapsedTime="00:00:09.5729740">
+      <name>ASP.NET Web Site MVC4</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="ParameterValue" name="AllowExternalCode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AllowSnippets" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ApplicationName" value="default" />
+    <event type="ParameterValue" name="DumpPath" />
+    <event type="ParameterValue" name="FileCopyFilter" value="*.scc, _cf_md.config" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration" />
+    <event type="ParameterValue" name="IsTargetRelativeToModelDirectory" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ModelProducerName" />
+    <event type="ParameterValue" name="MustCopyModelFiles" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSkipFileCopyOnError" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OutputEncoding" value="utf-8" />
+    <event type="ParameterValue" name="OutputEncodingEmitIdentifier" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProductionFlags" value="Default, Overwrite, RemoveDates" valueType="CodeFluent.Model.ProductionFlags" />
+    <event type="ParameterValue" name="ProductionVerbosity" value="0" valueType="System.Int32" />
+    <event type="ParameterValue" name="SkipExtensions" value="[^\.]*.scc,_cf_md.config" valueType="System.Collections.ArrayList" />
+    <event type="ParameterValue" name="SkipDirectoryExtensions" valueType="System.Collections.ArrayList" />
+    <event type="ParameterValue" name="TargetFramework" value="4.0" />
+    <event type="ParameterValue" name="TargetBaseNamespace" value="TheSaucisseFactory" />
+    <event type="ParameterValue" name="TemplateOptions" value="Default" valueType="CodeFluent.Model.Common.Templating.TemplateOptions" />
+    <event type="ParameterValue" name="UseEmptyApplication" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="FontsAndColorsSetName" value="Class Designer Style" />
+    <event type="ParameterValue" name="PropertyNameFormat" value="{Name} : {DisplayTypeName}" />
+    <event type="ParameterValue" name="ResolutionLogFormat" />
+    <event type="ParameterValue" name="RenderSingleColumn" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="RenderSingleTab" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="SourceDirectories" />
+    <event type="ParameterValue" name="TreeViewRenderOptions" value="Default, DontShowMessages, DontShowParameters" valueType="CodeFluent.Modeler.Controls.ModelTreeViewRenderOptions" />
+    <event type="ParameterValue" name="TypeImagesPathFormat" value="Images\{0:ClrFullTypeName}.png" />
+    <event type="ParameterValue" name="CategoryPath" value="UI\AspNetMvc4" />
+    <event type="ParameterValue" name="Actions" value="CopyTemplatesFiles" valueType="CodeFluent.Producers.UI.AspNetProducerActions" />
+    <event type="ParameterValue" name="BinaryLargeObjectContentDisposition" value="Inline" valueType="CodeFluent.Producers.UI.ContentDisposition" />
+    <event type="ParameterValue" name="WebAssemblyNamespace" value="TheSaucisseFactory.Web" />
+    <event type="FileTemplateRun" elapsedTime="00:00:00.1674680">
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0262981">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\AppartementController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0135199">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\AppartementController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0009333">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\BatimentController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016279">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\BatimentController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004213">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\ChallengeController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0069999">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\ChallengeController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004679">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\CommerceController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0053912">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\CommerceController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0005569">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\GainEnergyCoinController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0050503">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\GainEnergyCoinController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0005586">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\IllustrationController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016536">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\IllustrationController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004042">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\MediaController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014573">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\MediaController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004059">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\MesureController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0018833">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\MesureController.cs</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0005389">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\ResidenceController.cs</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Controllers\Domain\EntityController.cs.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0060456">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\ResidenceController.cs</path>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0008225">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Controllers\Domain\EntityController.cs</path>
+    </event>
+    <event type="FileTemplateRun" elapsedTime="00:00:00.0053112">
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0030600">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Appartement\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0670924">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Appartement\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0008841">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Batiment\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0162921">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Batiment\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0009940">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Challenge\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0117824">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Challenge\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0009269">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Commerce\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0167322">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Commerce\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0010522">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\GainEnergyCoin\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0223394">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\GainEnergyCoin\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0008926">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Illustration\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0168011">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Illustration\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0009192">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Media\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0166261">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Media\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0014983">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Mesure\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0237711">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Mesure\Create.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0009089">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Residence\Create.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewCreate.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0150187">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Residence\Create.cshtml</path>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0002763">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\EntityViewCreate.cshtml</path>
+    </event>
+    <event type="FileTemplateRun" elapsedTime="00:00:00.0031083">
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0019684">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Appartement\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0230781">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Appartement\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0003918">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Batiment\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0137432">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Batiment\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0005222">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Challenge\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0063377">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Challenge\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004268">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Commerce\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0237946">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Commerce\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0005616">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\GainEnergyCoin\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0227312">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\GainEnergyCoin\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004640">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Illustration\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0167121">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Illustration\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004803">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Media\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0100420">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Media\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004705">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Mesure\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0181634">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Mesure\Edit.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004324">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Residence\Edit.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewEdit.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0133890">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Residence\Edit.cshtml</path>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0002630">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\EntityViewEdit.cshtml</path>
+    </event>
+    <event type="FileTemplateRun" elapsedTime="00:00:00.0032769">
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0032037">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Appartement\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0190116">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Appartement\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004602">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Batiment\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0087061">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Batiment\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004593">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Challenge\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0036746">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Challenge\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004504">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Commerce\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0055605">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Commerce\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004221">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\GainEnergyCoin\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0200181">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\GainEnergyCoin\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004743">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Illustration\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0060713">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Illustration\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004247">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Media\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0058005">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Media\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004183">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Mesure\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0096626">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Mesure\Index.cshtml</path>
+    </event>
+    <event type="FileTemplateGenerate" elapsedTime="00:00:00.0004409">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Residence\Index.cshtml</path>
+      <templatePath>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc\Views\Domain\EntityViewIndex.cshtml.tpl</templatePath>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0055469">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\Residence\Index.cshtml</path>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0002070">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Views\Domain\EntityViewIndex.cshtml</path>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0050537">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Readme.txt</path>
+    </event>
+    <event type="FileTransform" elapsedTime="00:00:00.0006920">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Model\Templates\UI\AspNetMvc4\Readme.txt</path>
+      <fileType>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory.Administration\Readme.txt</fileType>
+      <size>65</size>
+    </event>
+  </producer>
+  <producer name="Business Object Model (BOM)">
+    <event type="ProducerStart" elapsedTime="00:00:00.0022982">
+      <name>Business Object Model (BOM)</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="ParameterValue" name="AllowExternalCode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AllowSnippets" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ApplicationName" value="default" />
+    <event type="ParameterValue" name="DumpPath" />
+    <event type="ParameterValue" name="FileCopyFilter" value="*.scc, _cf_md.config" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory" />
+    <event type="ParameterValue" name="IsTargetRelativeToModelDirectory" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ModelProducerName" />
+    <event type="ParameterValue" name="MustCopyModelFiles" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustSkipFileCopyOnError" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="OutputEncoding" value="utf-8" />
+    <event type="ParameterValue" name="OutputEncodingEmitIdentifier" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ProductionFlags" value="Default, Overwrite, RemoveDates" valueType="CodeFluent.Model.ProductionFlags" />
+    <event type="ParameterValue" name="ProductionVerbosity" value="0" valueType="System.Int32" />
+    <event type="ParameterValue" name="SkipExtensions" value="[^\.]*.scc,_cf_md.config" valueType="System.Collections.ArrayList" />
+    <event type="ParameterValue" name="SkipDirectoryExtensions" valueType="System.Collections.ArrayList" />
+    <event type="ParameterValue" name="TargetFramework" value="4.0" />
+    <event type="ParameterValue" name="TargetBaseNamespace" value="TheSaucisseFactory" />
+    <event type="ParameterValue" name="TemplateOptions" value="Default" valueType="CodeFluent.Model.Common.Templating.TemplateOptions" />
+    <event type="ParameterValue" name="UseEmptyApplication" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="AssemblyCompileDefaultFileExcludeFilter" value="AssemblyInfo.cs, assemblyversion.cs" />
+    <event type="ParameterValue" name="CodeDomProviderOptions" />
+    <event type="ParameterValue" name="FileExtension" value=".cs" />
+    <event type="ParameterValue" name="LanguageCode" value="CSharp" valueType="CodeFluent.Model.Code.LanguageCode" />
+    <event type="ParameterValue" name="MustAddDebugInfo" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustCompile" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustDelaySign" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustIncludeDebugInformation" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustTreatWarningAsErrors" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="WarningLevel" value="-1" valueType="System.Int32" />
+    <event type="ParameterValue" name="TargetProductionOptions" value="Default" valueType="CodeFluent.Producers.CodeDom.TargetProductionOptions" />
+    <event type="ParameterValue" name="VisualStudioProjectPath" />
+    <event type="ParameterValue" name="IsAssemblyClsCompliant" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddDebuggerDisplayAttribute" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddDictionaryMethods" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddRuntimeDesignAttributes" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAddRuntimeResourceCheck" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustAppendSchema" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustEmbedModelInRuntimeResource" value="False" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceResourcesFiles" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebBasicAuthenticationModule" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebHandler" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebMembershipProvider" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebMembershipUser" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebProfileProvider" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebRoleProvider" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceBitsServer" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustProduceWebTypes" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="MustUseLegacyStringArrayMode" value="True" valueType="System.Boolean" />
+    <event type="ParameterValue" name="ResourceFileFormat" value="ResX" valueType="CodeFluent.Producers.CodeDom.ResourceFileFormat" />
+    <event type="ParameterValue" name="RuntimePrefix" value="_cf_rt" />
+    <event type="ParameterValue" name="RuntimeResourceBaseName" value="TheSaucisseFactory.TheSaucisseFactory" />
+    <event type="ParameterValue" name="FullTargetDirectory" value="D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory" />
+    <event type="SubProducerProduce" elapsedTime="00:00:00.3448865">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Appartement</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.1525891">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.AppartementCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0346698">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Batiment</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0086582">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.BatimentCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0317253">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Challenge</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0041614">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.ChallengeCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0284877">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Commerce</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0076500">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.CommerceCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0316817">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.GainEnergyCoin</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0193213">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.GainEnergyCoinCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0267879">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Illustration</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0206032">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.IllustrationCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0431065">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Media</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0077531">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.MediaCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0278012">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Mesure</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0078284">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.MesureCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0223249">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Residence</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0038902">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.ResidenceCollection</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="SubProducerProduce" elapsedTime="00:00:00.0220507">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <unit>TheSaucisseFactory.Resources.Manager, TheSaucisseFactory.Resources.ValueValidationFailureHandler, TheSaucisseFactory.Constants</unit>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0024740">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\_cf_rt.cs</path>
+      <fileType>RuntimeCode</fileType>
+      <size>8279</size>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0082634">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\_cf_rt.cs</path>
+      <size>8279</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0050130">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\_cf_rt.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0201631">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\TheSaucisseFactory.fr-FR.ResX</path>
+      <fileType>Resource for Français (France) culture</fileType>
+      <size>5891</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0095133">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\TheSaucisseFactory.fr-FR.ResX</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0041144">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\TheSaucisseFactory.ResX</path>
+      <fileType>Embedded resource for Langue indifférente (Pays indifférent) culture</fileType>
+      <size>5891</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0012430">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\TheSaucisseFactory.ResX</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.5900035">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Appartement.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Appartement'</fileType>
+      <size>42669</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015993">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Appartement.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0110377">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\AppartementCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.AppartementCollection'</fileType>
+      <size>47946</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016865">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\AppartementCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0093225">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Batiment.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Batiment'</fileType>
+      <size>36596</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014804">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Batiment.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0108598">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\BatimentCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.BatimentCollection'</fileType>
+      <size>47326</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016147">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\BatimentCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0089632">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Challenge.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Challenge'</fileType>
+      <size>32986</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0013610">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Challenge.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0096202">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\ChallengeCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.ChallengeCollection'</fileType>
+      <size>39050</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015762">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\ChallengeCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0094850">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Commerce.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Commerce'</fileType>
+      <size>37894</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014312">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Commerce.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0104915">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\CommerceCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.CommerceCollection'</fileType>
+      <size>47852</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0013914">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\CommerceCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0098225">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\GainEnergyCoin.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.GainEnergyCoin'</fileType>
+      <size>40972</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0012849">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\GainEnergyCoin.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0122987">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\GainEnergyCoinCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.GainEnergyCoinCollection'</fileType>
+      <size>65864</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014761">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\GainEnergyCoinCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0090847">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Illustration.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Illustration'</fileType>
+      <size>35588</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0013768">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Illustration.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0105989">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\IllustrationCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.IllustrationCollection'</fileType>
+      <size>48262</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015655">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\IllustrationCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0102871">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Media.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Media'</fileType>
+      <size>43195</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014119">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Media.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0105013">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\MediaCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.MediaCollection'</fileType>
+      <size>47422</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0016091">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\MediaCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0094098">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Mesure.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Mesure'</fileType>
+      <size>36868</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015274">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Mesure.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0103747">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\MesureCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.MesureCollection'</fileType>
+      <size>47022</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0014782">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\MesureCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0088002">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Residence.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.Residence'</fileType>
+      <size>33045</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0015283">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Residence.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0298698">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\ResidenceCollection.cs</path>
+      <fileType>BaseTypeFile for 'TheSaucisseFactory.ResidenceCollection'</fileType>
+      <size>39035</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0013858">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\ResidenceCollection.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0174068">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Web\HttpHandler.cs</path>
+      <size>2417</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0021258">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Web\HttpHandler.cs</path>
+    </event>
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.MembershipProviderProducer: No directoryUser entity. Skip production." />
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.MembershipUserProducer: No directoryUser entity. Skip production." />
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.RoleProviderProducer: No directoryRole entity. Skip production." />
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.ProfileProviderProducer: No directoryUser entity. Skip production." />
+    <event type="Information" message="CodeFluent.Producers.CodeDom.UI.Web.BasicAuthenticationModuleProducer: No directoryUser entity. Skip production." />
+    <event type="FileWrite" elapsedTime="00:00:00.0185783">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Web\BitsServer.cs</path>
+      <fileType>CodeFluent.Producers.CodeDom.UI.Web.BitsServerProducer</fileType>
+      <size>5452</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0011617">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Web\BitsServer.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0099064">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IAppartementService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2894</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0027871">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IAppartementService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0018760">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IBatimentService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2844</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010000">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IBatimentService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0016767">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IChallengeService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2461</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010928">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IChallengeService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0043329">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\ICommerceService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2866</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0012323">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\ICommerceService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0018978">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IGainEnergyCoinService.cs</path>
+      <fileType>Interface</fileType>
+      <size>3852</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010090">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IGainEnergyCoinService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0015454">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IIllustrationService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2916</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010492">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IIllustrationService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0042461">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IMediaService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2824</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010488">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IMediaService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0041246">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IMesureService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2816</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010526">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IMesureService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0015201">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IResidenceService.cs</path>
+      <fileType>Interface</fileType>
+      <size>2461</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010355">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IResidenceService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0016369">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\AppartementService.cs</path>
+      <fileType>Interface</fileType>
+      <size>5213</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010103">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\AppartementService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0015531">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\BatimentService.cs</path>
+      <fileType>Interface</fileType>
+      <size>5062</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0009867">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\BatimentService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0014474">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\ChallengeService.cs</path>
+      <fileType>Interface</fileType>
+      <size>4002</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010060">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\ChallengeService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0047111">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\CommerceService.cs</path>
+      <fileType>Interface</fileType>
+      <size>5058</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010522">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\CommerceService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0049673">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\GainEnergyCoinService.cs</path>
+      <fileType>Interface</fileType>
+      <size>7850</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010740">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\GainEnergyCoinService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0016433">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IllustrationService.cs</path>
+      <fileType>Interface</fileType>
+      <size>5290</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0009957">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\IllustrationService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0017999">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\MediaService.cs</path>
+      <fileType>Interface</fileType>
+      <size>7757</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010167">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\MediaService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0016446">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\MesureService.cs</path>
+      <fileType>Interface</fileType>
+      <size>4988</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0009683">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\MesureService.cs</path>
+    </event>
+    <event type="FileWrite" elapsedTime="00:00:00.0014804">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\ResidenceService.cs</path>
+      <fileType>Interface</fileType>
+      <size>4002</size>
+    </event>
+    <event type="AddToGeneratedFiles" elapsedTime="00:00:00.0010167">
+      <path>D:\Data\Documents\GitHub\EnergyHack\TheSaucisseFactory\TheSaucisseFactory\Services\ResidenceService.cs</path>
+    </event>
+    <event type="ProducerTerminate" elapsedTime="00:00:00.0056316">
+      <name>SQL Azure</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="ProducerTerminate" elapsedTime="00:00:00.0001201">
+      <name>ASP.NET Web Site MVC4</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="ProducerTerminate" elapsedTime="00:00:00.0001120">
+      <name>Business Object Model (BOM)</name>
+      <instance>CodeFluent.Model.Producer</instance>
+    </event>
+    <event type="SubProducerTerminate" elapsedTime="00:00:00.0004799">
+      <name>CodeFluent.Producers.ServiceModel.ServiceProducer</name>
+      <instance>CodeFluent.Model.SubProducer</instance>
+    </event>
+  </producer>
+</build>

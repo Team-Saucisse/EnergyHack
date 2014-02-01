@@ -165,6 +165,10 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEn
 DROP PROCEDURE [dbo].[GainEnergyCoin_LoadByAppartement]
 GO
 
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_LoadByAppartementDateRange]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[GainEnergyCoin_LoadByAppartementDateRange]
+GO
+
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_LoadByChallenge]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[GainEnergyCoin_LoadByChallenge]
 GO
@@ -1422,6 +1426,22 @@ SET NOCOUNT ON
 SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Appartement_Id] = @AppartementId)
+
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadByAppartementDateRange]
+(
+ @AppartementId [uniqueidentifier],
+ @Date [datetime],
+ @_orderBy0 [nvarchar] (64) = NULL,
+ @_orderByDirection0 [bit] = 0
+)
+AS
+SET NOCOUNT ON
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
+    FROM [GainEnergyCoin] 
+    WHERE ((DATEDIFF(day, Date, @Date) > -30 AND DATEDIFF(s, Date, @Date) < 0) AND ([GainEnergyCoin].[Appartement_Id] = @AppartementId))
 
 RETURN
 GO

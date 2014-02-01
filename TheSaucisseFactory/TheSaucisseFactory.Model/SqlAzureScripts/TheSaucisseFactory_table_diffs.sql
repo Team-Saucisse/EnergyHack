@@ -14,9 +14,6 @@ ALTER TABLE [dbo].[Batiment] ADD CONSTRAINT [IX_Bat_Cam_Bat] UNIQUE
   [CamelId] )
 /* table '[dbo].[Challenge]' primary key is related to a clustered index and cannot be changed on SQL Azure */
 /* table '[dbo].[Commerce]' primary key is related to a clustered index and cannot be changed on SQL Azure */
-/* column 'Meta' was not found in table 'GainEnergyCoin'. */
-ALTER TABLE [dbo].[GainEnergyCoin] ADD [Meta] [nvarchar] (300) NULL
-GO
 /* table '[dbo].[GainEnergyCoin]' primary key is related to a clustered index and cannot be changed on SQL Azure */
 /* column 'Contenu', old length:-1, new length: 2147483647*/
 ALTER TABLE [dbo].[Illustration] ALTER COLUMN [Contenu] [nvarchar] (max) NULL
