@@ -151,12 +151,12 @@ namespace TheSaucisseFactory.Ecoinizer
 			//ProcessChallenge2();
 			//ProcessChallenge3();
 			ProcessChallenge4();
-			ProcessChallenge5();
-			ProcessChallenge6();
-			ProcessChallenge7();
-			ProcessChallenge8();
+			//ProcessChallenge5();
+			//ProcessChallenge6();
+			//ProcessChallenge7();
+			//ProcessChallenge8();
 			ProcessChallenge9();
-			ProcessChallenge10();
+			//ProcessChallenge10();
         }
 
 		private void ProcessChallenge10()
@@ -164,9 +164,28 @@ namespace TheSaucisseFactory.Ecoinizer
 			throw new NotImplementedException();
 		}
 
+		// Classement global
 		private void ProcessChallenge9()
 		{
-			throw new NotImplementedException();
+			Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == p_challengeName);
+
+			Dictionary<Appartement, double> l_classement = new Dictionary<Appartement, double>();
+
+			DateTime l_processingDate = m_minDate;
+			while (DateTime.Compare(l_processingDate, m_maxDate) <= 0)
+			{
+				l_classement.Clear();
+				IEnumerable<DataSuite> l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "ELEC");
+				foreach (DataSuite l_candidat in l_candidats)
+				{
+					double l_indice = l_candidat.ConsommationElectricite();
+					l_classement.Add(l_candidat.Appartement, l_indice);
+				}
+
+				IOrderedEnumerable<KeyValuePair<Appartement, double>> l_classementTrie = l_classement.OrderBy(i => i.Value);
+
+				l_processingDate = l_processingDate.AddDays(7);
+			}
 		}
 
         /// <summary>
