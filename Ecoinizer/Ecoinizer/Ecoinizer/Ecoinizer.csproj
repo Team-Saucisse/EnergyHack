@@ -48,6 +48,9 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="TheSaucisseFactory">
+      <HintPath>..\..\..\TheSaucisseFactory\TheSaucisseFactory\bin\Debug\TheSaucisseFactory.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -63,6 +66,9 @@
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImportMecanism.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">

@@ -16,12 +16,19 @@ namespace Ecoinizer
 		{
 			InitializeComponent();
 
+			//ImportMecanism import = new ImportMecanism(this);
+
+			TestCamel();
+		}
+
+		private void TestCamel()
+		{
 			CamelRequestResource l_req = new CamelRequestResource("2.0", "energy");
 			l_req.id = "test";
 			l_req.@params = new Params[1];
 			l_req.@params[0] = new Params();
-			l_req.@params[0].begin = DateTimeHelper.ConvertDateTimeToUnixTimeStamp(new DateTime(2013, 10, 1));
-			l_req.@params[0].end = DateTimeHelper.ConvertDateTimeToUnixTimeStamp(new DateTime(2013, 11, 1));
+			l_req.@params[0].begin = DateTimeHelper.ConvertDateTimeToUnixTimeStamp(new DateTime(2013, 7, 1));
+			l_req.@params[0].end = DateTimeHelper.ConvertDateTimeToUnixTimeStamp(new DateTime(2013, 8, 2));
 			l_req.@params[0].ctx = "GLOBAL";
 			l_req.@params[0].gran = "DAY";
 			l_req.@params[0].ind = 0;

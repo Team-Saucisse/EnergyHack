@@ -71,7 +71,7 @@
 
   <cf:entity name="Batiment" uic:searchEnabled="true" uic:displayName="Bâtiment" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
     <cf:property name="Id" uic:displayName="Id" key="true" />
-    <cf:property name="CamelId" uic:displayName="Id CAMEL" maxLength="10" >
+    <cf:property name="CamelId" uic:displayName="Id CAMEL" unique="true" maxLength="10" >
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
     <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
@@ -82,6 +82,7 @@
     </cf:property>
     <cf:property name="Appartements" uic:displayName="Appartements" typeName="AppartementCollection" relationPropertyName="Batiment" >
     </cf:property>
+
   </cf:entity>
 
   <cf:entity name="Appartement" uic:searchEnabled="true" uic:displayName="Appartement" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -126,7 +127,7 @@
     <cf:property name="Contenu" uic:displayName="Contenu" maxLength="-1">
       <cf:renderer name="RichText" />
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
-      <cf:attribute name="BetterLife.BOM.RichTextMarker" />
+      <cf:attribute name="TheSaucisseFactory.RichTextMarker" />
     </cf:property>
     <cf:property name="Challenge" uic:displayName="Challenge" typeName="Challenge" relationPropertyName="Illustrations" >
     </cf:property>
