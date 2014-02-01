@@ -8,7 +8,7 @@
                       runLocalScripts="true"
                       dropUnusedColumns="true"
                       produceOnline="true" onlineTargetDirectory="SqlAzureScripts"
-                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
+                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=import;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
                       runOnlineScripts="true"
                       />
   </cf:producer>
@@ -229,7 +229,8 @@
                AND Appartement = @Appartement" checkLevel="None">
       <cf:message class="_doc" cultureName="fr-FR">Obtient les gains pour l'appartement spcifié 1 mois avant la date spécifiée</cf:message>
     </cf:method>
-    
+    <cf:method name="DeleteAll" body="Delete()"></cf:method>
+
     <cf:view persistent="false" name="GeneratedIndexView">
       <cf:viewProperty name="Challenge" />
       <cf:viewProperty name="Appartement" />

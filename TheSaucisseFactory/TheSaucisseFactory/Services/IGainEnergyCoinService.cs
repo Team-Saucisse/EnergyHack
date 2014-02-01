@@ -70,5 +70,8 @@ namespace TheSaucisseFactory.Services
         
         [System.ServiceModel.OperationContractAttribute()]
         TheSaucisseFactory.GainEnergyCoinCollection LoadByAppartementDateRange(string appartementEntityKey, System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute()]
+        int DeleteAll();
     }
 }

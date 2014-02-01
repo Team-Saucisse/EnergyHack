@@ -1261,6 +1261,15 @@ namespace TheSaucisseFactory
             return reader;
         }
         
+        public static int DeleteAll()
+        {
+            CodeFluent.Runtime.CodeFluentPersistence persistence = CodeFluentContext.Get(TheSaucisseFactory.Constants.TheSaucisseFactoryStoreName).Persistence;
+            persistence.CreateStoredProcedureCommand(null, "GainEnergyCoin", "DeleteAll");
+            int count;
+            count = persistence.ExecuteScalar(-1);
+            return count;
+        }
+        
         protected virtual void BaseTrace(System.CodeDom.Compiler.IndentedTextWriter writer)
         {
             writer.Write("[");

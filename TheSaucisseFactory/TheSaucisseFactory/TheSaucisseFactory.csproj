@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Appartement.cs" />
+    <Compile Include="Appartement.more.cs" />
     <Compile Include="AppartementCollection.cs" />
     <Compile Include="Batiment.cs" />
     <Compile Include="BatimentCollection.cs" />

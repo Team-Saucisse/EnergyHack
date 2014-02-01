@@ -162,5 +162,10 @@ namespace TheSaucisseFactory.Services
             TheSaucisseFactory.Appartement appartement = TheSaucisseFactory.Appartement.LoadByEntityKey(appartementEntityKey);
             return TheSaucisseFactory.GainEnergyCoinCollection.LoadByAppartementDateRange(appartement, date);
         }
+        
+        public virtual int DeleteAll()
+        {
+            return TheSaucisseFactory.GainEnergyCoinCollection.DeleteAll();
+        }
     }
 }

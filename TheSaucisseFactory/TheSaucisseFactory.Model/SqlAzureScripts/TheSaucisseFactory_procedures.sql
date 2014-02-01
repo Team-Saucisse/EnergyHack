@@ -153,6 +153,10 @@ IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[Commer
 DROP PROCEDURE [dbo].[Commerce_LoadCommercesPublicitesByMedia]
 GO
 
+IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_DeleteAll]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE [dbo].[GainEnergyCoin_DeleteAll]
+GO
+
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[GainEnergyCoin_Load]') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE [dbo].[GainEnergyCoin_Load]
 GO
@@ -1386,6 +1390,18 @@ SELECT [Commerce].[Id], [Commerce].[Nom], [Commerce].[Url]
         WHEN @_orderBy0 = '[Commerce].[Nom]' AND @_orderByDirection0 = 1 THEN [Commerce].[Nom]
     END DESC
 
+RETURN
+GO
+
+CREATE PROCEDURE [dbo].[GainEnergyCoin_DeleteAll]
+
+AS
+SET NOCOUNT ON
+DECLARE @deletedcount int
+DELETE [GainEnergyCoin] FROM [GainEnergyCoin] 
+SELECT @deletedcount = @@ROWCOUNT
+
+SELECT @deletedcount 
 RETURN
 GO
 

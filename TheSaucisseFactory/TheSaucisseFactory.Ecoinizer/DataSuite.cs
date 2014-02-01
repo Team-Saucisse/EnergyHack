@@ -40,11 +40,17 @@ namespace TheSaucisseFactory.Ecoinizer
             Appartement = p_appartement;
             Date = p_date;
             Type = p_type;
+
             AddRange(p_mesures.Where(
                 g => g.AppartementId == p_appartement.Id
                     && DateTime.Compare(g.Date, p_date) <= 0
                     && (p_date - g.Date).TotalDays < 7
                     && g.Type == p_type));
+        }
+
+        public double ConsommationElectricite()
+        {
+            return this.Sum(m => m.Valeur); 
         }
     }
 }
