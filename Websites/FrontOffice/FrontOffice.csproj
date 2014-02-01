@@ -71,6 +71,7 @@
     <Content Include="Images\c3.png" />
     <Content Include="Images\c3.svg" />
     <Content Include="Images\coin.png" />
+    <Content Include="Images\EnergyCoinEclair.png" />
     <Content Include="Images\tank.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />

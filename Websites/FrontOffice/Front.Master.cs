@@ -10,7 +10,7 @@ namespace FrontOffice
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
-        public string CurrentAppartement { get; set; }
+        public string CurrentAppartement { get { return (string)Session["CurrentAppartement"]; } set { Session["CurrentAppartement"] = value; } }
 
 
         protected void Page_Load(object sender, EventArgs e)

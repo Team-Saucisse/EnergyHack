@@ -19,51 +19,60 @@ util.explosionsImages = ["explosion_1", "explosion_2", "explosion_3", "explosion
 // Game map
 util.gameMap = function(map) {
 	var width = constant.boardWidth, height = constant.boardHeight;
-	if (map == 0) {
-		return [
-			{x: 3, y: 0, type: constant.tileTrees}, {x: width-4, y: 0, type: constant.tileTrees},
-			{x: 4, y: 0, type: constant.tileTrees}, {x: width-5, y: 0, type: constant.tileTrees},
-			{x: 4, y: 1, type: constant.tileTrees}, {x: width-5, y: 1, type: constant.tileTrees},			
-			{x: 5, y: 0, type: constant.tileTrees}, {x: width-6, y: 0, type: constant.tileTrees},
-			{x: 5, y: 1, type: constant.tileTrees}, {x: width-6, y: 1, type: constant.tileTrees},
-			{x: 6, y: 0, type: constant.tileMountain}, {x: width-7, y: 0, type: constant.tileMountain},
-			{x: 6, y: 1, type: constant.tileTrees}, {x: width-7, y: 1, type: constant.tileTrees},
-			{x: 6, y: 2, type: constant.tileTrees}, {x: width-7, y: 2, type: constant.tileTrees},
-			{x: 7, y: 0, type: constant.tileMountain}, {x: 7, y: 1, type: constant.tileMountain}, 
-			{x: 3, y: 3, type: constant.tileTrees}, {x: width-4, y: 5, type: constant.tileTrees}, 
-			{x: 7, y: 2, type: constant.tileTrees}, 
-			{x: 7, y: 4, type: constant.tileWater}, 
-			{x: 3, y: height-1, type: constant.tileTrees}, {x: width-4, y: height-1, type: constant.tileTrees},
-			{x: 4, y: height-1, type: constant.tileTrees}, {x: width-5, y: height-1, type: constant.tileTrees},
-			{x: 4, y: height-2, type: constant.tileTrees}, {x: width-5, y: height-2, type: constant.tileTrees},			
-			{x: 5, y: height-1, type: constant.tileTrees}, {x: width-6, y: height-1, type: constant.tileTrees},
-			{x: 5, y: height-2, type: constant.tileTrees}, {x: width-6, y: height-2, type: constant.tileTrees},
-			{x: 6, y: height-1, type: constant.tileMountain}, {x: width-7, y: height-1, type: constant.tileMountain},
-			{x: 6, y: height-2, type: constant.tileTrees}, {x: width-7, y: height-2, type: constant.tileTrees},
-			{x: 6, y: height-3, type: constant.tileTrees}, {x: width-7, y: height-3, type: constant.tileTrees},
-			{x: 7, y: height-1, type: constant.tileMountain}, {x: 7, y: height-2, type: constant.tileMountain}, 
-			{x: 7, y: height-3, type: constant.tileTrees}
-		];
+	switch(map) {
+	case 0:
+		return	"---HOH-----H---" +
+				"----H----------" +
+				"---------------" +
+				"---------------" +
+				"---------------" +
+				"-----------H---" +	
+				"---------------" +			
+				"---------------" +			
+				"---------H-H---";	
+	case 1:
+		return	"------H--HHHHH^" +
+				"----H--H----HHH" +
+				"------H---H----" +
+				"---------------" +
+				"---H-----------" +
+				"-------H-------" +	
+				"-------HH------" +			
+				"-----HH----H---" +			
+				"---HHH----HH--H";	
+	case 2:
+		return	"---HHH^^^HHH---" +
+				"----HHH^HHH----" +
+				"------HHH------" +
+				"---H-----------" +
+				"-------O-------" +
+				"-----------H---" +	
+				"------HHH------" +			
+				"----HHH^HHH----" +			
+				"---HHH^^^HHH---";			
 	}
+	return new Array(width*height).join('-');
 }
 
-// Prepare board
+// Prepare board using ground model
 util.createMap = function(grounds) {
 	var game = [];
-	
-	// Start by grass
+	var index = 0;
 	for (var i = 0 ; i < constant.boardHeight ; i++ ) {
 		var line = []
 		for (var j = 0 ; j < constant.boardWidth ; j++ ) {
-			line.push(constant.tileEmpty);
+			var ground = constant.tileEmpty;
+			var current = grounds[index];
+			if (current == 'O')
+				ground = constant.tileWater;
+			else if (current == 'H')
+				ground = constant.tileTrees;
+			else if (current == '^')
+				ground = constant.tileMountain;
+			line.push(ground);
+			index++;
 		}
 		game.push(line);
-	}
-	
-	// Add map element
-	for (var i = 0 ; i < grounds.length ; i++) {
-		var x = grounds[i].x, y = grounds[i].y;
-		game[y][x] = grounds[i].type;
 	}
 	
 	return game;

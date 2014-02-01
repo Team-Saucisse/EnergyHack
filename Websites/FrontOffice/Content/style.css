@@ -11,6 +11,17 @@
     min-height: 300px;
 }
 
+.imgHover
+{
+    position: relative;
+}
+
+.textHover
+{
+    position: absolute;
+}
+
+
 .colorgraph {
   height: 5px;
   border-top: 0;

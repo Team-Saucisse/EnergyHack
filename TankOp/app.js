@@ -43,7 +43,7 @@ enyo.kind({
 		this.canvas = this.$.gamebox.createComponent({kind: "Canvas", name: "canvas", attributes: {width: constant.areaWidth, height: constant.areaHeight}});
 
 		// Init board
-		this.game = util.createMap(util.gameMap(0));
+		this.game = util.createMap(util.gameMap(2));
 		this.targetpos = {x: 0, y: 0};
 
 		// Init units

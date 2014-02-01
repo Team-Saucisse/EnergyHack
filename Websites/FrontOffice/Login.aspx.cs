@@ -21,16 +21,13 @@ namespace FrontOffice
                 m_ddlBuildings.DataValueField = "Id";
                 m_ddlBuildings.DataBind();
 
-                if (l_buildings.Count == 1)
-                {
-
-                }
+                m_ddlBuildings.Items.Insert(0, new ListItem("Sélectionner un bâtiment...", String.Empty));
             }
         }
 
         protected void LoadAppartementList(object sender, EventArgs e)
         {
-            Guid l_batimentID=new Guid(((DropDownList)(sender)).SelectedValue);
+            Guid l_batimentID = new Guid(((DropDownList)(sender)).SelectedValue);
             Batiment l_batiment = Batiment.LoadById(l_batimentID);
             AppartementCollection l_appartements = AppartementCollection.LoadByBatiment(l_batiment);
 
@@ -38,11 +35,17 @@ namespace FrontOffice
             m_ddlApparments.DataTextField = "CamelID";
             m_ddlApparments.DataValueField = "Id";
             m_ddlApparments.DataBind();
+
+            m_ddlApparments.Items.Insert(0, new ListItem("Sélectionner un appartement...", String.Empty));
+
+            m_ddlApparments.Enabled = true;
         }
 
-        protected void SetConnexionInfos(object sender, EventArgs e)
+        protected void SelectedAppartementChanged(object sender, EventArgs e)
         {
-            (Page.Master as FrontOffice.Site1).CurrentAppartement = AppartmentID.Value;
+            m_password.Enabled = true;
+            m_btnLogin.Enabled = true;
+            (Page.Master as FrontOffice.Site1).CurrentAppartement = m_ddlApparments.SelectedValue;
         }
     }
 }
