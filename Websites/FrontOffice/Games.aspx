@@ -16,7 +16,7 @@
                                 <asp:LinkButton ID="m_aGames" PostBackUrl="~/Games.aspx" OnClick="MenuItem_SetActive"
                                     CommandArgument="Games" runat="server">Les Jeux</asp:LinkButton></li>
                             <li runat="server" id="m_liDisconnect">
-                                <asp:LinkButton ID="m_aDisconnect" OnClick="MenuItem_SetActive" CommandArgument="Disconnect"
+                                <asp:LinkButton ID="m_aDisconnect" PostBackUrl="~/Login.aspx"  OnClick="MenuItem_SetActive" CommandArgument="Disconnect"
                                     runat="server">Se Déconnecter</asp:LinkButton></li>
                         </ul>
                     </div>

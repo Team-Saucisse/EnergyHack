@@ -13,15 +13,6 @@ namespace FrontOffice {
     public partial class Login {
         
         /// <summary>
-        /// Contrôle WebMethods.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager WebMethods;
-        
-        /// <summary>
         /// Contrôle m_ddlBuildings.
         /// </summary>
         /// <remarks>
