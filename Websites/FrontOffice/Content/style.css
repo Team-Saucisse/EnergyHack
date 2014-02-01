@@ -50,11 +50,10 @@
 .jcarousel-wrapper .photo-credits
 {
     position: absolute;
-    right: 5px;
-    bottom: 0;
+    right: 0;
+    bottom: -10px;
     font-size: 13px;
     color: #fff;
-
 }
 
 .jcarousel-wrapper .photo-credits a

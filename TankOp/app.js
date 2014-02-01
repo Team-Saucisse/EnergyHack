@@ -64,7 +64,6 @@ enyo.kind({
 		// Init units
 		var width = constant.boardWidth, height = constant.boardHeight;
 		var goodEngine = enyo.bind(this, "goodEngine");
-		var badEngine = enyo.bind(this, "badEngine");
 		this.units = []
 
 		// Set HQ
@@ -106,12 +105,10 @@ enyo.kind({
 		}
 		
 		// Get bad units
-		this.units.push(util.createUnit({type: "tank", color: "red", x: width-1, y: 2, engine: badEngine}));
-		this.units.push(util.createUnit({type: "soldier", color: "red", x: width-1, y: 7, engine: badEngine}));
-		this.units.push(util.createUnit({type: "canon", color: "red", x: width-6, y: 3, engine: badEngine}));
-		this.units.push(util.createUnit({type: "soldier", color: "red", x: width-4, y: 4, engine: badEngine}));
-		this.units.push(util.createUnit({type: "soldier", color: "red", x: width-1, y: 5, engine: badEngine}));
-		this.units.push(util.createUnit({type: "helo", color: "red", x: width-1, y: height-1, engine: badEngine}));
+		this.enemyCount = constant.enemyCount+Math.floor(defense.length/3);
+		this.enemyArrivalTurn = constant.enemyArrivalTurn;
+		
+		// Let's Go !
 		this.pausedGame = false;
 	},
 	
@@ -223,11 +220,26 @@ enyo.kind({
 				livingEnemy++;				
 		}
 		this.units = alives;
-		this.endOfGame = (livingHq == 0 || livingEnemy == 0);
+		this.endOfGame = (livingHq == 0 || (livingEnemy == 0 && this.enemyCount == 0));
 		this.win = (livingHq > 0);
-			
-		// Launch engine for each unit
+		
+		// Game play
 		if (!this.endOfGame) {
+			// Enemy arrival
+			if (this.enemyArrivalTurn == 0 && this.enemyCount > 0) {
+				var badEngine = enyo.bind(this, "badEngine");
+				var width = constant.boardWidth;
+				var height = constant.boardHeight;
+				var stats = [-1, constant.statSoldier, constant.statTank, constant.statCanon, constant.statHelo];
+				var unit = {type: util.randomUnit(), color: "red", heading:0, engine: badEngine, x: width-1, y: util.random(height)};
+				this.units.push(util.createUnit(unit));
+				this.enemyCount = this.enemyCount-1;
+				this.enemyArrivalTurn = constant.enemyArrivalTurn;
+			} else {
+				this.enemyArrivalTurn = this.enemyArrivalTurn - 1;
+			}
+			
+			// Launch engine for each unit
 			for (var i = 0 ; i < this.units.length ; i++) {
 				var engine = this.units[i].engine;
 				if (engine != null)
