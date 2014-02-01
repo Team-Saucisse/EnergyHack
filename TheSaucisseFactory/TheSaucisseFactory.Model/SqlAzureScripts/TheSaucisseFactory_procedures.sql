@@ -596,7 +596,8 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_Save]
  @Appartement_Id [uniqueidentifier] = NULL,
  @Date [datetime] = NULL,
  @Quantite [int] = NULL,
- @Challenge_Id [uniqueidentifier] = NULL
+ @Challenge_Id [uniqueidentifier] = NULL,
+ @Meta [nvarchar] (300) = NULL
 )
 AS
 SET NOCOUNT ON
@@ -611,7 +612,8 @@ UPDATE [GainEnergyCoin] SET
  [GainEnergyCoin].[Appartement_Id] = @Appartement_Id,
  [GainEnergyCoin].[Date] = @Date,
  [GainEnergyCoin].[Quantite] = @Quantite,
- [GainEnergyCoin].[Challenge_Id] = @Challenge_Id
+ [GainEnergyCoin].[Challenge_Id] = @Challenge_Id,
+ [GainEnergyCoin].[Meta] = @Meta
     WHERE ([GainEnergyCoin].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF(@error != 0)
@@ -626,13 +628,15 @@ BEGIN
         [GainEnergyCoin].[Appartement_Id],
         [GainEnergyCoin].[Date],
         [GainEnergyCoin].[Quantite],
-        [GainEnergyCoin].[Challenge_Id])
+        [GainEnergyCoin].[Challenge_Id],
+        [GainEnergyCoin].[Meta])
     VALUES (
         @Id,
         @Appartement_Id,
         @Date,
         @Quantite,
-        @Challenge_Id)
+        @Challenge_Id,
+        @Meta)
     SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
     IF(@error != 0)
     BEGIN
@@ -1387,7 +1391,7 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_Load]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Id] = @Id)
 
@@ -1401,7 +1405,7 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadAll]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
     FROM [GainEnergyCoin] 
 
 RETURN
@@ -1415,7 +1419,7 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadByAppartement]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Appartement_Id] = @AppartementId)
 
@@ -1430,7 +1434,7 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadByChallenge]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Challenge_Id] = @ChallengeId)
 
@@ -1443,7 +1447,7 @@ CREATE PROCEDURE [dbo].[GainEnergyCoin_LoadById]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id] 
+SELECT DISTINCT [GainEnergyCoin].[Id], [GainEnergyCoin].[Appartement_Id], [GainEnergyCoin].[Date], [GainEnergyCoin].[Quantite], [GainEnergyCoin].[Challenge_Id], [GainEnergyCoin].[Meta] 
     FROM [GainEnergyCoin] 
     WHERE ([GainEnergyCoin].[Id] = @Id)
 

@@ -1,6 +1,6 @@
 ﻿<cf:project defaultNamespace="TheSaucisseFactory" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" xmlns:cfx="http://www.softfluent.com/codefluent/modeler/2008/1" xmlns:cfps="http://www.softfluent.com/codefluent/producers.sqlserver/2005/1" xmlns:cfom="http://www.softfluent.com/codefluent/producers.model/2005/1" xmlns:cfasp="http://www.softfluent.com/codefluent/producers.aspnet/2011/1" xmlns:uic="http://www.c2s.fr/codefluent/uicustomization/betterlife" defaultEntityTrackingModes="None" defaultViewTrackingModes="None" defaultTargetFramework="4.0" defaultConnectionString="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost" defaultConcurrencyMode="None" persistencePropertyNameFormat="{1}" createDefaultMethodForms="true" createDefaultApplication="false" createDefaultHints="false">
   <cf:import path="Default.Surface.cfp" />
-  <cf:producer enabled="false" name="SQL Azure" typeName="CodeFluent.Producers.SqlServer.SqlAzureProducer, CodeFluent.Producers.SqlServer" productionFlags="Default, Overwrite, RemoveDates">
+  <cf:producer enabled="true" name="SQL Azure" typeName="CodeFluent.Producers.SqlServer.SqlAzureProducer, CodeFluent.Producers.SqlServer" productionFlags="Default, Overwrite, RemoveDates">
     <cf:configuration
                       cfx:targetProjectLayout="None"
                       cfx:targetProject="..\TheSaucisseFactory.Persistence\TheSaucisseFactory.Persistence.sqlproj"
@@ -8,7 +8,7 @@
                       runLocalScripts="true"
                       dropUnusedColumns="true"
                       produceOnline="true" onlineTargetDirectory="SqlAzureScripts"
-                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=import;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
+                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
                       runOnlineScripts="true"
                       />
   </cf:producer>
@@ -222,6 +222,8 @@
     </cf:property>
     <cf:property name="Challenge" uic:displayName="Challenge" typeName="Challenge" relationPropertyName="GainsEnergyCoin" >
     </cf:property>
+    <cf:property name="Meta" uic:displayName="Donnée à interpréter en fonction du Challenge" maxLength="300">
+    </cf:property>
 
     <cf:view persistent="false" name="GeneratedIndexView">
       <cf:viewProperty name="Challenge" />
@@ -234,12 +236,14 @@
       <cf:viewProperty name="Appartement" />
       <cf:viewProperty name="Date" />
       <cf:viewProperty name="Quantite" />
+      <cf:viewProperty name="Meta" />
     </cf:view>
     <cf:view persistent="false" name="GeneratedEditView">
       <cf:viewProperty name="Challenge" />
       <cf:viewProperty name="Appartement" />
       <cf:viewProperty name="Date" />
       <cf:viewProperty name="Quantite" />
+      <cf:viewProperty name="Meta" />
     </cf:view>
   </cf:entity>
 

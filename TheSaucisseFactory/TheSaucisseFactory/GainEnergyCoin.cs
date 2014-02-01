@@ -18,7 +18,7 @@ namespace TheSaucisseFactory
     [System.CodeDom.Compiler.GeneratedCodeAttribute("CodeFluent Entities", "1.0.01234.05678")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DataObjectAttribute()]
-    [System.Diagnostics.DebuggerDisplayAttribute("EK={EntityKey}, Id={Id}")]
+    [System.Diagnostics.DebuggerDisplayAttribute("EK={EntityKey}, Meta={Meta}, Id={Id}")]
     [System.ComponentModel.TypeConverterAttribute(typeof(CodeFluent.Runtime.Design.NameTypeConverter))]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://schemas.thesaucissefactory.com")]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CodeFluent.Runtime.CodeFluentRelationType))]
@@ -42,6 +42,8 @@ namespace TheSaucisseFactory
         
         [System.NonSerializedAttribute()]
         private TheSaucisseFactory.Challenge _challenge = null;
+        
+        private string _meta = default(string);
         
         [System.NonSerializedAttribute()]
         private bool _isSerializing;
@@ -95,7 +97,7 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
         {
             get
             {
-                return this.Id.ToString("N");
+                return this.Meta;
             }
         }
         
@@ -268,6 +270,23 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
                 this.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
                 this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Challenge"));
                 this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("ChallengeId"));
+            }
+        }
+        
+        [System.ComponentModel.DefaultValueAttribute(default(string))]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Type=typeof(string))]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=600)]
+        public string Meta
+        {
+            get
+            {
+                return this._meta;
+            }
+            set
+            {
+                this._meta = value;
+                this.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
+                this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("Meta"));
             }
         }
         
@@ -505,6 +524,7 @@ gainEnergyCoin = value as TheSaucisseFactory.GainEnergyCoin;
                 this._date = CodeFluentPersistence.GetReaderValue(reader, "Date", ((System.DateTime)(CodeFluentPersistence.DefaultDateTimeValue)));
                 this._quantite = CodeFluentPersistence.GetReaderValue(reader, "Quantite", ((int)(CodeFluentPersistence.DefaultInt32Value)));
                 this.ChallengeId = CodeFluentPersistence.GetReaderValue(reader, "Challenge_Id", ((System.Guid)(CodeFluentPersistence.DefaultGuidValue)));
+                this._meta = CodeFluentPersistence.GetReaderValue(reader, "Meta", ((string)(default(string))));
             }
             this.OnEntityAction(new CodeFluent.Runtime.CodeFluentEntityActionEventArgs(this, CodeFluent.Runtime.CodeFluentEntityAction.ReadRecord, false, false));
         }
@@ -657,6 +677,7 @@ gainEnergyCoin = value as TheSaucisseFactory.GainEnergyCoin;
             persistence.AddParameter("@Date", this.Date, CodeFluentPersistence.DefaultDateTimeValue);
             persistence.AddParameter("@Quantite", this.Quantite, CodeFluentPersistence.DefaultInt32Value);
             persistence.AddParameter("@Challenge_Id", this.ChallengeId, CodeFluentPersistence.DefaultGuidValue);
+            persistence.AddParameter("@Meta", this.Meta, default(string));
             System.Data.IDataReader reader = null;
             try
             {
@@ -770,6 +791,9 @@ gainEnergyCoin = value as TheSaucisseFactory.GainEnergyCoin;
             writer.Write(",");
             writer.Write("_challengeId=");
             writer.Write(this._challengeId);
+            writer.Write(",");
+            writer.Write("Meta=");
+            writer.Write(this.Meta);
             writer.Write(", EntityState=");
             writer.Write(this.EntityState);
             writer.Write("]");
@@ -825,17 +849,21 @@ gainEnergyCoin = value as TheSaucisseFactory.GainEnergyCoin;
             {
                 this.Quantite = ((int)(ConvertUtilities.ChangeType(dict["Quantite"], typeof(int), CodeFluentPersistence.DefaultInt32Value)));
             }
+            if ((dict.Contains("Meta") == true))
+            {
+                this.Meta = ((string)(ConvertUtilities.ChangeType(dict["Meta"], typeof(string), default(string))));
+            }
             if ((dict.Contains("Date") == true))
             {
                 this.Date = ((System.DateTime)(ConvertUtilities.ChangeType(dict["Date"], typeof(System.DateTime), CodeFluentPersistence.DefaultDateTimeValue)));
             }
-            if ((dict.Contains("ChallengeId") == true))
-            {
-                this.ChallengeId = ((System.Guid)(ConvertUtilities.ChangeType(dict["ChallengeId"], typeof(System.Guid), CodeFluentPersistence.DefaultGuidValue)));
-            }
             if ((dict.Contains("AppartementId") == true))
             {
                 this.AppartementId = ((System.Guid)(ConvertUtilities.ChangeType(dict["AppartementId"], typeof(System.Guid), CodeFluentPersistence.DefaultGuidValue)));
+            }
+            if ((dict.Contains("ChallengeId") == true))
+            {
+                this.ChallengeId = ((System.Guid)(ConvertUtilities.ChangeType(dict["ChallengeId"], typeof(System.Guid), CodeFluentPersistence.DefaultGuidValue)));
             }
             this.OnEntityAction(new CodeFluent.Runtime.CodeFluentEntityActionEventArgs(this, CodeFluent.Runtime.CodeFluentEntityAction.CopyFrom, false, dict));
         }
@@ -848,9 +876,10 @@ gainEnergyCoin = value as TheSaucisseFactory.GainEnergyCoin;
             }
             gainEnergyCoin.Id = this.Id;
             gainEnergyCoin.Quantite = this.Quantite;
+            gainEnergyCoin.Meta = this.Meta;
             gainEnergyCoin.Date = this.Date;
-            gainEnergyCoin.ChallengeId = this.ChallengeId;
             gainEnergyCoin.AppartementId = this.AppartementId;
+            gainEnergyCoin.ChallengeId = this.ChallengeId;
             this.OnEntityAction(new CodeFluent.Runtime.CodeFluentEntityActionEventArgs(this, CodeFluent.Runtime.CodeFluentEntityAction.CopyTo, false, gainEnergyCoin));
         }
         
@@ -862,9 +891,10 @@ gainEnergyCoin = value as TheSaucisseFactory.GainEnergyCoin;
             }
             dict["Id"] = this.Id;
             dict["Quantite"] = this.Quantite;
+            dict["Meta"] = this.Meta;
             dict["Date"] = this.Date;
-            dict["ChallengeId"] = this.ChallengeId;
             dict["AppartementId"] = this.AppartementId;
+            dict["ChallengeId"] = this.ChallengeId;
             this.OnEntityAction(new CodeFluent.Runtime.CodeFluentEntityActionEventArgs(this, CodeFluent.Runtime.CodeFluentEntityAction.CopyTo, false, dict));
         }
         
@@ -906,6 +936,7 @@ gainEnergyCoin = value as TheSaucisseFactory.GainEnergyCoin;
             this._quantite = CodeFluentPersistence.DefaultInt32Value;
             this._challengeId = CodeFluentPersistence.DefaultGuidValue;
             this._challenge = null;
+            this._meta = default(string);
             this._id = System.Guid.NewGuid();
             this._entityState = CodeFluent.Runtime.CodeFluentEntityState.Created;
             this._raisePropertyChangedEvents = true;
