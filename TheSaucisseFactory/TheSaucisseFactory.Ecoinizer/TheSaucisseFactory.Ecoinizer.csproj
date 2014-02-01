@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="DataSuite.cs" />
     <Compile Include="EnergyCoinEngine.cs" />
+    <Compile Include="EnergyCoinEngine.Personal.cs" />
     <Compile Include="ImportMecanism.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
