@@ -31,12 +31,9 @@
     background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
     background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
-
-.jcarousel-wrapper
-{
-    margin: 20px auto;
+.jcarousel-wrapper {
     position: relative;
-    border: 2px solid #fff;
+    border: 10px solid #fff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -45,35 +42,34 @@
     box-shadow: 0 0 2px #999;
 }
 
+@media (max-width: 600px) {
+    .jcarousel-wrapper {
+        border: 5px solid #fff;
+    }
+}
 
-.jcarousel-wrapper .photo-credits
-{
+.jcarousel-wrapper .photo-credits {
     position: absolute;
     right: 15px;
     bottom: 0;
     font-size: 13px;
     color: #fff;
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
-    opacity: .66;
+
+
 }
 
-.jcarousel-wrapper .photo-credits a
-{
+.jcarousel-wrapper .photo-credits a {
     color: #fff;
 }
 
 /** Carousel **/
 
-.jcarousel
-{
+.jcarousel {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    height: 100px;
 }
 
-.jcarousel ul
-{
+.jcarousel ul {
     width: 20000em;
     position: relative;
     list-style: none;
@@ -81,15 +77,14 @@
     padding: 0;
 }
 
-.jcarousel li
-{
+.jcarousel li {
     float: left;
 }
 
-.jcarousel li img
-{
-    position: relative;
-    width: 100%; /* for IE 6 */
+.jcarousel img {
+    display: block;
+    max-width: 500px;
+    height: auto !important;
 }
 
 .ui-group-buttons .or
@@ -194,3 +189,4 @@
     border-bottom-right-radius: .25em;
     padding-left: 15px;
 }
+

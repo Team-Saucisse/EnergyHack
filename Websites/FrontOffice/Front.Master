@@ -21,13 +21,16 @@
                 <div class="jcarousel">
                     <ul>
                         <li>
-                            <img src="http://sorgalla.com/jcarousel/examples/_shared/img/img1.jpg" width="600"
-                                height="400" alt=""></li>
+                            <img src="Images\Banniere1.png" width="500" height="160" alt=""></li>
                         <li>
-                            <img src="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" width="600"
-                                height="400" alt=""></li>
+                            <img src="Images\Banniere2.png" width="500" height="160" alt=""></li>
+                        <li>
+                            <img src="Images\Banniere3.png" width="500" height="160" alt=""></li>
                     </ul>
                 </div>
+                <p class="photo-credits">
+                    Photos by <a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
+                </p>
             </div>
         </div>
     </div>
@@ -59,6 +62,7 @@
 
         function CallSuccess(res) {
             if (res != "" && res != undefined) {
+                $('#challengeIllustrations').html('');
                 $('#challengeIllustrations').html(res);
             }
             else
@@ -85,8 +89,8 @@
             $('#m_ddlApparments').append($("<option />").val("").text("Sélectionner un appartement"));
             $.each(res, function () {
 
-            var data = this.split('|');
-            $('#m_ddlApparments').append($("<option />").val(data[0]).text(data[1]));
+                var data = this.split('|');
+                $('#m_ddlApparments').append($("<option />").val(data[0]).text(data[1]));
             });
             $('#m_ddlApparments').removeAttr("disabled");
         }

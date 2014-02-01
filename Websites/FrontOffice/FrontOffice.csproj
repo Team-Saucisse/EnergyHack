@@ -64,6 +64,9 @@
     <Content Include="Home.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\background.png" />
+    <Content Include="Images\Banniere1.png" />
+    <Content Include="Images\Banniere2.png" />
+    <Content Include="Images\Banniere3.png" />
     <Content Include="Images\c1.png" />
     <Content Include="Images\c1.svg" />
     <Content Include="Images\c2.png" />

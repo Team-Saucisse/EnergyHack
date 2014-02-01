@@ -29,8 +29,8 @@
                                 <div class="caption">
                                     <h3>
                                         Tank OP</h3>
-                                    <p>
-                                        ...</p>
+                                    <p class="text-primary">
+                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
                                         <a class="btn btn-primary" href="games/TankOp/index.html" role="button">Web</a>
                                         <a href="#" class="btn btn-default" role="button">Android</a> <a href="#" class="btn btn-default"
@@ -44,22 +44,9 @@
                                 <div class="caption">
                                     <h3>
                                         Tank OP</h3>
+                                    <p class="text-primary">
+                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
-                                        ...</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary" role="button">Web</a> <a href="#" class="btn btn-default"
-                                            role="button">Android</a> <a href="#" class="btn btn-default" role="button">iOS</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img src="Images/tank.png" alt="...">
-                                <div class="caption">
-                                    <h3>
-                                        Tank OP</h3>
-                                    <p>
-                                        ...</p>
                                     <p>
                                         <a href="#" class="btn btn-primary" role="button">Web</a> <a href="#" class="btn btn-default"
                                             role="button">Android</a> <a href="#" class="btn btn-default" role="button">iOS</a></p>
@@ -72,8 +59,24 @@
                                 <div class="caption">
                                     <h3>
                                         Tank OP</h3>
+                                    <p class="text-primary">
+                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
-                                        ...</p>
+                                    <p>
+                                        <a href="#" class="btn btn-primary" role="button">Web</a> <a href="#" class="btn btn-default"
+                                            role="button">Android</a> <a href="#" class="btn btn-default" role="button">iOS</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="Images/tank.png" alt="...">
+                                <div class="caption">
+                                    <h3>
+                                        Tank OP</h3>
+                                    <p class="text-primary">
+                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
+                                    <p>
                                     <p>
                                         <a href="#" class="btn btn-primary" role="button">Web</a> <a href="#" class="btn btn-default"
                                             role="button">Android</a> <a href="#" class="btn btn-default" role="button">iOS</a></p>
