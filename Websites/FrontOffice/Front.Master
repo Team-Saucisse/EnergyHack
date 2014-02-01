@@ -81,9 +81,12 @@
         }
 
         function AppartementSuccess(res) {
+            $('#m_ddlApparments').html('');
             $('#m_ddlApparments').append($("<option />").val("").text("Sélectionner un appartement"));
             $.each(res, function () {
-                $('#m_ddlApparments').append($("<option />").val(this.Value).text(this.Text));
+
+            var data = this.split('|');
+            $('#m_ddlApparments').append($("<option />").val(data[0]).text(data[1]));
             });
             $('#m_ddlApparments').removeAttr("disabled");
         }

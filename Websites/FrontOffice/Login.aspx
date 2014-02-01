@@ -2,7 +2,6 @@
     CodeBehind="Login.aspx.cs" Inherits="FrontOffice.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentBody" runat="server">
-    <asp:ScriptManager EnablePageMethods="true" runat="server" ID="WebMethods"></asp:ScriptManager>
     <div class="container">
         <div class="row" style="margin-top: 20px">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
@@ -11,10 +10,10 @@
                         Résidence Cergy Pontoise</h2>
                     <hr class="colorgraph">
                     <div class="form-group">
-                        <asp:DropDownList CssClass="form-control" onchange="GetAppartementList(this); return false;" ID="m_ddlBuildings" runat="server"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="LoadAppartementList" ID="m_ddlBuildings" runat="server"></asp:DropDownList>
                     </div>
                     <div class="form-group">
-                        <asp:DropDownList ID="m_ddlApparments" ClientIDMode="Static" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="SelectedAppartementChanged" CssClass="form-control" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="m_ddlApparments" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="SelectedAppartementChanged" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
                     <div class="form-group">
                     

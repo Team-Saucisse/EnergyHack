@@ -48,19 +48,5 @@ namespace FrontOffice
             m_btnLogin.Enabled = true;
             (Page.Master as FrontOffice.Site1).CurrentAppartement = m_ddlApparments.SelectedValue;
         }
-
-        [WebMethod]
-        public static Dictionary<string, string> GetAppartement(string p_ddlID)
-        {
-            Batiment l_batiment = Batiment.LoadById(new Guid(p_ddlID));
-            Dictionary<string, string> l_dic = new Dictionary<string, string>();
-
-            foreach (Appartement l_appartement in l_batiment.Appartements)
-            {
-                l_dic.Add(l_appartement.Id.ToString(), l_appartement.CamelId);
-            }
-
-            return l_dic;
-        }
     }
 }
