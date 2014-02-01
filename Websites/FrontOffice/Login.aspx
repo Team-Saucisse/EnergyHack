@@ -22,8 +22,8 @@
                     </div>
                     <hr class="colorgraph">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6">
-                            <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" runat="server" Text="Se Connecter"
+                        <div class="">
+                            <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" runat="server" Text="Se connecter"
                                 ID="m_btnLogin" PostBackUrl="~/Home.aspx" />
                                 
                         </div>
