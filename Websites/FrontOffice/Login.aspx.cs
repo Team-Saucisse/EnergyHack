@@ -16,6 +16,8 @@ namespace FrontOffice
         {
             if (!Page.IsPostBack)
             {
+                Session.Abandon();
+
                 BatimentCollection l_buildings = BatimentCollection.LoadByResidence(ResidenceCollection.LoadAll().FirstOrDefault());
                 m_ddlBuildings.DataSource = l_buildings;
                 m_ddlBuildings.DataTextField = "CamelID";

@@ -75,6 +75,7 @@
     <Content Include="Images\c3.svg" />
     <Content Include="Images\coin.png" />
     <Content Include="Images\EnergyCoinEclair.png" />
+    <Content Include="Images\go.png" />
     <Content Include="Images\tank.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -86,6 +87,7 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.jcarousel.js" />
+    <Content Include="Scripts\notify.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

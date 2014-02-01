@@ -32,8 +32,8 @@
                                     <p class="text-primary">
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
-                                        <a class="btn btn-primary" href="games/TankOp/index.html" role="button">Web</a>
-                                        <a href="#" class="btn btn-default" role="button">Android</a> <a href="#" class="btn btn-default"
+                                        <a class="btn btn-primary btn-xs" href="games/TankOp/index.html" role="button">Web</a>
+                                        <a href="#" class="btn btn-default btn-xs" role="button">Android</a> <a href="#" class="btn btn-default btn-xs"
                                             role="button">iOS</a></p>
                                 </div>
                             </div>
@@ -48,8 +48,8 @@
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
                                     <p>
-                                        <a href="#" class="btn btn-primary" role="button">Web</a> <a href="#" class="btn btn-default"
-                                            role="button">Android</a> <a href="#" class="btn btn-default" role="button">iOS</a></p>
+                                        <a href="#" class="btn btn-primary btn-xs" role="button">Web</a> <a href="#" class="btn btn-default btn-xs"
+                                            role="button">Android</a> <a href="#" class="btn btn-default btn-xs" role="button">iOS</a></p>
                                 </div>
                             </div>
                         </div>
@@ -63,8 +63,8 @@
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
                                     <p>
-                                        <a href="#" class="btn btn-primary" role="button">Web</a> <a href="#" class="btn btn-default"
-                                            role="button">Android</a> <a href="#" class="btn btn-default" role="button">iOS</a></p>
+                                        <a href="#" class="btn btn-primary btn-xs" role="button">Web</a> <a href="#" class="btn btn-default btn-xs"
+                                            role="button">Android</a> <a href="#" class="btn btn-default btn-xs" role="button">iOS</a></p>
                                 </div>
                             </div>
                         </div>
@@ -78,8 +78,8 @@
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
                                     <p>
-                                        <a href="#" class="btn btn-primary" role="button">Web</a> <a href="#" class="btn btn-default"
-                                            role="button">Android</a> <a href="#" class="btn btn-default" role="button">iOS</a></p>
+                                        <a href="#" class="btn btn-primary btn-xs" role="button">Web</a> <a href="#" class="btn btn-default btn-xs"
+                                            role="button">Android</a> <a href="#" class="btn btn-default btn-xs" role="button">iOS</a></p>
                                 </div>
                             </div>
                         </div>

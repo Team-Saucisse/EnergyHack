@@ -14,6 +14,18 @@ namespace FrontOffice
 
         public string CurrentAppartement { get { return ((FrontOffice.Site1)Page.Master).CurrentAppartement; } }
 
+        public bool? IsWelcomeMessageShowed
+        {
+            get
+            {
+                return ((FrontOffice.Site1)Page.Master).IsWelcomeMessageShowed;
+            }
+            set
+            {
+                ((FrontOffice.Site1)Page.Master).IsWelcomeMessageShowed = value;
+            }
+        }
+
         /// <summary>
         /// Chargement de la page
         /// </summary>
@@ -21,8 +33,21 @@ namespace FrontOffice
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(((FrontOffice.Site1)Page.Master).CurrentAppartement))
+            {
+                Response.Redirect("Login.aspx");
+            }
+
             if (!Page.IsPostBack)
             {
+                if (!IsWelcomeMessageShowed.Value)
+                {
+                    ClientScriptManager cs = Page.ClientScript;
+                    cs.RegisterStartupScript(this.GetType(), "WelcomeMessage", "$.notify(\"Bienvenue sur le portail. Votre connexion vient de vous rapporter <b>1</b> EnergyCoin\", \"info\");", true);
+                    //cs.RegisterClientScriptBlock(this.GetType(), "WelcomeMessage", "$('.elem-demo').notify(\"Hello Box\");", true);
+                    IsWelcomeMessageShowed = true;
+                }
+
                 //1er élément sélectionné par défaut
                 m_liEcoins.Attributes["class"] = "active";
 
@@ -87,9 +112,9 @@ namespace FrontOffice
             {
                 GainEnergyCoin l_gain = (GainEnergyCoin)e.Item.DataItem;
 
-                ((Label)e.Item.FindControl("m_lblChallengeName")).Text = l_gain.Challenge.Nom;
+                ((Label)e.Item.FindControl("m_lblChallengeName")).Text = l_gain.Challenge != null ? l_gain.Challenge.Nom : "TODO";
                 ((Label)e.Item.FindControl("m_lblChallengeGain")).Text = "Gain: " + l_gain.Quantite.ToString();
-                string l_js = string.Format("ShowIllustration('{0}')", l_gain.Challenge.Id);
+                string l_js = string.Format("ShowIllustration('{0}')", l_gain.Challenge != null ? l_gain.Challenge.Id : Guid.Empty);
                 ((HyperLink)e.Item.FindControl("m_panelLink")).Attributes.Add("onclick", l_js);
             }
         }

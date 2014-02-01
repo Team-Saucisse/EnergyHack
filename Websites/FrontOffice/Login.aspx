@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                     
-                            <asp:TextBox TextMode="Password" runat="server" ID="m_password" placeholder="Mot de passe" Enabled="false" CssClass="form-control input-lg"></asp:TextBox>
+                            <asp:TextBox TextMode="Password" runat="server" ID="m_password" placeholder="Mot de passe" Enabled="false" CssClass="form-control"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="m_passwordV" runat="server" ErrorMessage="Merci de saisir votre mot de passe" ControlToValidate="m_password"></asp:RequiredFieldValidator>
                     </div>
                     <hr class="colorgraph">

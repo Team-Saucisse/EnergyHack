@@ -13,6 +13,22 @@ namespace FrontOffice
     {
         public string CurrentAppartement { get { return (string)Session["CurrentAppartement"]; } set { Session["CurrentAppartement"] = value; } }
 
+        public bool? IsWelcomeMessageShowed
+        {
+            get
+            {
+                if (((bool?)Session["WelcomeMessage"]) == null)
+                {
+                    Session["WelcomeMessage"] = false;
+                }
+
+                return ((bool?)Session["WelcomeMessage"]);
+            }
+            set
+            {
+                Session["WelcomeMessage"] = value;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

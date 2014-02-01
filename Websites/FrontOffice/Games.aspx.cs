@@ -12,6 +12,11 @@ namespace FrontOffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(((FrontOffice.Site1)Page.Master).CurrentAppartement))
+            {
+                Response.Redirect("Login.aspx");
+            }
+
             if (!Page.IsPostBack)
             {
                 //1er élément sélectionné par défaut

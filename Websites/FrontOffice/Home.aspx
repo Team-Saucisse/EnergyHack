@@ -2,7 +2,8 @@
     Inherits="FrontOffice._Default" %>
 
 <asp:Content ID="m_form" ContentPlaceHolderID="contentBody" runat="Server">
-    <asp:ScriptManager EnablePageMethods="true" runat="server" ID="WebMethods"></asp:ScriptManager>
+    <asp:ScriptManager EnablePageMethods="true" runat="server" ID="WebMethods">
+    </asp:ScriptManager>
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
@@ -16,8 +17,8 @@
                                 <asp:LinkButton ID="m_aGames" PostBackUrl="~/Games.aspx" OnClick="MenuItem_SetActive"
                                     CommandArgument="Games" runat="server">Les Jeux</asp:LinkButton></li>
                             <li runat="server" id="m_liDisconnect">
-                                <asp:LinkButton ID="m_aDisconnect" PostBackUrl="~/Login.aspx" OnClick="MenuItem_SetActive" CommandArgument="Disconnect"
-                                    runat="server">Se Déconnecter</asp:LinkButton></li>
+                                <asp:LinkButton ID="m_aDisconnect" PostBackUrl="~/Login.aspx" OnClick="MenuItem_SetActive"
+                                    CommandArgument="Disconnect" runat="server">Se Déconnecter</asp:LinkButton></li>
                         </ul>
                     </div>
                     <!-- //MENU -->
@@ -31,15 +32,16 @@
                             <div class="panel-body">
                                 <asp:Repeater ID="m_rptChallenges" OnItemDataBound="ChallengesItemDataBound" runat="server">
                                     <ItemTemplate>
-                                    <asp:HyperLink ID="m_panelLink" runat="server" CssClass="panelLink">
-                                        <div class="panel panel-info" class="panelHover" style="min-height: 130px">
-                                            <div class="panel-heading">
-                                                <asp:Label ID="m_lblChallengeName" runat="server"></asp:Label></div>
-                                            <div class="panel-body" style="text-align: center">                                          
-                                                <asp:Label ID="m_lblChallengeGain" CssClass="textHover" runat="server"></asp:Label>
-                                                <asp:Image ID="imgCoin" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" />
+                                        <asp:HyperLink ID="m_panelLink" runat="server" CssClass="panelLink">
+                                            <div class="panel panel-info" class="panelHover" style="min-height: 130px">
+                                                <div class="panel-heading">
+                                                    <asp:Label ID="m_lblChallengeName" runat="server"></asp:Label></div>
+                                                <div class="panel-body" style="text-align: center">
+                                                    <asp:Label ID="m_lblChallengeGain" CssClass="textHover" runat="server"></asp:Label>
+                                                    <asp:Image ID="imgCoin" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" />
+                                                </div>
                                             </div>
-                                        </div></asp:HyperLink>
+                                        </asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>

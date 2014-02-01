@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="Scripts/jquery.jcarousel.js"></script>
     <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/notify.min.js"></script>
     <title>EnergyHack - FrontOffice</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +30,8 @@
                     </ul>
                 </div>
                 <p class="photo-credits">
-                    Photos by <a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
+                    <a href="google.fr" target="_blank">
+                        <img src="Images/go.png" /></a>
                 </p>
             </div>
         </div>
