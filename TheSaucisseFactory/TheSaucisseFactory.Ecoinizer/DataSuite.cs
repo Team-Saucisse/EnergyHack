@@ -73,14 +73,14 @@ namespace TheSaucisseFactory.Ecoinizer
 				}
 			}
 
-
+			double sumDelta = 0;
 
 			for (int i = 0; i < 168; i++)
 			{
-
+				sumDelta += (_temperatureTarget[i] - this[i].Valeur);
 			}
 
-			return 0;
+			return sumDelta;
 		}
     }
 }

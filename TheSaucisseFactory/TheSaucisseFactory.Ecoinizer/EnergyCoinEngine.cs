@@ -106,7 +106,7 @@ namespace TheSaucisseFactory.Ecoinizer
 					l_classement.Add(l_candidat.Appartement, l_indice);
 				}
 
-				var l_classementTrie = l_classement.OrderBy(i => i.Value);
+				var l_classementTrie = l_classement.OrderByDescending(i => i.Value);
 
 				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
 				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
@@ -147,11 +147,27 @@ namespace TheSaucisseFactory.Ecoinizer
         {
 			GainEnergyCoinCollection.DeleteAll();
             BuildDataSuites();
-            ProcessChallenge1();
-			ProcessChallenge2();
-			ProcessChallenge3();
+			//ProcessChallenge1();
+			//ProcessChallenge2();
+			//ProcessChallenge3();
 			ProcessChallenge4();
+			ProcessChallenge5();
+			ProcessChallenge6();
+			ProcessChallenge7();
+			ProcessChallenge8();
+			ProcessChallenge9();
+			ProcessChallenge10();
         }
+
+		private void ProcessChallenge10()
+		{
+			throw new NotImplementedException();
+		}
+
+		private void ProcessChallenge9()
+		{
+			throw new NotImplementedException();
+		}
 
         /// <summary>
         /// Periste les calculs
