@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+<cfe:BoolField HeaderText="[%=DisplayName(Source)%]" DataField="[%=BindExpression(Source)%]" SortExpression="[%=Selector(Source)%]" ReadOnly="true" Nullable="[%=Source.IsModelNullable%]" />

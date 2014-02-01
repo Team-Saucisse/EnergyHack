@@ -1,0 +1,68 @@
+﻿.itemdetailpage .content {
+    -ms-grid-row: 2;
+    display: block;
+    height: 100%;
+    overflow-x: auto;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+}
+
+    .itemdetailpage .content article {
+        /* Define a multi-column, horizontally scrolling article by default. */
+        column-fill: auto;
+        column-gap: 80px;
+        column-width: 480px;
+        height: calc(100% - 50px);
+        margin-left: 120px;
+        margin-top: 5px;
+        width: 480px;
+    }
+
+        .itemdetailpage .content article header .item-title {
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .itemdetailpage .content article header .item-subtitle {
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .itemdetailpage .content article .item-image {
+            margin-bottom: 3px;
+        }
+
+        .itemdetailpage .content article .item-content p {
+            margin-bottom: 20px;
+            margin-right: 20px;
+            vertical-align: baseline;
+        }
+
+@media screen and (-ms-view-state: snapped) {
+        .itemdetailpage .content article {
+            height: calc(100% - 10px);
+            margin-left: 20px;
+            width: 300px;
+        }
+            
+        .itemdetailpage .content article header .item-title,
+        .itemdetailpage .content article header .item-subtitle {
+            margin-bottom: 10px;
+        }
+            
+            .itemdetailpage .content article .item-content {
+                display: none;
+            }
+        
+            .itemdetailpage .content article .viewbox, 
+            .itemdetailpage .content article .item-image {
+                width: 250px;
+            }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .itemdetailpage .content article {
+        margin-left: 100px;
+    }
+}

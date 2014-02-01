@@ -1,0 +1,96 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="$safeprojectname$.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%=System.Threading.Thread.CurrentThread.CurrentUICulture%>">
+<head runat="server">
+	<title>CodeFluent Entities - $safeprojectname$</title> 
+    <meta name="keywords" content="codefluent entities, $safeprojectname$" />
+    <meta name="description" content="This is the generated site for the $safeprojectname$ project" />
+    <meta name="author" content="CodeFluent Entities" />
+    <meta http-equiv="Content-Language" content="en" /> 
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="~/Styles/ui-lightness/jquery-ui-1.8.13.custom.css" runat="server" />
+    <link rel="stylesheet" href="~/Styles/jquery.cleditor.css" runat="server" />
+    <link rel="stylesheet" href="~/Styles/jquery-ui-timepicker-addon.css" runat="server" />
+    <link rel="stylesheet" href="~/Styles/ui.jqgrid.css" runat="server" />
+    <link rel="stylesheet" href="~/Styles/ui.multiselect.css" runat="server" />
+    <link rel="stylesheet" href="~/Styles/jquery.supercombo.css" runat="server" />
+    <link rel="stylesheet" href="~/Styles/codefluent.css" runat="server" />
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery-1.7.1.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery-ui-1.8.17.custom.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery.cleditor.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery-ui-timepicker-addon.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/i18n/grid.locale-en.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery.jqGrid.min.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/jquery.supercombo.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/themeswitcher.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/globalize.js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/cultures/globalize.culture." + System.Threading.Thread.CurrentThread.CurrentUICulture.Name + ".js")%>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Scripts/codefluent.js")%>"></script>
+    <script type="text/javascript">
+        Globalize.culture("<%=System.Threading.Thread.CurrentThread.CurrentUICulture.Name%>");
+        $(function() {
+            $('.dtpicker').datetimepicker({
+                showOn: 'both',
+                buttonImage: '<%=ResolveUrl("~/Images/calendar.gif")%>',
+                buttonImageOnly: true
+            });
+            $('.tpicker').timepicker({
+                showOn: 'both',
+                buttonImage: '<%=ResolveUrl("~/Images/clock.gif")%>',
+                buttonImageOnly: true
+            });
+            $('.etpicker').timepicker({
+                showOn: 'both',
+                buttonImage: '<%=ResolveUrl("~/Images/clock.gif")%>',
+                buttonImageOnly: true,
+                showSecond: true,
+                showMillisec: true,
+                timeFormat: 'hh:mm:ss:l'
+            });
+            $('.dpicker').datepicker({
+                showOn: 'both',
+                buttonImage: '<%=ResolveUrl("~/Images/calendar.gif")%>',
+                buttonImageOnly: true
+            });
+            $(".tabs").tabs();
+            $(".combobox").combobox();
+            $('#theme_switcher').themeswitcher({ previewUrl: '<%=ResolveUrl("~/Images/")%>' });
+        });
+    </script>
+
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div id="div_main">
+        <div id="div_banner">
+            <h1 class="logo">
+                <a id="A1" href="~/" runat="server" title="CodeFluent Entities"></a>
+            </h1>
+            <div id="div_upperdock">
+                <ul>
+                    <li class="selected"><a href="http://www.softfluent.com/products/codefluent-entities"><asp:literal runat="server" Text="<%$ Resources:WebResources, About %>" /></a></li>
+                    <asp:ContentPlaceHolder ID="CultureComboPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+                </ul>
+            </div>
+        </div>
+	    <div id="div_content_wrapper">
+	        <div id="div_content"><div class="div_content_top"></div><div class="div_content">
+            <asp:ContentPlaceHolder ID="Content" runat="server"></asp:ContentPlaceHolder>
+            </div></div>
+        </div> 
+        <div id="div_footer">
+    		<div class="bg"></div> 
+    		<div class="inner"> 
+            <p>
+                <span class="first"><asp:literal runat="server" Text="<%$ Resources:WebResources, ProvidedBy %>" />: </span><a class="block softfluent" href="http://www.softfluent.com">
+                    <span>SoftFluent</span></a> <span class="first" style="float: right; padding-right: 12px;">&copy; 2005 - <%=DateTime.Now.Year %>&nbsp;<a href="http://www.softfluent.com/">SoftFluent</a>, <asp:literal runat="server" Text="<%$ Resources:WebResources, AllRightsReserved %>" />.</span>
+            </p>
+            </div>
+            <div id="theme_switcher"></div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

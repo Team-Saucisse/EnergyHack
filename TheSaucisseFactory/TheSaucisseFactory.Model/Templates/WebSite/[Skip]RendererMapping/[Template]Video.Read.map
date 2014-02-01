@@ -1,0 +1,25 @@
+<_cfwc:BinaryLargeObjectControl runat="server"
+contextName="[%=TypedObject.Entity.Store.Name%]"
+notFoundImageUrl="[%=Producer.GetNotFoundImageUrl(Culture)%]"
+urlType="FileExtension"
+id="[%=Producer.GetId(TypedObject)%]"
+>
+<ItemTemplate>
+<center>
+<object width="320" height="240" CLASSID="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" type="application/x-oleobject">
+	<param name="url" value="<%# Container.NavigateUrl%>">
+	<param name="autoStart" VALUE="True">
+	<param name="uiMode" value="none">
+	<param name="playCount" value="9999">
+	<embed
+		type="application/x-mplayer2"
+		pluginspage="http://microsoft.com/windows/mediaplayer/en/download/"
+		src="<%# Container.NavigateUrl%>"
+		autoStart="true"
+		showcontrols="true"
+		showstatusbar="true"
+	></embed>
+</object>
+</center>
+</ItemTemplate>
+</_cfwc:BinaryLargeObjectControl>

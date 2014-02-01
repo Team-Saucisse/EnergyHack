@@ -1,0 +1,10 @@
+[%
+if (!TypedObject.IsSet)
+throw new CodeFluentWebSiteProducerException("Current typed object '" + TypedObject.DisplayName + "' is not an association (a many to many relation). This renderer targets association typed objects.");
+Entity entity = TypedObject.ProjectSet.ItemEntity;
+%]
+<[%=Producer.GetPrefix(Context, TargetPath, entity, "ListBox")%][%=entity.Name%]ListBox
+runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+rows="10"
+selectionMode="Multiple" />

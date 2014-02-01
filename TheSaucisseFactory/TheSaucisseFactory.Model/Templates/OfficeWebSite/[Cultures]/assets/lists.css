@@ -1,0 +1,52 @@
+/*
+// ---------------------------------------------------------------------------
+// CodeFluent Entities V1.0 Copyright (c) 2005-2013 SOFTFLUENT S.A.S. All rights reserved.
+// Please contact info@softfluent.com for any information.
+// http://www.softfluent.com
+// ---------------------------------------------------------------------------
+*/
+
+@import url("master.css");
+
+.cfl-entities
+{
+	border: solid 1px #C0C0C0;
+	background-color:#F0F0F0;
+}
+
+.cfl-entity
+{
+	background-color:#FFFFFF;
+	padding:5px;
+}
+
+.cfl-methods
+{
+	padding-top:5px;
+	padding-left:5px;
+	background-color:#E0E0E0;
+}
+
+.cfl-method
+{
+}
+
+.cfl-view
+{
+	padding-bottom:5px;
+	background-color:#D0D0D0;
+	border-bottom: solid 1px black;
+	border-right: solid 1px black;
+	width:100%;
+}
+
+.cfl-viewPad
+{
+	width:100px;
+	white-space: nowrap;
+}
+
+.cfl-methodPad
+{
+	width:20px;
+}

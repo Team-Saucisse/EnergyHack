@@ -1,0 +1,21 @@
+﻿@model dynamic
+@if ((Model != null) && (typeof(CodeFluent.Runtime.ICodeFluentEntity).IsAssignableFrom(Model.GetType())))
+{
+    ViewBag.EntityDisplayName = @Model.EntityDisplayName;
+}
+else {
+    ViewBag.EntityDisplayName = @Model;    
+}
+<span id="span @ViewBag.EntityTypeName"></span>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var separator = '@System.Configuration.ConfigurationManager.AppSettings["Separator"]';
+        var span = document.getElementById('span @ViewBag.EntityTypeName');
+        var text = '@ViewBag.EntityDisplayName';
+
+        while (text.indexOf(separator) > 0) {
+            text = text.replace(separator, "\n");
+        }
+        span.innerText = text;        
+	});
+</script>

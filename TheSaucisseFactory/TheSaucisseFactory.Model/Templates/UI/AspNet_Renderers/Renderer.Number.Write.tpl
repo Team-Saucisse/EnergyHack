@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+<cfe:NumericTextBox runat="server" ID="[%=GetId(Source)%]" Value='<%#Bind("[%=BindName(Source)%]")%>' TargetTypeName="[%=Source.ClrFullTypeName%]" Format="[%=Source.Format%]" />

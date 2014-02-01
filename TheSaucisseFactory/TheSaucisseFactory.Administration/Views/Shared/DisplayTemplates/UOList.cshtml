@@ -1,0 +1,13 @@
+﻿@model BetterLife.BOM.UniteOrganisationnelleCollection
+@if (Model != null)
+{
+    foreach (BetterLife.BOM.UniteOrganisationnelle l_UO in Model)
+    {
+    @l_UO.Nom
+    <br />
+    }
+}
+else
+{
+    <p>Aucun UO</p>
+}

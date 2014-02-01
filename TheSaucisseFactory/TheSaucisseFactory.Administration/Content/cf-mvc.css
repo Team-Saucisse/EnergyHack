@@ -1,0 +1,74 @@
+.entity td
+{
+	border: 0px;
+	vertical-align: middle;
+}
+
+.methods
+{
+	padding: 0px 0px 0px 0px;
+}
+
+.methods ul
+{
+	list-style: none;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+.methods li a
+{
+	padding: 4px 20px 4px 20px;
+	text-decoration: none;
+	line-height: 3em;
+	background-color: rgb(211, 220, 224);
+	color: black;
+	border: 1px solid #787878;
+	font-size: 1.2em;
+	font-weight: 600;
+	width: auto;
+}
+
+.entities a:visited {
+    color: #034af3;
+    text-decoration: none;
+}
+
+.ns {
+	font-size:larger;
+	font-weight:bold;
+}
+
+.entities {
+    padding: 10px;
+    padding-top:20px;
+}
+
+.entities a {
+    background-color: #A6DBED;
+    padding: 10px;
+    text-decoration: none;
+	line-height: 41px;
+}
+
+.entities a:hover {
+    background-color: #7AC0DA;
+    text-decoration: none;
+}
+
+.entities a:active {
+    background-color: #A6DBED;
+    text-decoration: none;
+}
+
+.entities a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.association {
+	border: 1px #dedede solid;
+	max-height:200px;
+	overflow:auto;
+}

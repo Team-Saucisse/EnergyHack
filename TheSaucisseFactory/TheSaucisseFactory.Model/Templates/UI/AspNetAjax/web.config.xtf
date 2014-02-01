@@ -1,0 +1,27 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.BaseTemplate" %]
+<configuration xmlns:xtf="http://www.softfluent.com/codefluent.xtf">
+	<system.serviceModel>
+		<services>
+			[%foreach(Entity entity in Producer.Project.Entities){ if (!HasBinaryLargeObjectProperties(entity)) continue;%]
+			<service name="[%=entity.ServiceClrFullTypeName%]" xtf:key="name">
+				<endpoint behaviorConfiguration="webHttpBehavior"
+						  bindingConfiguration="noLimit"
+						  binding="webHttpBinding"
+						  contract="[%=entity.ServiceInterface.ClrFullTypeName%]">
+				</endpoint>
+			</service>[%}%]
+		</services>
+		<behaviors>
+			<endpointBehaviors>
+				<behavior name="webHttpBehavior" xtf:key="name">
+					<webHttp />
+				</behavior>
+			</endpointBehaviors>
+		</behaviors>
+		<bindings>
+			<webHttpBinding>
+				<binding name="noLimit" maxReceivedMessageSize="2147483647" xtf:key="name" />
+			</webHttpBinding>
+		</bindings>
+	</system.serviceModel>
+</configuration>

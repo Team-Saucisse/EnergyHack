@@ -1,0 +1,1 @@
+﻿<cfcontrols:ExternalLinkReadControl NavigateUri="{Binding Path=[%=TypedObject.Name%]}"/>

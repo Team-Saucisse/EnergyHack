@@ -1,0 +1,237 @@
+﻿.entityMethodPage {
+    display: -ms-grid;
+    -ms-grid-columns: 30% 1fr;
+    -ms-grid-rows: auto auto 1fr;
+    height: calc(100% - 100px);
+    width: 100%;
+}
+
+        .entityMethodPage header[role=banner] .pagetitle {
+            -ms-grid-column: 2;
+            -ms-grid-column-span: 2;
+            overflow: hidden;
+            width: calc(100% - 20px);
+        }
+
+
+/***** Load Section *****/
+
+    .entityMethodPage .loadsection {
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+        margin-left: 70px;
+        margin-bottom: 20px;
+        padding-right: 120px;
+        display: -ms-flexbox;
+    }
+
+        .entityMethodPage .formSection {
+	        border:none;
+	        padding:0px;
+        }
+
+    .entityMethodPage .methodForm {
+        background:#33406d;
+    }
+
+        .entityMethodPage .formSection legend {
+            font-size:20pt;
+	        margin-left:20px;
+	        margin-top:20px;
+        }
+
+        .entityMethodPage .formSection .fields {
+            padding-left:20px;
+        }
+
+        .entityMethodPage .formSection .fields tr{
+            margin-bottom:15px;
+	        height:30px;
+        }
+
+        .entityMethodPage .formSection .fields td {
+            padding-right:20px;
+        }
+    
+        .entityMethodPage .formSection .button {
+            background:#517bcb;
+            width:130px;
+	        height:30px;
+	        border:0;
+	        font-size:18px;
+            margin-right:20px;
+	        margin-bottom:20px;
+	        margin-top:10px;
+            padding-left:20px;
+            float: right;
+        }
+
+
+/***** List Section ******/
+
+    .entityMethodPage .itemlistsection {
+        -ms-grid-column: 1;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 2;
+        margin-left: 106px;
+    }
+        
+        .entityMethodPage .itemlistsection .itemlist {
+            height: 100%;
+            position: relative;
+            width: 100%;
+            z-index: 0;
+        }
+
+    .entityMethodPage .itemlist .win-vertical.win-viewport .win-surface {
+        margin-bottom: 60px;
+    }
+
+        
+    .entityMethodPage .itemlist .win-vertical.win-viewport .win-container {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 3px;
+    }
+    
+    .entityMethodPage .itemlist .win-item {
+        -ms-grid-columns: 45px 1fr;
+        -ms-grid-rows: 1fr;
+        display: -ms-grid;
+        height: 45px;
+        width: 100%;
+    }
+
+    .entityMethodPage .itemlist .win-item .item-image {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .entityMethodPage .itemlist .win-item .item-info {
+        -ms-grid-column: 2;
+        margin-left: 10px;
+        margin-right: 10px;
+        overflow: hidden;
+    }
+
+        .entityMethodPage .itemlist .win-item .item-info .item-title {
+            margin-top: 4px;
+        }
+
+    .entityMethodPage .itemlist .item .item-info .item-subtitle {
+        opacity: 0.6;
+    }
+
+
+
+/***** Details Section ******/
+
+    .entityMethodPage .detailsection {
+        -ms-grid-column: 2;
+        -ms-grid-row: 3;
+        z-index: 0;
+        padding-right: 120px;
+        margin-left: 70px;
+        overflow-y: auto;
+    }
+
+    .entityMethodPage .entityForm {
+        background: #3a4a80;
+        padding-bottom:20px;
+    }
+
+    .entityMethodPage .relatedEntityList {
+        min-width: 300px;
+    }
+
+    .entityMethodPage .relatedEntityList .win-item {
+        height: 45px;
+        width: 90%;
+        padding: 5px;
+    }
+
+    .entityMethodPage .relatedEntityList .win-item .item-title {
+        margin-top: 4px;
+    }
+
+    .entityMethodPage .relatedEntityList .win-item .item-subtitle {
+        opacity: 0.6;
+        margin-bottom: 2px;
+    }
+
+
+/***** Filled view ******/
+
+@media screen and (-ms-view-state: filled) {
+    .entityMethodPage {
+        -ms-grid-columns: 420px 1fr;
+    }
+
+        .entityMethodPage .detailsection {
+            padding-right: 66px;
+        }
+}
+
+
+/***** Snapped view ******/
+
+@media screen and (-ms-view-state: snapped) {
+    .entityMethodPage {
+        -ms-grid-columns: 320px 0px;
+    }
+
+        .entityMethodPage .itemlistsection {
+            margin-left: 6px;
+        }
+
+            .entityMethodPage .itemlistsection .itemlist .win-item {
+                width: 282px;
+            }
+
+
+        .entityMethodPage .detailsection {
+            visibility: collapse;
+        }
+
+        .entityMethodPage .loadsection {
+            visibility: collapse;
+        }
+}
+
+
+/***** Portrait view ******/
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .entityMethodPage {
+        -ms-grid-columns: 1fr 0px;
+    }
+
+        .entityMethodPage .itemlistsection {
+            margin-left: 86px;
+        }
+
+            .entityMethodPage .itemlistsection .itemlist .win-vertical.win-viewport .win-container {
+                margin-right: calc(100% - 510px);
+            }
+
+        .entityMethodPage .detailsection {
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 1;
+            margin-left: 100px;
+            padding-right: 100px;
+        }
+
+            .entityMethodPage .detailsection .header {
+                margin-top: 0;
+            }
+
+        .entityMethodPage .itemlistsection, .entityMethodPage .detailsection {
+            -ms-grid-column: 2;
+            visibility: hidden;
+        }
+
+        .entityMethodPage .primarycolumn {
+            -ms-grid-column: 1;
+            visibility: visible;
+        }
+}

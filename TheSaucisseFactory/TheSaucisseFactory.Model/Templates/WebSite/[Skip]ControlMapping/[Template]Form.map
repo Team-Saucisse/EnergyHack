@@ -1,0 +1,1 @@
+[%@ mapping namespace="HTML" %]<form enctype="multipart/form-data" runat="server" id="cf_form"[%Producer.WriteControlAttributes(Writer, Context, Control, TargetPath);%]>[%Producer.WriteChildControls(Writer, Context, Control, TargetPath);%]</form>

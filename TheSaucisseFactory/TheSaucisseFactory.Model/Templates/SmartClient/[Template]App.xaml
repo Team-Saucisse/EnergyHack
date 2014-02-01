@@ -1,0 +1,21 @@
+﻿[%@ template language="CSharp" %]
+[%@ namespace name="CodeFluent.Producers.CodeDom" %]
+[%@ namespace name="CodeFluent.Model.Code" %]
+[%@ namespace name="CodeFluent.Model.UI" %]
+[%@ namespace name="CodeFluent.Runtime.UI" %]
+[%@ namespace name="CodeFluent.Producers.SmartClient" %]
+[%@ namespace name="System.IO" %]
+[%@ namespace name="System" %]
+    
+<Application x:Class="[%=Producer.Project.DefaultNamespace %].SmartClient.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

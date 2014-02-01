@@ -1,0 +1,8 @@
+﻿@using System.Web.Configuration;
+
+Contraintes d'upload d'image :
+<ul>
+	<li>Poids maximal autorisé : @WebConfigurationManager.AppSettings["ImageMaxWeight"] Ko</li>
+	<li>Hauteur maximale autorisée : @WebConfigurationManager.AppSettings["ImageMaxHeight"] pixels</li>
+	<li>Largeur maximale autorisée : @WebConfigurationManager.AppSettings["ImageMaxWidth"] pixels</li>
+</ul>

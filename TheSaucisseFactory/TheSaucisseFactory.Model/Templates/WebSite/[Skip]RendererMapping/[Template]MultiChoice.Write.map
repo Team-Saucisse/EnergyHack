@@ -1,0 +1,6 @@
+[% Enumeration enumeration = TypedObject.ProjectEnumeration; if (enumeration != null) {%]
+<[%=Producer.GetPrefix(Context, TargetPath, enumeration, "CheckBoxList")%][%=enumeration.Name%]CheckBoxList
+runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+/>
+[%}%]

@@ -1,0 +1,3 @@
+<asp:Calendar runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+/>

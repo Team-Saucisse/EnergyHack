@@ -1,0 +1,3 @@
+[%@ template enumerable='Producer.ServiceEnabledEntities' enumerableItemName="entity" enumerableTargetPathFunc='Path.Combine(Path.GetDirectoryName(TargetPath), RelativePath(entity)) + Template.FileExtension' inherits="CodeFluent.Producers.UI.BaseTemplate" %]
+[%if (HasBinaryLargeObjectProperties(entity)) {%]<%@ ServiceHost Service="[%=entity.ServiceClrFullTypeName%], [%=System.IO.Path.GetFileNameWithoutExtension(Producer.ModelProducer.OutputName)%]" %>[%}else{%]
+<%@ ServiceHost Service="[%=entity.ServiceClrFullTypeName%], [%=System.IO.Path.GetFileNameWithoutExtension(Producer.ModelProducer.OutputName)%]" Factory="System.ServiceModel.Activation.WebServiceHostFactory" %>[%}%]

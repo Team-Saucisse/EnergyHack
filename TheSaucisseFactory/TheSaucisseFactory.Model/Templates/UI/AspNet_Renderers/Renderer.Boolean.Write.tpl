@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+<cfe:BoolControl runat="server" ID="[%=GetId(Source)%]" Value='<%#Bind("[%=BindName(Source)%]")%>' Nullable="[%=Source.IsModelNullable%]" ReadOnly="[%=(RendererType == CodeFluent.Runtime.UI.RendererType.Read)%]" />

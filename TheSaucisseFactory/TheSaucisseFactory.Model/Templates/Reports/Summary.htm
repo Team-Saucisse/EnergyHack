@@ -1,0 +1,257 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title>[%=Project.DefaultNamespace%] Summary</title>
+		<style type="text/css">
+		    body
+		    {
+		    	font-family:verdana;
+		    	font-size:15px;
+		    }
+		    
+		    table
+		    {
+		    	border-collapse:collapse;
+		    }
+		    td
+		    {
+		    	padding-right:15px;
+		    	font-size:15px;
+                border-bottom-color:#C0C0C0;
+                border-bottom-width:1px;
+                border-bottom-style:solid;
+                padding-bottom:5px;
+            }
+            
+            .lasttd
+            {
+            	border-bottom-style:none;
+            }
+		</style>
+	</head>
+	<body>
+    <span style="display:none">	
+	[%@member
+    public class ReportUtilities
+    {
+        private Project _project;
+        public ReportUtilities(Project project)
+        {
+            _project = project;
+        }
+        
+        private int _numberOfSnippetMethods = - 1;
+        public int NumberOfSnippetMethods
+        {
+            get
+            {
+                Compute();
+                return _numberOfSnippetMethods;
+            }
+        }
+
+        private int _numberOfLoadMethods = - 1;
+        public int NumberOfLoadMethods
+        {
+            get
+            {
+                Compute();
+                return _numberOfLoadMethods;
+            }
+        }
+
+        private int _numberOfSearchMethods = - 1;
+        public int NumberOfSearchMethods
+        {
+            get
+            {
+                Compute();
+                return _numberOfSearchMethods;
+            }
+        }
+
+        private int _numberOfCountMethods = - 1;
+        public int NumberOfCountMethods
+        {
+            get
+            {
+                Compute();
+                return _numberOfCountMethods;
+            }
+        }
+
+        private int _numberOfRawMethods = - 1;
+        public int NumberOfRawMethods
+        {
+            get
+            {
+                Compute();
+                return _numberOfRawMethods;
+            }
+        }
+        
+        private int _numberOfDeleteMethods = - 1;
+        public int NumberOfDeleteMethods
+        {
+            get
+            {
+                Compute();
+                return _numberOfDeleteMethods;
+            }
+        }
+
+        private int _numberOfRuleMethods = - 1;
+        public int NumberOfRuleMethods
+        {
+            get
+            {
+                Compute();
+                return _numberOfRuleMethods;
+            }
+        }
+
+        private int _numberOfProjectRules = - 1;
+        public int NumberOfProjectRules
+        {
+            get
+            {
+                Compute();
+                return _numberOfProjectRules;
+            }
+        }
+
+        private int _numberOfEntityRules = - 1;
+        public int MumberOfEntityRules
+        {
+            get
+            {
+                Compute();
+                return _numberOfEntityRules;
+            }
+        }
+
+        private int _numberOfMethodRules = - 1;
+        public int NumberOfMethodRules
+        {
+            get
+            {
+                Compute();
+                return _numberOfMethodRules;
+            }
+        }
+
+        private int _numberOfPropertyRules = - 1;
+        public int NumberOfPropertyRules
+        {
+            get
+            {
+                Compute();
+                return _numberOfPropertyRules;
+            }
+        }
+
+        private int _numberOfViews = - 1;
+        public int NumberOfViews
+        {
+            get
+            {
+                Compute();
+                return _numberOfViews;
+            }
+        }
+
+        private int _numberOfGlobalMessages = - 1;
+        public int NumberOfGlobalMessages
+        {
+            get
+            {
+                Compute();
+                return _numberOfGlobalMessages;
+            }
+        }
+        
+        private void Compute()
+        {
+            if (_numberOfSnippetMethods >= 0) return;
+            _numberOfSnippetMethods = 0;
+            _numberOfLoadMethods = 0;
+            _numberOfSearchMethods = 0;
+            _numberOfCountMethods = 0;
+            _numberOfRawMethods = 0;
+            _numberOfRuleMethods = 0;
+            _numberOfDeleteMethods = 0;
+            
+            _numberOfPropertyRules = 0;
+            _numberOfMethodRules = 0;
+            _numberOfEntityRules = 0;
+            _numberOfProjectRules = _project.Rules.Count;
+            
+            _numberOfViews = 0;
+            _numberOfGlobalMessages = 0;
+            
+            foreach(Entity entity in _project.Entities)
+            {
+                _numberOfViews += entity.Views.Count;
+                _numberOfEntityRules += entity.Rules.Count;
+                foreach(Method method in entity.Methods)
+                {
+                    _numberOfMethodRules += method.Rules.Count;
+                    if (method.MethodType == MethodType.WellKnown) continue;
+                    if (method.MethodType == MethodType.Rule) _numberOfRuleMethods++;
+                    if (method.MethodType == MethodType.Count) _numberOfCountMethods++;
+                    if (method.MethodType == MethodType.Search) _numberOfSearchMethods++;
+                    if (method.MethodType == MethodType.Raw) _numberOfRawMethods++;
+                    if (method.MethodType == MethodType.Delete) _numberOfDeleteMethods++;
+                    if ((method.MethodType == MethodType.Load) ||
+                        (method.MethodType == MethodType.SetLoad)) _numberOfLoadMethods++;
+                    if ((method.MethodType == MethodType.Snippet) ||
+                        (method.MethodType == MethodType.BodySnippet) ||
+                        (method.MethodType == MethodType.SetSnippet) ||
+                        (method.MethodType == MethodType.SetBodySnippet)) _numberOfSnippetMethods++;
+                }
+
+                foreach(Property property in entity.Properties)
+                {
+                    _numberOfPropertyRules += property.Rules.Count;
+                }
+            }
+            
+            foreach(Message message in _project.AllMessages)
+            {
+                if (message.IsGlobal) _numberOfGlobalMessages++;
+            }
+        }
+    }
+%]</span>
+[%ReportUtilities utility = new ReportUtilities(Project);%]
+	<h1>'[%=Project.DefaultNamespace%]' Project Summary</h1>
+	<p></p>
+	<table width="1000px">
+    	<tr><td><b>Number of Entities</b></td><td>[%=Project.Entities.Count%]</td></tr>
+    	<tr><td><b>Number of Enumerations</b></td><td>[%=Project.Enumerations.Count%]</td></tr>
+    	<tr><td><b>Number of Views</b></td><td>[%=utility.NumberOfViews%]</td></tr>
+    	<tr><td><b>Number of Namespaces</b></td><td>[%=Project.AllNamespaces.Length%]</td></tr>
+    	<tr><td><b>Number of Relations</b></td><td>[%=Project.Relations.Count%]</td></tr>
+    	<tr><td><b>Number of Global Messages</b></td><td>[%=utility.NumberOfGlobalMessages%]</td></tr>
+    	<tr><td valign="top"><b>Number of Methods</b></td><td>
+    	    <table width="100%">
+    	        <tr><td width="200px">Load</td><td>[%=utility.NumberOfLoadMethods%]</td></tr>
+    	        <tr><td>Search</td><td>[%=utility.NumberOfSearchMethods%]</td></tr>
+    	        <tr><td>Count</td><td>[%=utility.NumberOfCountMethods%]</td></tr>
+    	        <tr><td>Delete</td><td>[%=utility.NumberOfDeleteMethods%]</td></tr>
+    	        <tr><td>Raw</td><td>[%=utility.NumberOfRawMethods%]</td></tr>
+    	        <tr><td>Snippet</td><td>[%=utility.NumberOfSnippetMethods%]</td></tr>
+    	        <tr><td class="lasttd">External Rule</td><td class="lasttd">[%=utility.NumberOfRuleMethods%]</td></tr>
+    	    </table></td></tr>
+    	<tr><td valign="top" class="lasttd"><b>Number of Rules</b></td><td class="lasttd">
+    	    <table width="100%">
+    	        <tr><td width="200px">Project Rules</td><td>[%=utility.NumberOfProjectRules%]</td></tr>
+    	        <tr><td>Entity Rules</td><td>[%=utility.MumberOfEntityRules%]</td></tr>
+    	        <tr><td>Method Rules</td><td>[%=utility.NumberOfMethodRules%]</td></tr>
+    	        <tr><td class="lasttd">Property Rules</td><td class="lasttd">[%=utility.NumberOfPropertyRules%]</td></tr>
+    	    </table></td></tr>
+	</table>
+	<p></p>
+	<span style="font-size:10px;">This report was generated by CodeFluent Entities V[%=CodeFluent.Runtime.CodeFluentContext.CodeFluentVersion%], [%=System.DateTime.Now.ToString("F", System.Globalization.CultureInfo.InvariantCulture)%].</span>
+	</body>
+</html>

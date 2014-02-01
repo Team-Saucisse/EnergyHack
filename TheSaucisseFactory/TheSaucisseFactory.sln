@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheSaucisseFactory", "TheSaucisseFactory\TheSaucisseFactory.csproj", "{A6078217-096B-43B4-B324-087CEA7554BF}"
+EndProject
+Project("{00000005-0004-0000-0000-000000C0DEF1}") = "TheSaucisseFactory.Model", "TheSaucisseFactory.Model\TheSaucisseFactory.Model.cfxproj", "{B857B683-7233-4B4B-8F30-3DC50568BEC8}"
+EndProject
+Project("{C8D11400-126E-41CD-887F-60BD40844F9E}") = "TheSaucisseFactory.Persistence", "TheSaucisseFactory.Persistence\TheSaucisseFactory.Persistence.dbproj", "{67CBC824-A49E-4E9B-A947-360F3DFE65C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheSaucisseFactory.Administration", "TheSaucisseFactory.Administration\TheSaucisseFactory.Administration.csproj", "{01EB4042-F327-4250-97C2-9125F11B5EFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{384548DD-78BB-4777-89C0-47CDB676087D}"
+	ProjectSection(SolutionItems) = preProject
+		Components\CodeFluent.Runtime.dll = Components\CodeFluent.Runtime.dll
+		Components\CodeFluent.Runtime.Web.dll = Components\CodeFluent.Runtime.Web.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Release|.NET.ActiveCfg = Release|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A6078217-096B-43B4-B324-087CEA7554BF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Debug|.NET.ActiveCfg = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Debug|.NET.Build.0 = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Debug|Any CPU.ActiveCfg = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Debug|Mixed Platforms.ActiveCfg = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Debug|Mixed Platforms.Build.0 = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Release|.NET.ActiveCfg = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Release|.NET.Build.0 = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Release|Any CPU.ActiveCfg = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Release|Mixed Platforms.ActiveCfg = Release|.NET
+		{B857B683-7233-4B4B-8F30-3DC50568BEC8}.Release|Mixed Platforms.Build.0 = Release|.NET
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|.NET.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{67CBC824-A49E-4E9B-A947-360F3DFE65C3}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Release|.NET.ActiveCfg = Release|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{01EB4042-F327-4250-97C2-9125F11B5EFC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

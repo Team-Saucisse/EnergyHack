@@ -1,0 +1,46 @@
+[%
+Entity entity;
+if (TypedObject.IsEntity) {
+	entity = TypedObject.ProjectEntity;
+	if (!Producer.IsControlAvailable(entity, "DropDownList"))
+	{
+		Producer.WriteControlRenderer(Writer, Context, null, TypedObject, TargetPath, CodeFluent.Runtime.UI.RendererType.Read);
+	}
+	else
+	{
+%]
+<[%=Producer.GetPrefix(Context, TargetPath, entity, "DropDownList")%][%=entity.Name%]DropDownList
+runat="server"
+id="[%=Producer.GetIdByReference(TypedObject)%]"
+autoPostBack="[%=CodeFluent.Runtime.Utilities.XmlUtilities.GetAttribute(Producer.Element, "autoPostBack", true)%]"
+DataTextField="EntityDisplayName"
+DataValueField="EntityKey"
+CommandName="[% if (entity.IsPersistent) {Writer.Write(entity.LoadAllMethod.UniqueReadableName);}%]"
+[%Producer.WriteNoSelection(Writer, Culture, TypedObject);%]
+/>[% }} else {
+if (!TypedObject.IsSet)
+	throw new CodeFluentWebSiteProducerException("Current typed object '" + TypedObject.DisplayName + "' is not a relation. This renderer targets relation typed objects.");
+
+entity = TypedObject.ProjectSet.ItemEntity;
+ViewProperty property = TypedObject.BaseObject as ViewProperty;
+if (property == null)
+	return;
+View view = property.TypeView;
+if (view == null)
+	return; %]
+<[%=Producer.GetPrefix(Context, TargetPath, entity, "Grid")%][%=entity.Name%]Grid
+runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+autoGenerateColumns="false"
+ItemStyle-CssClass="cf-column"
+HeaderStyle-CssClass="cf-column"
+SourceIdList=""
+Expression="[%=Producer.GetExpression(TypedObject, Renderer)%]"
+KeyNameList="[%=CodeFluent.Producers.CodeDom.UI.Web.GridProducer.GetKeyNameList(entity)%]">
+<Columns>
+[% foreach(ViewProperty viewProperty in view.Properties) {
+	Producer.WriteControlRenderer(Writer, Context, null, new TypedObject(Culture, viewProperty), TargetPath, CodeFluent.Runtime.UI.RendererType.Column);
+}%]
+</Columns>
+</[%=Producer.GetPrefix(Context, TargetPath, entity, "Grid")%][%=entity.Name%]Grid>
+[% } %]

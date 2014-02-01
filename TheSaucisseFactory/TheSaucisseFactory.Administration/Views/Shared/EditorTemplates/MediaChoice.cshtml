@@ -1,0 +1,5 @@
+@model dynamic
+@{
+    var list = BetterLife.BOM.Web.EntityBinder.BuildMediaList(ViewBag, Model);
+}
+@Html.DropDownList("", (SelectList)list)

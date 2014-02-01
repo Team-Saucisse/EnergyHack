@@ -1,0 +1,85 @@
+[%@ template language="CSharp" output="false" %]
+[%@ namespace name="CodeFluent.Producers.CodeDom" %]
+[%@ namespace name="CodeFluent.Model.Code" %]
+[%@ namespace name="CodeFluent.Model.UI" %]
+[%@ namespace name="CodeFluent.Model.UI.ControlDefinitions" %]
+[%@ namespace name="System.IO" %]
+[%
+Method method = null;
+View view = null;
+if (Context["inTemplate"] == null)
+{
+	Context["inTemplate"] = true; // anything would do, other than null
+	foreach(Entity entity in Producer.Project.Entities)
+	{
+		if (!Producer.IsEnabled(entity))
+			continue;
+
+		if (!entity.UIEnabled)
+			continue;
+
+		foreach(Method m in entity.Methods)
+		{
+			if (!Producer.IsAvailableMethod(m))
+				continue;
+
+			foreach(View v in entity.Views)
+			{
+				if (!Producer.IsEnabled(v))
+					continue;
+
+				if (!v.UIEnabled)
+					continue;
+				
+				// build a new target path & re-run ourselves
+				string targetPath = Path.Combine(
+					Path.GetDirectoryName(TargetPath),
+					Path.GetFileName(TargetPath).Replace("_excel", entity.ClrFullTypeName + "_" + m.Name + "_" + v.Name));
+					
+				using (GeneratedFile file = new GeneratedFile(Producer.Project, targetPath))
+				{
+					if ((file.HasBeenChanged) && ((m.ProductionFlags & ProductionFlags.Overwrite) == 0))
+					{
+						Producer.RaiseProduction(Producer, file.CreateFileSkipEvent("_excel.iqy"));
+						continue;
+					}
+
+					// note: we don't care about the output="false" here
+					Producer.RaiseProduction(Producer, ProductionEventArgs.CreateFileTemplateGenerateEvent(targetPath, Template.FilePath));
+					file.Open(Producer, Producer.OutputEncoding);
+					
+					// add the method & view to the context
+					Context["method"] = m;
+					Context["view"] = v;
+					
+					// update targetPath
+					Context["TargetPath"] = targetPath;
+					
+					// go recursive, and this will jump to the else part of this file
+					Template.Run(file.Writer, Context);
+				}
+			}
+		}
+	}
+}
+else
+{
+	method = (Method)Context["method"];
+	view = (View)Context["view"];
+%]WEB
+1
+[%=Producer.ServiceHostPublicUrl%]/[%=Producer.Project.DefaultNamespace%]/en-US/data.aspx?cf-ListName=[%=method.PermanentModelId.ToString("B")%]&cf-ViewName=[%=view.PermanentModelId.ToString("B")%]
+
+Selection=AllTables
+EditWebPage=[%=Producer.ServiceHostPublicUrl%]/[%=Producer.Project.DefaultNamespace%]/en-US/lists.aspx
+Formatting=None
+PreFormattedTextToColumns=True
+ConsecutiveDelimitersAsOne=True
+SingleBlockTextImport=False
+DisableDateRecognition=False
+DisableRedirections=False
+SharePointApplication=[%=Producer.ServiceHostPublicUrl%]/[%=Producer.Project.DefaultNamespace%]/en-US/_vti_bin
+SharePointListView=[%=view.PermanentModelId.ToString("B")%]
+SharePointListName=[%=method.PermanentModelId.ToString("B")%]
+RootFolder=
+[%}%]

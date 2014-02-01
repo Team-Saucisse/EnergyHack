@@ -1,0 +1,173 @@
+﻿<cf:project defaultNamespace="TheSaucisseFactory" xmlns:cf="http://www.softfluent.com/codefluent/2005/1" xmlns:cfx="http://www.softfluent.com/codefluent/modeler/2008/1" xmlns:cfps="http://www.softfluent.com/codefluent/producers.sqlserver/2005/1" xmlns:cfom="http://www.softfluent.com/codefluent/producers.model/2005/1" xmlns:cfasp="http://www.softfluent.com/codefluent/producers.aspnet/2011/1" xmlns:uic="http://www.c2s.fr/codefluent/uicustomization/betterlife" defaultEntityTrackingModes="None" defaultViewTrackingModes="None" defaultTargetFramework="4.0" defaultConnectionString="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost" defaultConcurrencyMode="None" persistencePropertyNameFormat="{1}" createDefaultMethodForms="true" createDefaultApplication="false" createDefaultHints="false">
+  <cf:import path="Default.Surface.cfp" />
+  <cf:producer enabled="true" name="SQL Azure" typeName="CodeFluent.Producers.SqlServer.SqlAzureProducer, CodeFluent.Producers.SqlServer" productionFlags="Default, Overwrite, RemoveDates">
+    <cf:configuration
+                      cfx:targetProjectLayout="None"
+                      cfx:targetProject="..\TheSaucisseFactory.Persistence\TheSaucisseFactory.Persistence.sqlproj"
+                      localConnectionString="Integrated Security=true;Database=TheSaucisseFactory;Server=localhost\sqlexpress"
+                      runLocalScripts="true"
+                      
+                      produceOnline="true" onlineTargetDirectory="SqlAzureScripts"
+                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
+                      runOnlineScripts="true"
+                      />
+  </cf:producer>
+  <cf:producer enabled="false" name="ASP.NET Web Site MVC4"
+               typeName="CodeFluent.Producers.UI.AspNetProducer, CodeFluent.Producers.UI"
+               productionFlags="Default, Overwrite, RemoveDates" >
+    <cf:configuration categoryPath="UI\AspNetMvc4"
+                      targetDirectory="..\TheSaucisseFactory.Administration"
+                      cfx:targetProject="..\TheSaucisseFactory.Administration\TheSaucisseFactory.Administration.csproj"
+                      cfx:targetProjectLayout="None"
+                      templatesPath=".\Templates"
+                      actions="CopyTemplatesFiles" />
+  </cf:producer>
+  <cf:producer enabled="false" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom" productionFlags="Default, Overwrite, RemoveDates">
+    <cf:configuration compileWithVisualStudio="true" compile="false" codeDomProviderTypeName="CSharp" targetDirectory="..\TheSaucisseFactory" cfx:targetProject="..\TheSaucisseFactory\TheSaucisseFactory.csproj" cfx:targetProjectLayout="None" produceWebMembershipUser="true" produceWebMembershipProvider="true">
+      <subProducer typeName="CodeFluent.Producers.ServiceModel.ServiceProducer, CodeFluent.Producers.ServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" compileWithVisualStudio="true" compile="false" produceProxy="False" cfx:targetProjectLayout="None" />
+    </cf:configuration>
+  </cf:producer>
+  <cf:producer enabled="false" typeName="CodeFluent.Producers.CodeDom.SearchAndReplaceProducer, CodeFluent.Producers.CodeDom">
+    <configuration>
+      <patch path="..\DraftBOMWindows8\TheSaucisseFactory.Windows8" fileSearchPattern="*.cs" pattern="(?&lt;ns&gt;_ns_TheSaucisseFactory\.BOM\.)" replace="ns=TheSaucisseFactory.Windows8." />
+      <patch path="..\DraftBOMWindows8\TheSaucisseFactory.Windows8" fileSearchPattern="*.cs" pattern="(?&lt;ns&gt;_ns_)" replace="ns=" />
+      <patch path="..\TheSaucisseFactory\Services"
+             fileSearchPattern="MediaService.cs"
+             pattern="(?&lt;method&gt;return TheSaucisseFactory.MediaCollection.LoadAll)"
+             replace="method=return TheSaucisseFactory.MediaCollection.ServiceLoadAll" />
+      <patch path="..\TheSaucisseFactory\Services"
+             fileSearchPattern="I*.cs"
+             pattern="(?&lt;method&gt;        \[System.ServiceModel.OperationContractAttribute\(\)\]\r\n        [^ ]+ Save[^\n\r]+\r\n)"
+             replace="method=" />
+      <patch path="..\TheSaucisseFactory\Services"
+             fileSearchPattern="I*.cs"
+             pattern="(?&lt;method&gt;        \[System.ServiceModel.OperationContractAttribute\(\)\]\r\n        [^ ]+ Delete[^\n\r]+\r\n)"
+             replace="method=" />
+      <patch path="..\TheSaucisseFactory\Services"
+             fileSearchPattern="*Service.cs"
+             pattern="(?&lt;method&gt;    public partial class )"
+             replace="method=    [System.ServiceModel.ServiceBehavior(AddressFilterMode = System.ServiceModel.AddressFilterMode.Any)]
+    public partial class " />
+      <patch path="..\TheSaucisseFactory\Logging\Services"
+             fileSearchPattern="*Service.cs"
+             pattern="(?&lt;method&gt;    public partial class )"
+             replace="method=    [System.ServiceModel.ServiceBehavior(AddressFilterMode = System.ServiceModel.AddressFilterMode.Any)]
+    public partial class " />
+    </configuration>
+  </cf:producer>
+  <cf:store name="TheSaucisseFactory" defaultConnectionString="" />
+
+  <cf:entity name="Residence" uic:searchEnabled="true" uic:displayName="Résidence" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="CamelId" uic:displayName="Id" typeName="string" />
+    <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Batiments" uic:displayName="Bâtiments" typeName="BatimentCollection" >
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="Batiment" uic:searchEnabled="true" uic:displayName="Bâtiment" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="CamelId" uic:displayName="Id" typeName="string" />
+    <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Residence" uic:displayName="Résidence" typeName="Residence" >
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Appartement" uic:displayName="Appartements" typeName="AppartementCollection" >
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="Appartement" uic:searchEnabled="true" uic:displayName="Appartement" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="CamelId" uic:displayName="Id" typeName="string" >
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Batiment" uic:displayName="Bâtiment" typeName="Residence" >
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="Challenge" uic:searchEnabled="true" uic:displayName="Challenge" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Illustrations" uic:displayName="Illustrations" typeName="IllustrationCollection" >
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="Illustration" uic:searchEnabled="true" uic:displayName="Challenge" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Contenu" uic:displayName="Contenu" maxLength="-1">
+      <cf:renderer name="RichText" />
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+      <cf:attribute name="BetterLife.BOM.RichTextMarker" />
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="GainEnergyCoin" uic:searchEnabled="false" uic:displayName="Gain d'ECoin" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="Appartement" uic:displayName="Appartement" typeName="Appartement">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Date" uic:displayName="Date du gain" typeName="DateTime">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Quantite" uic:displayName="Nombre d'ECoin gagnés" typeName="int">
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="Shop" uic:searchEnabled="true" uic:displayName="Fain d'ECoin" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="Nom" uic:displayName="Nom" sortable="true" maxLength="100">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Url" uic:displayName="Url du commerçant" maxLength="2000">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Residence" uic:displayName="Résidence" typeName="Residence" >
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Publicites" uic:displayName="Publicités" typeName="MediaCollection">
+    </cf:property>
+  </cf:entity>
+
+  <cf:entity name="Media" uic:searchEnabled="true" uic:displayName="Médias" uic:deleteEnabled="false" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory">
+    <cf:property name="Id" uic:displayName="Id" key="true" />
+    <cf:property name="Nom" uic:displayName="Nom" maxLength="100">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Rang" uic:displayName="Rang" typeName="int">
+      <cf:message class="_doc" cultureName="fr-FR">Permet de classer ce média quand il se trouve dans une collection</cf:message>
+    </cf:property>
+    <cf:property name="Fichier" uic:displayName="Fichier" typeName="file">
+      <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
+    </cf:property>
+    <cf:property name="Origine" uic:displayName="Origine" readOnly="true">
+      <cf:message class="_doc" cultureName="fr-FR">Chemin ou URL d'ou provient ce média</cf:message>
+    </cf:property>
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Fichier" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Fichier" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Fichier" />
+    </cf:view>
+  </cf:entity>
+
+
+</cf:project>

@@ -1,0 +1,13 @@
+﻿@model BetterLife.BOM.LienReferenceSolutionCollection
+@{
+    BetterLife.BOM.LienReferenceSolutionCollection l_lienReferenceSolution = (BetterLife.BOM.LienReferenceSolutionCollection)(Model);
+}
+  
+@foreach (BetterLife.BOM.LienReferenceSolution l_lienRef in l_lienReferenceSolution)
+{
+    if(l_lienRef.Solution != null)
+    {
+        @l_lienRef.Solution.EntityDisplayName;
+        <br />
+    }
+}

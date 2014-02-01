@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Accueil";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<ol class="round">
+    <li>
+        <h5>Eléments du backoffice TheSaucisseFactory</h5>
+
+        <hr />
+        <div class="ns">Gestion des contenus</div>
+        <div class="entities">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <div class="entities">
+            @Html.RouteLink("Images", "TheSaucisseFactory.Media", new { controller = "Media" })
+        </div>
+        
+        <hr />
+
+        <div class="ns">Gestion du module Bouygues Construction</div>
+        <div class="entities">
+        </div>
+        <hr />
+
+
+        <div class="ns">Gestion de la synchronisation</div>
+        <div class="entities">
+        </div>
+
+        <hr />
+        <div class="ns">Notifications</div>
+        <div class="entities">
+        </div>
+
+        <hr />
+        <div class="ns">Gestion des administrateurs</div>
+        <div class="entities">
+        </div>
+    </li>
+</ol>

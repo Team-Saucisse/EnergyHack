@@ -1,0 +1,15 @@
+@model BetterLife.BOM.MediaCollection
+@if (Model != null && Model.Count > 0)
+{
+    foreach (BetterLife.BOM.Media l_media in Model)
+    {
+        @l_media.Nom        
+        <span style="margin-left:20px">@Html.DisplayFor(model => l_media.Fichier, "File")</span>
+        <br />
+    }
+}
+else
+{
+    <p>Aucune pièce jointe</p>
+}
+

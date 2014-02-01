@@ -1,0 +1,8 @@
+<asp:DropDownList
+runat="server"
+autoPostBack="[%=CodeFluent.Runtime.Utilities.XmlUtilities.GetAttribute(Producer.Element, "autoPostBack", true)%]"
+id="[%=Producer.GetId(TypedObject)%]"
+>
+<asp:ListItem Value="True">[%=Producer.Project.AllMessages.GetMessageValue("true", Culture.CultureInfo, "True")%]</asp:ListItem>
+<asp:ListItem Value="False">[%=Producer.Project.AllMessages.GetMessageValue("false", Culture.CultureInfo, "False")%]</asp:ListItem>
+</asp:DropDownList>

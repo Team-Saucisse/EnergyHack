@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+<button EntityKey='dummy' onclick="window.location.href='<%=ResolveUrl("~/Upload.aspx?svc=[%=RelativeUrl(Source.Entity)%]&property=[%=Source.Name%]&ek=")%>' + $(this).attr('EntityKey') + '&url=' + encodeURIComponent(window.location.href);return false;" class='ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only'><span class="ui-button-text">Upload</span></button>

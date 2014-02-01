@@ -1,0 +1,12 @@
+@model CodeFluent.Runtime.ICodeFluentSet
+@{
+    var l_list = TheSaucisseFactory.BOM.Web.EntityBinder.BuildSortedMultiList(ViewBag, Model);
+
+    foreach (SelectListItem l_listItem in l_list)
+    {
+        if (l_listItem.Selected)
+        {
+    <p>@l_listItem.Text</p>
+        }
+    }
+}

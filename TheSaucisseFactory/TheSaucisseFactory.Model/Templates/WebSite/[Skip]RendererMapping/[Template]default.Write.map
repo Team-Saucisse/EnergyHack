@@ -1,0 +1,4 @@
+<asp:TextBox runat="server"
+maxLength="[%=TypedObject.MaxLength%]"
+id="[%=Producer.GetId(TypedObject)%]"
+/>

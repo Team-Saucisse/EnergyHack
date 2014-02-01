@@ -1,0 +1,34 @@
+<_cfwc:TemplateColumn
+visible="[%=((TypedObject.UIType != CodeFluent.Runtime.UI.UIType.RowVersion) || (Producer.MustShowRowVersion))%]"
+[%Producer.WriteSortExpression(Writer, TypedObject, Renderer);%]>
+<HeaderTemplate>
+[%
+if (TypedObject.IsSortable)
+{
+	Writer.Write("<asp:LinkButton cssClass='cf-sortableColumnHeader' runat='server' onmouseout=\"this.className='cf-sortableColumnHeader'\" onmouseover=\"this.className='cf-sortableColumnHeaderOver'\" CommandName='Sort' CommandArgument='");
+	Writer.Write(Producer.GetSortExpression(TypedObject, Renderer));
+	Writer.Write("' Text=\"");
+	Writer.Write(CodeFluent.Runtime.Utilities.ConvertUtilities.EscapeXml(TypedObject.NameDescription));
+	Writer.Write("\" Tooltip=\"");
+	Writer.Write(Producer.Project.AllMessages.GetMessageValue("SortBy", Culture.CultureInfo, "Sort By"));
+	Writer.Write(CodeFluent.Runtime.Utilities.ConvertUtilities.EscapeXml(TypedObject.NameDescription));
+	Writer.Write("\"/><%# " + typeof(CodeFluent.Runtime.Web.UI.WebControls.TemplateColumn).FullName + ".GetSortHtml(Container.Parent.Parent, \"");
+	Writer.Write(Producer.GetSortExpression(TypedObject, Renderer));
+	Writer.Write("\", \"SortExpression\", \"SortDirection\", \"&nbsp;<img class='cf-headerImg' border='0' src='/" + Culture.Name + "/assets/up.gif' width='16' height='16'>\", \"&nbsp;<img class='cf-key' border='0' src='/" + Culture.Name + "/assets/down.gif' width='16' height='16'>\", \"\")%>");
+}
+else
+{
+	Writer.Write(TypedObject.NameDescription);
+	if (TypedObject.IsKey)
+	{
+		Writer.Write("&nbsp;<img class='cf-headerImg' border='0' src='" + Producer.GetCulturePath(Culture) + "assets/database_key.gif' width='16' height='16'>");
+	}
+}
+%]</HeaderTemplate>
+<ItemTemplate>
+[%Producer.WriteControlRenderer(Writer, Context, null, TypedObject, TargetPath, CodeFluent.Runtime.UI.RendererType.Read);%]
+</ItemTemplate>
+<EditItemTemplate>
+[%Producer.WriteControlRenderer(Writer, Context, null, TypedObject, TargetPath, CodeFluent.Runtime.UI.RendererType.Write);%]
+</EditItemTemplate>
+</_cfwc:TemplateColumn>

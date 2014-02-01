@@ -1,0 +1,15 @@
+﻿@model CodeFluent.Runtime.ICodeFluentSet
+@using BetterLife.BOM;
+@{    
+    LienReferenceSolutionCollection l_lienReferenceSolution = (LienReferenceSolutionCollection)(Model);
+
+    List<Solution> l_listSolution = new List<Solution>();
+    
+    foreach (LienReferenceSolution l_solution in l_lienReferenceSolution)
+    {
+        l_listSolution.Add(l_solution.Solution);
+    }
+        
+    var list = BetterLife.BOM.Web.EntityBinder.BuildMultiList(ViewBag, l_listSolution);
+}
+@Html.EditorFor(model => list)

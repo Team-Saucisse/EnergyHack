@@ -1,0 +1,169 @@
+﻿[%@ remark text="This file builds edition user controls for entities" %]
+[%@ template language="CSharp" output="false" %]
+[%@ namespace name="System" %]
+[%@ namespace name="System.Collections.Generic" %]
+[%@ namespace name="System.IO" %]
+[%@ namespace name="CodeFluent.Model" %]
+[%@ namespace name="CodeFluent.Producers.SmartClient" %]
+[%@ namespace name="CodeFluent.Producers.CodeDom" %]
+[%@ namespace name="CodeFluent.Runtime.UI" %]
+[%@ namespace name="CodeFluent.Runtime.Utilities" %]
+[%
+if (!Context.Contains("inTemplate"))
+{
+	Context["inTemplate"] = null; // anything does it
+	foreach(Entity e in Producer.Project.Entities)
+	{
+		if (e.UIEnabled && !e.IsLightWeight && e.IsPersistent)
+		{
+			string EntityName = e.Name;
+			
+			// build a new target path to re-run ourselves with a different file path
+			
+			string targetDirectory = Path.Combine(Path.GetDirectoryName(TargetPath), e.Namespace);
+			
+			string targetPath = Path.Combine(
+				targetDirectory,
+				Path.GetFileNameWithoutExtension(TargetPath).Replace("Entity", EntityName) + ".xaml");
+
+			// we prefer CF's generation wrapper object instead of raw .NET file objects
+			using (GeneratedFile file = new GeneratedFile(Producer.Project, targetPath))
+			{
+				// check we can overwrite or not depending on node's production attributes
+				if ((file.HasBeenChanged) && ((e.ProductionFlags & ProductionFlags.Overwrite) == 0))
+				{
+					// show some useful information
+					Producer.RaiseProduction(Producer, file.CreateFileSkipEvent(e.ClrFullTypeName));
+					continue;
+				}
+
+				// note: we don't care about the output="false" here
+				Producer.RaiseProduction(Producer, ProductionEventArgs.CreateFileTemplateGenerateEvent(targetPath, Template.FilePath));
+				file.Open(Producer, Producer.OutputEncoding);
+				
+				// add the type to the context
+				Context["CurrentEntity"] = e;
+				
+				// update targetPath
+				Context["TargetPath"] = targetPath;
+				
+				// go recursive, and this will jump to the else part of this file
+				Template.Run(file.Writer, Context);
+			}
+		}
+	}
+}
+else
+{
+	Entity entity = Context["CurrentEntity"] as Entity;
+	if (entity != null)
+	{%]<UserControl x:Class="[%=Producer.Project.DefaultNamespace %].SmartClient.Controls.[%=entity.Name%]Edit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:nsRendererControl="clr-namespace:[%=Producer.Project.DefaultNamespace %].SmartClient.Controls"
+	xmlns:cftools="clr-namespace:CodeFluent.Runtime.SmartClient"
+	xmlns:cfcontrols="clr-namespace:CodeFluent.Runtime.SmartClient.Controls"
+    Background="#CCC"
+    MaxHeight="600">
+    <Control.Resources>
+			     <cftools:EnumerationIntConverter x:Key="EnumConverter"/>
+    </Control.Resources>
+    [% if (entity.DefaultForm.Tabs.Count > 1)
+		{%]
+        <TabControl Name="tabControl" Style="{DynamicResource EditTabStyle}">
+        [%}%]
+        [%Form entityForm = entity.DefaultForm;
+			if( entityForm != null)
+			{
+				foreach (Tab entityTab in entityForm.Tabs)
+				{
+					if (entityForm.Tabs.Count > 1)
+					{%]					
+					<TabItem Header="[%=entityTab.Name%]" > 
+					[%}%]
+					<DockPanel>
+					 <ScrollViewer Margin="0" MaxHeight="600" CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Style="{DynamicResource EditScrollViewerStyle}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							[%for (int i = 0; i < entityTab.Columns.Count; i++) 
+							{%]
+							  <ColumnDefinition/>
+	                        [%}%]
+		                </Grid.ColumnDefinitions>
+	                    <Grid.RowDefinitions>
+		                     <RowDefinition/>
+			                 <RowDefinition/>
+				         </Grid.RowDefinitions>
+						[%int currentColumnNumber = 0;
+						foreach (Column c in entityTab.Columns)
+						{%]
+							<Grid Grid.Column="[%=currentColumnNumber%]" Grid.Row="0">
+								<Grid.ColumnDefinitions >
+									<ColumnDefinition Width="Auto"/>
+									<ColumnDefinition Width="*" MinWidth="100" />
+								</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+								[% for (int i = 0; i < c.Fields.Count; i++)
+			                        {
+										if (c.Fields[i].UIEnabled)
+										{%]
+											<RowDefinition Height="Auto"/>
+										[%}
+			                       }%]
+							       </Grid.RowDefinitions>
+							[%int currentRowNumber = 0;
+                        	foreach (Field field in c.Fields)
+							{
+							
+								if (field.UIEnabled)
+								{
+
+									if (field.MustShowLabel)
+									{%]
+										<Label Content="[%=ConvertUtilities.Decamelize(field.Name)%]" Grid.Column="0" Grid.Row="[%=currentRowNumber%]" Style="{DynamicResource EditLabelStyle}"/>
+										
+										[%
+										Context["currentRowNumber"] = currentRowNumber;
+										if (field.TypedObject != null)
+										{
+											TypedObject obj = new TypedObject(Culture, field.TypedObject);
+											%]<Border x:Name="[%=obj.Name%]Border" Grid.Column="1" 
+											Grid.Row="[%=currentRowNumber%]" Margin="1" BorderThickness="0"/>[%
+											if (obj.IsReadOnly)
+											{
+												Producer.WriteControlRenderer(Writer, Context, obj, RendererType.Read);
+											}
+											else
+											{
+												Producer.WriteControlRenderer(Writer, Context, obj, RendererType.Write);
+											}
+										}
+									}
+									currentRowNumber++;
+								}
+							}%]
+		                    </Grid>
+						[%currentColumnNumber++;
+			            }%]
+                </Grid> 
+                </ScrollViewer>
+                </DockPanel>
+            [% if (entity.DefaultForm.Tabs.Count > 1)
+				{%]	
+					</TabItem>						
+				[%}
+		    }                     		
+	 if (entity.DefaultForm.Tabs.Count > 1)
+	{%]		    
+		</TabControl>
+	[%
+	}
+}%]
+</UserControl>
+
+[%Producer.AddFileName(TargetPath);
+	Producer.AddToGeneratedFiles(TargetPath);
+	return;
+	}
+}%]

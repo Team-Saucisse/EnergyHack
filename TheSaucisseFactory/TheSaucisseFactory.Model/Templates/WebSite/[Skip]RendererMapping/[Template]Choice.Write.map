@@ -1,0 +1,6 @@
+[% Enumeration enumeration = TypedObject.ProjectEnumeration; if (enumeration != null) {%]
+<[%=Producer.GetPrefix(Context, TargetPath, enumeration, "DropDownList")%][%=enumeration.Name%]DropDownList
+runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+/>
+[%}%]

@@ -1,0 +1,13 @@
+<_cfwc:BinaryLargeObjectControl runat="server"
+contextName="[%=TypedObject.Entity.Store.Name%]"
+notFoundImageUrl="[%=Producer.GetNotFoundImageUrl(Culture)%]"
+urlType="FileExtension"
+id="[%=Producer.GetId(TypedObject)%]"
+>
+<ItemTemplate>
+<center>
+<a href="<%# Container.NavigateUrl%>"><img border="0" title="<%# Container.Text%>" src="<%# Container.ImageUrl%>"></a>
+<br><input type="file" runat="server">
+</center>
+</ItemTemplate>
+</_cfwc:BinaryLargeObjectControl>

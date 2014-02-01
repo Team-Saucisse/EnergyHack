@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template base="AspNetMvc" browsable="true" displayName="ASP.NET MVC 4" description="An ASP.NET template on top of an MVC4+Razor+Internet Application site." fontsAndColorsSetName="Modern Style" typeImagesPathFormat="Content\Images\{0:ClrFullTypeName}.png" producerTemplateTypeName="CodeFluent.Producers.UI.AspNetMvcProducerTemplate, CodeFluent.Producers.UI">
+	<supportedProducer typeName="CodeFluent.Producers.UI.AspNetProducer" />
+</template>

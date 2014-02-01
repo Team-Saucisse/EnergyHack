@@ -1,0 +1,1 @@
+﻿<cfcontrols:BinaryObjectEditControl Grid.Column="1" Grid.Row="[%=currentRowNumber%]" DataContext="{Binding Path=Photo}" Width="{Binding ElementName=[%=TypedObject.Name%]Border, Path=ActualWidth}"/>

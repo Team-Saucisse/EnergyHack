@@ -1,0 +1,3 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+[%if (Source.IsModelNullable) {%]@Html.DropDownList("[%=Source.Name%]", new SelectList(new SelectListItem[] { new SelectListItem { Value = "", Text = "Undefined" }, new SelectListItem { Text = "True", Value = "True" }, new SelectListItem { Text = "False", Value = "False" }}, "Value", "Text"))
+[%}else{%]@Html.CheckBox("[%=Source.Name%]")[%}%]

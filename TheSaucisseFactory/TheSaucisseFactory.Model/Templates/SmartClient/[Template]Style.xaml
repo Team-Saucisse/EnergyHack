@@ -1,0 +1,366 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Custom="http://schemas.microsoft.com/winfx/2006/xaml/composite-font">
+
+    <!-- Global -->
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+    <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+    <SolidColorBrush x:Key="MouseOverBorderBrush" Color="#105" />
+
+    <SolidColorBrush x:Key="FontColor" Color="#FFE6E6E6" />
+
+    <!--TreeViewRelated Colors-->
+    <SolidColorBrush x:Key="TreeNodeColor" Color="#FFE6E6E6" />
+    <SolidColorBrush x:Key="TreeNodeExpandedColor" Color="#FFD6D6D6" />
+    <SolidColorBrush x:Key="TreeNodeSelectedColor" Color="#FF4d8ab8" />
+    <SolidColorBrush x:Key="TreeNodeMouseOverColor" Color="#FF63be63" />
+
+    <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+    <DropShadowBitmapEffect x:Key="PopupDropShadow" ShadowDepth="1.5" Softness="0.15" />
+
+    <LinearGradientBrush x:Key="DiagramGradientBrush" EndPoint="0.439,0.967" StartPoint="0.561,0.033">
+        <GradientStop Color="#FF202020" Offset="0" />
+        <GradientStop Color="#FF545454" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ListSelectedBrush" EndPoint="0.439,0.967" StartPoint="0.561,0.033">
+        <GradientStop Color="#55505050" Offset="0" />
+        <GradientStop Color="#55646464" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="HeaderTextColor" EndPoint="0.4, 2.98" StartPoint="0.2, 0.01">
+        <GradientStop Color="#FF63be63" Offset="0" />
+        <GradientStop Color="#FF5ABE73" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- Global: Label -->
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Padding" Value="{DynamicResource LabelPadding}" />
+        <Setter Property="FontFamily" Value="Calibri" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="ViewTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="Padding" Value="{DynamicResource LabelPadding}" />
+        <Setter Property="FontFamily" Value="Calibri" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Thickness x:Key="LabelPadding">5,8,5,2</Thickness>
+
+    <!-- Global: ContentBorder -->
+    <Style x:Key="ContentBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="CornerRadius" Value="10,10,10,10" />
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="220,10,10,10"/>
+    </Style>
+
+    <!-- Global: TreeviewBorder 
+    HorizontalAlignment="Left" Margin="10,10,0,10" Width="150"
+    -->
+    <Style x:Key="TreeViewBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="CornerRadius" Value="10,10,10,10" />
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="10,10,0,10"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Width" Value="200"/>
+    </Style>
+
+
+    <Thickness x:Key="BorderThickness">1,1,1,1</Thickness>
+
+    <SolidColorBrush x:Key="BorderBrush" Color="#FF747474" />
+
+
+    <!-- Welcome -->
+    <Style x:Key="WelcomeBorder" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderThickness" Value="{DynamicResource BorderThickness}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Background" Value="{DynamicResource DiagramGradientBrush}"/>
+    </Style>
+
+    <!-- Main Window -->
+
+    <!-- Main Window: Background -->
+    <SolidColorBrush x:Key="MainBackgroundBrush" Color="#FF202020" />
+
+    <!-- Header -->
+    <!-- Header: Border -->
+    <Style x:Key="HeaderBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"></Setter>
+        <Setter Property="Padding" Value="10,0,10,0"></Setter>
+    </Style>
+
+    <!-- Header: Title -->
+    <SolidColorBrush x:Key="HeaderFontColor" Color="#FFE6E6E6" />
+
+    <Style x:Key="HeaderTextStyle" TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Calibri"></Setter>
+        <Setter Property="FontSize" Value="28"></Setter>
+        <Setter Property="BitmapEffect" Value="{DynamicResource PopupDropShadow}"/>
+        <Setter Property="Foreground" Value="{DynamicResource HeaderTextColor}"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Margin" Value="5, 0, 0, 0"/>
+    </Style>
+
+
+
+    <!-- Menu -->
+    <Style TargetType="{x:Type MenuItem}">
+        <Setter Property="Foreground" Value="#FFFFFFFF" />
+    </Style>
+
+    <LinearGradientBrush x:Key="MenuBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="#CCC" Offset="0.0" />
+        <GradientStop Color="#444" Offset="1.0" />
+    </LinearGradientBrush>
+
+    <Style x:Key="TreeViewStyle" TargetType="TreeView">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style x:Key="TreeViewItemFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Rectangle/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Custom:PathGeometry x:Key="TreeArrow" Figures="M0,0 L0,6 L6,0 z"/>
+    <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Border Width="16" Height="16" Background="Transparent" Padding="5,5,5,5">
+                        <Path Fill="Transparent" Stroke="{DynamicResource TreeNodeColor}" x:Name="ExpandPath" Data="{StaticResource TreeArrow}">
+                            <Path.RenderTransform>
+                                <Custom:RotateTransform Angle="135" CenterX="3" CenterY="3"/>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Stroke" TargetName="ExpandPath" Value="{DynamicResource TreeNodeSelectedColor}"/>
+                            <Setter Property="Fill" TargetName="ExpandPath" Value="Transparent"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="RenderTransform" TargetName="ExpandPath">
+                                <Setter.Value>
+                                    <Custom:RotateTransform Angle="180" CenterX="3" CenterY="3"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Fill" TargetName="ExpandPath" Value="#FF595959"/>
+                            <Setter Property="Stroke" TargetName="ExpandPath" Value="{DynamicResource TreeNodeExpandedColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="Padding" Value="1,0,0,0"/>
+        <Setter Property="Foreground" Value="{DynamicResource FontColor}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MinWidth="19" Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <ToggleButton x:Name="Expander" Margin="0, 3, 0, 0" Style="{StaticResource ExpandCollapseToggleStyle}" ClickMode="Press" IsChecked="{Binding Path=IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Border SnapsToDevicePixels="true" x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" Grid.Column="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Name="ItemIcon" Width="16" Height="16" Grid.Column="0" Source="Resources\folder.png" Visibility="Visible"/>
+                                <ContentPresenter Grid.Column="1" Margin="4, 3, 0, 0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" x:Name="PART_Header" ContentSource="Header"/>
+                            </Grid>
+                        </Border>
+                        <ItemsPresenter x:Name="ItemsHost" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsExpanded" Value="false">
+                            <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
+                            <Setter Property="Source" TargetName="ItemIcon" Value="Resources\table_multiple.png"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="true">
+                            <!--<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>-->
+                            <!--<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>-->
+                            <Setter Property="Foreground" Value="{DynamicResource TreeNodeSelectedColor}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="true"/>
+                                <Condition Property="IsSelectionActive" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <!--<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>-->
+                            <Setter Property="Foreground" Value="{DynamicResource TreeNodeSelectedColor}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="true"/>
+                                <Condition Property="HasItems" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Foreground" Value="{DynamicResource TreeNodeMouseOverColor}"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- MenuPressedBrush - This brush is used for the Main Menu pressed and focused state-->
+    <LinearGradientBrush x:Key="MenuPressedBrush" StartPoint="0.500023,0.999996" EndPoint="0.500023,4.37507e-006">
+        <GradientStop Color="#FF875225" Offset="0" />
+        <GradientStop Color="#FF221E1F" Offset="0.960674" />
+        <GradientStop Color="#FF221E1F" Offset="1" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="PopupMenuBackgroundBrush" Color="#FF000000" />
+
+    <LinearGradientBrush x:Key="MenuIsHighlightedBrush" StartPoint="0.5,0.999996" EndPoint="0.5,4.37507e-006">
+        <GradientStop Color="#FF4C4D4F" Offset="0" />
+        <GradientStop Color="#FF4C4D4F" Offset="0.0280899" />
+        <GradientStop Color="#FF221E1F" Offset="0.775281" />
+        <GradientStop Color="#FF221E1F" Offset="1" />
+    </LinearGradientBrush>
+
+    <!-- Menu: Border -->
+    <Style x:Key="MenuBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Margin" Value="0,5,0,5"/>
+    </Style>
+
+    <!-- MainGrid -->
+    <Style x:Key="MainGridStyle" TargetType="{x:Type Grid}">
+        <Setter Property="Margin" Value="5,5,5,5"/>
+    </Style>
+
+    <!--ViewList-->
+    <Style x:Key="viewListStyle" TargetType="{x:Type ListView}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="3"/>
+    </Style>
+
+    <!--ViewList Item Style-->
+    <Style x:Key="viewListItemStyle" TargetType="{x:Type ListViewItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                    <Border SnapsToDevicePixels="true" x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                        <GridViewRowPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="true"/>
+                                <!--<Condition Property="Selector.IsSelectionActive" Value="false"/>-->
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource MenuPressedBrush}" />
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="#FF000000" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True" >
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource ListSelectedBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="{DynamicResource MouseOverBorderBrush}" />
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Selector.IsSelected" Value="False"/>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+        </Style.Triggers>
+    </Style>
+
+    <!--viewListHeaderStyle -->
+    <Style x:Key="viewListHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Background" Value="{DynamicResource MenuIsHighlightedBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+    </Style>
+
+    <Style x:Key="EditTabStyle" TargetType="TabControl">
+        <Setter Property="Background" Value="{DynamicResource MenuBorderBrush}"/>
+    </Style>
+
+    <Style x:Key="EditScrollViewerStyle" TargetType="ScrollViewer">
+        <Setter Property="Background" Value="{DynamicResource MenuBorderBrush}"/>
+    </Style>
+
+    <Style x:Key="EditLabelStyle" TargetType="Label">
+        <Setter Property="MaxHeight" Value="30"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
+
+    <Style x:Key="EditTextStyle" TargetType="TextBox">
+        <Setter Property="MaxHeight" Value="30"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+</ResourceDictionary>

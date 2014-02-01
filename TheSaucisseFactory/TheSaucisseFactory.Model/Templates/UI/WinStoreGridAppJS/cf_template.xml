@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<template browsable="true" displayName="Windows Store HTML5/JavaScript" 
+          description="A template to generate a Windows Store Grid App (HTML5/JavaScript). Communication between client and server is 100% JSON, using CodeFluent Entities JSON automatic support.">
+	<supportedProducer typeName="CodeFluent.Producers.UI.WindowsStoreProducer" />
+</template>

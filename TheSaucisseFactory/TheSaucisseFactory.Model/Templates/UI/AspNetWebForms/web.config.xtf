@@ -1,0 +1,3 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.BaseTemplate" %]
+<configuration xmlns:xtf="http://www.softfluent.com/codefluent.xtf">
+</configuration>

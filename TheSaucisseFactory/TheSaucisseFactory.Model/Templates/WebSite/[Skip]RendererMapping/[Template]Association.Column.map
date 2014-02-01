@@ -1,0 +1,13 @@
+[%
+if (!TypedObject.IsSet)
+throw new CodeFluentWebSiteProducerException("Current typed object '" + TypedObject.DisplayName + "' is not an association (a many to many relation). This renderer targets association typed objects.");
+%]
+<_cfwc:TemplateColumn>
+<HeaderTemplate>[%=TypedObject.NameDescription%]</HeaderTemplate>
+<ItemTemplate>
+[%Producer.WriteControlRenderer(Writer, Context, null, TypedObject, TargetPath, CodeFluent.Runtime.UI.RendererType.Read);%]
+</ItemTemplate>
+<EditItemTemplate>
+[%Producer.WriteControlRenderer(Writer, Context, null, TypedObject, TargetPath, CodeFluent.Runtime.UI.RendererType.Write);%]
+</EditItemTemplate>
+</_cfwc:TemplateColumn>

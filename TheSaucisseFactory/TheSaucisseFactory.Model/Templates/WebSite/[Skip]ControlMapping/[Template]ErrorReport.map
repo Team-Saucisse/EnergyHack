@@ -1,0 +1,1 @@
+[%@ mapping namespace="ASP" %]<asp:Label ID="error" EnableViewState="false" CssClass="cf-error" [%Producer.WriteControlAttributes(Writer, Context, Control, TargetPath);%]/>

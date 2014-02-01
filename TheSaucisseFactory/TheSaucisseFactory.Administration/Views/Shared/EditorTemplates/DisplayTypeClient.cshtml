@@ -1,0 +1,43 @@
+﻿@model BetterLife.BOM.ReferenceClefCollection
+@{
+    BetterLife.BOM.ReferenceClefCollection l_lienReferenceClefCollection = (BetterLife.BOM.ReferenceClefCollection)(Model);
+
+    IEnumerable<BetterLife.BOM.ReferenceClef> l_items = l_lienReferenceClefCollection.OrderBy(o => o.TypeClient.EntityDisplayName).ThenBy(o => o.SousEnjeu.EntityDisplayName);
+}
+  
+@if (l_lienReferenceClefCollection == null)
+{
+    <table>
+        <tr>
+            <td>
+                @Html.DisplayName("Erreur de chargement")
+            </td>
+        </tr>
+    </table>
+    return;     
+}
+<table>
+@foreach (BetterLife.BOM.ReferenceClef l_lienRef in l_items)
+{
+    if(l_lienRef.TypeClient != null)
+    {
+        <tr>
+            <td>
+                <a href="#" style="text-decoration:none" name="@l_lienRef.EntityKey" onclick="edition();" class="dialog-refClef">- @l_lienRef.TypeClient.EntityDisplayName/@l_lienRef.SousEnjeu.EntityDisplayName</a>                            
+            </td>
+            <td>
+                <a href="#" name="@l_lienRef.EntityKey" class="delete-refClef">Supprimer</a>
+            </td>
+        </tr>
+    }
+}
+@if (l_lienReferenceClefCollection.Count == 0)
+{
+    <tr>
+        <td>
+            @Html.DisplayName("Aucunes données")
+        </td>
+    </tr>
+}
+    
+</table>

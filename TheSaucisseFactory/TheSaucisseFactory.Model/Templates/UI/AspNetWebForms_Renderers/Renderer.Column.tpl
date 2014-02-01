@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+<cfe:EvalBoundField HeaderText="[%=DisplayName(Source)%]" DataField="[%=BindExpression(Source)%]" SortExpression="[%=Selector(Source)%]" DataFormatString="[%=Format(Source)%]" />

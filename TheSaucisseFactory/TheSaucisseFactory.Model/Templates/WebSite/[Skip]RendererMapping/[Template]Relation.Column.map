@@ -1,0 +1,46 @@
+[%
+Entity entity;
+if (TypedObject.IsEntity) {
+	entity = TypedObject.ProjectEntity;
+
+%]
+<_cfwc:TemplateColumn
+>
+<HeaderTemplate>[%=TypedObject.NameDescription%]</HeaderTemplate>
+<ItemTemplate>
+[%Producer.WriteControlRenderer(Writer, Context, null, TypedObject, TargetPath, CodeFluent.Runtime.UI.RendererType.Read);%]
+</ItemTemplate>
+<EditItemTemplate>
+[%Producer.WriteControlRenderer(Writer, Context, null, TypedObject, TargetPath, CodeFluent.Runtime.UI.RendererType.Write);%]
+</EditItemTemplate>
+</_cfwc:TemplateColumn>[% } else {
+if (!TypedObject.IsSet)
+	throw new CodeFluentWebSiteProducerException("Current typed object '" + TypedObject.DisplayName + "' is not a relation. This renderer targets relation typed objects.");
+
+entity = TypedObject.ProjectSet.ItemEntity;
+ViewProperty property = TypedObject.BaseObject as ViewProperty;
+if (property == null)
+	return;
+View view = property.TypeView;
+if (view == null)
+	return; %]
+<_cfwc:TemplateColumn><HeaderTemplate>[%=TypedObject.NameDescription%]</HeaderTemplate>
+<ItemTemplate>
+<[%=Producer.GetPrefix(Context, TargetPath, entity, "Grid")%][%=entity.Name%]Grid
+runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+autoGenerateColumns="false"
+ItemStyle-CssClass="cf-column"
+HeaderStyle-CssClass="cf-column"
+SourceIdList=""
+Expression="[%=Producer.GetExpression(TypedObject, Renderer)%]"
+KeyNameList="[%=CodeFluent.Producers.CodeDom.UI.Web.GridProducer.GetKeyNameList(entity)%]">
+<Columns>
+[% foreach(ViewProperty viewProperty in view.Properties) {
+	Producer.WriteControlRenderer(Writer, Context, null, new TypedObject(Culture, viewProperty), TargetPath, CodeFluent.Runtime.UI.RendererType.Column);
+}%]
+</Columns>
+</[%=Producer.GetPrefix(Context, TargetPath, entity, "Grid")%][%=entity.Name%]Grid>
+</ItemTemplate>
+</_cfwc:TemplateColumn>
+[% } %]

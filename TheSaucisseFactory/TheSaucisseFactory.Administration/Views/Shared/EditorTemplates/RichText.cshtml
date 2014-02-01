@@ -1,0 +1,94 @@
+﻿@model string
+
+<script type="text/javascript">
+    function execute(e) {
+        if (e.name == "insertimage") {
+            setTimeout(function () {
+                var imagebrowser = $("[data-role=imagebrowser]").data("kendoImageBrowser");
+
+                // Corriger un bug d'upload d'image.
+                // Pour plus d'informations consulter le ticket de support 728028 associé au compte Telerik pguery@c2s.fr
+                imagebrowser.dataSource.bind("change", function (e) {
+                    if (e.action == "itemchange" && e.field == "name") {
+                        imagebrowser.listView.refresh();
+                    }
+                });
+
+                // Afficher un message d'erreur personnalisé lorsqu'une image n'a pas été uploadée car non valide
+                // Pour plus d'informations consulter le ticket de support 727774 associé au compte Telerik pguery@c2s.fr
+                imagebrowser.upload.bind("success", function (e) {
+                    if (e.response.Error) {
+                        alert(e.response.Error);
+                        imagebrowser.dataSource.cancelChanges();
+                    }
+                });
+            });
+        }
+    }
+</script>
+
+@Html.Partial("_ImageUploadConstraintsPartial")
+@(Html.Kendo().Editor()
+    .Name(ViewData.ModelMetadata.PropertyName)
+    .Events(events => events
+        .Execute("execute")
+    )
+    .Tools(tools => tools
+        .Clear()
+        .Bold().Italic().Underline().Strikethrough()
+        .JustifyLeft().JustifyCenter().JustifyRight().JustifyFull()
+        .InsertUnorderedList().InsertOrderedList()
+        .Outdent().Indent()
+        .CreateLink().Unlink()
+        .InsertImage()
+        .SubScript()
+        .SuperScript()
+        .TableEditing()
+        .ViewHtml()
+        .Formatting()
+        .FontName()
+        .FontSize()
+        .FontColor().BackColor()
+    )
+    .Value(Server.HtmlDecode(Model))        
+    .Messages(messages => messages
+        .InsertImage("Insérer une image")
+        .DialogCancel("Annuler")
+        .DialogInsert("Insérer")
+        .ImageWebAddress("Adresse Web")
+        .ImageAltText("Texte alternatif")
+        .FontNameInherit("Police")
+        .FontSizeInherit("Taille de la police")        
+        .Bold("Gras")
+        .Italic("Italique")
+        .Underline("Souligné")
+        .Strikethrough("Barré")
+        .JustifyLeft("Aligner le texte à gauche")
+        .JustifyCenter("Centrer")
+        .JustifyRight("Aligner le texte à droite")
+        .JustifyFull("Justifier")
+        .InsertUnorderedList("Puces")
+        .InsertOrderedList("Numérotation")
+        .Indent("Augmenter le retrait")
+        .Outdent("Diminuer le retrait")
+        .CreateLink("Lien hypertexte")
+        .LinkWebAddress("Adresse Web")
+        .LinkText("Texte")
+        .LinkToolTip("Info-bulle")
+        .LinkOpenInNewWindow("Ouvrir le lien dans une nouvelle fenêtre")
+        .Subscript("Indice")
+        .Superscript("Exposant")        
+        .ImageBrowser(imageBrowserMessages => imageBrowserMessages
+            .UploadFile("Télécharger")
+            .EmptyFolder("Dossier vide")
+            .Search("Rechercher")
+            .OrderBy("Trier par")
+            .OrderByName("Nom")
+            .OrderBySize("Taille")                                             
+        )
+    )
+    .ImageBrowser(imagebrowser => imagebrowser
+    .Image("~/EditorImageBrowser/GetImage/{0}")
+    .Read("Read", "EditorImageBrowser")
+    .Upload("Upload", "EditorImageBrowser")
+    .Thumbnail("Thumbnail", "EditorImageBrowser")))

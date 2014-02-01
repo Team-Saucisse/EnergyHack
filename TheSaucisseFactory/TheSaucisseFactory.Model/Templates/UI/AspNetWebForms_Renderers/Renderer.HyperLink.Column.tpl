@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+<asp:HyperLinkField HeaderText="[%=DisplayName(Source)%]" Target="_blank" DataNavigateUrlFields="[%=BindExpression(Source)%]" DataTextField="[%=BindExpression(Source)%]" />

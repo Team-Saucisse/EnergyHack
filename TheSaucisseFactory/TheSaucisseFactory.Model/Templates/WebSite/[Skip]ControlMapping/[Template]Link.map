@@ -1,0 +1,1 @@
+[%@ mapping namespace="HTML" %]<a href='<%=CodeFluent.Runtime.Web.Utilities.UrlHelper.NewUrl("[%=Producer.GetHRef(Control)%]")%>' [%Producer.WriteControlAttributes(Writer, Context, Control, TargetPath);%]>[%Producer.WriteChildControls(Writer, Context, Control, TargetPath);%]</a>

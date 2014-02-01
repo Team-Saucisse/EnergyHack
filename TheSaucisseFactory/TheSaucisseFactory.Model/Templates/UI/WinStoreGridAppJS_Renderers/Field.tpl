@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.BaseTemplate" %]
+[%if (Source.TypedObject == null){%]<td colspan="2">[%=DisplayName(Source)%]</td>[%}else{%]<td>[%=Decamelize(Source.Name)%]</td><td>[%Write(Source.TypedObject);%]</td>[%}%]

@@ -1,0 +1,296 @@
+/*
+// ---------------------------------------------------------------------------
+// CodeFluent Entities V1.0 Copyright (c) 2005-2013 SOFTFLUENT S.A.S. All rights reserved.
+// Please contact info@softfluent.com for any information.
+// http://www.softfluent.com
+// ---------------------------------------------------------------------------
+*/
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+	background-image: url(bg_grey.gif);
+	background-color: white;
+	font-family: trebuchet ms, tahoma, sans-serif;
+	font-size: 12px;
+}
+
+td
+{
+	font-size: 12px;
+}
+
+a
+{
+	color: #FFA500;
+	width:100%;
+}
+
+form
+{
+	vertical-align:top;
+	padding:0px;
+	margin:0px;
+}
+
+.cf-root
+{
+	width:756;
+}
+
+.cf-dots
+{
+	height:2px;
+	background-image:url(dots.gif);
+}
+
+.cf-hsep
+{
+	height:2px;
+	background-image:url(p.gif);
+	background-color:white;
+}
+
+.cf-vsep
+{
+	width:2px;
+	background-image:url(p.gif);
+	background-color:white;
+}
+
+.cf-text
+{
+	padding:15px;
+	padding-top:30px;
+	text-align:left;
+}
+
+.cf-error
+{	
+	color:red;
+}
+
+.cf-error td
+{
+	color:red;
+}
+
+.cf-text a
+{
+	font-weight:bold;
+}
+
+.cf-text big
+{
+	color:#FFA500;
+	font-weight:900;
+}
+
+.cf-logo 
+{
+	background-repeat:repeat-y;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='white', EndColorStr='#FFA500');
+}
+
+.cf-dark 
+{
+	background-color: #505050;
+}
+
+.cf-footer
+{
+	background-color: #E0E0E0;
+	line-height: 12px;
+	color: black;
+}
+
+.cf-footer td 
+{
+	font-size: 10px;
+	line-height: 12px;
+	padding: 20px 10px 5px;
+}
+
+.cf-footer a
+{
+	font-weight:bold;
+}
+
+.cf-leftPane
+{
+	padding:0px;
+	border:0px;
+	border-collapse:collapse;
+	vertical-align:top;
+	width:250px;
+	background-color: #C0C0C0;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#505050', EndColorStr='#C0C0C0');
+}
+
+.cf-leftPaneMethods
+{
+	padding:0px;
+	padding-left:10px;
+	padding-right:10px;
+	vertical-align:top;
+}
+
+.cf-leftPaneMethod a
+{
+	color:#FFFFFF;
+	white-space:nowrap;
+}
+
+.cf-leftPaneMethodSelected a
+{
+	color:#FFA500;
+}
+
+.cf-rightPane
+{
+	padding:0px;
+	border-collapse:collapse;
+	vertical-align:top;
+}
+
+.cf-entityBanner
+{
+	padding-left:5px;
+	padding-bottom:5px;
+	font-weight:900;
+	color:#FFA500;
+	height:55px;
+	vertical-align:bottom;
+	background-color: #C0C0C0;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#505050', EndColorStr='#FFA500');
+}
+
+.cf-entityName
+{
+	padding-left:13px;
+	padding-bottom:5px;
+	vertical-align:bottom;
+	color:#FFFFFF;
+	height:55px;
+	background-color: #A0A0A0;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#000000', EndColorStr='#505050');
+}
+
+.cf-searchForm, .cf-newForm
+{
+	vertical-align:top;
+	padding:0px;
+	padding-left:10px;
+	margin:0px;
+	height:0px;
+}
+
+.cf-readName, .cf-updateName, .cf-loadName, .cf-newName
+{
+	width:30%;
+	padding:5px;
+	border:0px;
+	border-collapse:collapse;
+}
+
+.cf-readValue, .cf-updateValue, .cf-loadValue, .cf-newValue
+{
+	padding:5px;
+	width:100%;
+}
+
+.cf-loadButton
+{
+}
+
+.cf-column td
+{
+	white-space:nowrap;
+}
+
+.cf-formEditColumn
+{
+	background: url(database_table.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	width:32px;
+}
+
+.cf-formEditColumn a
+{
+	display:block;
+}
+
+.cf-editColumn
+{
+	width:32px;
+}
+
+.cf-editColumn a
+{
+	display:block;
+}
+
+.cf-readColumn
+{
+	background: url(database_go.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	width:32px;
+}
+
+.cf-readColumn a
+{
+	display:block;
+}
+
+.cf-deleteColumn
+{
+	background: url(database_delete.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	width:32px;
+}
+
+.cf-deleteColumn a
+{
+	display:block;
+}
+
+.cf-searchResults
+{
+	vertical-align:top;
+	padding:10px;
+	margin:0px;
+	height:0px;
+}
+
+.cf-columnHeader td
+{
+	white-space:nowrap;
+}
+
+.cf-sortableColumnHeader
+{
+	background:white;
+	color:black;
+	width:1px;
+}
+
+.cf-sortableColumnHeaderOver
+{
+	color:black;
+	text-decoration:underline;
+	width:1px;
+}
+
+.cf-headerImg
+{
+	vertical-align:middle;
+}
+
+.cf-excelLink
+{
+	color:#505050;
+}

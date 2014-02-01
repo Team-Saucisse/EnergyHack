@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+<cfe:EnumCheckBoxList runat="server" CssClass="cf-combobox" ID="[%=GetId(Source)%]" EnumTypeName="[%=Source.ClrFullTypeName%]" Value='<%#Bind("[%=BindName(Source)%]")%>' />

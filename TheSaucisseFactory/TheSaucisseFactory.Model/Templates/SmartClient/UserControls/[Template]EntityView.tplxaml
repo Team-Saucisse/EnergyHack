@@ -1,0 +1,101 @@
+﻿[%@ remark text="This file builds interface for entities and sets" %]
+[%@ template language="CSharp" output="false" %]
+[%@ namespace name="System" %]
+[%@ namespace name="System.IO" %]
+[%@ namespace name="CodeFluent.Model" %]
+[%@ namespace name="CodeFluent.Producers.SmartClient" %]
+[%@ namespace name="CodeFluent.Producers.CodeDom" %]
+[%@ namespace name="CodeFluent.Runtime.UI" %]
+[%@ namespace name="CodeFluent.Runtime.Utilities" %]
+[%
+if (!Context.Contains("inTemplate"))
+{
+	Context["inTemplate"] = null; // anything does it
+	foreach(Entity e in Producer.Project.Entities)
+	{
+		if (e.UIEnabled && !e.IsLightWeight && e.IsPersistent)
+		{
+			string EntityName = e.Name;
+			
+			// build a new target path to re-run ourselves with a different file path
+					string targetDirectory = Path.Combine(Path.GetDirectoryName(TargetPath), e.Namespace);
+			
+			string targetPath = Path.Combine(targetDirectory,
+				Path.GetFileNameWithoutExtension(TargetPath).Replace("Entity", EntityName) + ".xaml");
+
+			// we prefer CF's generation wrapper object instead of raw .NET file objects
+			using (GeneratedFile file = new GeneratedFile(Producer.Project, targetPath))
+			{
+				// check we can overwrite or not depending on node's production attributes
+				if ((file.HasBeenChanged) && ((e.ProductionFlags & ProductionFlags.Overwrite) == 0))
+				{
+					// show some useful information
+					Producer.RaiseProduction(Producer, file.CreateFileSkipEvent(e.ClrFullTypeName));
+					continue;
+				}
+
+				// note: we don't care about the output="false" here
+				Producer.RaiseProduction(Producer, ProductionEventArgs.CreateFileTemplateGenerateEvent(targetPath, Template.FilePath));
+				file.Open(Producer, Producer.OutputEncoding);
+				
+				// add the type to the context
+				Context["CurrentEntity"] = e;
+				
+				// update targetPath
+				Context["TargetPath"] = targetPath;
+				
+				// go recursive, and this will jump to the else part of this file
+				Template.Run(file.Writer, Context);
+			}
+		}
+	}
+}
+else
+{
+	Entity entity = Context["CurrentEntity"] as Entity;
+	string targetPath = Context["TargetPath"] as string;
+	if (entity != null)
+	{
+	 	View DefaultView = entity.DefaultView;
+	%]
+	<UserControl x:Class="[%=Producer.Project.DefaultNamespace %].SmartClient.Controls.[%=entity.Name%]View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:nsRendererControl="clr-namespace:[%=Producer.Project.DefaultNamespace %].SmartClient.Controls"
+    xmlns:cftools="clr-namespace:CodeFluent.Runtime.SmartClient"
+    xmlns:cfcontrols="clr-namespace:CodeFluent.Runtime.SmartClient.Controls">
+	<Control.Resources>
+		[%if (entity.HasPublicBinaryLargeObjectProperties)
+		{%]
+		<cftools:BinaryImageConverter x:Key="imgConverter" />
+		[%}%]
+	</Control.Resources>
+    <Grid>
+		<ListView Name="ViewList" Style="{DynamicResource viewListStyle}" ItemContainerStyle="{DynamicResource viewListItemStyle}" MouseDoubleClick="ViewList_MouseDoubleClick">
+            <ListView.View>
+                <GridView ColumnHeaderContainerStyle="{DynamicResource viewListHeaderStyle}">
+                [% foreach (ViewProperty vProp in DefaultView.Properties) {
+					if (vProp.UIEnabled)
+					{						
+						TypedObject obj = new TypedObject(Culture, vProp);
+						%]
+						<GridViewColumn Header="[%=ConvertUtilities.Decamelize(vProp.Name)%]" Width="Auto">
+							<GridViewColumn.CellTemplate>
+								<DataTemplate>
+									[%Producer.WriteControlRenderer(Writer, Context, obj, RendererType.Read);%]
+								</DataTemplate>
+							</GridViewColumn.CellTemplate>
+						</GridViewColumn>
+					[%}
+				}%]
+               </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>	
+	[%
+	Producer.AddFileName(targetPath);
+	Producer.AddToGeneratedFiles(targetPath);
+	return;
+	}
+}

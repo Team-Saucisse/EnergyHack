@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<template base="AspNet" browsable="true" displayName="ASP.NET Ajax" description="An ASP.NET template that demonstrates a Jquery site. Grids are based on Jqgrid. The communication between the client and the server is 100% JSON, using CodeFluent Entities JSON automatic support.">
+	<supportedProducer typeName="CodeFluent.Producers.UI.AspNetProducer" />
+</template>

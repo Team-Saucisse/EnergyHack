@@ -1,0 +1,4 @@
+[%@ mapping namespace="HTML" %]
+<tr[%Producer.WriteControlAttributes(Writer, Context, Control, TargetPath);%]>
+[%Producer.WriteChildControls(Writer, Context, Control, TargetPath);%]
+</tr>

@@ -1,0 +1,20 @@
+﻿[%@ template language="CSharp" %]
+[%@ namespace name="CodeFluent.Producers.CodeDom" %]
+[%@ namespace name="CodeFluent.Producers.SmartClient" %]
+[%@ namespace name="CodeFluent.Model.Code" %]
+[%@ namespace name="CodeFluent.Model.UI" %]
+[%@ namespace name="CodeFluent.Runtime.UI" %]
+[%@ namespace name="System.IO" %]
+[%@ namespace name="System" %]
+    
+    <Window x:Class="[%=Producer.Project.DefaultNamespace %].SmartClient.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:[%=Producer.Project.DefaultNamespace %].SmartClient"
+    Title="MainWindow"
+    ResizeMode="CanResizeWithGrip"
+    Height="730" Width="960"
+    Background="{DynamicResource MainBackgroundBrush}">
+    
+    <local:MainView x:Name="uiMainView" />
+</Window>

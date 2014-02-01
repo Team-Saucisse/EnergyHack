@@ -1,0 +1,1 @@
+﻿<Label Content="{Binding Path=[%=TypedObject.Name%]}" Focusable="False"/>

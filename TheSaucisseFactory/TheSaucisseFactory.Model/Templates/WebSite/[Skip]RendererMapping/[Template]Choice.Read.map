@@ -1,0 +1,6 @@
+[%if (TypedObject.ProjectEnumeration != null) {%]
+<_cfwc:MapLabel runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+[%Producer.WriteEnumerationAttributes(Writer, Culture, TypedObject.ProjectEnumeration);%]
+/>
+[%}%]

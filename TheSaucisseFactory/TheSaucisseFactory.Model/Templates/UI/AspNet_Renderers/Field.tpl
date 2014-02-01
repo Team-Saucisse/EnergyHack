@@ -1,0 +1,2 @@
+﻿[%@ template inherits="CodeFluent.Producers.UI.AspNetTemplate" %]
+[%if (Source.TypedObject == null){%]<td colspan="2">[%=DisplayName(Source)%]</td>[%}else{%]<td>[%=DisplayName(Source)%]</td><td>[%Write(Source.TypedObject);%]</td>[%}%]

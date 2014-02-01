@@ -1,0 +1,6 @@
+@model Enum
+@{
+	Type enumType = Model != null ? Model.GetType() : ViewBag.EnumType;
+    var list = new MultiSelectList(from object value in Enum.GetValues(enumType) select new { Value = value, Text = value.ToString() }, "Value", "Text", CodeFluent.Runtime.Utilities.ConvertUtilities.SplitEnumValues(Model));
+}
+@Html.EditorFor(model => list)

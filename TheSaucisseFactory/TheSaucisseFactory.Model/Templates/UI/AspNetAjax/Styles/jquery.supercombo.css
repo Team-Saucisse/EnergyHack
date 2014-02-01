@@ -1,0 +1,24 @@
+.ui-supercombo { padding:2px 0 2px 4px; text-align:left }
+.ui-supercombo span.ui-icon { float:right }
+.ui-supercombo-single .ui-supercombo-checkboxes input { position:absolute !important; top: auto !important; left:-9999px; }
+.ui-supercombo-single .ui-supercombo-checkboxes label { padding:5px !important }
+
+.ui-supercombo-header { margin-bottom:3px; padding:3px 0 3px 4px }
+.ui-supercombo-header ul { font-size:0.9em;text-decoration:none }
+.ui-supercombo-header ul li { float:left; padding:0 10px 0 0 }
+.ui-supercombo-header a { text-decoration:none }
+.ui-supercombo-header span.ui-icon { float:left }
+.ui-supercombo-header li.ui-supercombo-close { float:right; text-align:right; padding-right:0 }
+.ui-supercombo-header li.ui-supercombo-clear { float:right; text-align:right; padding-right:0 }
+.ui-supercombo-header input { float:left; height:1em; width:15px; text-align:center; font-size: 0.9em;}
+
+.ui-supercombo-menu { display:none; padding:3px; position:absolute; z-index:10000 }
+.ui-supercombo-checkboxes { position:relative /* fixes bug in IE6/7 */; overflow-y:scroll }
+.ui-supercombo-checkboxes label { cursor:default; display:block; border:1px solid transparent; padding:3px 1px }
+.ui-supercombo-checkboxes label input { position:relative; top:1px }
+.ui-supercombo-checkboxes li { clear:both; font-size:0.9em; padding-right:3px }
+.ui-supercombo-checkboxes li.ui-supercombo-optgroup-label { text-align:center; font-weight:bold; border-bottom:1px solid }
+.ui-supercombo-checkboxes li.ui-supercombo-optgroup-label a { display:block; padding:3px; margin:1px 0; text-decoration:none }
+
+/* remove label borders in IE6 because IE6 does not support transparency */
+* html .ui-supercombo-checkboxes label { border:none }

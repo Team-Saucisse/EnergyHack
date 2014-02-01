@@ -1,0 +1,65 @@
+[%@ namespace name="CodeFluent.Model.UI.ControlDefinitions" %]
+[%@ namespace name="CodeFluent.Runtime" %]
+[%
+Entity entity;
+if (TypedObject.IsEntity)
+{
+	entity = TypedObject.ProjectEntity;
+	Window window = Producer.GetWindow(entity, "manager", "true");
+	if (window == null)
+	{%]<asp:Label runat="server" id="[%=Producer.GetId(TypedObject)%]" />[%
+	}
+	else
+	{
+	string runtimeNamespace = typeof(ICodeFluentEntity).Namespace;
+	string entityKey = "EntityKey";
+	string id = Producer.GetId(TypedObject);
+	%]<asp:HyperLink runat="server"
+		id="[%=id%]"
+		onDataBinding="[%=id%]_DataBinding"/>
+		<script runat="server">
+			void [%=id%]_DataBinding(object sender, EventArgs e)
+			{
+				HyperLink hyperLink = (HyperLink)sender;
+				[%=runtimeNamespace%].ICodeFluentEntity entity = [%=runtimeNamespace%].Web.UI.WebControls.BoundColumn.GetParentGridItemEntity((Control)sender);
+				if (entity == null)
+					return;
+
+				hyperLink.NavigateUrl = "../[%=Producer.GetHRef(window)%]?_cf_[%=entityKey%]=" + [%=runtimeNamespace%].Utilities.ConvertUtilities.Evaluate(entity, "[%=TypedObject.Name%].[%=entityKey%]", (string)null);
+			}
+		</script>[%
+	}
+}
+else
+{
+if (!TypedObject.IsSet)
+	throw new CodeFluentWebSiteProducerException("Current typed object '" + TypedObject.DisplayName + "' is not a relation. This renderer targets relation typed objects.");
+
+if (TypedObject.ProjectSet == null)
+	return;
+entity = TypedObject.ProjectSet.ItemEntity;
+ViewProperty property = TypedObject.BaseObject as ViewProperty;
+if (property == null)
+	return;
+View view = property.TypeView;
+if (view == null)
+	return;
+if (!Producer.IsControlAvailable(entity, "Grid"))
+	return;
+%]
+<[%=Producer.GetPrefix(Context, TargetPath, entity, "Grid")%][%=entity.Name%]Grid
+runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+autoGenerateColumns="false"
+ItemStyle-CssClass="cf-column"
+HeaderStyle-CssClass="cf-column"
+SourceIdList=""
+Expression="[%=Producer.GetExpression(TypedObject, Renderer)%]"
+KeyNameList="[%=CodeFluent.Producers.CodeDom.UI.Web.GridProducer.GetKeyNameList(entity)%]">
+<Columns>
+[% foreach(ViewProperty viewProperty in view.Properties) {
+	Producer.WriteControlRenderer(Writer, Context, null, new TypedObject(Culture, viewProperty), TargetPath, CodeFluent.Runtime.UI.RendererType.Column);
+}%]
+</Columns>
+</[%=Producer.GetPrefix(Context, TargetPath, entity, "Grid")%][%=entity.Name%]Grid>
+[% } %]

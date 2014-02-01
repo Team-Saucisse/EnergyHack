@@ -1,0 +1,41 @@
+﻿@model BetterLife.BOM.LienReferenceSolutionCollection
+@{
+    BetterLife.BOM.LienReferenceSolutionCollection l_lienReferenceSolution = (BetterLife.BOM.LienReferenceSolutionCollection)(Model);
+}
+
+@if(l_lienReferenceSolution == null)
+{
+    <table>
+        <tr>
+            <td>
+                @Html.DisplayName("Erreur de chargement")
+            </td>
+        </tr>
+    </table>
+    return;     
+}
+<table>   
+@foreach (BetterLife.BOM.LienReferenceSolution l_lienRef in l_lienReferenceSolution)
+{
+    if (l_lienRef.Solution != null)
+    {
+        <tr>
+            <td>
+                <a href="#" style="text-decoration:none" name="@l_lienRef.EntityKey" onclick="edition();" class="dialog-lienRef">- @l_lienRef.Solution.EntityDisplayName</a>                
+            </td>
+            <td>
+                <a href="#" name="@l_lienRef.EntityKey" class="delete-lienRef">Supprimer</a>
+            </td>
+        </tr>
+    }
+}   
+@if (l_lienReferenceSolution.Count == 0)
+{
+    <tr>
+        <td>
+            @Html.DisplayName("Aucunes données")
+        </td>
+    </tr>
+}
+    
+</table>

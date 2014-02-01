@@ -1,0 +1,4 @@
+<_cfwc:MapLabel runat="server"
+id="[%=Producer.GetId(TypedObject)%]"
+[%Producer.WriteMappings(Writer, Culture, "True", "False");%]
+/>
