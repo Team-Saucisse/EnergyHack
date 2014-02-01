@@ -225,7 +225,7 @@
     <cf:property name="Meta" uic:displayName="Donnée à interpréter en fonction du Challenge" maxLength="300">
     </cf:property>
     <cf:method name="LoadByAppartementDateRange" body="LOAD(Appartement, Date) 
-               WHERE ([DATEDIFF(day, Date, @Date) &gt; -30] AND [DATEDIFF(s, Date, @Date) &lt; 0]) 
+               WHERE ([DATEDIFF(day, Date, @Date) &lt; 30] AND [DATEDIFF(s, Date, @Date) &gt; 0]) 
                AND Appartement = @Appartement" checkLevel="None">
       <cf:message class="_doc" cultureName="fr-FR">Obtient les gains pour l'appartement spcifié 1 mois avant la date spécifiée</cf:message>
     </cf:method>
