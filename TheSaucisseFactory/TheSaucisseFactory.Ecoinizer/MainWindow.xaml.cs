@@ -4,6 +4,7 @@ using System.Web.Script.Serialization;
 using TheSaucisseFactory.Camel.Model;
 using TheSaucisseFactory.Camel.Helper;
 using TheSaucisseFactory.Camel;
+using System.Threading;
 
 namespace TheSaucisseFactory.Ecoinizer
 {
@@ -16,10 +17,17 @@ namespace TheSaucisseFactory.Ecoinizer
 		{
 			InitializeComponent();
 
+			ThreadStart ts = new ThreadStart(RunImport);
+			Thread thread = new Thread(ts);
+			thread.Start();
+			
+			//TestCamel();
+		}
+
+		private void RunImport()
+		{
 			ImportMecanism import = new ImportMecanism(this);
 			import.Run();
-
-			//TestCamel();
 		}
 
 		private void TestCamel()

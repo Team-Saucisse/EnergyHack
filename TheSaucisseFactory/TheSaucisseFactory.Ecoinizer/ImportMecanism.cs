@@ -10,6 +10,7 @@ namespace TheSaucisseFactory.Ecoinizer
 	using TheSaucisseFactory.Camel.Model;
 	using TheSaucisseFactory.Camel;
 	using TheSaucisseFactory.Camel.Helper;
+	using System.Diagnostics;
 
 	/// <summary>
 	/// TODO: Update summary.
@@ -17,7 +18,7 @@ namespace TheSaucisseFactory.Ecoinizer
 	public class ImportMecanism
 	{
 		private MainWindow main;
-		private readonly DateTime end = new DateTime(2014, 1, 31);
+		private readonly DateTime end = new DateTime(2013, 11, 30);
 
 		public ImportMecanism(MainWindow main)
 		{
@@ -30,6 +31,7 @@ namespace TheSaucisseFactory.Ecoinizer
 			residence.CamelId = "CERGY01";
 			residence.Nom = "Cergy";
 			residence.Save();
+			int batId = 0;
 
 			foreach (string batCamelId in batiments)
 			{
@@ -39,9 +41,12 @@ namespace TheSaucisseFactory.Ecoinizer
 				batiment.Residence = residence;
 				batiment.Save();
 
-				Log("création batiment A");
+				Log("création batiment " + batId);
 
-				foreach (string camelIdApart in batimentA)
+				List<string> aparts = batId++ == 0 ? batimentA : batimentB;
+				int nb = 0;
+
+				foreach (string camelIdApart in aparts)
 				{
 					// Création de l'appartement
 					Appartement apart = new Appartement();
@@ -52,30 +57,38 @@ namespace TheSaucisseFactory.Ecoinizer
 
 					Log("création apart " + camelIdApart);
 
-					foreach (string voie in voies)
+					foreach (string[] coupleVoie in voies)
 					{
+						Log("traitement " + coupleVoie[0] + " & " + coupleVoie[1]);
 						// Récupération des mesures semaine par semaine
-						for (DateTime begin = new DateTime(2013, 6, 1); begin <= end; begin = begin.AddMonths(1))
+						for (DateTime begin = new DateTime(2013, 10, 1); begin <= end; begin = begin.AddMonths(1))
 						{
-							CamelResponseResource l_res = CamelGet(batCamelId, camelIdApart, voie, begin, begin.AddMonths(1).AddSeconds(-1));
-
-							// Sauvegarde des mesures en base de données
-							if (l_res != null && l_res.error == null && l_res.result != null &&
-								l_res.result[0].chs != null && l_res.result[0].chs[0] != null &&
-								l_res.result[0].chs[0].vals != null && l_res.result[0].chs[0].vals.Length > 1)
+							Log("Période " + begin + " -> " + begin.AddMonths(1).AddSeconds(-1));
+							CamelResponseResource l_res = CamelGet(batCamelId, camelIdApart, coupleVoie, begin, begin.AddMonths(1).AddSeconds(-1));
+							
+							CodeFluent.Runtime.CodeFluentPersistence.RunTransaction("TheSaucisseFactory", delegate()
 							{
-								foreach (vals values in l_res.result[0].chs[0].vals)
+								// Sauvegarde des mesures en base de données
+								if (l_res != null && l_res.error == null && l_res.result != null &&
+									l_res.result[0].chs != null && l_res.result[0].chs[0] != null &&
+									l_res.result[0].chs[0].vals != null && l_res.result[0].chs[0].vals.Length > 1)
 								{
-									DateTime date = DateTimeHelper.ConvertTimeStampToDateTime(values.date);
-									Mesure mes = new Mesure();
-									mes.Date = date;
-									mes.Appartement = apart;
-									mes.Type = voie;
-									mes.Valeur = values.val;
+									for (int i = 0; i < 2; i++)
+									{
+										foreach (vals values in l_res.result[0].chs[i].vals)
+										{
+											DateTime date = DateTimeHelper.ConvertTimeStampToDateTime(values.date);
+											Mesure mes = new Mesure();
+											mes.Date = date;
+											mes.Appartement = apart;
+											mes.Type = l_res.result[0].chs[i].type;
+											mes.Valeur = values.val;
 
-									mes.Save();
+											mes.Save();
+										}
+									}
 								}
-							}
+							});
 						}
 					}
 				}
@@ -83,9 +96,10 @@ namespace TheSaucisseFactory.Ecoinizer
 		}
 
 		#region référentiel
-		private List<string> voies = new List<string>()
+		private List<string[]> voies = new List<string[]>()
 		{
-			"ELEC", "VEF", "VECS", "TEMP",
+			new string[2] {"ELEC", "VEF",},
+			new string[2] {"VECS", "TEMPER",},
 		};
 
 		private List<string> batiments = new List<string>()
@@ -99,14 +113,6 @@ namespace TheSaucisseFactory.Ecoinizer
 			"A202",
 			"A211",
 			"A212",
-			"A221",
-			"A222",
-			"A231",
-			"A232",
-			"A241",
-			"A242",
-			"A251",
-			"A261",
 		};
 
 		private List<string> batimentB = new List<string>()
@@ -115,46 +121,11 @@ namespace TheSaucisseFactory.Ecoinizer
 			"B102",
 			"B103",
 			"B104",
-			"B111",
-			"B112",
-			"B113",
-			"B114",
-			"B115",
-			"B116",
 			"B121",
-			"B122",
-			"B123",
-			"B124",
-			"B125",
-			"B126",
-			"B131",
-			"B132",
-			"B133",
-			"B134",
-			"B135",
-			"B136",
-			"B141",
-			"B142",
-			"B143",
-			"B144",
-			"B145",
-			"B146",
-			"B151",
-			"B152",
-			"B153",
-			"B154",
-			"B155",
-			"B156",
-			"B161",
-			"B162",
-			"B163",
-			"B164",
-			"B165",
-			"B166",
 		};
 #endregion
 		
-		private CamelResponseResource CamelGet(string batiment, string apart, string voie, DateTime begin, DateTime end)
+		private CamelResponseResource CamelGet(string batiment, string apart, string[] voies, DateTime begin, DateTime end)
 		{
 			CamelRequestResource l_req = new CamelRequestResource("2.0", "energy");
 			l_req.id = "test";
@@ -169,8 +140,8 @@ namespace TheSaucisseFactory.Ecoinizer
 			l_req.@params[0].lots[0] = apart;
 			l_req.@params[0].build = batiment;
 			l_req.@params[0].prog = "CERGY01";
-			l_req.@params[0].types = new string[1];
-			l_req.@params[0].types[0] = voie;
+			//l_req.@params[0].types = new string[1];
+			l_req.@params[0].types = voies;
 
 			if (l_req.IsValid())
 			{
@@ -183,16 +154,24 @@ namespace TheSaucisseFactory.Ecoinizer
 				}
 				catch (CamelException ex)
 				{
-					Log("exception " + ex.CamelMessage + " " + batiment + " " + apart + " " + voie);
+					Log("exception " + ex.CamelMessage + " " + batiment + " " + apart + " " + voies);
 				}
 			}
 
 			return null;
 		}
 
-		private void Log(string mess)
+		private void Log(string mess, bool crlf = true)
 		{
-			main.Log.Text += mess + "\r\n";
+			if (crlf)
+			{
+				mess += "\r\n";
+			}
+			
+			main.Dispatcher.Invoke((Action) delegate
+				{
+					main.Log.Text += mess;
+				});
 		}
 	}
 }
