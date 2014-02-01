@@ -65,7 +65,11 @@ namespace TheSaucisseFactory.Ecoinizer
         /// </summary>
         private void OnProcessClick(object sender, RoutedEventArgs e)
         {
-            Log.Text += "Hello";
+            Commerce l_newCommerce = new Commerce();
+            l_newCommerce.Nom = "Yacine";
+            l_newCommerce.Url = "http://bidon.com";
+            l_newCommerce.Save();
+                
         }
 	}
 }

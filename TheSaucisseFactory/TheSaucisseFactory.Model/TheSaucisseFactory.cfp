@@ -8,7 +8,7 @@
                       runLocalScripts="true"
                       dropUnusedColumns="true"
                       produceOnline="true" onlineTargetDirectory="SqlAzureScripts"
-                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
+                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=import;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
                       runOnlineScripts="true"
                       />
   </cf:producer>
@@ -67,6 +67,18 @@
     </cf:property>
     <cf:property name="Batiments" uic:displayName="Bâtiments" typeName="BatimentCollection" relationPropertyName="Residence" >
     </cf:property>
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="Batiment" uic:searchEnabled="true" uic:displayName="Bâtiment" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -83,6 +95,20 @@
     <cf:property name="Appartements" uic:displayName="Appartements" typeName="AppartementCollection" relationPropertyName="Batiment" >
     </cf:property>
 
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+      <cf:viewProperty name="Residence" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+      <cf:viewProperty name="Residence" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="Appartement" uic:searchEnabled="true" uic:displayName="Appartement" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -104,8 +130,33 @@
     </cf:property>
     <cf:property name="Orientation" uic:displayName="Orientation" maxLength="10" >
     </cf:property>
-    <cf:property name="SurfaceHabitable" uic:displayName="Orientation" typeName="double" >
+    <cf:property name="SurfaceHabitable" uic:displayName="Surface habitable" typeName="double" >
     </cf:property>
+
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+      <cf:viewProperty name="Batiment" />
+      <cf:viewProperty name="Type" />
+      <cf:viewProperty name="SurfaceHabitable" />
+      <cf:viewProperty name="Orientation" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+      <cf:viewProperty name="Batiment" />
+      <cf:viewProperty name="Type" />
+      <cf:viewProperty name="SurfaceHabitable" />
+      <cf:viewProperty name="Orientation" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="CamelId" />
+      <cf:viewProperty name="Batiment" />
+      <cf:viewProperty name="Type" />
+      <cf:viewProperty name="SurfaceHabitable" />
+      <cf:viewProperty name="Orientation" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="Challenge" uic:searchEnabled="true" uic:displayName="Challenge" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -117,6 +168,17 @@
     </cf:property>
     <cf:property name="GainsEnergyCoin" uic:displayName="Tous les gains ECoins" typeName="GainEnergyCoinCollection" relationPropertyName="Challenge" >
     </cf:property>
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Nom" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Illustrations" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Illustrations" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="Illustration" uic:searchEnabled="true" uic:displayName="Challenge" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -131,6 +193,21 @@
     </cf:property>
     <cf:property name="Challenge" uic:displayName="Challenge" typeName="Challenge" relationPropertyName="Illustrations" >
     </cf:property>
+    
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Challenge" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Challenge" />
+      <cf:viewProperty name="Contenu" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Challenge" />
+      <cf:viewProperty name="Contenu" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="GainEnergyCoin" uic:searchEnabled="false" uic:displayName="Gain d'ECoin" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -145,6 +222,25 @@
     </cf:property>
     <cf:property name="Challenge" uic:displayName="Challenge" typeName="Challenge" relationPropertyName="GainsEnergyCoin" >
     </cf:property>
+
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Challenge" />
+      <cf:viewProperty name="Appartement" />
+      <cf:viewProperty name="Date" />
+      <cf:viewProperty name="Quantite" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Challenge" />
+      <cf:viewProperty name="Appartement" />
+      <cf:viewProperty name="Date" />
+      <cf:viewProperty name="Quantite" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Challenge" />
+      <cf:viewProperty name="Appartement" />
+      <cf:viewProperty name="Date" />
+      <cf:viewProperty name="Quantite" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="Commerce" uic:searchEnabled="true" uic:displayName="Commerce" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -157,6 +253,21 @@
     </cf:property>
     <cf:property name="Publicites" uic:displayName="Publicités" typeName="MediaCollection" relationPropertyName="Commerces">
     </cf:property>
+
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Url" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Url" />
+      <cf:viewProperty name="Publicites" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Nom" />
+      <cf:viewProperty name="Url" />
+      <cf:viewProperty name="Publicites" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="Mesure" uic:searchEnabled="false" uic:displayName="Une mesure" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
@@ -173,6 +284,25 @@
     <cf:property name="Valeur" uic:displayName="Valeur" typeName="double">
       <cf:attribute name="System.ComponentModel.DataAnnotations.Required" />
     </cf:property>
+
+    <cf:view persistent="false" name="GeneratedIndexView">
+      <cf:viewProperty name="Appartement" />
+      <cf:viewProperty name="Type" />
+      <cf:viewProperty name="Date" />
+      <cf:viewProperty name="Valeur" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedCreateView">
+      <cf:viewProperty name="Appartement" />
+      <cf:viewProperty name="Type" />
+      <cf:viewProperty name="Date" />
+      <cf:viewProperty name="Valeur" />
+    </cf:view>
+    <cf:view persistent="false" name="GeneratedEditView">
+      <cf:viewProperty name="Appartement" />
+      <cf:viewProperty name="Type" />
+      <cf:viewProperty name="Date" />
+      <cf:viewProperty name="Valeur" />
+    </cf:view>
   </cf:entity>
 
   <cf:entity name="Media" uic:searchEnabled="true" uic:displayName="Médias" uic:deleteEnabled="false" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory">

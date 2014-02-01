@@ -78,7 +78,11 @@ CREATE TABLE [dbo].[Batiment] (
  (
 
   [Id]
- )
+ ),
+ CONSTRAINT [IX_Bat_Cam_Bat] UNIQUE
+ (
+
+  [CamelId] )
 )
 GO
 

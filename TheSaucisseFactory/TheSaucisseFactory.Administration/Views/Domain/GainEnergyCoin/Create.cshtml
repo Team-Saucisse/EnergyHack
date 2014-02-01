@@ -25,6 +25,12 @@
 
 		<table width="100%" class="fields">
 		<tr>		  
+		  	<td>Challenge</td><td>			                   
+			                   	@Html.EditorFor(model => model.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""})
+		  </td>
+		  
+		</tr>
+		<tr>		  
 		  	<td>Appartement</td><td>			                     
 			                     	@Html.EditorFor(model => model.Appartement, "Relation", new { EntityTypeName = "TheSaucisseFactory.Appartement", Nullable = true, ChoiceMethodName = ""})
 		  </td>
@@ -41,12 +47,6 @@
 		  	<td>Nombre d'ECoin gagnés</td><td>			                               
 			                               	@Html.EditorFor(model => model.Quantite, "Integer")			                               
 			                               	@Html.ValidationMessageFor(model => model.Quantite)
-		  </td>
-		  
-		</tr>
-		<tr>		  
-		  	<td>Challenge</td><td>			                   
-			                   	@Html.EditorFor(model => model.Challenge, "Relation", new { EntityTypeName = "TheSaucisseFactory.Challenge", Nullable = true, ChoiceMethodName = ""})
 		  </td>
 		  
 		</tr>

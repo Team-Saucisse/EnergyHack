@@ -26,12 +26,6 @@
 		@Html.HiddenFor(model => model.EntityKey)
 		<table width="100%" class="fields">
 		<tr>		  
-		  	<td>Id</td><td>			            
-			            	@Html.DisplayFor(model => model.Id, "UniqueIdentifier")
-		  </td>
-		  
-		</tr>
-		<tr>		  
 		  	<td>Appartement</td><td>			                     
 			                     	@Html.EditorFor(model => model.Appartement, "Relation", new { EntityTypeName = "TheSaucisseFactory.Appartement", Nullable = true, ChoiceMethodName = ""})
 		  </td>

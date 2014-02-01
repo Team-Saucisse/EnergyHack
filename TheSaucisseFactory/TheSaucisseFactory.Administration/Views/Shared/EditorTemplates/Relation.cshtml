@@ -1,23 +1,6 @@
 @model dynamic
 @{
-    SelectList list = TheSaucisseFactory.BOM.Web.EntityBinder.BuildSortedList(ViewBag, Model);
+    SelectList list = TheSaucisseFactory.Web.EntityBinder.BuildSortedList(ViewBag, Model);
 }
-<!-- On regarde si on provient de la fiche de référence -->
-@if (ViewBag.isDerivedFicheReference == true && ViewBag.EntityTypeName == "TheSaucisseFactory.BOM.FicheReference")
-{
-    // On reconstruit une liste de façon à pouvoir pré-sélectionner la fiche de référence dans la dropdownlist
-    var listFicheRef = new SelectList(TheSaucisseFactory.BOM.FicheReferenceCollection.LoadAll(), "EntityKey", "EntityDisplayName", ViewBag.idFicheReference);
-    
-    
-    <!-- On rend la DropDownList non sélectionnable -->    
-    @Html.DropDownList("", (SelectList)listFicheRef, new { @disabled="true" })
-    ViewBag.isDerivedFicheReference = false;
-    
-    <!-- Comme la dropdownlist est à 'disabled' il faut passer un champs caché
-         de façon à enregistrer l'id de la fiche reference -->
-    <input type="hidden" name="idFicheReference" value="@ViewBag.idFicheReference" />
-}
-else
-{
-    @Html.DropDownList("", (SelectList)list)
-}
+
+@Html.DropDownList("", (SelectList)list)

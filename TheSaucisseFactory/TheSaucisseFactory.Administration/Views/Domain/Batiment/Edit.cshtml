@@ -26,8 +26,9 @@
 		@Html.HiddenFor(model => model.EntityKey)
 		<table width="100%" class="fields">
 		<tr>		  
-		  	<td>Id</td><td>			            
-			            	@Html.DisplayFor(model => model.Id, "UniqueIdentifier")
+		  	<td>Nom</td><td>			             
+			             	@Html.EditorFor(model => model.Nom, "Text")			             
+			             	@Html.ValidationMessageFor(model => model.Nom)
 		  </td>
 		  
 		</tr>
@@ -35,13 +36,6 @@
 		  	<td>Id CAMEL</td><td>			                  
 			                  	@Html.EditorFor(model => model.CamelId, "Text")			                  
 			                  	@Html.ValidationMessageFor(model => model.CamelId)
-		  </td>
-		  
-		</tr>
-		<tr>		  
-		  	<td>Nom</td><td>			             
-			             	@Html.EditorFor(model => model.Nom, "Text")			             
-			             	@Html.ValidationMessageFor(model => model.Nom)
 		  </td>
 		  
 		</tr>

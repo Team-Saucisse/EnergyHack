@@ -14,7 +14,7 @@ using CodeFluent.Runtime.Web.UI.WebControls;
 using System.Linq;
 
 
-namespace TheSaucisseFactory.Administration.Code
+namespace TheSaucisseFactory.Web
 {
     public partial class EntityBinder : IModelBinder, IModelBinderProvider
     {
