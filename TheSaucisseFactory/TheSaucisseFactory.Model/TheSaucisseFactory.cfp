@@ -8,7 +8,7 @@
                       runLocalScripts="true"
                       dropUnusedColumns="true"
                       produceOnline="true" onlineTargetDirectory="SqlAzureScripts"
-                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=energyhack;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
+                      onlineConnectionString="Server=tcp:to8uonepac.database.windows.net,1433;Database=import;User ID=energyhack@to8uonepac;Password=@saucisse78;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;"
                       runOnlineScripts="true"
                       />
   </cf:producer>
@@ -179,6 +179,30 @@
       <cf:viewProperty name="Nom" />
       <cf:viewProperty name="Illustrations" />
     </cf:view>
+    <cf:instance>
+      <Id>ca41f533-faef-435f-8b11-21e7da5b4575</Id>
+      <Nom>Electricité entre voisins</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>4a522da4-40d7-4d00-b70d-8920e4a26001</Id>
+      <Nom>Eau froide entre voisins</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>4a522da4-40d7-4d00-b70d-8920e4a26002</Id>
+      <Nom>Eau chaude entre voisins</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>4a522da4-40d7-4d00-b70d-8920e4a26005</Id>
+      <Nom>Température idéale</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>4a522da4-40d7-4d00-b70d-8920e4a26003</Id>
+      <Nom>Appareil en veille</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>4a522da4-40d7-4d00-b70d-8920e4a26004</Id>
+      <Nom>Podium général entre voisins</Nom>
+    </cf:instance>
   </cf:entity>
 
   <cf:entity name="Illustration" uic:searchEnabled="true" uic:displayName="Challenge" namespace="TheSaucisseFactory" categoryPath="/TheSaucisseFactory" >
