@@ -6,7 +6,6 @@
     <!-- Bootstrap core CSS -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/style.css" rel="stylesheet" />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="Scripts/jquery.jcarousel.js"></script>
     <script src="Scripts/bootstrap.js"></script>
@@ -34,7 +33,6 @@
     </div>
     <asp:ContentPlaceHolder ID="contentBody" runat="server">
     </asp:ContentPlaceHolder>
-
     </form>
     <script language="javascript" type="text/javascript">
         (function ($) {
@@ -54,6 +52,45 @@
                 })
             });
         })(jQuery);
+
+        function GetChallengeIllustration(challengeID) {
+            PageMethods.GetChallengeIllustration(challengeID, CallSuccess, CallFailed);
+        }
+
+        function CallSuccess(res) {
+            if (res != "" && res != undefined) {
+                $('#challengeIllustrations').html(res);
+            }
+            else
+                $('#challengeIllustrations').html("Désolé, aucun détail n''est disponible");
+        }
+
+        function CallFailed(res, destCtrl) {
+            alert(res.get_message());
+        }
+
+        function ShowIllustration(challengeID) {
+            var plop = GetChallengeIllustration(challengeID);
+        }
+
+
+        function GetAppartementList(control) {
+            var strUser = control.options[control.selectedIndex].value;
+            PageMethods.GetAppartement(strUser, AppartementSuccess, AppartementFailed);
+
+        }
+
+        function AppartementSuccess(res) {
+            $('#m_ddlApparments').append($("<option />").val("").text("Sélectionner un appartement"));
+            $.each(res, function () {
+                $('#m_ddlApparments').append($("<option />").val(this.Value).text(this.Text));
+            });
+            $('#m_ddlApparments').removeAttr("disabled");
+        }
+
+        function AppartementFailed(res, destCtrl) {
+            alert(res.get_message());
+        }
     </script>
 </body>
 </html>

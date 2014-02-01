@@ -4713,6 +4713,12 @@ a.list-group-item-info.active:focus {
   border: 1px solid transparent;
   border-radius: 4px;
 }
+.panelHover {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
 .panel-body {
   padding: 15px;
 }
@@ -4931,6 +4937,11 @@ a.list-group-item-info.active:focus {
 }
 .panel-info {
   border-color: #bce8f1;
+}
+.panel-info:hover {
+  border-color: #000;
+  background: #f9f9f9;
+  cursor: pointer;
 }
 .panel-info > .panel-heading {
   color: #31708f;

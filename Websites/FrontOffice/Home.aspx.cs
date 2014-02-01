@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TheSaucisseFactory;
+using System.Web.Services;
 
 namespace FrontOffice
 {
@@ -72,6 +73,8 @@ namespace FrontOffice
                 }
             }
 
+            //GainEnergyCoinCollection l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), new DateTime(2014, 2, 8));
+
             m_rptChallenges.DataSource = l_gains;
             m_rptChallenges.DataBind();
 
@@ -85,8 +88,20 @@ namespace FrontOffice
                 GainEnergyCoin l_gain = (GainEnergyCoin)e.Item.DataItem;
 
                 ((Label)e.Item.FindControl("m_lblChallengeName")).Text = l_gain.Challenge.Nom;
-                ((Label)e.Item.FindControl("m_lblChallengeGain")).Text = l_gain.Quantite.ToString();
+                ((Label)e.Item.FindControl("m_lblChallengeGain")).Text = "Gain: " + l_gain.Quantite.ToString();
+                string l_js = string.Format("ShowIllustration('{0}')", l_gain.Challenge.Id);
+                ((HyperLink)e.Item.FindControl("m_panelLink")).Attributes.Add("onclick", l_js);
             }
+        }
+
+
+        [WebMethod]
+        public static string GetChallengeIllustration(string p_challengeID)
+        {
+            Challenge l_challenge = Challenge.LoadById(new Guid(p_challengeID));
+
+            //return l_challenge.Illustrations.FirstOrDefault().Contenu;
+            return "Hello World :)";
         }
     }
 }
