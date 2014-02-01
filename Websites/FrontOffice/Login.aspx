@@ -13,17 +13,16 @@
                         <asp:DropDownList CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="LoadAppartementList" ID="m_ddlBuildings" runat="server"></asp:DropDownList>
                     </div>
                     <div class="form-group">
-                        <asp:DropDownList ID="m_ddlApparments" CssClass="form-control" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="m_ddlApparments" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="SelectedAppartementChanged" CssClass="form-control" runat="server"></asp:DropDownList>
                     </div>
                     <div class="form-group">
-                        <input type="password" disabled="disabled" name="password" id="password" class="form-control input-lg"
-                            placeholder="Mot de passe" />
+                            <asp:TextBox TextMode="Password" runat="server" ID="m_password" placeholder="Mot de passe" Enabled="false" CssClass="form-control input-lg"></asp:TextBox>
                     </div>
                     <hr class="colorgraph">
                     <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6">
-                            <asp:Button CssClass="btn btn-lg btn-success btn-block" runat="server" Text="Se Connecter"
-                                ID="m_btnLogin" OnClick="SetConnexionInfos" />
+                            <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" runat="server" Text="Se Connecter"
+                                ID="m_btnLogin" PostBackUrl="~/Home.aspx" />
                         </div>
                     </div>
                 </fieldset>

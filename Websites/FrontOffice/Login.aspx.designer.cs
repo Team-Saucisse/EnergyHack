@@ -31,6 +31,15 @@ namespace FrontOffice {
         protected global::System.Web.UI.WebControls.DropDownList m_ddlApparments;
         
         /// <summary>
+        /// Contrôle m_password.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox m_password;
+        
+        /// <summary>
         /// Contrôle m_btnLogin.
         /// </summary>
         /// <remarks>

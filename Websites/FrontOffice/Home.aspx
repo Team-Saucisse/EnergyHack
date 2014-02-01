@@ -28,26 +28,14 @@
                                     Mes Gains</h3>
                             </div>
                             <div class="panel-body">
-                                <ul>
-                                    <li><a href="#"><span>
-                                        <asp:Image ID="Image3" runat="server" ImageUrl="~/Images/c1.png" Width="48px" /></span>eCoins
-                                        d'Or </a></li>
-                                    <li><a href="#"><span>
-                                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/c2.png" Width="48px" /></span>eCoins
-                                        d'Argent </a></li>
-                                    <li><a href="#"><span>
-                                        <asp:Image ID="Image2" runat="server" ImageUrl="~/Images/c3.png" Width="48px" /></span>eCoins
-                                        de Bronze</a></li>
-                                    <li><a href="#">Total de vos eCoins</a></li>
-                                </ul>
-                                <asp:Repeater ID="m_rptChallenges" runat="server">
+                                <asp:Repeater ID="m_rptChallenges" OnItemDataBound="ChallengesItemDataBound" runat="server">
                                     <ItemTemplate>
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
-                                                <asp:Label ID="m_lblChallengeName" runtat="server"></asp:Label></div>
+                                                <asp:Label ID="m_lblChallengeName" runat="server"></asp:Label></div>
                                             <div class="panel-body">
-                                                Gain :
-                                                <asp:Label ID="m_lblChallengeGain" runtat="server"></asp:Label>
+                                                Gain :<asp:Image ID="m_imgCoin" runat="server" CssClass="imgHover" ImageUrl="~/Images/EnergyCoinEclair.png" Width="128px" />
+                                                <asp:Label ID="m_lblChallengeGain" CssClass="textHover" runat="server"></asp:Label>
                                             </div>
                                         </div>
                                     </ItemTemplate>
