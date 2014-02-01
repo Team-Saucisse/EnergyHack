@@ -29,9 +29,14 @@ namespace TheSaucisseFactory.Ecoinizer
         /// </summary>
         private void OnSynchronizeClick(object sender, RoutedEventArgs e)
         {
-            ThreadStart ts = new ThreadStart(RunImport);
-            Thread thread = new Thread(ts);
-            thread.Start();
+			MessageBoxResult l_result = MessageBox.Show("Etes-vous sur de réimporter ?", "Attention", MessageBoxButton.YesNo);
+
+			if (l_result == MessageBoxResult.Yes)
+			{
+				ThreadStart ts = new ThreadStart(RunImport);
+				Thread thread = new Thread(ts);
+				thread.Start();
+			}
         }
 
         /// <summary>

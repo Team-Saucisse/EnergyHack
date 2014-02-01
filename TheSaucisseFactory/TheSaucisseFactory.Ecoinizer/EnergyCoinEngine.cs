@@ -91,30 +91,6 @@ namespace TheSaucisseFactory.Ecoinizer
 		private void ProcessChallenge4()
 		{
 			ProcessGenericChallenge("Température idéale", "TEMPER");
-			Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == "Température idéale");
-
-			Dictionary<Appartement, double> l_classement = new Dictionary<Appartement, double>();
-
-			DateTime l_processingDate = m_minDate;
-			while (DateTime.Compare(l_processingDate, m_maxDate) <= 0)
-			{
-				l_classement.Clear();
-				IEnumerable<DataSuite> l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "TEMPER");
-
-				foreach (DataSuite l_candidat in l_candidats)
-				{
-					double l_indice = l_candidat.ConsommationTotale();
-					l_classement.Add(l_candidat.Appartement, l_indice);
-				}
-
-				var l_classementTrie = l_classement.OrderByDescending(i => i.Value);
-
-				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
-				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
-				l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ème");
-
-				l_processingDate = l_processingDate.AddDays(7);
-			}
 		}
 
 		private void ProcessGenericChallenge(string p_challengeName, string p_type)
@@ -148,21 +124,44 @@ namespace TheSaucisseFactory.Ecoinizer
         {
 			GainEnergyCoinCollection.DeleteAll();
             BuildDataSuites();
-			ProcessChallenge1();
-			ProcessChallenge2();
-			ProcessChallenge3();
-			ProcessChallenge4();
-			ProcessChallenge5();
-			ProcessChallenge6();
-			ProcessChallenge7();
-			ProcessChallenge8();
-			ProcessChallenge9();
-			//ProcessChallenge10();
+			//ProcessChallenge1();
+			//ProcessChallenge2();
+			//ProcessChallenge3();
+			//ProcessChallenge4();
+			//ProcessChallenge5();
+			//ProcessChallenge6();
+			//ProcessChallenge7();
+			//ProcessChallenge8();
+			//ProcessChallenge9();
+			ProcessChallenge10();
         }
 
+		// Appareil en veille
 		private void ProcessChallenge10()
 		{
-			throw new NotImplementedException();
+			Challenge l_challengeEnCours = m_tousLesChallenges.FirstOrDefault(c => c.Nom == "Appareil en veille");
+
+			Dictionary<Appartement, double> l_classement = new Dictionary<Appartement, double>();
+
+			DateTime l_processingDate = m_minDate;
+			while (DateTime.Compare(l_processingDate, m_maxDate) <= 0)
+			{
+				l_classement.Clear();
+				IEnumerable<DataSuite> l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "ELEC");
+				foreach (DataSuite l_candidat in l_candidats)
+				{
+					double l_indice = l_candidat.ConsommationMinimum();
+					l_classement.Add(l_candidat.Appartement, l_indice);
+				}
+
+				var l_classementTrie = l_classement.OrderBy(i => i.Value);
+
+				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
+				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
+				l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ème");
+
+				l_processingDate = l_processingDate.AddDays(7);
+			}
 		}
 
 		// Classement global
@@ -216,14 +215,29 @@ namespace TheSaucisseFactory.Ecoinizer
 
 				l_classementTrieVecs = l_classement.OrderBy(i => i.Value);
 
+				l_classement.Clear();
+				l_candidats = m_dataSuites.Where(ds => ds.Date == l_processingDate && ds.Type == "TEMPER");
+				foreach (DataSuite l_candidat in l_candidats)
+				{
+					double l_indice = l_candidat.ConsommationTotale();
+					l_classement.Add(l_candidat.Appartement, l_indice);
+				}
+
+				l_classementTrieTemper = l_classement.OrderBy(i => i.Value);
+
 				List<KeyValuePair<Appartement, double>> l_classementDesClassements = new List<KeyValuePair<Appartement, double>>();
 
 				foreach (Appartement apart in AppartementCollection.LoadAll())
 				{
-					double l_moyenne = (l_classementTrieElec.Where(t => t.Key == apart).First().Value +
-						l_classementTrieElec.Where(t => t.Key == apart).First().Value +
-						l_classementTrieElec.Where(t => t.Key == apart).First().Value +
-						l_classementTrieElec.Where(t => t.Key == apart).First().Value) / 4;
+					var elec = l_classementTrieElec.Where(t => t.Key.Equals(apart)).FirstOrDefault();
+					var vef = l_classementTrieVef.Where(t => t.Key.Equals(apart)).FirstOrDefault();
+					var vecs = l_classementTrieVecs.Where(t => t.Key.Equals(apart)).FirstOrDefault();
+					var temp = l_classementTrieTemper.Where(t => t.Key.Equals(apart)).FirstOrDefault();
+
+					double l_moyenne = (l_classementTrieElec.Where(t => t.Key.Equals(apart)).First().Value +
+						l_classementTrieVef.Where(t => t.Key.Equals(apart)).First().Value +
+						l_classementTrieVecs.Where(t => t.Key.Equals(apart)).First().Value +
+						l_classementTrieTemper.Where(t => t.Key.Equals(apart)).First().Value) / 4;
 					KeyValuePair<Appartement, double> l_appartMoy = new KeyValuePair<Appartement, double>(apart, l_moyenne);
 					l_classementDesClassements.Add(l_appartMoy);
 				}

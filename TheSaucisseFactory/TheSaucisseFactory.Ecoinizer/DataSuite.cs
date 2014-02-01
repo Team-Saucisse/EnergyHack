@@ -52,5 +52,10 @@ namespace TheSaucisseFactory.Ecoinizer
         {
             return this.Sum(m => m.Valeur); 
         }
+
+		public double ConsommationMinimum()
+		{
+			return this.Min(m => m.Valeur);
+		}
     }
 }
