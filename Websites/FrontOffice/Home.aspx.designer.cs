@@ -76,6 +76,33 @@ namespace FrontOffice {
         protected global::System.Web.UI.WebControls.LinkButton m_aDisconnect;
         
         /// <summary>
+        /// Contrôle datePicker.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox datePicker;
+        
+        /// <summary>
+        /// Contrôle ecoinsTotal.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ecoinsTotal;
+        
+        /// <summary>
+        /// Contrôle Image2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image2;
+        
+        /// <summary>
         /// Contrôle m_rptChallenges.
         /// </summary>
         /// <remarks>

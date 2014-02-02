@@ -5,11 +5,13 @@
 <head id="Head1" runat="server">
     <!-- Bootstrap core CSS -->
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/datepicker.css" rel="stylesheet" />
     <link href="Content/style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="Scripts/jquery.jcarousel.js"></script>
     <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/notify.min.js"></script>
+    <script src="Scripts/bootstrap-datepicker.js"></script>
     <title>EnergyHack - FrontOffice</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +67,8 @@
         function CallSuccess(res) {
             if (res != "" && res != undefined) {
                 $('#challengeIllustrations').html('');
-                $('#challengeIllustrations').html(res);
+                var decodedRes = htmlDecode(res);
+                $('#challengeIllustrations').html(decodedRes);
             }
             else
                 $('#challengeIllustrations').html("Désolé, aucun détail n''est disponible");
@@ -100,6 +103,19 @@
         function AppartementFailed(res, destCtrl) {
             alert(res.get_message());
         }
+
+        function htmlDecode(value) {
+            return $('<div/>').html(value).text();
+        }
+
+        var nowTemp = new Date();
+        var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+        $('.datepicker').datepicker('setValue', now)
+				.on('changeDate', function (ev) {
+				    $('.datepicker').datepicker('hide');
+				    $('.datepicker').trigger('change');
+				});
     </script>
 </body>
 </html>

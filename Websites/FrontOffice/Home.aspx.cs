@@ -14,6 +14,21 @@ namespace FrontOffice
 
         public string CurrentAppartement { get { return ((FrontOffice.Site1)Page.Master).CurrentAppartement; } }
 
+        public DateTime CurrentDate
+        {
+            get
+            {
+
+                if (!string.IsNullOrEmpty(datePicker.Text))
+                    return DateTime.Parse(datePicker.Text);
+                else
+                    return DateTime.MinValue;
+
+
+            }
+            set { }
+        }
+
         public bool? IsWelcomeMessageShowed
         {
             get
@@ -51,8 +66,19 @@ namespace FrontOffice
                 //1er élément sélectionné par défaut
                 m_liEcoins.Attributes["class"] = "active";
 
-                SetDataSource();
+
             }
+
+            if (CurrentDate == DateTime.MinValue)
+            {
+                SetDataSource(DateTime.Now);
+            }
+            else
+            {
+                SetDataSource(CurrentDate);
+            }
+
+            ecoinsTotal.Text = Appartement.LoadById(new Guid(CurrentAppartement)).SoldeEnergyCoin.ToString();
         }
 
         /// <summary>
@@ -81,7 +107,7 @@ namespace FrontOffice
 
         }
 
-        protected void SetDataSource()
+        protected void SetDataSource(DateTime p_date)
         {
             //List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadAll().Where(g => g.AppartementId == new Guid(CurrentAppartement)).ToList();
 
@@ -98,12 +124,10 @@ namespace FrontOffice
             //    }
             //}
 
-            List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), new DateTime(2014, 1, 3)).ToList();
+            List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), p_date).ToList();
 
             m_rptChallenges.DataSource = l_gains;
             m_rptChallenges.DataBind();
-
-            
         }
 
         protected void ChallengesItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -117,6 +141,11 @@ namespace FrontOffice
                 string l_js = string.Format("ShowIllustration('{0}')", l_gain.Challenge != null ? l_gain.Challenge.Id : Guid.Empty);
                 ((HyperLink)e.Item.FindControl("m_panelLink")).Attributes.Add("onclick", l_js);
             }
+        }
+
+        protected void UpdateFromNewDate(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
         }
 
 

@@ -19,6 +19,8 @@
                             <li runat="server" id="m_liDisconnect">
                                 <asp:LinkButton ID="m_aDisconnect" PostBackUrl="~/Login.aspx" OnClick="MenuItem_SetActive"
                                     CommandArgument="Disconnect" runat="server">Se déconnecter</asp:LinkButton></li>
+                            <li>
+                                <asp:TextBox ID="datePicker" CssClass="datepicker" AutoPostBack="true" OnTextChanged="UpdateFromNewDate" runat="server"></asp:TextBox></li>
                         </ul>
                     </div>
                     <!-- //MENU -->
@@ -27,7 +29,9 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
-                                    Mes Gains</h3>
+                                    Mes Gains - Total Actuel :
+                                    <asp:Label ID="ecoinsTotal" runat="server"></asp:Label><asp:Image ID="Image2" Width="24px"
+                                        runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></h3>
                             </div>
                             <div class="panel-body">
                                 <asp:Repeater ID="m_rptChallenges" OnItemDataBound="ChallengesItemDataBound" runat="server">
