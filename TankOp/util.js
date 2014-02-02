@@ -179,6 +179,8 @@ util.processFight = function(unit1, unit2) {
 	if (unit1 != null && !util.couldBeat(unit1, unit2))
 		return;
 	unit2.power = unit2.power - 1;
+	if (unit2.power == 0 && app.cheatMode && unit2.getCurrentImage().indexOf("red") != -1)
+		app.startCheat();
 	util.doExplosion(unit2);
 }
 

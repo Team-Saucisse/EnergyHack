@@ -5,5 +5,6 @@
 	"imagecache.js",
 	"pub.js",
 	"settings.js",
+	"cheat.js",
 	"app.js"
 );
