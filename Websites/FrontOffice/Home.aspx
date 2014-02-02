@@ -19,8 +19,6 @@
                             <li runat="server" id="m_liDisconnect">
                                 <asp:LinkButton ID="m_aDisconnect" PostBackUrl="~/Login.aspx" OnClick="MenuItem_SetActive"
                                     CommandArgument="Disconnect" runat="server">Se déconnecter</asp:LinkButton></li>
-                            <li>
-                                <asp:TextBox ID="datePicker" CssClass="datepicker" AutoPostBack="true" OnTextChanged="UpdateFromNewDate" runat="server"></asp:TextBox></li>
                         </ul>
                     </div>
                     <!-- //MENU -->

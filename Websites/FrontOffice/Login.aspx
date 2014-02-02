@@ -10,22 +10,30 @@
                         Résidence Cergy Pontoise</h2>
                     <hr class="colorgraph">
                     <div class="form-group">
-                        <asp:DropDownList CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="LoadAppartementList" ID="m_ddlBuildings" runat="server"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="LoadAppartementList"
+                            ID="m_ddlBuildings" runat="server">
+                        </asp:DropDownList>
                     </div>
                     <div class="form-group">
-                        <asp:DropDownList ID="m_ddlApparments" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="SelectedAppartementChanged" CssClass="form-control" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="m_ddlApparments" Enabled="false" AutoPostBack="true" OnSelectedIndexChanged="SelectedAppartementChanged"
+                            CssClass="form-control" runat="server">
+                        </asp:DropDownList>
                     </div>
                     <div class="form-group">
-                    
-                            <asp:TextBox TextMode="Password" runat="server" ID="m_password" placeholder="Mot de passe" Enabled="false" CssClass="form-control"></asp:TextBox>
-                   <asp:RequiredFieldValidator ID="m_passwordV" runat="server" ErrorMessage="Merci de saisir votre mot de passe" ControlToValidate="m_password"></asp:RequiredFieldValidator>
+                        <asp:TextBox TextMode="Password" runat="server" ID="m_password" placeholder="Mot de passe"
+                            Enabled="false" CssClass="form-control"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="m_passwordV" runat="server" ErrorMessage="Merci de saisir votre mot de passe"
+                            ControlToValidate="m_password"></asp:RequiredFieldValidator>
+                    </div>
+                    <div class="form-group">
+                        <asp:TextBox ID="datePicker" CssClass="datepicker" AutoPostBack="true" OnTextChanged="UpdateFromNewDate"
+                            runat="server"></asp:TextBox></li>
                     </div>
                     <hr class="colorgraph">
                     <div class="row">
                         <div class="">
-                            <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" runat="server" Text="Se connecter"
-                                ID="m_btnLogin" PostBackUrl="~/Home.aspx" />
-                                
+                            <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" runat="server"
+                                Text="Se connecter" ID="m_btnLogin" PostBackUrl="~/Home.aspx" />
                         </div>
                     </div>
                 </fieldset>

@@ -18,15 +18,8 @@ namespace FrontOffice
         {
             get
             {
-
-                if (!string.IsNullOrEmpty(datePicker.Text))
-                    return DateTime.Parse(datePicker.Text);
-                else
-                    return DateTime.MinValue;
-
-
+                return (DateTime)Session["CurrentDate"];
             }
-            set { }
         }
 
         public bool? IsWelcomeMessageShowed
@@ -142,12 +135,6 @@ namespace FrontOffice
                 ((HyperLink)e.Item.FindControl("m_panelLink")).Attributes.Add("onclick", l_js);
             }
         }
-
-        protected void UpdateFromNewDate(object sender, EventArgs e)
-        {
-            Response.Redirect("Home.aspx");
-        }
-
 
         [WebMethod]
         public static string GetChallengeIllustration(string p_challengeID)
