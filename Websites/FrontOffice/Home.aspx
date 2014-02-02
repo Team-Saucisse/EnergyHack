@@ -66,7 +66,7 @@
                     </div>
                     <!-- //ECOINS -->
                     <!-- ILLUSTRATION -->
-                    <div class="col-md-4" style="min-height: 500px; max-height: 500px;">
+                    <div class="col-md-6">
                         <div class="panel panel-warning">
                             <div class="panel-heading">
                                 <h3 class="panel-title">

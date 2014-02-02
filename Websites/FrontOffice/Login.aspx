@@ -21,14 +21,14 @@
                     </div>
                     <div class="form-group">
                         <asp:TextBox TextMode="Password" runat="server" ID="m_password" placeholder="Mot de passe"
-                            Enabled="false" CssClass="form-control"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="m_passwordV" runat="server" ErrorMessage="Merci de saisir votre mot de passe"
+                            Enabled="false" CssClass="form-control">aaa</asp:TextBox>
+                        <asp:RequiredFieldValidator ID="m_passwordV" Enabled="false" runat="server" ErrorMessage="Merci de saisir votre mot de passe"
                             ControlToValidate="m_password"></asp:RequiredFieldValidator>
                     </div>
 
                     <div class="form-group">
                        <asp:RadioButtonList ID="dateChoice" runat="server" RepeatDirection="Horizontal">
-                           <asp:ListItem Text="&nbsp;&nbsp;10/12/2013"></asp:ListItem>
+                           <asp:ListItem Text="&nbsp;&nbsp;10/12/2013" Selected="True"></asp:ListItem>
                            <asp:ListItem Text="&nbsp;&nbsp;01/01/2014"></asp:ListItem>
                            <asp:ListItem Text="&nbsp;&nbsp;21/01/2014"></asp:ListItem>
                        </asp:RadioButtonList>
