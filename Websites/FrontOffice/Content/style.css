@@ -18,6 +18,7 @@
 
 .panelLink:hover {
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .colorgraph
