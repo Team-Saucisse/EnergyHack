@@ -13,24 +13,29 @@
 }
 <ol class="round">
     <li>
-        <h5>
-            Eléments d'administration The-Saucisse-Factory</h5>
-        <hr />
-        <div class="ns">
-            Organisations</div>
         <div class="entities">
+            <div class="ns">
+                Organisations</div>
             @Html.RouteLink("Résidences", "TheSaucisseFactory.Residence", new { controller = "Residence" })
             @Html.RouteLink("Bâtiments", "TheSaucisseFactory.Batiment", new { controller = "Batiment" })
             @Html.RouteLink("Appartements", "TheSaucisseFactory.Appartement", new { controller = "Appartement" })
             @Html.RouteLink("Commerces", "TheSaucisseFactory.Commerce", new { controller = "Commerce" })
             <br />
+            <br />
+            <div class="ns">
+                Challenges</div>
             @Html.RouteLink("Challenges", "TheSaucisseFactory.Challenge", new { controller = "Challenge" })
             @Html.RouteLink("Illustrations", "TheSaucisseFactory.Illustration", new { controller = "Illustration" })
-            <br />
-            @Html.RouteLink("Médias, publicités...", "TheSaucisseFactory.Media", new { controller = "Media" })
-        </div>
-        <div class="entities">
             @Html.RouteLink("Gains d'EnergyCoins", "TheSaucisseFactory.GainEnergyCoin", new { controller = "GainEnergyCoin" })
+            <br />
+            <br />
+            <div class="ns">
+                Médias</div>
+            @Html.RouteLink("Médias, publicités...", "TheSaucisseFactory.Media", new { controller = "Media" })
+            <br />
+            <br />
+            <div class="ns">
+                Données brutes</div>
             @Html.RouteLink("Mesures", "TheSaucisseFactory.Mesure", new { controller = "Mesure" })
         </div>
     </li>

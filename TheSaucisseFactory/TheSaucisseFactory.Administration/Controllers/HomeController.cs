@@ -13,7 +13,7 @@ namespace TheSaucisseFactory.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Bienvenue dans l'administration du backoffice TheSaucisseFactory";
+            ViewBag.Message = "Bienvenue dans le backoffice The-Saucisse-Factory";
 
             return View();
         }
