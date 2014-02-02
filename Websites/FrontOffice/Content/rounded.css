@@ -204,8 +204,8 @@ textarea {
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
 }
 
 @media print {

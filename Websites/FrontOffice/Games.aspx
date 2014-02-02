@@ -40,7 +40,7 @@
                                         pour augmenter vos défenses.</p>
                                     <p>
                                         <asp:HyperLink ID="playTank" CssClass="btn btn-primary btn-sm" runat="server" role="button">Jouer</asp:HyperLink>
-                                        <span style="margin-left: 100px;">Coût : <b>0</b><asp:Image ID="Image2" Width="24px"
+                                        <span style="margin-left: 100px;">Coût : <b>1+</b><asp:Image ID="Image2" Width="24px"
                                             runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></span></p>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                     <h3>
                                         QuizzzGame</h3>
                                     <p class="text-primary" style="font-size: 14px;">
-                                        Testez vos connaissances sur l'éconnomie d'énergie en répondant au mieux aux questions
+                                        Tester vos connaissances sur l'économie d'énergie en répondant au mieux aux questions
                                         qui vous seront posées</p>
                                     <p>
                                         <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Quizz.aspx" CssClass="btn btn-primary btn-sm"

@@ -29,8 +29,8 @@ util.gameMap = function(map) {
 				"---------------" +			
 				"---------H-H---";	
 	 } else if (map == "trees") {
-		return	"------H--HHHHH^" +
-				"----H--H----HHH" +
+		return	"------H--HHHH^-" +
+				"----H--H----HH-" +
 				"------H---H----" +
 				"---------------" +
 				"---H-----------" +
@@ -42,8 +42,8 @@ util.gameMap = function(map) {
 				"---H-----------" +
 				"-------O-------" +
 				"-----------H---" +		
-				"----HHH^HHH----" +			
-				"---HHH^^^HHH---";			
+				"-----HHH^H-H---" +			
+				"----HHH^^^HHH--";			
 	}
 	return new Array(width*height).join('-');
 }
@@ -121,6 +121,10 @@ util.isValidPosition = function(position, sprite) {
 	else if (maptype == constant.tileWater)
 		return unittype == 1;  // Water is only for soldier
 
+	// Already a unit inside
+	var unitinside = util.lookForUnit(position);
+	if (unitinside != null)
+		return unitinside == sprite;
 	return false;
 }
 
