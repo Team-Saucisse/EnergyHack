@@ -14,13 +14,7 @@ namespace FrontOffice
 
         public string CurrentAppartement { get { return ((FrontOffice.Site1)Page.Master).CurrentAppartement; } }
 
-        public DateTime CurrentDate
-        {
-            get
-            {
-                return (DateTime)Session["CurrentDate"];
-            }
-        }
+
 
         public bool? IsWelcomeMessageShowed
         {
@@ -62,14 +56,10 @@ namespace FrontOffice
 
             }
 
-            if (CurrentDate == DateTime.MinValue)
-            {
+
                 SetDataSource(DateTime.Now);
-            }
-            else
-            {
-                SetDataSource(CurrentDate);
-            }
+            
+
 
             ecoinsTotal.Text = Appartement.LoadById(new Guid(CurrentAppartement)).SoldeEnergyCoin.ToString();
         }

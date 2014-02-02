@@ -27,7 +27,7 @@
                     </div>
                     <div class="form-group">
                         <asp:TextBox ID="datePicker" CssClass="datepicker" AutoPostBack="true"
-                            runat="server"></asp:TextBox></li>
+                            runat="server"></asp:TextBox>
                     </div>
                     <hr class="colorgraph">
                     <div class="row">
