@@ -53,7 +53,7 @@
                                         FoodChain</h3>
                                     <p class="text-primary" style="font-size: 14px;">
                                         Dans la peau d'une grenouille dans sa mare, mangez les mouches en évitant de vous
-                                        faire manger par le serpent.</p>
+                                        faire manger par le serpent.</p><br />
                                     <p>
                                         <asp:HyperLink ID="LinkButton1" CssClass="btn btn-primary btn-sm" runat="server"
                                             role="button">Jouer</asp:HyperLink>

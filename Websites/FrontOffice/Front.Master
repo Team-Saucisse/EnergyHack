@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <!-- Bootstrap core CSS -->
-    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/rounded.css" rel="stylesheet" />
+
     <link href="Content/datepicker.css" rel="stylesheet" />
     <link href="Content/style.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
