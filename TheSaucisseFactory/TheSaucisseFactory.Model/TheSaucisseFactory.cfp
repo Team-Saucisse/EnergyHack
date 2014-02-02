@@ -12,7 +12,7 @@
                       runOnlineScripts="true"
                       />
   </cf:producer>
-  <cf:producer enabled="false" name="ASP.NET Web Site MVC4"
+  <cf:producer enabled="true" name="ASP.NET Web Site MVC4"
                typeName="CodeFluent.Producers.UI.AspNetProducer, CodeFluent.Producers.UI"
                productionFlags="Default, Overwrite, RemoveDates" >
     <cf:configuration categoryPath="UI\AspNetMvc4"
@@ -22,7 +22,7 @@
                       templatesPath=".\Templates"
                       actions="CopyTemplatesFiles" />
   </cf:producer>
-  <cf:producer enabled="false" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom" productionFlags="Default, Overwrite, RemoveDates">
+  <cf:producer enabled="true" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom" productionFlags="Default, Overwrite, RemoveDates">
     <cf:configuration compileWithVisualStudio="true" compile="false" codeDomProviderTypeName="CSharp" targetDirectory="..\TheSaucisseFactory" cfx:targetProject="..\TheSaucisseFactory\TheSaucisseFactory.csproj" cfx:targetProjectLayout="None" produceWebMembershipUser="true" produceWebMembershipProvider="true">
       <subProducer typeName="CodeFluent.Producers.ServiceModel.ServiceProducer, CodeFluent.Producers.ServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" compileWithVisualStudio="true" compile="false" produceProxy="False" cfx:targetProjectLayout="None" />
     </cf:configuration>
@@ -131,6 +131,8 @@
     <cf:property name="Orientation" uic:displayName="Orientation" maxLength="10" >
     </cf:property>
     <cf:property name="SurfaceHabitable" uic:displayName="Surface habitable" typeName="double" >
+    </cf:property>
+    <cf:property name="SoldeEnergyCoin" uic:displayName="Solde en EnergyCoins" typeName="int">
     </cf:property>
 
     <cf:view persistent="false" name="GeneratedIndexView">

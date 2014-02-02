@@ -288,7 +288,8 @@ CREATE PROCEDURE [dbo].[Appartement_Save]
  @Batiment_Id [uniqueidentifier] = NULL,
  @Type [nvarchar] (10) = NULL,
  @Orientation [nvarchar] (10) = NULL,
- @SurfaceHabitable [float] = NULL
+ @SurfaceHabitable [float] = NULL,
+ @SoldeEnergyCoin [int] = NULL
 )
 AS
 SET NOCOUNT ON
@@ -305,7 +306,8 @@ UPDATE [Appartement] SET
  [Appartement].[Batiment_Id] = @Batiment_Id,
  [Appartement].[Type] = @Type,
  [Appartement].[Orientation] = @Orientation,
- [Appartement].[SurfaceHabitable] = @SurfaceHabitable
+ [Appartement].[SurfaceHabitable] = @SurfaceHabitable,
+ [Appartement].[SoldeEnergyCoin] = @SoldeEnergyCoin
     WHERE ([Appartement].[Id] = @Id)
 SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
 IF(@error != 0)
@@ -322,7 +324,8 @@ BEGIN
         [Appartement].[Batiment_Id],
         [Appartement].[Type],
         [Appartement].[Orientation],
-        [Appartement].[SurfaceHabitable])
+        [Appartement].[SurfaceHabitable],
+        [Appartement].[SoldeEnergyCoin])
     VALUES (
         @Id,
         @CamelId,
@@ -330,7 +333,8 @@ BEGIN
         @Batiment_Id,
         @Type,
         @Orientation,
-        @SurfaceHabitable)
+        @SurfaceHabitable,
+        @SoldeEnergyCoin)
     SELECT @error = @@ERROR, @rowcount = @@ROWCOUNT
     IF(@error != 0)
     BEGIN
@@ -1154,7 +1158,7 @@ CREATE PROCEDURE [dbo].[Appartement_Load]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
+SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable], [Appartement].[SoldeEnergyCoin] 
     FROM [Appartement] 
     WHERE ([Appartement].[Id] = @Id)
 
@@ -1168,7 +1172,7 @@ CREATE PROCEDURE [dbo].[Appartement_LoadAll]
 )
 AS
 SET NOCOUNT ON
-SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
+SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable], [Appartement].[SoldeEnergyCoin] 
     FROM [Appartement] 
     ORDER BY CASE
         WHEN @_orderBy0 = '[Appartement].[Nom]' AND @_orderByDirection0 = 0 THEN [Appartement].[Nom]
@@ -1188,7 +1192,7 @@ CREATE PROCEDURE [dbo].[Appartement_LoadByBatiment]
 )
 AS
 SET NOCOUNT ON
-SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
+SELECT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable], [Appartement].[SoldeEnergyCoin] 
     FROM [Appartement] 
     WHERE ([Appartement].[Batiment_Id] = @BatimentId)
     ORDER BY CASE
@@ -1207,7 +1211,7 @@ CREATE PROCEDURE [dbo].[Appartement_LoadById]
 )
 AS
 SET NOCOUNT ON
-SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable] 
+SELECT DISTINCT [Appartement].[Id], [Appartement].[CamelId], [Appartement].[Nom], [Appartement].[Batiment_Id], [Appartement].[Type], [Appartement].[Orientation], [Appartement].[SurfaceHabitable], [Appartement].[SoldeEnergyCoin] 
     FROM [Appartement] 
     WHERE ([Appartement].[Id] = @Id)
 

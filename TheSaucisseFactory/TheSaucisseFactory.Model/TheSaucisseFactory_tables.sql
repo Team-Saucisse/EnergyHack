@@ -56,6 +56,7 @@ CREATE TABLE [dbo].[Appartement] (
  [Type] [nvarchar] (10) NULL,
  [Orientation] [nvarchar] (10) NULL,
  [SurfaceHabitable] [float] NULL,
+ [SoldeEnergyCoin] [int] NULL,
  CONSTRAINT [PK_App_Id_App] PRIMARY KEY CLUSTERED
  (
 

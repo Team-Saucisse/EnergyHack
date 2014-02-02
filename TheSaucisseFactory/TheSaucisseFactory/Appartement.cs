@@ -50,6 +50,8 @@ namespace TheSaucisseFactory
         
         private double _surfaceHabitable = CodeFluentPersistence.DefaultDoubleValue;
         
+        private int _soldeEnergyCoin = CodeFluentPersistence.DefaultInt32Value;
+        
         [System.NonSerializedAttribute()]
         private bool _isSerializing;
         
@@ -320,6 +322,23 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
             }
         }
         
+        [System.ComponentModel.DefaultValueAttribute(CodeFluentPersistence.DefaultInt32Value)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=false, Type=typeof(int))]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1000)]
+        public int SoldeEnergyCoin
+        {
+            get
+            {
+                return this._soldeEnergyCoin;
+            }
+            set
+            {
+                this._soldeEnergyCoin = value;
+                this.EntityState = CodeFluent.Runtime.CodeFluentEntityState.Modified;
+                this.OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs("SoldeEnergyCoin"));
+            }
+        }
+        
         string System.ComponentModel.IDataErrorInfo.Error
         {
             get
@@ -556,6 +575,7 @@ appartement = value as TheSaucisseFactory.Appartement;
                 this._type = CodeFluentPersistence.GetReaderValue(reader, "Type", ((string)(default(string))));
                 this._orientation = CodeFluentPersistence.GetReaderValue(reader, "Orientation", ((string)(default(string))));
                 this._surfaceHabitable = CodeFluentPersistence.GetReaderValue(reader, "SurfaceHabitable", ((double)(CodeFluentPersistence.DefaultDoubleValue)));
+                this._soldeEnergyCoin = CodeFluentPersistence.GetReaderValue(reader, "SoldeEnergyCoin", ((int)(CodeFluentPersistence.DefaultInt32Value)));
             }
             this.OnEntityAction(new CodeFluent.Runtime.CodeFluentEntityActionEventArgs(this, CodeFluent.Runtime.CodeFluentEntityAction.ReadRecord, false, false));
         }
@@ -710,6 +730,7 @@ appartement = value as TheSaucisseFactory.Appartement;
             persistence.AddParameter("@Type", this.Type, default(string));
             persistence.AddParameter("@Orientation", this.Orientation, default(string));
             persistence.AddParameter("@SurfaceHabitable", this.SurfaceHabitable, CodeFluentPersistence.DefaultDoubleValue);
+            persistence.AddParameter("@SoldeEnergyCoin", this.SoldeEnergyCoin, CodeFluentPersistence.DefaultInt32Value);
             System.Data.IDataReader reader = null;
             try
             {
@@ -839,6 +860,9 @@ appartement = value as TheSaucisseFactory.Appartement;
             writer.Write(",");
             writer.Write("SurfaceHabitable=");
             writer.Write(this.SurfaceHabitable);
+            writer.Write(",");
+            writer.Write("SoldeEnergyCoin=");
+            writer.Write(this.SoldeEnergyCoin);
             writer.Write(", EntityState=");
             writer.Write(this.EntityState);
             writer.Write("]");
@@ -890,10 +914,6 @@ appartement = value as TheSaucisseFactory.Appartement;
             {
                 this.Id = ((System.Guid)(ConvertUtilities.ChangeType(dict["Id"], typeof(System.Guid), CodeFluentPersistence.DefaultGuidValue)));
             }
-            if ((dict.Contains("SurfaceHabitable") == true))
-            {
-                this.SurfaceHabitable = ((double)(ConvertUtilities.ChangeType(dict["SurfaceHabitable"], typeof(double), CodeFluentPersistence.DefaultDoubleValue)));
-            }
             if ((dict.Contains("Type") == true))
             {
                 this.Type = ((string)(ConvertUtilities.ChangeType(dict["Type"], typeof(string), default(string))));
@@ -901,6 +921,14 @@ appartement = value as TheSaucisseFactory.Appartement;
             if ((dict.Contains("Orientation") == true))
             {
                 this.Orientation = ((string)(ConvertUtilities.ChangeType(dict["Orientation"], typeof(string), default(string))));
+            }
+            if ((dict.Contains("SurfaceHabitable") == true))
+            {
+                this.SurfaceHabitable = ((double)(ConvertUtilities.ChangeType(dict["SurfaceHabitable"], typeof(double), CodeFluentPersistence.DefaultDoubleValue)));
+            }
+            if ((dict.Contains("SoldeEnergyCoin") == true))
+            {
+                this.SoldeEnergyCoin = ((int)(ConvertUtilities.ChangeType(dict["SoldeEnergyCoin"], typeof(int), CodeFluentPersistence.DefaultInt32Value)));
             }
             if ((dict.Contains("CamelId") == true))
             {
@@ -924,9 +952,10 @@ appartement = value as TheSaucisseFactory.Appartement;
                 throw new System.ArgumentNullException("appartement");
             }
             appartement.Id = this.Id;
-            appartement.SurfaceHabitable = this.SurfaceHabitable;
             appartement.Type = this.Type;
             appartement.Orientation = this.Orientation;
+            appartement.SurfaceHabitable = this.SurfaceHabitable;
+            appartement.SoldeEnergyCoin = this.SoldeEnergyCoin;
             appartement.CamelId = this.CamelId;
             appartement.Nom = this.Nom;
             appartement.BatimentId = this.BatimentId;
@@ -940,9 +969,10 @@ appartement = value as TheSaucisseFactory.Appartement;
                 throw new System.ArgumentNullException("dict");
             }
             dict["Id"] = this.Id;
-            dict["SurfaceHabitable"] = this.SurfaceHabitable;
             dict["Type"] = this.Type;
             dict["Orientation"] = this.Orientation;
+            dict["SurfaceHabitable"] = this.SurfaceHabitable;
+            dict["SoldeEnergyCoin"] = this.SoldeEnergyCoin;
             dict["CamelId"] = this.CamelId;
             dict["Nom"] = this.Nom;
             dict["BatimentId"] = this.BatimentId;
@@ -988,6 +1018,7 @@ appartement = value as TheSaucisseFactory.Appartement;
             this._type = default(string);
             this._orientation = default(string);
             this._surfaceHabitable = CodeFluentPersistence.DefaultDoubleValue;
+            this._soldeEnergyCoin = CodeFluentPersistence.DefaultInt32Value;
             this._id = System.Guid.NewGuid();
             this._entityState = CodeFluent.Runtime.CodeFluentEntityState.Created;
             this._raisePropertyChangedEvents = true;

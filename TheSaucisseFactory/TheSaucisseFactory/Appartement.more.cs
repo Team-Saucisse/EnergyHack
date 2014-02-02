@@ -18,6 +18,8 @@ namespace TheSaucisseFactory
             l_newCoin.Date = p_date;
 
             l_newCoin.Save();
+
+            SoldeEnergyCoin += p_quantite;
         }
     }
 }
