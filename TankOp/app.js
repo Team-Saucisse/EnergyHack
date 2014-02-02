@@ -11,7 +11,9 @@ TankOp.playKeys = [
 	{ key: 74, heading: 0 },
 	{ key: 106, heading: 0 },
 	{ key: 76, heading: 3 },
-	{ key: 108, heading: 3 }
+	{ key: 108, heading: 3 },
+	{ key: 88, cheat: true },
+	{ key: 120, cheat: true },	
 ];
 
 
@@ -25,8 +27,9 @@ enyo.kind({
 		{name: "gamebox", classes: "game-box", ontap: "gameClick", components: [
 		]},
 		
-		// Settings popup
+		// Popup
 		{name: "settings", kind: "TankOp.Settings", showing: false, onHide: "initGame"},
+		{name: "cheat", kind: "TankOp.Cheat", showing: false, onHide: "endCheat"},
 		
 		// Key handling
 		{kind: "Signals", onkeypress: "keyPressed"},
@@ -42,6 +45,7 @@ enyo.kind({
 		this.endOfGame = false;
 		this.pausedGame = true;
 		this.initializedGame = false;
+		this.cheatMode = false;
 		
 		// Init canvas
 		this.$.gamebox.setStyle("width:"+constant.areaWidth+"px; height:"+constant.areaHeight+"px;");
@@ -116,6 +120,18 @@ enyo.kind({
 	cacheLoaded: function() {
 	},
 	
+	// Cheat handling
+	startCheat: function() {
+		this.pausedGame = true;
+		this.$.cheat.show();
+	},
+	
+	endCheat: function() {
+		this.$.cheat.hide();
+		this.cheatMode = false;
+		this.pausedGame = false;
+	},
+	
 	// Draw
 	draw: function() {
 		// Clear all
@@ -170,11 +186,19 @@ enyo.kind({
 	// A key was pressed
 	keyPressed: function(s, e) {
 		var key = e.charCode;
-		
+		if (this.endOfGame)
+			return;
+			
 		// Play key
 		for (var i = 0 ; i < TankOp.playKeys.length ; i++ ) {
 			var playKey = TankOp.playKeys[i];
 			if (key == playKey.key) {
+				// Cheat key
+				if (playKey.cheat) {
+					this.cheatMode = true;
+					break;
+				}
+				
 				// Fire key
 				if (playKey.hit) {
 					var targetunit = util.lookForUnit(this.targetpos);
@@ -206,7 +230,7 @@ enyo.kind({
 	gameLoopTick: function() {
 		// Show settings popup
 		if (!this.initializedGame)
-			this.$.settings.show();	
+			this.$.settings.show();
 		if (this.pausedGame)
 			return;
 		

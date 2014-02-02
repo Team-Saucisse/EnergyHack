@@ -78,6 +78,7 @@
     <Content Include="Images\EnergyCoinEclair.png" />
     <Content Include="Images\go.png" />
     <Content Include="Images\tank.png" />
+    <Content Include="Images\Tankop.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
