@@ -31,9 +31,9 @@
                                         Tank OP</h3>
                                     <p class="text-primary">
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
-                                    <p>
-                                    <asp:LinkButton ID="playTank" runat="server" OnClick="SetEcoinsAmount"></asp:LinkButton>
-                                        <a class="btn btn-primary btn-xs" target="_blank" href="games/TankOp/index.html" role="button">Jouer</a></p>
+                                    <p style="margin-left: 50px">
+                                    <asp:LinkButton ID="playTank" CssClass="btn btn-primary btn-xs" runat="server" OnClick="SetEcoinsAmount" role="button">Jouer</asp:LinkButton>
+                                        - Coût : <b>0</b><asp:Image ID="Image2" Width="24px" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
                                 </div>
                             </div>
                         </div>
@@ -45,9 +45,9 @@
                                         Tank OP</h3>
                                     <p class="text-primary">
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
-                                    <p>
-                                    <p>
-                                           <a class="btn btn-primary btn-xs" target="_blank" href="games/TankOp/index.html" role="button">Jouer</a></p>
+                                    <p style="margin-left: 50px">
+                                    <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary btn-xs" runat="server" OnClick="SetEcoinsAmount" role="button">Jouer</asp:LinkButton>
+                                        - Coût : <b>5</b><asp:Image ID="Image1" Width="24px" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
                                 </div>
                             </div>
                         </div>

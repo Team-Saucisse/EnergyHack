@@ -14,7 +14,7 @@
                             <li runat="server" id="m_liEcoins">
                                 <asp:LinkButton ID="m_aMyEcoins" runat="server" CommandArgument="eCoins" OnClick="MenuItem_SetActive">Mes eCoins</asp:LinkButton></li>
                             <li runat="server" id="m_liGames">
-                                <asp:LinkButton ID="m_aGames" OnClick="MenuItem_SetActive"
+                                <asp:LinkButton ID="m_aGames" PostBackUrl="~/Games.aspx" OnClick="MenuItem_SetActive"
                                     CommandArgument="Games" runat="server">Les jeux</asp:LinkButton></li>
                             <li runat="server" id="m_liDisconnect">
                                 <asp:LinkButton ID="m_aDisconnect" PostBackUrl="~/Login.aspx" OnClick="MenuItem_SetActive"
