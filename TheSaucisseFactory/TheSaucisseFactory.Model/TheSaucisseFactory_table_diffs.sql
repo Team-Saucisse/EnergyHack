@@ -1,15 +1,7 @@
 ﻿/* CodeFluent Generated . TargetVersion:Sql2008, Sql2012, SqlAzure. Culture:fr-FR. UiCulture:fr-FR. Encoding:utf-8 (http://www.softfluent.com) */
 set quoted_identifier OFF
 GO
-/* column 'SoldeEnergyCoin' was not found in table 'Appartement'. */
-ALTER TABLE [dbo].[Appartement] ADD [SoldeEnergyCoin] [int] NULL
-GO
 /* table '[dbo].[Appartement]' primary key is related to a clustered index and cannot be changed on SQL Azure */
-/* column 'SoldeEnergyCoin' is not defined */
-IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_Bat_Res_Id_Res]') AND OBJECTPROPERTY(id, N'IsForeignKey') = 1)
- ALTER TABLE [dbo].[Batiment] DROP CONSTRAINT [FK_Bat_Res_Id_Res]
-/* drop column 'SoldeEnergyCoin', table 'Batiment', default:'' */
-ALTER TABLE [dbo].[Batiment] DROP COLUMN [SoldeEnergyCoin]
 /* table '[dbo].[Batiment]' primary key is related to a clustered index and cannot be changed on SQL Azure */
 IF EXISTS (SELECT * FROM [dbo].[sysobjects] WHERE id = object_id(N'[dbo].[FK_App_Bat_Id_Bat]') AND parent_obj = object_id(N'[dbo].[Appartement]'))
  ALTER TABLE [dbo].[Appartement] DROP CONSTRAINT [FK_App_Bat_Id_Bat]

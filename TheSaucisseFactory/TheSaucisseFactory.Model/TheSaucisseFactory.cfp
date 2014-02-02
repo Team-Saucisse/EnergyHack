@@ -12,7 +12,7 @@
                       runOnlineScripts="true"
                       />
   </cf:producer>
-  <cf:producer enabled="true" name="ASP.NET Web Site MVC4"
+  <cf:producer enabled="false" name="ASP.NET Web Site MVC4"
                typeName="CodeFluent.Producers.UI.AspNetProducer, CodeFluent.Producers.UI"
                productionFlags="Default, Overwrite, RemoveDates" >
     <cf:configuration categoryPath="UI\AspNetMvc4"
@@ -22,7 +22,7 @@
                       templatesPath=".\Templates"
                       actions="CopyTemplatesFiles" />
   </cf:producer>
-  <cf:producer enabled="true" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom" productionFlags="Default, Overwrite, RemoveDates">
+  <cf:producer enabled="false" name="Business Object Model (BOM)" typeName="CodeFluent.Producers.CodeDom.CodeDomProducer, CodeFluent.Producers.CodeDom" productionFlags="Default, Overwrite, RemoveDates">
     <cf:configuration compileWithVisualStudio="true" compile="false" codeDomProviderTypeName="CSharp" targetDirectory="..\TheSaucisseFactory" cfx:targetProject="..\TheSaucisseFactory\TheSaucisseFactory.csproj" cfx:targetProjectLayout="None" produceWebMembershipUser="true" produceWebMembershipProvider="true">
       <subProducer typeName="CodeFluent.Producers.ServiceModel.ServiceProducer, CodeFluent.Producers.ServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1bb6d7cccf1045ec" compileWithVisualStudio="true" compile="false" produceProxy="False" cfx:targetProjectLayout="None" />
     </cf:configuration>
@@ -204,6 +204,22 @@
     <cf:instance>
       <Id>4a522da4-40d7-4d00-b70d-8920e4a26004</Id>
       <Nom>Podium général entre voisins</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>{D3D6A5BB-46E3-4A1C-9254-FD853655E850}</Id>
+      <Nom>Mon challenge eau chaude</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>{6D8DA3F2-08CF-4F8A-A72B-F54AD63D3CF0}</Id>
+      <Nom>Mon challenge eau froide</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>{C9EF0BD9-2EE3-4C4D-ACD4-D98E284D9605}</Id>
+      <Nom>Mon challenge électricité</Nom>
+    </cf:instance>
+    <cf:instance>
+      <Id>{0102EEB9-E934-4B60-8EA1-F7BD1AB8B237}</Id>
+      <Nom>Mon challenge appareils en veille</Nom>
     </cf:instance>
   </cf:entity>
 
