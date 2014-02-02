@@ -20,6 +20,8 @@ namespace TheSaucisseFactory.Ecoinizer
 		{
 			m_main = mainWindow;
 
+			//ExportCsv();
+
 			Stopwatch l_watch = new Stopwatch();
 			l_watch.Start();
 			Log("Remise à zéro des e-coins !");
@@ -283,6 +285,23 @@ namespace TheSaucisseFactory.Ecoinizer
         {
 			m_tousLesApparts.SaveAll();
         }
+
+		private void ExportCsv()
+		{
+			// Export temporaire d'un CSV brut
+			MesureCollection mesures = MesureCollection.LoadAll();
+			var filtrees = mesures.Where(m => m.Type == "ELEC").OrderBy(m => m.Date);
+
+			using (System.IO.StreamWriter pen = new System.IO.StreamWriter(@"d:\temp\energyhack\export.csv"))
+			{
+				foreach (var item in filtrees)
+				{
+					pen.Write(string.Format("{0};{1};{2}\r\n", item.Date, item.Valeur, item.AppartementId));
+				}
+			}
+
+			return;
+		}
 
 		private void Log(string mess, bool crlf = true)
 		{
