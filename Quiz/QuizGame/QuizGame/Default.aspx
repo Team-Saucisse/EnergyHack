@@ -7,26 +7,18 @@
     <h2>
         Bienvenue sur l'Energy-QUIZZZ !
     </h2>
+    <h3>
+        <asp:Label ID="QuestionId" runat="server" />/<asp:Label ID="QuestionTotal" runat="server" />
+    </h3>
     <p>
         <asp:Label ID="Question" runat="server"></asp:Label>
 
-        <asp:Repeater ID="Reponses" OnItemDataBound="ResponseOnItemDataBound" runat="server">
-            <HeaderTemplate>
-                <ul>
-            </HeaderTemplate>
+        <asp:RadioButtonList ID="RadioButtonListReponses" DataValueField="Id" DataTextField="Contenu" runat="server">
+        </asp:RadioButtonList>
 
-            <ItemTemplate>
-                <li>
-                    <asp:RadioButton GroupName="ReponsesGroup" Checked="false" runat="server" />
-                    <asp:Label ID="ContenuRep" runat="server" />
-                </li>
-            </ItemTemplate>
-            
-            <FooterTemplate>
-                </ul>
-            </FooterTemplate>
-        </asp:Repeater>
+        <asp:Label ID="Summary" runat="server" />
 
         <asp:Button ID="Next" Text="Suivant" OnClick="NextButtonClick" runat="server" />
+        <asp:Label ID="Erreur" Text="" runat="server" ForeColor="Red" />
     </p>
 </asp:Content>

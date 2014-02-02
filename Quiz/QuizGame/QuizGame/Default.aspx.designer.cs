@@ -13,6 +13,24 @@ namespace QuizGame {
     public partial class _Default {
         
         /// <summary>
+        /// QuestionId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label QuestionId;
+        
+        /// <summary>
+        /// QuestionTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label QuestionTotal;
+        
+        /// <summary>
         /// Question control.
         /// </summary>
         /// <remarks>
@@ -22,13 +40,22 @@ namespace QuizGame {
         protected global::System.Web.UI.WebControls.Label Question;
         
         /// <summary>
-        /// Reponses control.
+        /// RadioButtonListReponses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Reponses;
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonListReponses;
+        
+        /// <summary>
+        /// Summary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Summary;
         
         /// <summary>
         /// Next control.
@@ -38,5 +65,14 @@ namespace QuizGame {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Next;
+        
+        /// <summary>
+        /// Erreur control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Erreur;
     }
 }
