@@ -40,7 +40,7 @@
     </div>
     <asp:ContentPlaceHolder ID="contentBody" runat="server">
     </asp:ContentPlaceHolder>
-    </form>
+
     <script language="javascript" type="text/javascript">
         (function ($) {
             $(function () {
@@ -112,5 +112,6 @@
         var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
     </script>
+    </form>
 </body>
 </html>

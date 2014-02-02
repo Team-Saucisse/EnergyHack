@@ -11,7 +11,7 @@
     min-height: 300px;
 }
 
-.textHover
+.gains
 {
     font-size: 30px;
     font-family: Comic Sans MS;
@@ -23,6 +23,7 @@
 	border-width: 1px;
 	border-color: #3db5d8;
 	border-style: solid;
+	margin-top: 10px; 
 }
 
 .panelLink table tr td
@@ -41,6 +42,16 @@
 	text-decoration: none;
 	cursor: pointer;
 	background: #d9edf7;
+}
+
+.solde
+{
+    font-style: italic;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: #3db5d8;
+    margin-left: 30px;
+    margin-top: 10px;
 }
 
 .colorgraph

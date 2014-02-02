@@ -181,3 +181,15 @@
 	text-align: center;
 }
 
+.cheat-settings {
+	width: 849px;
+	height: 479px;
+	border: medium solid black;
+	position: absolute;
+	top: 150px;
+	left: 20%;
+	box-shadow: 5px 4px 10px 2px gray;	
+}
+
+.cheat-image {
+}

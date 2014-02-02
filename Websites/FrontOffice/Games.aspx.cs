@@ -24,6 +24,9 @@ namespace FrontOffice
             {
                 //1er élément sélectionné par défaut
                 m_liGames.Attributes["class"] = "active";
+
+                Appartement l_appartement = Appartement.LoadById(new Guid(CurrentAppartement));
+                playTank.NavigateUrl = "games/TankOp/index.html?ec=" + l_appartement.SoldeEnergyCoin;
             }
         }
 
@@ -55,8 +58,7 @@ namespace FrontOffice
 
         protected void SetEcoinsAmount(object sender, EventArgs e)
         {
-            Appartement l_appartement = Appartement.LoadById(new Guid(CurrentAppartement));
-            playTank.PostBackUrl = "games/TankOp/index.html?ec=" + l_appartement.SoldeEnergyCoin;
+
         }
     }
 }
