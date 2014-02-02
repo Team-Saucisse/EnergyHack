@@ -7,6 +7,12 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
+            <div>
+                Mon solde :
+                <asp:Label ID="ecoinsTotal" runat="server" CssClass="solde"></asp:Label>
+                <asp:Image ID="Image2" Width="24px" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png"
+                    CssClass="soldeIcon" />
+            </div>
                 <div class="panel-body">
                     <!-- MENU -->
                     <div class="col-md-2">
@@ -24,13 +30,9 @@
                     <!-- //MENU -->
                     <!-- ECOINS -->
                     <div class="col-md-4">
-                        <div class="panel panel-default">
+                        <div class="panel panel-success">
                             <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Mes gains / mon solde :
-                                    <asp:Label ID="ecoinsTotal" runat="server" CssClass="solde"></asp:Label>
-                                    <asp:Image ID="Image2" Width="24px" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png"
-                                        CssClass="soldeIcon" /></h3>
+                                <h3 class="panel-title">Mes gains</h3>
                             </div>
                             <div class="panel-body">
                                 <asp:Repeater ID="m_rptChallenges" OnItemDataBound="ChallengesItemDataBound" runat="server">
@@ -64,8 +66,8 @@
                     </div>
                     <!-- //ECOINS -->
                     <!-- ILLUSTRATION -->
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
+                    <div class="col-md-4" style="min-height: 500px; max-height: 500px;">
+                        <div class="panel panel-warning">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     Détails</h3>
