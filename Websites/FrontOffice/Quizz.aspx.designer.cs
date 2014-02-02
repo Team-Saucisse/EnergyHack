@@ -7,10 +7,10 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace QuizGame {
+namespace FrontOffice {
     
     
-    public partial class _Default {
+    public partial class Quizz {
         
         /// <summary>
         /// Contrôle QuestionId.
@@ -49,15 +49,6 @@ namespace QuizGame {
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonListReponses;
         
         /// <summary>
-        /// Contrôle Summary.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Summary;
-        
-        /// <summary>
         /// Contrôle Next.
         /// </summary>
         /// <remarks>
@@ -74,5 +65,23 @@ namespace QuizGame {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Erreur;
+        
+        /// <summary>
+        /// Contrôle Summary.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Summary;
+        
+        /// <summary>
+        /// Contrôle Button1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Button1;
     }
 }

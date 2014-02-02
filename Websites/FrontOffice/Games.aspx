@@ -5,6 +5,12 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
+                <div class="solde">
+                    Mon solde :
+                    <asp:Label ID="ecoinsTotal" runat="server"></asp:Label>
+                    <asp:Image ID="Image4" Width="24px" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png"
+                        CssClass="soldeIcon" />
+                </div>
                 <div class="panel-body">
                     <!-- MENU -->
                     <div class="col-md-2">
@@ -28,62 +34,48 @@
                                 <img class="img-thumbnail" src="Images/capture_tankop.png" alt="...">
                                 <div class="caption">
                                     <h3>
-                                        Tank OP</h3>
-                                    <p class="text-primary">
-                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
-                                    <p style="margin-left: 50px">
-                                        <asp:HyperLink ID="playTank" CssClass="btn btn-primary btn-xs" runat="server"
-                                            role="button">Jouer</asp:HyperLink>
-                                        - Coût : <b>0</b><asp:Image ID="Image2" Width="24px" runat="server" ImageAlign="AbsMiddle"
-                                            ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
+                                        TankOp</h3>
+                                    <p class="text-primary" style="font-size: 14px;">
+                                        Protégez votre quartier général de l'attaque des chars ennemis. Dépensez vos e-coin
+                                        pour augmenter vos défenses.</p>
+                                    <p>
+                                        <asp:HyperLink ID="playTank" CssClass="btn btn-primary btn-sm" runat="server" role="button">Jouer</asp:HyperLink>
+                                        <span style="margin-left: 100px;">Coût : <b>0</b><asp:Image ID="Image2" Width="24px"
+                                            runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                               <img class="img-thumbnail" src="Images/foodchain_capture.png" alt="...">
+                                <img class="img-thumbnail" src="Images/foodchain_capture.png" alt="...">
                                 <div class="caption">
                                     <h3>
-                                        Tank OP</h3>
-                                    <p class="text-primary">
-                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
-                                    <p style="margin-left: 50px">
-                                        <asp:HyperLink ID="LinkButton1" CssClass="btn btn-primary btn-xs" runat="server"
+                                        FoodChain</h3>
+                                    <p class="text-primary" style="font-size: 14px;">
+                                        Dans la peau d'une grenouille dans sa mare, mangez les mouches en évitant de vous
+                                        faire manger par le serpent.</p>
+                                    <p>
+                                        <asp:HyperLink ID="LinkButton1" CssClass="btn btn-primary btn-sm" runat="server"
                                             role="button">Jouer</asp:HyperLink>
-                                        - Coût : <b>5</b><asp:Image ID="Image1" Width="24px" runat="server" ImageAlign="AbsMiddle"
-                                            ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
+                                        <span style="margin-left: 100px;">Coût : <b>5</b><asp:Image ID="Image1" Width="24px"
+                                            runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="img-thumbnail" src="Images/Tankop.png" alt="...">
+                                <img class="img-thumbnail" src="Images/quiz.png" alt="...">
                                 <div class="caption">
                                     <h3>
-                                        Tank OP</h3>
-                                    <p class="text-primary">
-                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
-                                    <p style="margin-left: 50px">
-                                        <asp:HyperLink ID="HyperLink1" CssClass="btn btn-primary btn-xs" runat="server"
-                                            role="button">Jouer</asp:HyperLink>
-                                        - Coût : <b>7</b><asp:Image ID="Image3" Width="24px" runat="server" ImageAlign="AbsMiddle"
-                                            ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4">
-                            <div class="thumbnail">
-                                <img class="img-thumbnail" src="Images/Tankop.png" alt="...">
-                                <div class="caption">
-                                    <h3>
-                                        Tank OP</h3>
-                                    <p class="text-primary">
-                                        Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
-                                    <p style="margin-left: 50px">
-                                        <asp:HyperLink ID="HyperLink2" CssClass="btn btn-primary btn-xs" runat="server"
-                                            role="button">Jouer</asp:HyperLink>
-                                        - Coût : <b>3</b><asp:Image ID="Image4" Width="24px" runat="server" ImageAlign="AbsMiddle"
-                                            ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
+                                        QuizzzGame</h3>
+                                    <p class="text-primary" style="font-size: 14px;">
+                                        Testez vos connaissances sur l'éconnomie d'énergie en répondant au mieux aux questions
+                                        qui vous seront posées</p>
+                                    <p>
+                                        <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Quizz.aspx" CssClass="btn btn-primary btn-sm"
+                                            runat="server" role="button">Jouer</asp:HyperLink>
+                                        <span style="margin-left: 100px;">Coût : <b>2</b><asp:Image ID="Image3" Width="24px"
+                                            runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></span></p>
                                 </div>
                             </div>
                         </div>

@@ -74,12 +74,16 @@
     <Content Include="Images\c2.svg" />
     <Content Include="Images\c3.png" />
     <Content Include="Images\c3.svg" />
+    <Content Include="Images\capture_tankop.png" />
     <Content Include="Images\coin.png" />
     <Content Include="Images\EnergyCoinEclair.png" />
+    <Content Include="Images\foodchain_capture.png" />
     <Content Include="Images\go.png" />
+    <Content Include="Images\quiz.png" />
     <Content Include="Images\tank.png" />
     <Content Include="Images\Tankop.png" />
     <Content Include="Login.aspx" />
+    <Content Include="Quizz.aspx" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -131,6 +135,16 @@
     <Compile Include="Front.Master.designer.cs">
       <DependentUpon>Front.Master</DependentUpon>
     </Compile>
+    <Compile Include="Question.cs" />
+    <Compile Include="Quiz.cs" />
+    <Compile Include="Quizz.aspx.cs">
+      <DependentUpon>Quizz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quizz.aspx.designer.cs">
+      <DependentUpon>Quizz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

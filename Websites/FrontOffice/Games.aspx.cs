@@ -28,6 +28,8 @@ namespace FrontOffice
                 Appartement l_appartement = Appartement.LoadById(new Guid(CurrentAppartement));
                 playTank.NavigateUrl = "games/TankOp/index.html?ec=" + l_appartement.SoldeEnergyCoin;
             }
+
+            ecoinsTotal.Text = Appartement.LoadById(new Guid(CurrentAppartement)).SoldeEnergyCoin.ToString();
         }
 
         /// <summary>
