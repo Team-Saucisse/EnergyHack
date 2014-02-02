@@ -19,36 +19,40 @@
 
 .panelLink table
 {
-	width: 320px;
-	border-width: 1px;
-	border-color: #3db5d8;
-	border-style: solid;
-	margin-top: 10px; 
+    width: 320px;
+    border-width: 1px;
+    border-color: #3db5d8;
+    border-style: solid;
+    margin-top: 10px;
+    border-radius: 4px;
+    -webkit-box-shadow: 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 4px rgba(0, 0, 0, 0.05);
 }
 
 .panelLink table tr td
 {
-	border: 0;
-	padding: 2px 2px 2px 2px;
+    border: 0;
+    padding: 2px 2px 2px 2px;
 }
 
 .panelLink table tr td:first-child
 {
-	width: 200px;
-	background : #d9edf7;
+    width: 200px;
+    background: #d9edf7;
     font-size: 15px;
 }
 
-.panelLink table:hover {
-	text-decoration: none;
-	cursor: pointer;
-	background: #d9edf7;
+.panelLink table:hover
+{
+    text-decoration: none;
+    cursor: pointer;
+    background: #d9edf7;
 }
 
 .solde
 {
     font-style: italic;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Open Sans" , "Helvetica Neue" , Helvetica, Arial, sans-serif;
     font-size: 20px;
     color: #3db5d8;
     margin-left: 30px;
