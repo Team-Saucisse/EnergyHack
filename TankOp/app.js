@@ -46,6 +46,7 @@ enyo.kind({
 		this.pausedGame = true;
 		this.initializedGame = false;
 		this.cheatMode = false;
+		this.cheatCount = 3;
 		
 		// Init canvas
 		this.$.gamebox.setStyle("width:"+constant.areaWidth+"px; height:"+constant.areaHeight+"px;");
@@ -253,6 +254,9 @@ enyo.kind({
 			return;
 		this.targetpos.x = newX;
 		this.targetpos.y = newY;
+		if (--this.cheatCount == 0) {
+			this.cheatMode = true;
+		}
 	},
 	
 	// Tick for game loop
