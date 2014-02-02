@@ -16,6 +16,8 @@
     <div id="board">
 	</div>
 	<script type="text/javascript">
+		var mouse = {};
+		document.onmousemove = function(e) { mouse.position = {x: e.pageX, y: e.pageY}; } // Save mouse position
 		var pub = new TankOp.Pub().renderInto(document.getElementById("pub"));
 		var app = new TankOp.App().renderInto(document.getElementById("board"));
 	</script>

@@ -224,6 +224,35 @@ enyo.kind({
 		// At end of game, quit
 		if (this.endOfGame)
 			history.back();
+			
+		// Compute direction
+		var screen_width = document.documentElement.clientWidth;
+		var screen_height = document.documentElement.clientHeight;
+		var center_x = Math.floor(screen_width/2.0);
+		var center_y = Math.floor((screen_height+constant.pubHeight)/2.0);
+		var diffx = mouse.position.x-center_x, diffy = mouse.position.y-center_y;
+		var absdiffx = Math.abs(diffx);
+		var absdiffy = Math.abs(diffy);
+		if (absdiffx >= 0 && absdiffx < constant.fireZoneWidth && absdiffy >= 0 && absdiffy < constant.fireZoneHeight) {
+			var targetunit = util.lookForUnit(this.targetpos);
+			if (targetunit != null)
+				util.processFight(null, targetunit);
+			return;
+		} else if (absdiffx > absdiffy) {
+			dx = diffx > 0 ? 1 : -1;
+			dy = 0;
+		} else {
+			dx = 0;
+			dy = diffy > 0 ? 1 : -1;
+		}
+		
+		// Move target
+		var newX = this.targetpos.x + dx;
+		var newY = this.targetpos.y + dy;
+		if (newX < 0 || newX == constant.boardWidth || newY < 0 || newY == constant.boardHeight)
+			return;
+		this.targetpos.x = newX;
+		this.targetpos.y = newY;
 	},
 	
 	// Tick for game loop
