@@ -111,11 +111,6 @@
         var nowTemp = new Date();
         var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 
-        $('.datepicker').datepicker('setValue', now)
-				.on('changeDate', function (ev) {
-				    $('.datepicker').datepicker('hide');
-				    $('.datepicker').trigger('change');
-				});
     </script>
 </body>
 </html>

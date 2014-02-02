@@ -26,14 +26,17 @@
                             ControlToValidate="m_password"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
-                        <asp:TextBox ID="datePicker" CssClass="datepicker" AutoPostBack="true"
-                            runat="server"></asp:TextBox>
+                       <asp:RadioButtonList ID="dateChoice" runat="server">
+                           <asp:ListItem Text="&nbsp;&nbsp;10/12/2013"></asp:ListItem>
+                           <asp:ListItem Text="&nbsp;&nbsp;01/01/2014"></asp:ListItem>
+                           <asp:ListItem Text="&nbsp;&nbsp;21/01/2014"></asp:ListItem>
+                       </asp:RadioButtonList>
                     </div>
                     <hr class="colorgraph">
                     <div class="row">
                         <div class="">
                             <asp:Button Enabled="false" CssClass="btn btn-lg btn-success btn-block" runat="server"
-                                Text="Se connecter" ID="m_btnLogin" PostBackUrl="~/Home.aspx" />
+                                Text="Se connecter" ID="m_btnLogin" OnClick="LoginClick" />
                         </div>
                     </div>
                 </fieldset>

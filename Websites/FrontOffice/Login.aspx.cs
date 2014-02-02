@@ -14,19 +14,31 @@ namespace FrontOffice
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                Session.Abandon();
+			if (!Page.IsPostBack)
+			{
+				Session.Abandon();
 
-                BatimentCollection l_buildings = BatimentCollection.LoadByResidence(ResidenceCollection.LoadAll().FirstOrDefault());
-                m_ddlBuildings.DataSource = l_buildings;
-                m_ddlBuildings.DataTextField = "CamelID";
-                m_ddlBuildings.DataValueField = "Id";
-                m_ddlBuildings.DataBind();
+				BatimentCollection l_buildings = BatimentCollection.LoadByResidence(ResidenceCollection.LoadAll().FirstOrDefault());
+				m_ddlBuildings.DataSource = l_buildings;
+				m_ddlBuildings.DataTextField = "CamelID";
+				m_ddlBuildings.DataValueField = "Id";
+				m_ddlBuildings.DataBind();
 
-                m_ddlBuildings.Items.Insert(0, new ListItem("Sélectionner un bâtiment...", String.Empty));
-            }
+				m_ddlBuildings.Items.Insert(0, new ListItem("Sélectionner un bâtiment...", String.Empty));
+			}
         }
+
+		protected void LoginClick(object sender, EventArgs e)
+		{
+			// récupération et mise en session de la date
+			if (!string.IsNullOrEmpty(dateChoice.SelectedValue))
+			{
+				DateTime l_date = DateTime.Parse(dateChoice.SelectedValue);
+				Session["DateCourante"] = l_date;
+			}
+
+			Response.Redirect("~/Home.aspx");
+		}
 
         protected void LoadAppartementList(object sender, EventArgs e)
         {
