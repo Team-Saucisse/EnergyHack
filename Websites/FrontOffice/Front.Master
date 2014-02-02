@@ -24,15 +24,15 @@
                 <div class="jcarousel">
                     <ul>
                         <li>
-                            <img src="Images\Banniere1.png" width="500" height="160" alt=""></li>
+                            <img src="Images\Banniere1.png" width="800" height="100" alt="" /></li>
                         <li>
-                            <img src="Images\Banniere2.png" width="500" height="160" alt=""></li>
+                            <img src="Images\Banniere2.png" width="800" height="100" alt="" /></li>
                         <li>
-                            <img src="Images\Banniere3.png" width="500" height="160" alt=""></li>
+                            <img src="Images\Banniere3.png" width="800" height="100" alt="" /></li>
                     </ul>
                 </div>
                 <p class="photo-credits">
-                    <a href="google.fr" target="_blank">
+                    <a href="http://lapatisseriedemadamebio.e-monsite.com/" target="_blank">
                         <img src="Images/go.png" /></a>
                 </p>
             </div>

@@ -78,7 +78,7 @@
     -webkit-box-shadow: 0 0 2px #999;
     -moz-box-shadow: 0 0 2px #999;
     box-shadow: 0 0 2px #999;
-    max-width: 505px;
+    max-width: 805px;
 }
 
 
@@ -102,8 +102,8 @@
 {
     position: relative;
     overflow: hidden;
-    width: 500px;
-    height: 160px;
+    width: 800;
+    height: 100px;
 }
 
 .jcarousel ul
