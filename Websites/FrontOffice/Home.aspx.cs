@@ -92,22 +92,21 @@ namespace FrontOffice
 
         protected void SetDataSource(DateTime p_date)
         {
-            //List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadAll().Where(g => g.AppartementId == new Guid(CurrentAppartement)).ToList();
-
-            //ChallengeCollection l_challenges = ChallengeCollection.LoadAll();
-
-            //foreach (Challenge l_challenge in l_challenges)
-            //{
-            //    if (l_challenge.GainsEnergyCoin.Where(g => g.AppartementId == new Guid(CurrentAppartement)).Count() == 0)
-            //    {
-            //        GainEnergyCoin l_emptyGain = new GainEnergyCoin();
-            //        l_emptyGain.Quantite = 0;
-            //        l_emptyGain.Challenge = l_challenge;
-            //        l_gains.Add(l_emptyGain);
-            //    }
-            //}
-
+            // on charge les gains existants
             List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), p_date).ToList();
+
+            // on va compléter avec les challenges qui n'on pas de gain
+            IEnumerable<Challenge> l_missingChallenges = ChallengeCollection.LoadAll()
+                .Where(c => !l_gains.Any(g => g.ChallengeId == c.Id));
+
+            foreach (Challenge l_challenge in l_missingChallenges)
+            {
+                GainEnergyCoin l_emptyGain = new GainEnergyCoin();
+                l_emptyGain.Quantite = 0;
+                l_emptyGain.Challenge = l_challenge;
+                l_emptyGain.Meta = "En savoir plus...";
+                l_gains.Add(l_emptyGain);
+            }
 
             m_rptChallenges.DataSource = l_gains;
             m_rptChallenges.DataBind();
@@ -123,6 +122,7 @@ namespace FrontOffice
                 ((Label)e.Item.FindControl("m_lblChallengeGain")).Text = l_gain.Quantite.ToString() + "x";
                 string l_js = string.Format("ShowIllustration('{0}')", l_gain.Challenge != null ? l_gain.Challenge.Id : Guid.Empty);
                 ((HyperLink)e.Item.FindControl("m_panelLink")).Attributes.Add("onclick", l_js);
+                ((Label)e.Item.FindControl("m_meta")).Text = l_gain.Meta;
             }
         }
 

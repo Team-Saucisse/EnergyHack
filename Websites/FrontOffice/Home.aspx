@@ -54,7 +54,7 @@
                                                     <td>
                                                     </td>
                                                     <td colspan="2">
-                                                        <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                        <asp:Label ID="m_meta" runat="server"></asp:Label>
                                                     </td>
                                                 </tr>
                                             </table>
