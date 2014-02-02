@@ -46,16 +46,32 @@ namespace TheSaucisseFactory.Ecoinizer
                     && DateTime.Compare(g.Date, p_date) <= 0
                     && (p_date - g.Date).TotalDays < 7
                     && g.Type == p_type));
+
+			if (p_appartement.SurfaceHabitable != 0)
+			{
+				foreach (Mesure mesure in this)
+				{
+					mesure.ValeurPonderee = mesure.Valeur / p_appartement.SurfaceHabitable;
+					mesure.Save();
+				}
+			}
         }
 
         public double ConsommationTotale()
         {
-            return this.Sum(m => m.Valeur); 
+            return this.Sum(m => m.ValeurPonderee); 
         }
 
 		public double ConsommationMinimum()
 		{
-			return this.Min(m => m.Valeur);
+			if (this.Count == 0)
+			{
+				return 0;
+			}
+			else
+			{
+				return this.Min(m => m.ValeurPonderee);
+			}
 		}
     }
 }

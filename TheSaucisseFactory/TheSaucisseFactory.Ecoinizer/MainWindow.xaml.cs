@@ -44,8 +44,20 @@ namespace TheSaucisseFactory.Ecoinizer
         /// </summary>
         private void OnProcessClick(object sender, RoutedEventArgs e) 
         {
-            Ecoinizer.EnergyCoinEngine l_engine = new EnergyCoinEngine();
-            l_engine.Save();
+			MessageBoxResult l_result = MessageBox.Show("RAZ des ecoins ?", "Attention", MessageBoxButton.YesNo);
+
+			if (l_result == MessageBoxResult.Yes)
+			{
+				ThreadStart ts = new ThreadStart(RunEngin);
+				Thread thread = new Thread(ts);
+				thread.Start();
+			}
         }
+
+		private void RunEngin()
+		{
+			Ecoinizer.EnergyCoinEngine l_engine = new EnergyCoinEngine(this);
+			l_engine.Save();
+		}
 	}
 }
