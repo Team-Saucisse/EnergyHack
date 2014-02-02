@@ -12,6 +12,14 @@ namespace FrontOffice
 {
     public partial class Login : System.Web.UI.Page
     {
+        public DateTime CurrentDate
+        {
+            set
+            {
+                CurrentDate = DateTime.Parse(datePicker.Text);
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
