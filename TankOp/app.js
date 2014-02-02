@@ -338,16 +338,15 @@ enyo.kind({
 			util.processFight(that, opponent.unit);
 			return;
 		}
-		
-		// Compute next position
-		var next = util.nextPositionOnHeading(that);
-		
+
 		// Is it a valid position ?
-		if (!util.isValidPosition(next, that)) {
+		var next = util.nextPositionOnHeading(that);		
+		while (!util.isValidPosition(next, that)) {
 			// No, reverse sense
-			that.heading = (that.heading + 2) % 4;
+			that.heading = util.random(4);
 			next = util.nextPositionOnHeading(that);
 		}
+		next = util.nextPositionOnHeading(that);
 		that.x = next.x;
 		that.y = next.y;
 	}
