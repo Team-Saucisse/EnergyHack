@@ -40,7 +40,7 @@
     </div>
     <asp:ContentPlaceHolder ID="contentBody" runat="server">
     </asp:ContentPlaceHolder>
-    </form>
+
     <script language="javascript" type="text/javascript">
         (function ($) {
             $(function () {
@@ -117,5 +117,6 @@
 				    $('.datepicker').trigger('change');
 				});
     </script>
+    </form>
 </body>
 </html>
