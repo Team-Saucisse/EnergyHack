@@ -67,7 +67,7 @@
                     <!-- //ECOINS -->
                     <!-- ILLUSTRATION -->
                     <div class="col-md-6">
-                        <div class="panel panel-warning">
+                        <div class="panel panel-warning" style="position:fixed; min-width: 500px" >
                             <div class="panel-heading">
                                 <h3 class="panel-title">
                                     Détails</h3>
