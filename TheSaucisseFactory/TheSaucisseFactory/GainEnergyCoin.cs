@@ -190,7 +190,7 @@ private CodeFluent.Runtime.CodeFluentEntityState _entityState;
             }
         }
         
-        [System.ComponentModel.DataAnnotations.Required()]
+       
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=false, Type=typeof(System.DateTime))]
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=300)]
         public System.DateTime Date

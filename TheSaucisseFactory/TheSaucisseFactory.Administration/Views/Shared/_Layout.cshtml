@@ -11,7 +11,6 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryui")
-
     <!-- 
             Les lignes d'importation des feuilles de styles Kendo devraient normalement être générées par : 
             Styles.Render("~/Content/kendo/2013.2.716/css")
@@ -19,9 +18,7 @@
         -->
     <link href="/Content/kendo/2013.2.716/kendo.common.min.css" rel="stylesheet" />
     <link href="/Content/kendo/2013.2.716/kendo.default.min.css" rel="stylesheet" />
-
     @Scripts.Render("~/bundles/kendo")
-
     @RenderSection("scripts", required: false)
     <script type="text/javascript">
         $(document).ready(function () {
@@ -30,6 +27,7 @@
                 changeYear: true,
                 dateFormat: 'dd-mm-yy'
             });
+            Globalize.culture('fr-FR');
         });
     </script>
 </head>
@@ -62,6 +60,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

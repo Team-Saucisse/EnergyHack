@@ -16,9 +16,30 @@
     font-size: 30px;
 }
 
-.panelLink:hover {
+.panelLink table
+{
+	width: 320px;
+	border-width: 1px;
+	border-color: #3db5d8;
+	border-style: solid;
+}
+
+.panelLink table tr td
+{
+	border: 0;
+	padding: 2px 2px 2px 2px;
+}
+
+.panelLink table tr td:first-child
+{
+	width: 200px;
+	background : #d9edf7;
+}
+
+.panelLink table:hover {
 	text-decoration: none;
 	cursor: pointer;
+	background: #d9edf7;
 }
 
 .colorgraph

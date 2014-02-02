@@ -27,22 +27,35 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
-                                    Mes Gains - Total Actuel :
-                                    <asp:Label ID="ecoinsTotal" runat="server"></asp:Label><asp:Image ID="Image2" Width="24px"
-                                        runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></h3>
+                                    Mes gains / mon solde :
+                                    <asp:Label ID="ecoinsTotal" runat="server" CssClass="solde"></asp:Label>
+                                    <asp:Image ID="Image2" Width="24px" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png"
+                                        CssClass="soldeIcon" /></h3>
                             </div>
                             <div class="panel-body">
                                 <asp:Repeater ID="m_rptChallenges" OnItemDataBound="ChallengesItemDataBound" runat="server">
                                     <ItemTemplate>
                                         <asp:HyperLink ID="m_panelLink" runat="server" CssClass="panelLink">
-                                            <div class="panel panel-info" class="panelHover" style="min-height: 130px">
-                                                <div class="panel-heading">
-                                                    <asp:Label ID="m_lblChallengeName" runat="server"></asp:Label></div>
-                                                <div class="panel-body" style="text-align: center">
-                                                    <asp:Label ID="m_lblChallengeGain" CssClass="textHover" runat="server"></asp:Label>
-                                                    <asp:Image ID="imgCoin" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" />
-                                                </div>
-                                            </div>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="m_lblChallengeName" runat="server" CssClass="challengeName"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Label ID="m_lblChallengeGain" CssClass="textHover" runat="server"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:Image ID="imgCoin" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:Repeater>
