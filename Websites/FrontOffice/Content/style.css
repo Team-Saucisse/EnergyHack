@@ -11,7 +11,7 @@
     min-height: 300px;
 }
 
-.textHover
+.gains
 {
     font-size: 30px;
     font-family: Comic Sans MS;
@@ -42,6 +42,15 @@
 	text-decoration: none;
 	cursor: pointer;
 	background: #d9edf7;
+}
+
+.solde
+{
+    font-style: italic;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .colorgraph

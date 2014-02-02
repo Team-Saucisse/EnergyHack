@@ -7,9 +7,9 @@
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-            <div>
+            <div class="solde">
                 Mon solde :
-                <asp:Label ID="ecoinsTotal" runat="server" CssClass="solde"></asp:Label>
+                <asp:Label ID="ecoinsTotal" runat="server" ></asp:Label>
                 <asp:Image ID="Image2" Width="24px" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png"
                     CssClass="soldeIcon" />
             </div>
@@ -44,7 +44,7 @@
                                                         <asp:Label ID="m_lblChallengeName" runat="server" CssClass="challengeName"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:Label ID="m_lblChallengeGain" CssClass="textHover" runat="server"></asp:Label>
+                                                        <asp:Label ID="m_lblChallengeGain" CssClass="gains" runat="server"></asp:Label>
                                                     </td>
                                                     <td>
                                                         <asp:Image ID="imgCoin" runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" />

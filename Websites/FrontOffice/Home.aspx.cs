@@ -119,7 +119,7 @@ namespace FrontOffice
                 GainEnergyCoin l_gain = (GainEnergyCoin)e.Item.DataItem;
 
                 ((Label)e.Item.FindControl("m_lblChallengeName")).Text = l_gain.Challenge != null ? l_gain.Challenge.Nom : "TODO";
-                ((Label)e.Item.FindControl("m_lblChallengeGain")).Text = l_gain.Quantite.ToString() + "x";
+                ((Label)e.Item.FindControl("m_lblChallengeGain")).Text = " " + l_gain.Quantite.ToString() + "x";
                 string l_js = string.Format("ShowIllustration('{0}')", l_gain.Challenge != null ? l_gain.Challenge.Id : Guid.Empty);
                 ((HyperLink)e.Item.FindControl("m_panelLink")).Attributes.Add("onclick", l_js);
                 ((Label)e.Item.FindControl("m_meta")).Text = l_gain.Meta;
