@@ -5,11 +5,11 @@ var constant = {};
 
 // Board size
 constant.boardWidth = 15;
-constant.boardHeight = 9;
+constant.boardHeight = 7;
 constant.tileSize = 64;
 constant.areaWidth = constant.boardWidth*constant.tileSize;
 constant.areaHeight = constant.boardHeight*constant.tileSize;
-constant.pubHeight = 160;
+constant.pubHeight = 100;
 constant.fireZoneWidth = 100;
 constant.fireZoneHeight = 100;
 
@@ -43,6 +43,7 @@ constant.costHelo = 4;
 constant.costCanon = 3;
 constant.costTank = 2;
 constant.costSoldier = 1;
+constant.maxHq = 3;
 
 // Enemy arrival
 constant.enemyCount = 6;

@@ -60,7 +60,7 @@ enyo.kind({
 		// Init board
 		this.initializedGame = true;
 		this.game = util.createMap(util.gameMap(this.$.settings.map));
-		this.targetpos = {x: 7, y: 4};
+		this.targetpos = {x: 7, y: 3};
 
 		// Init units
 		var width = constant.boardWidth, height = constant.boardHeight;

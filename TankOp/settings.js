@@ -137,7 +137,7 @@ enyo.kind({
 		this.updateTotal();
 	},
 	moreHq: function() {
-		if (this.hq == 4 || (this.total + constant.costHq) > this.ecoin) return;
+		if (this.hq == 3 || (this.total + constant.costHq) > this.ecoin) return;
 		this.hq = this.hq+1;
 		this.updateTotal();
 	},

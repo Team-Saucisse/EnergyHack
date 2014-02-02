@@ -9,13 +9,13 @@
 }
 
 .pub {
-	height: 160px;
+	height: 100px;
 	width: 100%;
 	background-color: black;
 }
 
 .pub-text {
-	margin-left: 30%;
+	margin-left: 10%;
 }
 
 .board {
@@ -32,7 +32,7 @@
 	width: 800px;
 	height: 530px;
 	position: absolute;
-	top: 150px;
+	top: 5px;
 	left: 20%;
 	background-color: #C0C0C0;
 	border: medium solid black;
