@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
+using TheSaucisseFactory;
 
 namespace FrontOffice
 {
     public partial class Games : System.Web.UI.Page
     {
+        public string CurrentAppartement { get { return ((FrontOffice.Site1)Page.Master).CurrentAppartement; } }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(((FrontOffice.Site1)Page.Master).CurrentAppartement))
@@ -48,6 +51,12 @@ namespace FrontOffice
                 }
             }
 
+        }
+
+        protected void SetEcoinsAmount(object sender, EventArgs e)
+        {
+            Appartement l_appartement = Appartement.LoadById(new Guid(CurrentAppartement));
+            playTank.PostBackUrl = "games/TankOp/index.html?ec=" + l_appartement.SoldeEnergyCoin;
         }
     }
 }

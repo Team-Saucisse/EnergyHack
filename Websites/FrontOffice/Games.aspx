@@ -32,6 +32,7 @@
                                     <p class="text-primary">
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
+                                    <asp:LinkButton ID="playTank" runat="server" OnClick="SetEcoinsAmount"></asp:LinkButton>
                                         <a class="btn btn-primary btn-xs" target="_blank" href="games/TankOp/index.html" role="button">Jouer</a></p>
                                 </div>
                             </div>
