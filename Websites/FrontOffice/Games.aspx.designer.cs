@@ -73,7 +73,7 @@ namespace FrontOffice {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton playTank;
+        protected global::System.Web.UI.WebControls.HyperLink playTank;
         
         /// <summary>
         /// Contrôle Image2.
@@ -91,7 +91,7 @@ namespace FrontOffice {
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.HyperLink LinkButton1;
         
         /// <summary>
         /// Contrôle Image1.

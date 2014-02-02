@@ -32,8 +32,8 @@
                                     <p class="text-primary">
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p style="margin-left: 50px">
-                                        <asp:LinkButton ID="playTank" CssClass="btn btn-primary btn-xs" runat="server" OnClick="SetEcoinsAmount"
-                                            role="button">Jouer</asp:LinkButton>
+                                        <asp:HyperLink ID="playTank" CssClass="btn btn-primary btn-xs" runat="server"
+                                            role="button">Jouer</asp:HyperLink>
                                         - Coût : <b>0</b><asp:Image ID="Image2" Width="24px" runat="server" ImageAlign="AbsMiddle"
                                             ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
                                 </div>
@@ -48,8 +48,8 @@
                                     <p class="text-primary">
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p style="margin-left: 50px">
-                                        <asp:LinkButton ID="LinkButton1" CssClass="btn btn-primary btn-xs" runat="server"
-                                            OnClick="SetEcoinsAmount" role="button">Jouer</asp:LinkButton>
+                                        <asp:HyperLink ID="LinkButton1" CssClass="btn btn-primary btn-xs" runat="server"
+                                            role="button">Jouer</asp:HyperLink>
                                         - Coût : <b>5</b><asp:Image ID="Image1" Width="24px" runat="server" ImageAlign="AbsMiddle"
                                             ImageUrl="~/Images/EnergyCoinEclair.png" /></p>
                                 </div>
