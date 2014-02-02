@@ -57,7 +57,7 @@ namespace FrontOffice
             }
 
 
-                SetDataSource(DateTime.Now);
+            SetDataSource();
             
 
 
@@ -90,10 +90,12 @@ namespace FrontOffice
 
         }
 
-        protected void SetDataSource(DateTime p_date)
+        protected void SetDataSource()
         {
+			DateTime l_date = (DateTime)Session["DateCourante"];
+
             // on charge les gains existants
-            List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), p_date).ToList();
+            List<GainEnergyCoin> l_gains = GainEnergyCoinCollection.LoadByAppartementDate(Appartement.LoadById(new Guid(CurrentAppartement)), l_date).ToList();
 
             // on va compléter avec les challenges qui n'on pas de gain
             IEnumerable<Challenge> l_missingChallenges = ChallengeCollection.LoadAll()
