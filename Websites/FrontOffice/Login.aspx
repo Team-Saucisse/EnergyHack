@@ -25,8 +25,9 @@
                         <asp:RequiredFieldValidator ID="m_passwordV" runat="server" ErrorMessage="Merci de saisir votre mot de passe"
                             ControlToValidate="m_password"></asp:RequiredFieldValidator>
                     </div>
+
                     <div class="form-group">
-                       <asp:RadioButtonList ID="dateChoice" runat="server">
+                       <asp:RadioButtonList ID="dateChoice" runat="server" RepeatDirection="Horizontal">
                            <asp:ListItem Text="&nbsp;&nbsp;10/12/2013"></asp:ListItem>
                            <asp:ListItem Text="&nbsp;&nbsp;01/01/2014"></asp:ListItem>
                            <asp:ListItem Text="&nbsp;&nbsp;21/01/2014"></asp:ListItem>
