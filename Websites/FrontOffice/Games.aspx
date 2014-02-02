@@ -55,7 +55,7 @@
                                         Dans la peau d'une grenouille dans sa mare, mangez les mouches en évitant de vous
                                         faire manger par le serpent.</p><br />
                                     <p>
-                                        <asp:HyperLink ID="LinkButton1" CssClass="btn btn-primary btn-sm" runat="server"
+                                        <asp:HyperLink ID="LinkButton1" NavigateUrl="games/FoodChain/index.html" CssClass="btn btn-primary btn-sm" runat="server"
                                             role="button">Jouer</asp:HyperLink>
                                         <span style="margin-left: 100px;">Coût : <b>5</b><asp:Image ID="Image1" Width="24px"
                                             runat="server" ImageAlign="AbsMiddle" ImageUrl="~/Images/EnergyCoinEclair.png" /></span></p>
