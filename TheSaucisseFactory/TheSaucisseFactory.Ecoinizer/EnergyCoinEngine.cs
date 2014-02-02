@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Specialized;
+using System.Diagnostics;
 
 namespace TheSaucisseFactory.Ecoinizer
 {
@@ -13,6 +14,42 @@ namespace TheSaucisseFactory.Ecoinizer
         ChallengeCollection m_tousLesChallenges = ChallengeCollection.LoadAll();
         DateTime m_minDate;
         DateTime m_maxDate;
+		MainWindow m_main = null;
+
+		public EnergyCoinEngine(MainWindow mainWindow)
+		{
+			m_main = mainWindow;
+
+			Stopwatch l_watch = new Stopwatch();
+			l_watch.Start();
+			Log("Remise à zéro des e-coins !");
+			GainEnergyCoinCollection.DeleteAll();
+			Log("Construction des séries de mesure !");
+			BuildDataSuites();
+			Log("Calcul challenge Electricité entre voisins !");
+			ProcessChallenge1();
+			Log("Calcul challenge Eau froide entre voisins !");
+			ProcessChallenge2();
+			Log("Calcul challenge Eau chaude entre voisins !");
+			ProcessChallenge3();
+			Log("Calcul challenge température idéale !");
+			ProcessChallenge4();
+			Log("Calcul challenge Mon challenge eau chaude !");
+			ProcessChallenge5();
+			Log("Calcul challenge Mon challenge eau froide !");
+			ProcessChallenge6();
+			Log("Calcul challenge Mon challenge électricité !");
+			ProcessChallenge7();
+			Log("Calcul challenge Classement global !");
+			ProcessChallenge9();
+			Log("Calcul challenge Appareil en veille !");
+			ProcessChallenge10();
+			Log("Calcul challenge Mon challenge veille électrique !");
+			ProcessChallenge11();
+
+			l_watch.Start();
+			Log("Temps : " + l_watch.ElapsedMilliseconds + " ms");
+		}
 
         void BuildDataSuites()
         {
@@ -31,6 +68,9 @@ namespace TheSaucisseFactory.Ecoinizer
             DateTime l_processingDate;
             foreach (var l_appartement in m_tousLesApparts)
             {
+				// RAZ des ecoins
+				l_appartement.SoldeEnergyCoin = 0;
+
                 // ELEC
                 l_processingDate = m_minDate;
                 while (DateTime.Compare(l_processingDate, m_maxDate) <= 0)
@@ -119,22 +159,6 @@ namespace TheSaucisseFactory.Ecoinizer
 				l_processingDate = l_processingDate.AddDays(7);
 			}
 		}
-
-        public EnergyCoinEngine()
-        {
-			GainEnergyCoinCollection.DeleteAll();
-            BuildDataSuites();
-			//ProcessChallenge1();
-			//ProcessChallenge2();
-			//ProcessChallenge3();
-			//ProcessChallenge4();
-			//ProcessChallenge5();
-			//ProcessChallenge6();
-			//ProcessChallenge7();
-			//ProcessChallenge8();
-			//ProcessChallenge9();
-			ProcessChallenge10();
-        }
 
 		// Appareil en veille
 		private void ProcessChallenge10()
@@ -257,7 +281,20 @@ namespace TheSaucisseFactory.Ecoinizer
         /// </summary>
         public void Save()
         {
-
+			m_tousLesApparts.SaveAll();
         }
+
+		private void Log(string mess, bool crlf = true)
+		{
+			if (crlf)
+			{
+				mess += "\r\n";
+			}
+
+			m_main.Dispatcher.Invoke((Action)delegate
+			{
+				m_main.Log.Text += mess;
+			});
+		}
     }
 }
