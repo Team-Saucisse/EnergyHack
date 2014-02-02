@@ -20,10 +20,7 @@ enyo.kind({
 	name: "TankOp.App",
 	kind: enyo.Control,
 	classes: "board",
-	components: [		
-		// Title bar
-		{content: "TANK OPERATION", classes: "title"},
-		
+	components: [	
 		// Playing zone
 		{name: "gamebox", classes: "game-box", ontap: "gameClick", components: [
 		]},

@@ -9,7 +9,7 @@ enyo.kind({
 	floating: true,
 	autoDismiss: false,
 	components: [
-		{content: "CHOIX DES OPTIONS", classes: "settings-title"},
+		{content: "TANK OPERATION", classes: "settings-title"},
 		{classes: "settings-item", components:[
 			{content: "TERRAIN", classes: "settings-text settings-line settings-header"},
 			{classes: "go-left settings-line", ontap: "prevMap"},
