@@ -12,9 +12,11 @@ namespace TheSaucisseFactory
 
             GainEnergyCoinCollection l_intermediateResult = GainEnergyCoinCollection.LoadByAppartementDateRange(p_appartement, p_date);
 
-            DateTime l_maxDate = l_intermediateResult.OrderBy(g => g.Date).Last().Date;
-
-            l_result.AddRange(l_intermediateResult.Where(r => r.Date == l_maxDate));
+            if (l_intermediateResult.Count > 0)
+            {
+                DateTime l_maxDate = l_intermediateResult.OrderBy(g => g.Date).Last().Date;
+                l_result.AddRange(l_intermediateResult.Where(r => r.Date == l_maxDate));
+            }
 
             return l_result;
         }
