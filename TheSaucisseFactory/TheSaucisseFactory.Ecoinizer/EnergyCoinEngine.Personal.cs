@@ -9,12 +9,6 @@ namespace TheSaucisseFactory.Ecoinizer
     /// </summary>
 	public partial class EnergyCoinEngine
 	{
-
-		private void ProcessChallenge8()
-		{
-			
-		}
-
 		private void ProcessChallenge7()
 		{
             foreach (Appartement l_appartement in m_tousLesApparts)
@@ -64,7 +58,7 @@ namespace TheSaucisseFactory.Ecoinizer
 
 					if (l_indice < l_previousIndice)
 					{
-						l_appartement.GagneEnergyCoin(l_challengeEnCours, 2, l_processedDate, "La consommation de l'ensemble de vos appareils en veille a baissé");
+						l_appartement.GagneEnergyCoin(l_challengeEnCours, 2, l_processedDate, string.Format("{0:0.00}%", (((l_indice - l_previousIndice) * 100) / l_previousIndice)));
 					}
 
 					// dump des valeurs courantes pour l'itération suivante
@@ -99,7 +93,7 @@ namespace TheSaucisseFactory.Ecoinizer
 
                 if (l_indice < l_previousIndice)
                 {
-                    p_appartement.GagneEnergyCoin(l_challengeEnCours, 2, l_processedDate, "Votre consommation a baissé");
+					p_appartement.GagneEnergyCoin(l_challengeEnCours, 4, l_processedDate, string.Format("{0:0.00}%", (((l_indice - l_previousIndice) * 100) / l_previousIndice)));
                 }
                 
                 // dump des valeurs courantes pour l'itération suivante

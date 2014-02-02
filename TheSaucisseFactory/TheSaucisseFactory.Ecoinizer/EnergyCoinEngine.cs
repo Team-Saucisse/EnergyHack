@@ -19,8 +19,7 @@ namespace TheSaucisseFactory.Ecoinizer
 		public EnergyCoinEngine(MainWindow mainWindow)
 		{
 			m_main = mainWindow;
-
-			//ExportCsv();
+			// ExportCsv();
 
 			Stopwatch l_watch = new Stopwatch();
 			l_watch.Start();
@@ -154,9 +153,9 @@ namespace TheSaucisseFactory.Ecoinizer
 
 				var l_classementTrie = l_classement.OrderBy(i => i.Value);
 
-				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
-				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
-				l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ème");
+				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 8, l_processingDate, "Bien joué, vous êtes le meilleur!");
+				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "Second ! Encore un effort !");
+				l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "Pas mal du tout !");
 
 				l_processingDate = l_processingDate.AddDays(7);
 			}
@@ -182,9 +181,9 @@ namespace TheSaucisseFactory.Ecoinizer
 
 				var l_classementTrie = l_classement.OrderBy(i => i.Value);
 
-				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
-				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
-				l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ème");
+				l_classementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 6, l_processingDate, "Bien joué, vous êtes le meilleur !");
+				l_classementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 4, l_processingDate, "Second ! Encore un effort !");
+				l_classementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "Pas mal du tout !");
 
 				l_processingDate = l_processingDate.AddDays(7);
 			}
@@ -270,9 +269,9 @@ namespace TheSaucisseFactory.Ecoinizer
 
 				var l_classementClassementTrie = l_classementDesClassements.OrderBy(cl => cl.Value);
 
-				l_classementClassementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 5, l_processingDate, "1er");
-				l_classementClassementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "2nd");
-				l_classementClassementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 2, l_processingDate, "3ème");
+				l_classementClassementTrie.ElementAt(0).Key.GagneEnergyCoin(l_challengeEnCours, 10, l_processingDate, "Number one !");
+				l_classementClassementTrie.ElementAt(1).Key.GagneEnergyCoin(l_challengeEnCours, 6, l_processingDate, "Second ! Encore un effort !");
+				l_classementClassementTrie.ElementAt(2).Key.GagneEnergyCoin(l_challengeEnCours, 3, l_processingDate, "3ème ! Pas mal !");
 
 				l_processingDate = l_processingDate.AddDays(7);
 			}
