@@ -25,7 +25,7 @@ enyo.kind({
 		{content: "TANK OPERATION", classes: "title"},
 		
 		// Playing zone
-		{name: "gamebox", classes: "game-box", components: [
+		{name: "gamebox", classes: "game-box", ontap: "gameClick", components: [
 		]},
 		
 		// Settings popup
@@ -196,6 +196,13 @@ enyo.kind({
 				break;
 			}
 		}		
+	},
+	
+	// A tap occur on the game
+	gameClick: function() {
+		// At end of game, quit
+		if (this.endOfGame)
+			history.back();
 	},
 	
 	// Tick for game loop

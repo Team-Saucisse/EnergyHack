@@ -14,10 +14,10 @@
                                     OnClick="MenuItem_SetActive">Mes eCoins</asp:LinkButton></li>
                             <li runat="server" id="m_liGames">
                                 <asp:LinkButton ID="m_aGames" PostBackUrl="~/Games.aspx" OnClick="MenuItem_SetActive"
-                                    CommandArgument="Games" runat="server">Les Jeux</asp:LinkButton></li>
+                                    CommandArgument="Games" runat="server">Les jeux</asp:LinkButton></li>
                             <li runat="server" id="m_liDisconnect">
                                 <asp:LinkButton ID="m_aDisconnect" PostBackUrl="~/Login.aspx"  OnClick="MenuItem_SetActive" CommandArgument="Disconnect"
-                                    runat="server">Se Déconnecter</asp:LinkButton></li>
+                                    runat="server">Se déconnecter</asp:LinkButton></li>
                         </ul>
                     </div>
                     <!-- //MENU -->
@@ -32,7 +32,7 @@
                                     <p class="text-primary">
                                         Détruiser le camp adverse avant que l'ennemie ne détruise le votre.</p>
                                     <p>
-                                        <a class="btn btn-primary btn-xs" href="games/TankOp/index.html" role="button">Web</a>
+                                        <a class="btn btn-primary btn-xs" target="_blank" href="games/TankOp/index.html" role="button">Web</a>
                                         <a href="#" class="btn btn-default btn-xs" role="button">Android</a> <a href="#" class="btn btn-default btn-xs"
                                             role="button">iOS</a></p>
                                 </div>

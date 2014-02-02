@@ -43,7 +43,7 @@ namespace FrontOffice
                 if (!IsWelcomeMessageShowed.Value)
                 {
                     ClientScriptManager cs = Page.ClientScript;
-                    cs.RegisterStartupScript(this.GetType(), "WelcomeMessage", "$.notify(\"Bienvenue sur le portail. Votre connexion vient de vous rapporter <b>1</b> EnergyCoin\", \"info\");", true);
+                    cs.RegisterStartupScript(this.GetType(), "WelcomeMessage", "$.notify(\"Bienvenue sur le portail. Votre connexion vient de vous rapporter 1 EnergyCoin\", \"success\");", true);
                     //cs.RegisterClientScriptBlock(this.GetType(), "WelcomeMessage", "$('.elem-demo').notify(\"Hello Box\");", true);
                     IsWelcomeMessageShowed = true;
                 }
