@@ -49,3 +49,5 @@ constant.statSoldier = 0;
 constant.statTank = 3;
 constant.statCanon = 8;
 constant.statHelo = 9;
+
+constant.pubInterval = 5000;
