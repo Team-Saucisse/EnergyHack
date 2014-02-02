@@ -25,7 +25,7 @@
                     <div class="col-md-10">
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="img-thumbnail" src="Images/Tankop.png" alt="...">
+                                <img class="img-thumbnail" src="Images/capture_tankop.png" alt="...">
                                 <div class="caption">
                                     <h3>
                                         Tank OP</h3>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                               <img class="img-thumbnail" src="Images/Tankop.png" alt="...">
+                               <img class="img-thumbnail" src="Images/foodchain_capture.png" alt="...">
                                 <div class="caption">
                                     <h3>
                                         Tank OP</h3>
