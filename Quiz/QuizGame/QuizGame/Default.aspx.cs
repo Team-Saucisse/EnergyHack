@@ -4,37 +4,76 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Diagnostics;
 
 namespace QuizGame
 {
 	public partial class _Default : System.Web.UI.Page
 	{
 		static Quiz _quiz = new Quiz();
-		static int _questionIndex = 0;
+		int _questionIndex = 0;
+
+		int nbBonnesReponses = 0;
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			Question.Text = _quiz.Questions[_questionIndex].Contenu;
-			Reponses.DataSource = _quiz.Questions[_questionIndex].Reponses;
-			Reponses.DataBind();
+			if (!IsPostBack)
+			{
+				Question.Text = _quiz.Questions[_questionIndex].Contenu;
+				RadioButtonListReponses.DataSource = _quiz.Questions[_questionIndex].Reponses;
+				RadioButtonListReponses.DataBind();
+			}
 		}
 
-		protected void ResponseOnItemDataBound(object sender, RepeaterItemEventArgs e)
+		protected void Page_Prerender(object sender, EventArgs e)
 		{
-			if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-			{
-				Label label = (Label)e.Item.FindControl("ContenuRep");
-				label.Text = (e.Item.DataItem as Reponse).Contenu;
-			}
+			QuestionId.Text = string.Format("{0}", _questionIndex);
+			QuestionTotal.Text = string.Format("{0}", _quiz.Questions.Count);
 		}
 
 		protected void NextButtonClick(object sender, EventArgs e)
 		{
+			// validation
+			string l_id = RadioButtonListReponses.SelectedValue;
+
+			if (string.IsNullOrEmpty(l_id))
+			{
+				Erreur.Text = "Veuillez sélectionner une réponse";
+				return;
+			}
+			else
+			{
+				Erreur.Text = string.Empty;
+			}
+
+			if (l_id.Equals(_quiz.Questions[_questionIndex].ReponseCorrecte.Id.ToString()))
+			{
+				nbBonnesReponses++;
+			}
+
+			// Question suivante
 			_questionIndex++;
 
-			Question.Text = _quiz.Questions[_questionIndex].Contenu;
-			Reponses.DataSource = _quiz.Questions[_questionIndex].Reponses;
-			Reponses.DataBind();
+			if (_questionIndex == _quiz.Questions.Count)
+			{
+				// terminé
+				Next.Visible = false;
+
+				if (nbBonnesReponses > 10)
+				{
+					Summary.Text = "Bravo ! Vous avez remporté 2 ecoins !";
+				}
+				else
+				{
+					Summary.Text = "Retentez votre chance ! Vous ferez mieux la prochaine fois !";
+				}
+			}
+			else
+			{
+				Question.Text = _quiz.Questions[_questionIndex].Contenu;
+				RadioButtonListReponses.DataSource = _quiz.Questions[_questionIndex].Reponses;
+				RadioButtonListReponses.DataBind();
+			}
 		}
 	}
 }
